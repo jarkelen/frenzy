@@ -1,0 +1,69 @@
+@import "variables.css.scss";
+
+html, body {
+  font-family: $default-font;
+  font-size: 100%;
+  background-color: $background-color;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $base-color;
+}
+a, a:visited, a:hover {
+  color: $base-color;
+  text-decoration: none;
+}
+nav {
+  margin-bottom: 2em;
+}
+header {
+  .title {
+    float: left;
+    margin: 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .profile {
+    float: right;
+    margin: 2em;
+    font-size: 0.8em;
+  }
+}
+footer {
+  text-align: center;
+  margin-top: 1em;
+  border-top: 1px solid $text-color;
+  padding: 1em;
+
+  h5 {
+    color: $text-color;
+    font-weight: normal;
+    font-size: 0.8em;
+  }
+}
+
+// Topbar
+.top-bar, .top-bar-section .has-form, .top-bar-section li a:not(.button) {
+  background: $base-color;
+}
+.top-bar-section ul li.active a {
+  background: $base-color;
+}
+.top-bar-section li a:not(.button):hover {
+  background: darken($base-color, 5%);
+}
+.top-bar-section .dropdown li {
+  min-width: 100%;
+}
+.top-bar-section>ul>.divider {
+  border-right: darken($base-color, 25%);
+  border-left: darken($base-color, 25%);
+}
+.button.small, .button, .button:hover, .button:visited {
+  background: $base-color;
+  color: #FFFFFF;
+}
+.button.alert:hover, .button.alert:focus, .button.alert:visited {
+  background: #970b0e;
+  color: #FFFFFF;
+}
+

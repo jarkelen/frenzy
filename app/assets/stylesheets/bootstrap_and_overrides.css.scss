@@ -1,0 +1,27 @@
+@import "variables.css.scss";
+
+// Set the correct sprite paths
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+$navbarCollapseWidth: 767px;
+$navbarBackground: $base-color;
+$navbarBackgroundHighlight: $base-color;
+$navbarText: #FFFFFF;
+$navbarLinkColor: #FFFFFF;
+$navbarLinkColorHover: yellow;
+$navbarLinkColorActive: yellow;
+$navbarLinkBackgroundActive: $base-color;
+$navbarLinkBackgroundHover: $base-color;
+
+.nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:active, .nav-tabs>li>a:visited {
+  color: $base-color;
+}
+a.btn, a.btn:hover, a.btn:visited {
+  color: #333333;
+}
+
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+
