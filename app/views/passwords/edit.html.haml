@@ -1,0 +1,9 @@
+// Change password
+.row
+  .span12
+    #clearance.password-reset
+      %h2= t '.title'
+      %p= t '.description'
+      = simple_form_for :password_reset, url: user_password_path(@user, token: @user.confirmation_token), html: { method: :put } do |f|
+        = f.input :password, as: :password, hint: false
+        = f.submit(class: 'btn')

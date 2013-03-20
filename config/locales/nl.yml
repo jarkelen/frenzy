@@ -1,5 +1,18 @@
 nl:
+  general:
+    yes:        "Ja"
+    no:         "Nee"
+    dutch:      "Nederlands"
+    english:    "Engels"
   site:
     title:      "Tuttie's Neuk Frenzy"
     salutation: "Hello"
     home:       "Home"
+  user:
+    first_name: "Voornaam"
+    last_name:  "Achternaam"
+    nickname:   "Nickname"
+    email:      "Email"
+    password:   "Wachtwoord"
+    role:       "Rol"
+    language:   "Taal"

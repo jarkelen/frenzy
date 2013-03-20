@@ -3,6 +3,13 @@
     #clearance.sign-up
       %h2= I18n.t('.helpers.submit.user.create')
       = simple_form_for @user do |f|
-        = f.input :email, as: :email
-        = f.input :password, as: :password
-        = f.submit(class: 'button')
+        = f.hidden_field :role, value: 'user'
+        = f.input :first_name, label: I18n.t('.user.first_name'), hint: false
+        = f.input :last_name, label: I18n.t('.user.last_name'), hint: false
+        = f.input :nickname, label: I18n.t('.user.nickname'), hint: false
+        = f.input :email, as: :email, label: I18n.t('.user.email'), hint: false
+        = f.input :password, as: :password, label: I18n.t('.user.password'), hint: false
+        = f.label I18n.t('.user.language')
+        = f.collection_select :language, [['nl', I18n.t('.general.dutch')] ,['en', I18n.t('.general.english')]], :first, :last
+        .submit
+          = f.submit(class: 'btn')

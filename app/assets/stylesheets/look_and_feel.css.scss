@@ -4,6 +4,7 @@ html, body {
   font-family: $default-font;
   font-size: 100%;
   background-color: $background-color;
+  color: $text-color;
 }
 h1, h2, h3, h4, h5, h6 {
   color: $base-color;
@@ -38,6 +39,12 @@ footer {
     color: $text-color;
     font-weight: normal;
     font-size: 0.8em;
+  }
+}
+
+form {
+  .submit {
+    margin-top: 1em;
   }
 }
 

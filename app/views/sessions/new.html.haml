@@ -1,0 +1,9 @@
+.row
+  .span12
+    #clearance.sign-in
+      %h2= I18n.t('.sessions.new.title')
+      = simple_form_for :session, url: session_path do |f|
+        = f.input :email, as: :email, hint: false
+        = f.input :password, as: :password, hint: false
+        = f.submit(class: 'btn')
+        = link_to t('.forgot_password'), new_password_path

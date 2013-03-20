@@ -25,10 +25,10 @@ en:
           'Save this password'
       session:
         submit:
-          'Sign in'
+          'Login'
       user:
         create:
-          'Sign up'
+          'Register'
     label:
       password:
         email:
@@ -39,9 +39,9 @@ en:
   layouts:
     application:
       sign_in:
-        'Sign in'
+        'Login'
       sign_out:
-        'Sign out'
+        'Logout'
   passwords:
     create:
       description:
@@ -63,10 +63,10 @@ en:
       forgot_password:
         'Forgot password?'
       sign_up:
-        'Sign up'
+        'Register'
       title:
-        'Sign in'
+        'Login'
   users:
     new:
       sign_in:
-        'Sign in'
+        'Login'

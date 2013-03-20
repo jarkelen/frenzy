@@ -1,6 +1,6 @@
 .row
   .span12
     - if signed_in?
-      %h3 Signed in
+      = render 'dashboard'
     - else
-      %h3 Not signed in
+      = render 'marketing'

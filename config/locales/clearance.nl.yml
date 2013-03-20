@@ -1,0 +1,69 @@
+en:
+  clearance_mailer:
+    change_password:
+      opening:
+        'Iemand, hopelijk jij, heeft ons verzocht om een link te sturen om je wachtwoord te wijzigen:'
+      closing:
+        "Als je dit niet hebt aangevraagd, negeer dan deze email. Jouw wachtwoord is niet gewijzigd."
+  flashes:
+    failure_when_forbidden:
+      'Controleer aub de URL of probeer om opnieuw te versturen.'
+    failure_after_update:
+      "Wachtwoord mag niet leeg zijn."
+    failure_after_create:
+      'Foutief email of wachtwoorn. Probeer je een nieuw account te registreren??
+       <a href="%{sign_up_path}">Registreren</a>.'
+  helpers:
+    submit:
+      password:
+        submit:
+          'Resetten wachtwoord'
+      password_reset:
+        submit:
+          'Bewaar dit wachtwoord'
+      session:
+        submit:
+          'Inloggen'
+      user:
+        create:
+          'Registreren'
+    label:
+      password:
+        email:
+          'Emailadres'
+      password_reset:
+        password:
+          'Kies wachtwoord'
+  layouts:
+    application:
+      sign_in:
+        'Inloggen'
+      sign_out:
+        'Uitloggen'
+  passwords:
+    create:
+      description:
+        'Binnen enkele minuten ontvang je een email.
+         Het bevat instructies om je wachtwoord te wijzigen.'
+    edit:
+      description:
+        'Jouw wachtwoord is gereset. Kies hieronder een nieuw wachtwoord.'
+      title:
+        'Wijzigen wachtwoord'
+    new:
+      description:
+        'Om een link te ontvangen voor het resetten van je wachtwoord, voer aub een emailadres in.'
+      title:
+        'Reset je wachtwoord'
+  sessions:
+    new:
+      forgot_password:
+        'Wachtwoord vergeten?'
+      sign_up:
+        'Registreren'
+      title:
+        'Inloggen'
+  users:
+    new:
+      sign_in:
+        'Inloggen'

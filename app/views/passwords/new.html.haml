@@ -1,0 +1,9 @@
+// Password reset
+.row
+  .span12
+    #clearance.password-reset
+      %h2= t '.title'
+      %p= t '.description'
+      = simple_form_for :password, url: passwords_path do |f|
+        = f.input :email, as: :email, hint: false
+        = f.submit(class: 'btn')
