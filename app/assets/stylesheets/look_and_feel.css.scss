@@ -41,6 +41,12 @@ footer {
   }
 }
 
+form {
+  .submit {
+    margin-top: 1em;
+  }
+}
+
 // Topbar
 .top-bar, .top-bar-section .has-form, .top-bar-section li a:not(.button) {
   background: $base-color;
