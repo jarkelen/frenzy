@@ -23,7 +23,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '> 1.0'
   gem 'capybara'
-  gem 'shoulda'
   gem 'launchy'
   gem 'yaml_db'
   gem 'better_errors'

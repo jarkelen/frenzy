@@ -38,8 +38,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
-    bourne (1.1.2)
-      mocha (= 0.10.5)
     builder (3.0.4)
     capistrano (2.14.2)
       highline
@@ -105,10 +103,7 @@ GEM
     meta_request (0.2.2)
       rack-contrib
       railties
-    metaclass (0.0.1)
     mime-types (1.21)
-    mocha (0.10.5)
-      metaclass (~> 0.0.1)
     multi_json (1.7.1)
     mysql2 (0.3.11)
     net-scp (1.1.0)
@@ -171,13 +166,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
-    shoulda (3.3.2)
-      shoulda-context (~> 1.0.1)
-      shoulda-matchers (~> 1.4.1)
-    shoulda-context (1.0.2)
-    shoulda-matchers (1.4.2)
-      activesupport (>= 3.0.0)
-      bourne (~> 1.1.2)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -223,7 +211,6 @@ DEPENDENCIES
   rspec-rails
   rvm-capistrano
   sass-rails (~> 3.2.3)
-  shoulda
   simple_form
   uglifier (>= 1.0.3)
   yaml_db
