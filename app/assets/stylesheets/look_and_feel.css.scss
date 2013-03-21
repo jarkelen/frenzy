@@ -2,8 +2,8 @@
 
 html, body {
   font-family: $default-font;
-  font-size: 100%;
-  background-color: $background-color;
+  font-size: 90%;
+  background-color: #D0D0D0;
   color: $text-color;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -13,20 +13,41 @@ a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
 }
+.site_canvas {
+  width: 90%;
+  margin: 0 auto;
+  background-color: $background-color;
+  padding: 10px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+.container {
+  margin: 0 auto;
+}
 nav {
   margin-bottom: 2em;
+}
+.yield {
+  min-height: 500px;
 }
 header {
   .title {
     float: left;
-    margin: 1em;
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  .profile {
-    float: right;
     margin: 2em;
-    font-size: 0.8em;
+
+    a, a:visited, a:hover {
+      font-size: 3em;
+      color: $title-color;
+      font-weight: bold;
+      text-shadow: 2px 2px $text-color;
+    }
+  }
+  .salutation {
+    float: right;
+    margin: 1.5em 2em;
+    padding: 0.6em 1.2em;
+    font-size: 100%;
+    color: $text-color;
   }
 }
 footer {

@@ -5,8 +5,8 @@ en:
     dutch:      "Dutch"
     english:    "English"
   site:
-    title:      "Tuttie's Neuk Frenzy"
-    salutation: "Hallo"
+    title:      "Frenzy"
+    salutation: "Welcome"
     home:       "Home"
   user:
     first_name: "First name"

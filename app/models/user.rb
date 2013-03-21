@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
-  attr_accessible :first_name, :last_name, :nickname, :email, :role, :language
+  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language
 
-  validates :first_name, :last_name, :nickname, :email, :role, :language, presence: true
+  before_save { |user| user.email = email.downcase }
+
+  validates :first_name, :last_name, :team_name, :role, :language, presence: true
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: email_regex },
+                    uniqueness: { case_sensitive: false }
+
 end

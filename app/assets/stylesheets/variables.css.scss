@@ -1,5 +1,14 @@
-$background-color: #F2EFE8;
-$base-color: #3D280C;
+$background-color: #FFFFFF;
+$base-color: #008E00;;
 $text-color: #757370;
+$title-color: #CE0606;
 $table-light-color: #3D280C;
 $default-font: Arial, serif;
+$round: 8px;
+
+@mixin round-corners {
+  -webkit-border-radius: $round $round;
+  -moz-border-radius: $round / $round;
+  -khtml-border-radius: $round / $round;
+  border-radius: $round / $round;
+}

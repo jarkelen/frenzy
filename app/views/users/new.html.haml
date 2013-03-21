@@ -1,12 +1,12 @@
 .row
   .span12
     #clearance.sign-up
-      %h2= I18n.t('.helpers.submit.user.create')
+      %h2= I18n.t('.sessions.new.sign_up')
       = simple_form_for @user do |f|
         = f.hidden_field :role, value: 'user'
         = f.input :first_name, label: I18n.t('.user.first_name'), hint: false
         = f.input :last_name, label: I18n.t('.user.last_name'), hint: false
-        = f.input :nickname, label: I18n.t('.user.nickname'), hint: false
+        = f.input :team_name, label: I18n.t('.user.team_name'), hint: false
         = f.input :email, as: :email, label: I18n.t('.user.email'), hint: false
         = f.input :password, as: :password, label: I18n.t('.user.password'), hint: false
         = f.label I18n.t('.user.language')
