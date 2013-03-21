@@ -5,14 +5,18 @@ nl:
     dutch:      "Nederlands"
     english:    "Engels"
   site:
-    title:      "Tuttie's Neuk Frenzy"
-    salutation: "Hello"
+    title:      "Football Frenzy"
+    salutation: "Welkom"
     home:       "Home"
   user:
     first_name: "Voornaam"
     last_name:  "Achternaam"
-    nickname:   "Nickname"
+    team_name:  "Teamnaam"
     email:      "Email"
     password:   "Wachtwoord"
     role:       "Rol"
     language:   "Taal"
+  account:
+    my_account:   "Mijn account"
+    edit_account: "Account bewerken"
+

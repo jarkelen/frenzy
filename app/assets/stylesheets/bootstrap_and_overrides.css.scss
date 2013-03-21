@@ -9,17 +9,27 @@ $navbarBackground: $base-color;
 $navbarBackgroundHighlight: $base-color;
 $navbarText: #FFFFFF;
 $navbarLinkColor: #FFFFFF;
-$navbarLinkColorHover: yellow;
-$navbarLinkColorActive: yellow;
+$navbarLinkColorHover: #FFFFFF;
+$navbarLinkColorActive: #FFFFFF;
 $navbarLinkBackgroundActive: $base-color;
 $navbarLinkBackgroundHover: $base-color;
+$btnPrimaryBackground: $base-color;
+$btnPrimaryBackgroundHighlight: lighten($base-color, 5%);
 
 .nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:active, .nav-tabs>li>a:visited {
   color: $base-color;
 }
-a.btn, a.btn:hover, a.btn:visited {
-  color: #333333;
+.btn {
+  a, a:hover, a:visited {
+  color: #FFFFFF;
+  }
+  &.primary {
+    .gradientBar {
+      background: $base-color;
+    }
+  }
 }
+
 
 @import "bootstrap";
 @import "bootstrap-responsive";
