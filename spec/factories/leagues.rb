@@ -1,9 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :league do
-    league_name ""
-    league_short "MyString"
-    level 1
+    league_name   "Premier League"
+    league_short  "PL"
+    level         1
   end
 end
