@@ -38,7 +38,10 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
+    bourne (1.4.0)
+      mocha (~> 0.13.2)
     builder (3.0.4)
+    cancan (1.6.9)
     capistrano (2.14.2)
       highline
       net-scp (>= 1.0.0)
@@ -103,7 +106,10 @@ GEM
     meta_request (0.2.2)
       rack-contrib
       railties
+    metaclass (0.0.1)
     mime-types (1.21)
+    mocha (0.13.3)
+      metaclass (~> 0.0.1)
     multi_json (1.7.1)
     mysql2 (0.3.11)
     net-scp (1.1.0)
@@ -166,6 +172,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    shoulda-matchers (1.5.4)
+      activesupport (>= 3.0.0)
+      bourne (~> 1.3)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -200,11 +209,12 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  cancan
   capistrano
   capybara
   clearance (= 1.0.0.rc6)
   coffee-rails (~> 3.2.1)
-  factory_girl_rails (> 1.0)
+  factory_girl_rails
   haml-rails
   i18n
   jquery-rails
@@ -215,6 +225,7 @@ DEPENDENCIES
   rspec-rails
   rvm-capistrano
   sass-rails (~> 3.2.3)
+  shoulda-matchers
   simple_form
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

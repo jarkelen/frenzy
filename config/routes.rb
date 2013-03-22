@@ -1,4 +1,6 @@
 Frenzy::Application.routes.draw do
+  resources :leagues
+  resources :clubs
   resources :results
   resources :gamerounds
 

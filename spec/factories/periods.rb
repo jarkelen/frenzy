@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :period do
-    period_name "MyString"
+    period_name "Periode 1"
     period_nr 1
     start_date "2013-03-21 15:57:47"
     end_date "2013-03-21 15:57:47"

@@ -1,6 +1,6 @@
 - model_class = Gameround
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
+  %h1=t '.title', default: model_class.model_name.human.pluralize
 %table.table.table-striped
   %thead
     %tr
@@ -11,7 +11,7 @@
       %th= model_class.human_attribute_name(:processed)
       %th= model_class.human_attribute_name(:period_id)
       %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th=t '.actions', default: t("helpers.actions")
   %tbody
     - @gamerounds.each do |gameround|
       %tr
@@ -20,10 +20,10 @@
         %td= gameround.start_date
         %td= gameround.end_date
         %td= gameround.processed
-        %td= gameround.period_id
+        %td= gameround.period.period_name
         %td=l gameround.created_at
         %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_gameround_path(gameround), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), gameround_path(gameround), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+          = link_to t('.edit', default: t("helpers.links.edit")), edit_gameround_path(gameround), class: 'btn btn-mini'
+          = link_to t('.destroy', default: t("helpers.links.destroy")), gameround_path(gameround), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_gameround_path, :class => 'btn btn-primary'
+= link_to t('.new', default: t("helpers.links.new")), new_gameround_path, class: 'btn btn-primary'

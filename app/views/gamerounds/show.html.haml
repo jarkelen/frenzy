@@ -1,6 +1,6 @@
 - model_class = Gameround
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1=t '.title', default: model_class.model_name.human
 
 %p
   %strong= model_class.human_attribute_name(:number) + ':'
@@ -24,6 +24,6 @@
   = @gameround.period_id
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), gamerounds_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_gameround_path(@gameround), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), gameround_path(@gameround), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to t('.back', default: t("helpers.links.back")), gamerounds_path, class: 'btn'
+  = link_to t('.edit', default: t("helpers.links.edit")), edit_gameround_path(@gameround), class: 'btn'
+  = link_to t('.destroy', default: t("helpers.links.destroy")), gameround_path(@gameround), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'

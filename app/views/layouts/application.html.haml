@@ -19,7 +19,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
 %body
   .site_canvas
-    .container
+    .site_container
 
       / Header
       .row
@@ -41,21 +41,29 @@
                   %span.icon-bar
                   %span.icon-bar
 
-                .nav-collapse.collapse
+                .nav-collapse.collapse.navbar-responsive-collapse
                   %ul.nav
                     %li.active
                       = link_to I18n.t(".site.home"), root_path
                     %li.divider-vertical
-                    %li
-                      = link_to "bla", root_path
                   %ul.nav.pull-right
-                    - if signed_in?
-                      %li.dropdown.pull-right
+                    - if signed_in? and current_user.admin?
+                      %li.dropdown
                         %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+                          = I18n.t(".site.admin")
+                          %b.caret
+                        %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
+                          %li= link_to t('.league.leagues'), leagues_path
+                          %li= link_to t('.club.clubs'), clubs_path
+                          %li= link_to t('.gameround.gamerounds'), gamerounds_path
+                          %li= link_to t('.result.results'), results_path
+                      %li.divider-vertical
+                      %li.dropdown
+                        %a#drop2.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
                           = I18n.t(".account.my_account")
                           %b.caret
-                          %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
-                            %li= link_to t('.sign_out'), sign_out_path, method: :delete
+                        %ul.dropdown-menu{ "aria-labelledby" => "drop2", role: "menu" }
+                          %li= link_to t('.sign_out'), sign_out_path, method: :delete
 
       / Messages
       .row
