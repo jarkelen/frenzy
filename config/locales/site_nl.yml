@@ -8,6 +8,7 @@ nl:
     title:      "Football Frenzy"
     salutation: "Welkom"
     home:       "Home"
+    admin:      "Admin"
   user:
     first_name: "Voornaam"
     last_name:  "Achternaam"
@@ -19,4 +20,7 @@ nl:
   account:
     my_account:   "Mijn account"
     edit_account: "Account bewerken"
+  crud:
+    successfully_updated: "was successfully updated."
+    successfully_created: "was successfully created."
 

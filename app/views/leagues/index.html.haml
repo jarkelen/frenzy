@@ -1,0 +1,25 @@
+- model_class = League
+.page-header
+  %h1=t '.title', default: model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:league_name)
+      %th= model_class.human_attribute_name(:league_short)
+      %th= model_class.human_attribute_name(:level)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', default: t("helpers.actions")
+  %tbody
+    - @leagues.each do |league|
+      %tr
+        %td= link_to league.id, league_path(league)
+        %td= league.league_name
+        %td= league.league_short
+        %td= league.level
+        %td=l league.created_at
+        %td
+          = link_to t('.edit', default: t("helpers.links.edit")), edit_league_path(league), class: 'btn btn-mini'
+          = link_to t('.destroy', default: t("helpers.links.destroy")), league_path(league), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+= link_to t('.new', default: t("helpers.links.new")), new_league_path, class: 'btn btn-primary'

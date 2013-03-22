@@ -1,5 +1,12 @@
 nl:
   league:
-    name:    "League"
-    short:   "League kort"
-    level:   "Niveau"
+    leagues:            Leagues
+    name:               League
+    short:              League kort
+    level:              Niveau
+  club:
+    clubs:              Clubs
+  gameround:
+    gamerounds:         Speelrondes
+  result:
+    results:            Resultaten
