@@ -22,7 +22,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails', '> 1.0'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
   gem 'yaml_db'
