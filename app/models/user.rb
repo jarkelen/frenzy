@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
+  has_many :selections
+
+  #has_many :jokers
+  #has_many :rankings
+  #has_many :clubs, through: :selections
+
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language
 
   before_save { |user| user.email = email.downcase }
