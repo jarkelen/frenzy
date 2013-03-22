@@ -6,6 +6,6 @@ FactoryGirl.define do
     start_date "2013-03-21 16:01:07"
     end_date "2013-03-21 16:01:07"
     processed false
-    period_id 1
+    association :period
   end
 end

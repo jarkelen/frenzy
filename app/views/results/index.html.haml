@@ -7,7 +7,7 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:club_home_id)
       %th= model_class.human_attribute_name(:club_away_id)
-      %th= model_class.human_attribute_name(:score_hoem)
+      %th= model_class.human_attribute_name(:score_home)
       %th= model_class.human_attribute_name(:score_away)
       %th= model_class.human_attribute_name(:gameround_id)
       %th= model_class.human_attribute_name(:created_at)
@@ -18,7 +18,7 @@
         %td= link_to result.id, result_path(result)
         %td= result.club_home_id
         %td= result.club_away_id
-        %td= result.score_hoem
+        %td= result.score_home
         %td= result.score_away
         %td= result.gameround_id
         %td=l result.created_at
