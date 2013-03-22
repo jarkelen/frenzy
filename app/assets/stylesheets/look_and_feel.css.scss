@@ -21,7 +21,7 @@ a, a:visited, a:hover {
   border: solid 1px black;
   margin-top: 20px;
 }
-.container {
+.site_container {
   margin: 0 auto;
 }
 nav {
@@ -29,6 +29,7 @@ nav {
 }
 .yield {
   min-height: 500px;
+  margin: 1em;
 }
 header {
   .title {
