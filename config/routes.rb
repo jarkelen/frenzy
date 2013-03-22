@@ -1,5 +1,6 @@
 Frenzy::Application.routes.draw do
   resources :results
+  resources :gamerounds
 
 
   root to:'site#index'

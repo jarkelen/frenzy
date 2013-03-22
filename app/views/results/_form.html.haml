@@ -1,25 +1,9 @@
-= form_for @result do |f|
-  - if @result.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@result.errors.count, "error")} prohibited this result from being saved:"
-      %ul
-        - @result.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :club_home_id
-    = f.number_field :club_home_id
-  .field
-    = f.label :club_away_id
-    = f.number_field :club_away_id
-  .field
-    = f.label :score_hoem
-    = f.number_field :score_hoem
-  .field
-    = f.label :score_away
-    = f.number_field :score_away
-  .field
-    = f.label :gameround_id
-    = f.number_field :gameround_id
-  .actions
-    = f.submit 'Save'
+= simple_form_for @result, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :club_home_id
+  = f.input :club_away_id
+  = f.input :score_hoem
+  = f.input :score_away
+  = f.input :gameround_id
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), results_path, :class => 'btn'

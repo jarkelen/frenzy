@@ -1,0 +1,9 @@
+= simple_form_for @gameround, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :number
+  = f.input :start_date
+  = f.input :end_date
+  = f.input :processed
+  = f.input :period_id
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), gamerounds_path, :class => 'btn'
