@@ -47,7 +47,7 @@
                       = link_to I18n.t(".site.home"), root_path
                     %li.divider-vertical
                   %ul.nav.pull-right
-                    - if signed_in?
+                    - if signed_in? and current_user.admin?
                       %li.dropdown.pull-right
                         %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
                           = I18n.t(".site.admin")

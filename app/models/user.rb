@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: email_regex },
                     uniqueness: { case_sensitive: false }
 
+  def admin?
+    puts "ROLE #{role}"
+    return true if role == "admin"
+  end
+
 end

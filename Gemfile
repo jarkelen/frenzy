@@ -11,6 +11,7 @@ gem 'rvm-capistrano'
 gem 'mysql2'
 gem 'clearance', '1.0.0.rc6'
 gem 'simple_form'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
