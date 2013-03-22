@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Club home:
+  = @result.club_home_id
+%p
+  %b Club away:
+  = @result.club_away_id
+%p
+  %b Score hoem:
+  = @result.score_hoem
+%p
+  %b Score away:
+  = @result.score_away
+%p
+  %b Gameround:
+  = @result.gameround_id
+
+= link_to 'Edit', edit_result_path(@result)
+\|
+= link_to 'Back', results_path

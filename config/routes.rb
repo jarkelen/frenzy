@@ -1,4 +1,7 @@
 Frenzy::Application.routes.draw do
+  resources :results
+
+
   root to:'site#index'
   get "site/index"
 

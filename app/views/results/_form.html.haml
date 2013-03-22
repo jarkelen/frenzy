@@ -1,0 +1,25 @@
+= form_for @result do |f|
+  - if @result.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@result.errors.count, "error")} prohibited this result from being saved:"
+      %ul
+        - @result.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :club_home_id
+    = f.number_field :club_home_id
+  .field
+    = f.label :club_away_id
+    = f.number_field :club_away_id
+  .field
+    = f.label :score_hoem
+    = f.number_field :score_hoem
+  .field
+    = f.label :score_away
+    = f.number_field :score_away
+  .field
+    = f.label :gameround_id
+    = f.number_field :gameround_id
+  .actions
+    = f.submit 'Save'

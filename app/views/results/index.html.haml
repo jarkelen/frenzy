@@ -1,0 +1,27 @@
+%h1 Listing results
+
+%table
+  %tr
+    %th Club home
+    %th Club away
+    %th Score hoem
+    %th Score away
+    %th Gameround
+    %th
+    %th
+    %th
+
+  - @results.each do |result|
+    %tr
+      %td= result.club_home_id
+      %td= result.club_away_id
+      %td= result.score_hoem
+      %td= result.score_away
+      %td= result.gameround_id
+      %td= link_to 'Show', result
+      %td= link_to 'Edit', edit_result_path(result)
+      %td= link_to 'Destroy', result, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Result', new_result_path
