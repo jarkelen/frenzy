@@ -6,7 +6,16 @@ nl:
     level:              Niveau
   club:
     clubs:              Clubs
+    club:               Club
   gameround:
     gamerounds:         Speelrondes
+    gameround:           Speelronde
   result:
     results:            Resultaten
+    result:             Resultaat
+  period:
+    period_name:        Periode
+    period_nr:          Nummer
+    start_date:         Startdatum
+    end_date:           Einddatum
+

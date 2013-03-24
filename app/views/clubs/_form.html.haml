@@ -4,7 +4,7 @@
   = f.input :period2
   = f.input :period3
   = f.input :period4
-  = f.select(:league_id, League.all.map{ |l| [l.league_name, l.id] }, include_blank: true)
+  = f.input(:league_id, label: I18n.t('.league.name'), collection: League.all.map{ |l| [l.league_name, l.id] }, include_blank: true)
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to t('.cancel', default: t("helpers.links.cancel")), clubs_path, class: 'btn'

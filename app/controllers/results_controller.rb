@@ -6,10 +6,6 @@ class ResultsController < ApplicationController
     @results = Result.all
   end
 
-  def show
-    @result = Result.find(params[:id])
-  end
-
   def new
     @result = Result.new
   end
@@ -22,7 +18,7 @@ class ResultsController < ApplicationController
     @result = Result.new(params[:result])
 
     if @result.save
-      redirect_to @result, notice: "Result #{I18n.t('.successfully_created')}"
+      redirect_to results_path, notice: "Result #{I18n.t('.successfully_created')}"
     else
       render action: "new"
     end

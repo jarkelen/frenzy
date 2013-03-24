@@ -57,6 +57,7 @@
                           %li= link_to t('.club.clubs'), clubs_path
                           %li= link_to t('.gameround.gamerounds'), gamerounds_path
                           %li= link_to t('.result.results'), results_path
+                    - if signed_in?
                       %li.divider-vertical
                       %li.dropdown
                         %a#drop2.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
