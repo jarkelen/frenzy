@@ -1,8 +1,9 @@
 class Result < ActiveRecord::Base
   belongs_to :gameround
-  belongs_to :club
+  belongs_to :home_club, class_name: 'Club'
+  belongs_to :away_club, class_name: 'Club'
 
-  attr_accessible :club_away_id, :club_home_id, :gameround_id, :score_away, :score_home
-  validates :club_away_id, :club_home_id, :gameround_id, :score_away, :score_home, presence: true
+  attr_accessible :away_club_id, :home_club_id, :gameround_id, :home_score, :away_score
+  validates :away_club_id, :home_club_id, :gameround_id, :home_score, :away_score, presence: true
 
 end

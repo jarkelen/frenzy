@@ -1,9 +1,9 @@
-= simple_form_for @result, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :club_home_id
-  = f.input :club_away_id
-  = f.input :score_home
-  = f.input :score_away
-  = f.input :gameround_id
+= simple_form_for @result, html: { class: 'form-horizontal' } do |f|
+  = f.input(:home_club_id, label: I18n.t('.club.club'), collection: Club.all.map{ |c| [c.club_name, c.id] }, include_blank: true)
+  = f.input(:away_club_id, label: I18n.t('.club.club'), collection: Club.all.map{ |c| [c.club_name, c.id] }, include_blank: true)
+  = f.input :home_score
+  = f.input :away_score
+  = f.input(:gameround_id, label: I18n.t('.gameround.gameround'), collection: Gameround.all.map{ |g| ["#{g.number}: #{g.start_date.strftime("%d-%m-%Y")}", g.id] }, include_blank: true)
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), results_path, :class => 'btn'
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), results_path, class: 'btn'

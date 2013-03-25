@@ -1,0 +1,39 @@
+.row
+  .span12
+    %h1= "#{I18n.t('team.my_team')}: #{current_user.team_name}"
+    %p= I18n.t('team.intro')
+
+.row
+  .span12
+    .points_used
+      %p= "#{I18n.t('team.used_points1')}: #{@current_teamvalue} #{I18n.t('team.used_points2')} #{$max_teamvalue}"
+
+.row
+  .span12
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= I18n.t('club.club')
+          %th= I18n.t('league.name')
+          %th= "#{I18n.t('.period.period_name')} 1"
+          %th= "#{I18n.t('.period.period_name')} 2"
+          %th= "#{I18n.t('.period.period_name')} 3"
+          %th= "#{I18n.t('.period.period_name')} 4"
+          - if $participation
+            %th= I18n.t('.actions')
+      %tbody
+        - @selections.each do |selection|
+          %tr
+            %td= selection.club.club_name
+            %td= selection.club.league.league_short
+            %td= selection.club.period1
+            %td= selection.club.period2
+            %td= selection.club.period3
+            %td= selection.club.period4
+            - if $participation
+              %td= link_to t('.destroy', default: t("helpers.links.destroy")), selection_path(selection), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+- if $participation and @selections.size < $max_teamsize and @current_teamvalue < $max_teamvalue
+  .row
+    .span12
+      = render partial: "add_club"

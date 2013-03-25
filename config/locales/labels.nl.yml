@@ -1,0 +1,32 @@
+nl:
+  show: Bekijken
+  delete: Verwijderen
+  destroy: Verwijderen
+  add: Toevoegen
+  unknown: Onbekend
+  cancel: Annuleren
+  edit: Wijzigen
+  confirm: Weet u het zeker?
+  delete_confirmation: Weet u het zeker?
+  back: Terug
+  'true': Ja
+  'false': Nee
+  'yes': Ja
+  'no': Nee
+  end: Einde
+  no_records_found: Geen items gevonden
+  save: Opslaan
+  actions: Acties
+  created:
+    success: "is succesvol aangemaakt."
+    failure: "kon niet worden aangemaakt."
+  updated:
+    success: "is succesvol bijgewerkt."
+    failure: "kon niet worden bijgewerkt."
+  destroyed:
+    success: "is succesvol verwijderd."
+    failure: "kon niet worden verwijderd."
+  marked:
+    success: "is succesvol gemarkeerd als %{state}."
+    failure: "kon niet worden gemarkeerd."
+    in_progress: "wordt nu gemarkeerd als %{state}."

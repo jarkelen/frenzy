@@ -6,5 +6,5 @@ class Gameround < ActiveRecord::Base
   has_many :rankings
 
   attr_accessible :end_date, :number, :period_id, :processed, :start_date
-  validates :end_date, :number, :period_id, :processed, :start_date, presence: true
+  validates :end_date, :number, :period_id, :start_date, presence: true
 end

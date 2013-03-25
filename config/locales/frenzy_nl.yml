@@ -1,5 +1,28 @@
 nl:
   league:
-    name:    "League"
-    short:   "League kort"
-    level:   "Niveau"
+    leagues:            Leagues
+    name:               League
+    short:              League kort
+    level:              Niveau
+  club:
+    clubs:              Clubs
+    club:               Club
+  gameround:
+    gamerounds:         Speelrondes
+    gameround:          Speelronde
+  result:
+    results:            Resultaten
+    result:             Resultaat
+  period:
+    period_name:        Periode
+    period_nr:          Nummer
+    start_date:         Startdatum
+    end_date:           Einddatum
+  team:
+    intro:              Hieronder zijn jouw teamgegevens. Als de Football Frenzy nog niet is begonnen kun je met de link "Wijzigen team" het team nog aanpassen.
+    new:                Club toevoegen
+    edit:               Team wijzigen
+    my_team:            Mijn team
+    used_points1:       Punten verbruikt
+    used_points2:       van de
+

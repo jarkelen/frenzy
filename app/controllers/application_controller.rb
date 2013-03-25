@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_locale
+  before_filter :get_settings
 
   def set_locale
     if signed_in?
@@ -12,4 +13,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_settings
+    setting = Setting.first
+    $participation = setting.participation
+    $max_teamsize = setting.max_teamsize
+    $max_teamvalue = setting.max_teamvalue
+    $current_period = setting.current_period
+  end
 end
