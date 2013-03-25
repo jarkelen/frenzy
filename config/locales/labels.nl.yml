@@ -17,17 +17,16 @@ nl:
   no_records_found: Geen items gevonden
   save: Opslaan
   actions: Acties
-  flash:
-    created:
-      success: "%{model} is succesvol aangemaakt."
-      failure: "%{model} kon niet worden aangemaakt."
-    updated:
-      success: "%{model} is succesvol bijgewerkt."
-      failure: "%{model} kon niet worden bijgewerkt."
-    destroyed:
-      success: "%{model} is succesvol verwijderd."
-      failure: "%{model} kon niet worden verwijderd."
-    marked:
-      success: "%{model} is succesvol gemarkeerd als %{state}."
-      failure: "%{model} kon niet worden gemarkeerd."
-      in_progress: "%{model} wordt nu gemarkeerd als %{state}."
+  created:
+    success: "is succesvol aangemaakt."
+    failure: "kon niet worden aangemaakt."
+  updated:
+    success: "is succesvol bijgewerkt."
+    failure: "kon niet worden bijgewerkt."
+  destroyed:
+    success: "is succesvol verwijderd."
+    failure: "kon niet worden verwijderd."
+  marked:
+    success: "is succesvol gemarkeerd als %{state}."
+    failure: "kon niet worden gemarkeerd."
+    in_progress: "wordt nu gemarkeerd als %{state}."

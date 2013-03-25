@@ -23,7 +23,7 @@
             %td= club.period2
             %td= club.period3
             %td= club.period4
-            %td= club.league_id
+            %td= club.league.league_short
             %td
               = link_to t('.edit', default: t("helpers.links.edit")), edit_club_path(club), class: 'btn btn-mini'
               = link_to t('.destroy', default: t("helpers.links.destroy")), club_path(club), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'

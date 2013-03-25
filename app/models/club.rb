@@ -7,4 +7,6 @@ class Club < ActiveRecord::Base
 
   attr_accessible :club_name, :league_id, :period1, :period2, :period3, :period4
   validates :club_name, :league_id, :period1, :period2, :period3, :period4, presence: true
+
+  scope :within_max_teamvalue, ->(current_teamvalue) { where("#{$current_period} <= ?", ($max_teamvalue-current_teamvalue)) }
 end

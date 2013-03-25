@@ -32,6 +32,9 @@ $btnPrimaryBackgroundHighlight: lighten($base-color, 5%);
     }
   }
 }
+.table {
+  margin-top: 20px;
+}
 
 
 @import "bootstrap";

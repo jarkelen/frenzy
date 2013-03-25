@@ -42,9 +42,6 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @club.destroy
 
-    respond_to do |format|
-      format.html { redirect_to clubs_url }
-      format.json { head :no_content }
-    end
+    redirect_to clubs_url, notice: "Club #{I18n.t('.successfully_deleted')}"
   end
 end

@@ -9,7 +9,7 @@ nl:
     club:               Club
   gameround:
     gamerounds:         Speelrondes
-    gameround:           Speelronde
+    gameround:          Speelronde
   result:
     results:            Resultaten
     result:             Resultaat
@@ -20,5 +20,9 @@ nl:
     end_date:           Einddatum
   team:
     intro:              Hieronder zijn jouw teamgegevens. Als de Football Frenzy nog niet is begonnen kun je met de link "Wijzigen team" het team nog aanpassen.
-
+    new:                Club toevoegen
+    edit:               Team wijzigen
+    my_team:            Mijn team
+    used_points1:       Punten verbruikt
+    used_points2:       van de
 
