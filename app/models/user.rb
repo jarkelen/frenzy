@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   def admin?
-    puts "ROLE #{role}"
     return true if role == "admin"
   end
 

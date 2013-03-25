@@ -9,6 +9,7 @@ class Ability
       cannot :manage, Result
       cannot :manage, Club
       cannot :manage, League
+      can    :manage, Selection
     end
   end
 end
