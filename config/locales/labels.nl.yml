@@ -1,0 +1,33 @@
+nl:
+  show: Bekijken
+  delete: Verwijderen
+  destroy: Verwijderen
+  add: Toevoegen
+  unknown: Onbekend
+  cancel: Annuleren
+  edit: Wijzigen
+  confirm: Weet u het zeker?
+  delete_confirmation: Weet u het zeker?
+  back: Terug
+  'true': Ja
+  'false': Nee
+  'yes': Ja
+  'no': Nee
+  end: Einde
+  no_records_found: Geen items gevonden
+  save: Opslaan
+  actions: Acties
+  flash:
+    created:
+      success: "%{model} is succesvol aangemaakt."
+      failure: "%{model} kon niet worden aangemaakt."
+    updated:
+      success: "%{model} is succesvol bijgewerkt."
+      failure: "%{model} kon niet worden bijgewerkt."
+    destroyed:
+      success: "%{model} is succesvol verwijderd."
+      failure: "%{model} kon niet worden verwijderd."
+    marked:
+      success: "%{model} is succesvol gemarkeerd als %{state}."
+      failure: "%{model} kon niet worden gemarkeerd."
+      in_progress: "%{model} wordt nu gemarkeerd als %{state}."

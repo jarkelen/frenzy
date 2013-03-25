@@ -1,7 +1,7 @@
 class Club < ActiveRecord::Base
   belongs_to :league
-  has_many :results_as_home, class_name: 'Result', foreign_key: 'result_id'
-  has_many :results_as_away, class_name: 'Result', foreign_key: 'result_id'
+  has_many :home_results, class_name: 'Result', foreign_key: 'home_club_id'
+  has_many :away_results, class_name: 'Result', foreign_key: 'away_club_id'
   has_many :scores
   has_many :selections
 

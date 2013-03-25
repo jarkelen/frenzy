@@ -1,10 +1,10 @@
 class CreateResults < ActiveRecord::Migration
   def change
     create_table :results do |t|
-      t.integer :club_home_id
-      t.integer :club_away_id
-      t.integer :score_home
-      t.integer :score_away
+      t.integer :home_club_id
+      t.integer :away_club_id
+      t.integer :home_score
+      t.integer :away_score
       t.integer :gameround_id
 
       t.timestamps
