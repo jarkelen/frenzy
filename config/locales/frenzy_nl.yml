@@ -18,4 +18,7 @@ nl:
     period_nr:          Nummer
     start_date:         Startdatum
     end_date:           Einddatum
+  team:
+    intro:              Hieronder zijn jouw teamgegevens. Als de Football Frenzy nog niet is begonnen kun je met de link "Wijzigen team" het team nog aanpassen.
+
 

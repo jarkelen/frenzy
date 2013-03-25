@@ -46,6 +46,10 @@
                     %li.active
                       = link_to I18n.t(".site.home"), root_path
                     %li.divider-vertical
+                    - if signed_in?
+                      %li
+                        = link_to I18n.t(".user.team"), users_team_path
+                      %li.divider-vertical
                   %ul.nav.pull-right
                     - if signed_in? and current_user.admin?
                       %li.dropdown

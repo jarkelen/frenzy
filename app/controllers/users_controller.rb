@@ -9,4 +9,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  def team
+    @selections = current_user.selections
+  end
 end

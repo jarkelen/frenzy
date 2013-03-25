@@ -7,18 +7,18 @@
       %thead
         %tr
           %th= model_class.human_attribute_name(:id)
-          %th= model_class.human_attribute_name(:club_home_id)
-          %th= model_class.human_attribute_name(:club_away_id)
+          %th= model_class.human_attribute_name(:home_club_id)
+          %th= model_class.human_attribute_name(:away_club_id)
           %th= I18n.t('.result.result')
           %th= model_class.human_attribute_name(:gameround_id)
           %th=t '.actions', default: t("helpers.actions")
       %tbody
         - @results.each do |result|
           %tr
-            %td= link_to result.id, result_path(result)
-            %td= result.club_home_id
-            %td= result.club_away_id
-            %td= "#{result.score_home}-#{result.score_away}"
+            %td= result.id
+            %td= result.home_club.club_name
+            %td= result.away_club.club_name
+            %td= "#{result.home_score}-#{result.away_score}"
             %td= result.gameround_id
             %td
               = link_to t('.edit', default: t("helpers.links.edit")), edit_result_path(result), class: 'btn btn-mini'

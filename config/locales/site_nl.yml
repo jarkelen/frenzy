@@ -17,6 +17,7 @@ nl:
     password:   Wachtwoord
     role:       Rol
     language:   Taal
+    team:       Mijn Team
   account:
     my_account:   Mijn account
     edit_account: Account bewerken

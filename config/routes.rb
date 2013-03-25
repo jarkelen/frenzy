@@ -10,6 +10,7 @@ Frenzy::Application.routes.draw do
 
   get "users/index"
   get "users/show"
+  get "users/team"
 
   match '/sign_out' =>  "clearance/sessions#destroy"
 end

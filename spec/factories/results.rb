@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :result do
-    club_home_id 1
-    club_away_id 1
-    score_home 1
-    score_away 1
+    home_club_id 1
+    away_club_id 1
+    home_score 1
+    away_score 1
     gameround_id 1
   end
 end

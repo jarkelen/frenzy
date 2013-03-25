@@ -1,0 +1,32 @@
+.row
+  .span12
+    %h1= I18n.t('user.team')
+    %p= I18n.t('team.intro')
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th{ span: 7}= current_user.team_name
+        %tr
+          %th= I18n.t('club.club')
+          %th= I18n.t('league.league_name')
+          %th= "#{I18n.t('period.')} 1"
+          %th= "#{I18n.t('period.')} 2"
+          %th= "#{I18n.t('period.')} 3"
+          %th= "#{I18n.t('period.')} 4"
+          %th=t '.actions', default: t("helpers.actions")
+      %tbody
+        - @selections.each do |selection|
+          %tr
+            %td= selection.club.club_name
+            %td
+            %td
+            %td
+            %td
+            %td
+            %td
+            %td
+              = link_to t('.edit', default: t("helpers.links.edit")), edit_selection_path(gameround), class: 'btn btn-mini'
+              = link_to t('.destroy', default: t("helpers.links.destroy")), gameround_path(gameround), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+    = link_to t('.new', default: t("helpers.links.new")), new_gameround_path, class: 'btn btn-primary'
