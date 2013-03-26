@@ -1,12 +1,10 @@
 require 'spec_helper'
 
 describe "Manage results" do
+  let(:user) { create :user } #, first_name: 'Arie', last_name: 'Admin', role: 'admin' }
 
   before(:each) do
-    let(:user) { create_user(first_name: 'Arie', last_name: 'Admin', role: 'admin') }
-    save_and_open_page
-    sign_in_as
-    save_and_open_page
+    sign_in_as(user)
   end
 
   context "listing leagues" do

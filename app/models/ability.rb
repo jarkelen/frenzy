@@ -10,6 +10,7 @@ class Ability
       cannot :manage, Club
       cannot :manage, League
       can    :manage, Selection
+      can    :manage, Joker
     end
   end
 end

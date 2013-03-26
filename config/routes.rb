@@ -4,6 +4,7 @@ Frenzy::Application.routes.draw do
   resources :results
   resources :gamerounds
   resources :selections
+  resources :jokers
 
   get "site/index"
 

@@ -24,7 +24,7 @@
       %tbody
         - @selections.each do |selection|
           %tr
-            %td= selection.club.club_name
+            %td= link_to selection.club.club_name, club_path(selection.club)
             %td= selection.club.league.league_short
             %td= selection.club.period1
             %td= selection.club.period2

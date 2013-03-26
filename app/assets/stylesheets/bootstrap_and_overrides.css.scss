@@ -21,15 +21,7 @@ $btnPrimaryBackgroundHighlight: lighten($base-color, 5%);
 }
 .btn {
   a, a:hover, a:visited {
-  color: #FFFFFF;
-  }
-  &.primary {
-    a, a:hover, a:visited {
-      color: #FFFFFF;
-    }
-    .gradientBar {
-      background: $base-color;
-    }
+  color: #FFFFFF !important;
   }
 }
 .table {
