@@ -5,12 +5,16 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      cannot :manage, Gameround
-      cannot :manage, Result
-      cannot :manage, Club
-      cannot :manage, League
-      can    :manage, Selection
-      can    :manage, Joker
+      can    [:read, :create, :update, :destroy], Selection
+      can    [:read, :create, :update, :destroy], Joker
+      can    [:read], League
+      can    [:read], Result
+
+      cannot [:read, :create, :update, :destroy], Gameround
+      cannot [:create, :update, :destroy], Result
+      cannot [:create, :update, :destroy], League
+      cannot [:create, :update, :destroy], Club
+      cannot [:create, :update, :destroy], User
     end
   end
 end

@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     $participation = setting.participation
     $max_teamsize = setting.max_teamsize
     $max_teamvalue = setting.max_teamvalue
+    $max_jokers = setting.max_jokers
     $current_period = setting.current_period
   end
 end

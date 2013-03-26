@@ -5,6 +5,7 @@ class JokersController < ApplicationController
   def index
     @jokers = current_user.jokers.all
     @joker = Joker.new
+    #@new_jokers = 3.times { Joker.build }
   end
 
   def create

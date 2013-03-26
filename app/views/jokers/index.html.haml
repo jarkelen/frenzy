@@ -6,7 +6,13 @@
 
 .row
   .span12
-    = render partial: "add_joker"
+    .points_used
+      %p= "#{I18n.t('joker.used_jokers1')}: #{current_user.used_jokers} #{I18n.t('joker.used_jokers2')} #{$max_jokers}"
+
+- if can? :create, Joker
+  .row
+    .span12
+      = render partial: "add_joker"
 
 .row
   .span12
@@ -17,7 +23,8 @@
           %th= "#{I18n.t('.joker.joker')} 1"
           %th= "#{I18n.t('.joker.joker')} 2"
           %th= "#{I18n.t('.joker.joker')} 3"
-          %th= I18n.t('.actions')
+          - if can? :destroy, Joker
+            %th= I18n.t('.actions')
       %tbody
         - @jokers.each do |joker|
           %tr
@@ -26,4 +33,5 @@
             %td
             %td
             %td
-            %td= link_to t('.destroy', default: t("helpers.links.destroy")), joker_path(joker), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+            - if can? :destroy, Joker
+              %td= link_to t('.destroy', default: t("helpers.links.destroy")), joker_path(joker), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'

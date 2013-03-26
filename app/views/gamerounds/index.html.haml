@@ -11,7 +11,8 @@
           %th= model_class.human_attribute_name(:end_date)
           %th= model_class.human_attribute_name(:processed)
           %th= model_class.human_attribute_name(:period_id)
-          %th=t '.actions', default: t("helpers.actions")
+          - if can? :update, Gameround
+            %th=t '.actions', default: t("helpers.actions")
       %tbody
         - @gamerounds.each do |gameround|
           %tr
@@ -20,8 +21,10 @@
             %td= gameround.end_date.strftime("%d-%m-%Y")
             %td= gameround.processed
             %td= gameround.period.period_name
-            %td
-              = link_to t('.edit', default: t("helpers.links.edit")), edit_gameround_path(gameround), class: 'btn btn-mini'
-              = link_to t('.destroy', default: t("helpers.links.destroy")), gameround_path(gameround), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+            - if can? :update, Gameround
+              %td
+                = link_to t('.edit', default: t("helpers.links.edit")), edit_gameround_path(gameround), class: 'btn btn-mini'
+                = link_to t('.destroy', default: t("helpers.links.destroy")), gameround_path(gameround), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
 
-    = link_to t('.new', default: t("helpers.links.new")), new_gameround_path, class: 'btn btn-primary'
+    - if can? :create, Gameround
+      = link_to t('.new', default: t("helpers.links.new")), new_gameround_path, class: 'btn btn-primary'
