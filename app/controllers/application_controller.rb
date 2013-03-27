@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   protect_from_forgery
-
   before_filter :set_locale
   before_filter :get_settings
+
+  rescue_from CanCan::AccessDenied do |exception|
+    render file: Rails.root.join('public', '403.html'), status: 403, layout: false
+  end
 
   def set_locale
     if signed_in?

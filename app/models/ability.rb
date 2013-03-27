@@ -9,12 +9,15 @@ class Ability
       can    [:read, :create, :update, :destroy], Joker
       can    [:read], League
       can    [:read], Result
+      can    [:read], Score
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result
       cannot [:create, :update, :destroy], League
       cannot [:create, :update, :destroy], Club
       cannot [:create, :update, :destroy], User
+      cannot [:calculate], Score
+      connot [:read], Frenzy
     end
   end
 end

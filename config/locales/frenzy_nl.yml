@@ -33,4 +33,10 @@ nl:
     intro2:             Bij de ingezette jokers wordt d.m.v. kleuren aangegeven of de joker effektief was. Rood betekent dat de joker beter niet ingezet had kunnen worden, groen betekent dat het een prima keuze was om de joker in te zetten en wit betekent dat je een joker kwijt bent zonder dat het iets heeft opgeleverd.
     used_jokers1:       Jokers verbruikt
     used_jokers2:       van de
+  score:
+    my_scores:          Mijn Punten
+    score:              Punten
+    result:             Result
+    calculate:          Berekenen punten
+    intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. Een club met een gele achtergrond betekent dat je op die club een joker hebt ingezet. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
 

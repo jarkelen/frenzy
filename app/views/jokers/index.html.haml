@@ -7,7 +7,7 @@
 .row
   .span12
     .points_used
-      %p= "#{I18n.t('joker.used_jokers1')}: #{current_user.used_jokers} #{I18n.t('joker.used_jokers2')} #{$max_jokers}"
+      %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{$max_jokers}"
 
 - if can? :create, Joker
   .row

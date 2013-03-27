@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, :null => false
       t.string :language
       t.string :role, default: 'user'
-      t.integer :used_jokers, default: 46
       t.integer :team_value, default: 125
       t.string :encrypted_password, :limit => 128, :null => false
       t.string :confirmation_token, :limit => 128

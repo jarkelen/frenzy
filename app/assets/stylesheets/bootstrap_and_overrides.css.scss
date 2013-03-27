@@ -20,7 +20,7 @@ $btnPrimaryBackgroundHighlight: lighten($base-color, 5%);
   color: $base-color;
 }
 .btn {
-  a, a:hover, a:visited {
+  a, a:hover, a:visited, a:active {
   color: #FFFFFF !important;
   }
 }
