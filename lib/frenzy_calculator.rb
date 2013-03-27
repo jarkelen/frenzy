@@ -17,6 +17,8 @@ class FrenzyCalculator
       calculate_ranking(user, gameround_id)
     end
 
+    gameround = Gameround.find(gameround_id)
+    gameround.update_attributes(processed: true)
   end
 
   private
@@ -64,7 +66,7 @@ class FrenzyCalculator
         # Points drawn for opponent goals
         score -= result.away_score
 
-        Score.first_or_create(score: score, club_id: result.home_club_id, gameround_id: gameround_id)
+        Score.find_or_create_by_gameround_id_and_club_id(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
       end
 
       # Away club
