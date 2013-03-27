@@ -4,8 +4,9 @@ class Gameround < ActiveRecord::Base
   has_many :scores
   has_many :jokers
   has_many :rankings
+  accepts_nested_attributes_for :jokers
 
-  attr_accessible :end_date, :number, :period_id, :processed, :start_date
+  attr_accessible :end_date, :number, :period_id, :processed, :start_date, :jokers_attributes
   validates :end_date, :number, :period_id, :start_date, presence: true
 
   scope :active, where(processed: false)

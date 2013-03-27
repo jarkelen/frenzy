@@ -1,7 +1,23 @@
 .row
   .span12
-    = simple_form_for @joker, html: { class: 'form-inline' } do |f|
-      = f.input(:user_id, as: :hidden, input_html: { value: current_user.id })
-      = f.input(:gameround_id, collection: Gameround.active.map{ |g| ["#{g.number} - #{g.start_date.strftime('%d-%m-%Y')}", g.id] }, include_blank: true)
-      = f.input(:club_id, collection: Club.own(current_user).map{ |c| [c.club_name, c.id] }, include_blank: true)
-      = f.button :submit, class: 'btn-primary'
+    = form_tag store_jokers_path, class: 'form-horizontal' do
+      = hidden_field_tag :user_id, current_user.id
+      .control-group
+        = label_tag :gameround_id, I18n.t('.gameround.gameround'), class: 'control-label'
+        .controls
+          = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{g.number} - #{g.start_date.strftime('%d-%m-%Y')}", g.id] }), include_blank: true
+      .control-group
+        = label_tag :club1, I18n.t('.joker.joker1'), class: 'control-label'
+        .controls
+          = select_tag :club1, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+      .control-group
+        = label_tag :club2, I18n.t('.joker.joker2'), class: 'control-label'
+        .controls
+          = select_tag :club2, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+      .control-group
+        = label_tag :club3, I18n.t('.joker.joker3'), class: 'control-label'
+        .controls
+          = select_tag :club3, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+      .control-group
+        .controls
+          = submit_tag :submit, value: I18n.t('.save'), class: 'btn'

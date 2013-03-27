@@ -9,11 +9,6 @@
     .points_used
       %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{$max_jokers}"
 
-- if can? :create, Joker
-  .row
-    .span12
-      = render partial: "add_joker"
-
 .row
   .span12
     %table.table.table-striped
@@ -26,12 +21,21 @@
           - if can? :destroy, Joker
             %th= I18n.t('.actions')
       %tbody
-        - @jokers.each do |joker|
+        - unless @jokers.blank?
+          - @jokers.each do |joker|
+            %tr
+              %td= "#{joker.gameround.number} (#{joker.gameround.start_date.strftime('%d-%m-%Y')} - #{joker.gameround.end_date.strftime('%d-%m-%Y')})"
+              %td= joker.club.club_name
+              %td
+              %td
+              %td
+              - if can? :destroy, Joker
+                %td= link_to t('.destroy', default: t("helpers.links.destroy")), joker_path(joker), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+        - else
           %tr
-            %td= "#{joker.gameround.number} - #{joker.gameround.start_date.strftime('%d-%m-%Y')}"
-            %td= joker.club.club_name
-            %td
-            %td
-            %td
-            - if can? :destroy, Joker
-              %td= link_to t('.destroy', default: t("helpers.links.destroy")), joker_path(joker), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+            %td{ colspan: 6}= I18n.t('.joker.no_jokers')
+
+- if can? :create, Joker
+  .row
+    .span12
+      = render partial: "add_joker"
