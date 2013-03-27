@@ -10,6 +10,7 @@ describe FrenzyCalculator do
         @calculator.should be_an_instance_of FrenzyCalculator
     end
   end
+
 end
 
 

@@ -10,6 +10,7 @@ class Ability
       can    [:read], League
       can    [:read], Result
       can    [:read], Score
+      can    [:read], Ranking
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result

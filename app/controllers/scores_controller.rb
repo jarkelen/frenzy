@@ -4,7 +4,6 @@ class ScoresController < ApplicationController
 
   def index
     @gameround = Gameround.where(processed: true).last
-#    @scores = Score.where("gameround_id = ? AND club_id IN ?", @gameround, current_user.clubs)
     @scores = Score.where("gameround_id = ?", @gameround)
   end
 end

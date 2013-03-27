@@ -9,5 +9,6 @@ class Gameround < ActiveRecord::Base
   validates :end_date, :number, :period_id, :start_date, presence: true
 
   scope :active, where(processed: false)
+  scope :current, where(processed: true)
 
 end
