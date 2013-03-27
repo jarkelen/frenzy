@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe FrenzyCalculator do
+  before :each do
+    @calculator = FrenzyCalculator.new
+  end
+
+  describe "#new" do
+    it "returns a FrenzyCalculator object" do
+        @calculator.should be_an_instance_of FrenzyCalculator
+    end
+  end
+end
 
 
 =begin
@@ -18,4 +28,3 @@ describe FrenzyCalculator do
     end
   end
 =end
-end
