@@ -1,6 +1,5 @@
-- model_class = Gameround
 .row
   .span12
     .page-header
-      %h1=t '.title', default: [:'helpers.titles.new', 'New %{model}'], model: model_class.model_name.human
+      %h1= I18n.t('.gameround.new')
     = render partial: "form"

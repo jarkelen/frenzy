@@ -13,7 +13,8 @@
           %th= model_class.human_attribute_name(:period3)
           %th= model_class.human_attribute_name(:period4)
           %th= model_class.human_attribute_name(:league_id)
-          %th=t '.actions', default: t("helpers.actions")
+          - if can? :update, Club
+            %th=t '.actions', default: t("helpers.actions")
       %tbody
         - @clubs.each do |club|
           %tr
@@ -24,8 +25,10 @@
             %td= club.period3
             %td= club.period4
             %td= club.league.league_short
-            %td
-              = link_to t('.edit', default: t("helpers.links.edit")), edit_club_path(club), class: 'btn btn-mini'
-              = link_to t('.destroy', default: t("helpers.links.destroy")), club_path(club), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+            - if can? :update, Club
+              %td
+                = link_to t('.edit', default: t("helpers.links.edit")), edit_club_path(club), class: 'btn btn-mini'
+                = link_to t('.destroy', default: t("helpers.links.destroy")), club_path(club), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
 
-    = link_to t('.new', default: t("helpers.links.new")), new_club_path, class: 'btn btn-primary'
+    - if can? :create, Club
+      = link_to t('.new', default: t("helpers.links.new")), new_club_path, class: 'btn btn-primary'

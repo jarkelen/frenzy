@@ -4,6 +4,7 @@ class CreateSettings < ActiveRecord::Migration
       t.string  :current_period
       t.integer :max_teamvalue
       t.integer :max_teamsize
+      t.integer :max_jokers
       t.boolean :participation
 
       t.timestamps

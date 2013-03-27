@@ -22,7 +22,7 @@ class ClubsController < ApplicationController
     @club = Club.new(params[:club])
 
     if @club.save
-      redirect_to @club, notice: 'Club was successfully created.'
+      redirect_to @club, notice: "Club #{I18n.t('.created.success')}"
     else
       render action: "new"
     end

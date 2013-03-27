@@ -1,0 +1,19 @@
+.row
+  .span12
+    %h1= I18n.t('score.my_scores')
+    %p= I18n.t('score.intro')
+
+.row
+  .span12
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= I18n.t('club.club')
+          %th= I18n.t('score.score')
+          %th= I18n.t('score.result')
+      %tbody
+        - @scores.each do |score|
+          %tr
+            %td= link_to score.club.club_name, club_path(score.club)
+            %td= score.score
+            %td
