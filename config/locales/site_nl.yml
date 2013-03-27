@@ -2,6 +2,8 @@ nl:
   general:
     yes:        Ja
     no:         Nee
+    true:       Ja
+    false:      Nee
     dutch:      Nederlands
     english:    Engels
   site:

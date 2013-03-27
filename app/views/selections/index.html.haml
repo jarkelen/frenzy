@@ -19,21 +19,21 @@
           %th= "#{I18n.t('.period.period_name')} 2"
           %th= "#{I18n.t('.period.period_name')} 3"
           %th= "#{I18n.t('.period.period_name')} 4"
-          - if $participation
+          - if $participation and can? :create, Selection
             %th= I18n.t('.actions')
       %tbody
         - @selections.each do |selection|
           %tr
-            %td= selection.club.club_name
+            %td= link_to selection.club.club_name, club_path(selection.club)
             %td= selection.club.league.league_short
             %td= selection.club.period1
             %td= selection.club.period2
             %td= selection.club.period3
             %td= selection.club.period4
-            - if $participation
+            - if $participation and can? :destroy, Selection
               %td= link_to t('.destroy', default: t("helpers.links.destroy")), selection_path(selection), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
 
-- if $participation and @selections.size < $max_teamsize and @current_teamvalue < $max_teamvalue
+- if $participation and @selections.size < $max_teamsize and @current_teamvalue < $max_teamvalue and can? :create, Selection
   .row
     .span12
       = render partial: "add_club"

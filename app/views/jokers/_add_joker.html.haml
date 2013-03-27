@@ -1,0 +1,7 @@
+.row
+  .span12
+    = simple_form_for @joker, html: { class: 'form-inline' } do |f|
+      = f.input(:user_id, as: :hidden, input_html: { value: current_user.id })
+      = f.input(:gameround_id, collection: Gameround.active.map{ |g| ["#{g.number} - #{g.start_date.strftime('%d-%m-%Y')}", g.id] }, include_blank: true)
+      = f.input(:club_id, collection: Club.own(current_user).map{ |c| [c.club_name, c.id] }, include_blank: true)
+      = f.button :submit, class: 'btn-primary'

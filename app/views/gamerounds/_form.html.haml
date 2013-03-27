@@ -1,5 +1,5 @@
 = simple_form_for @gameround, html: { :class => 'form-horizontal' } do |f|
-  = f.input(:period_id, label: I18n.t('.period.period_name'), collection: Period.all.map{ |p| [p.period_name, p.id] }, include_blank: true)
+  = f.input(:period_id, label: I18n.t('.period.period_name'), collection: Period.all.map{ |p| [p.full_name, p.id] }, include_blank: true)
   = f.input :number
   = f.input :start_date, as: :date
   = f.input :end_date, as: :date

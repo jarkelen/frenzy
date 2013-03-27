@@ -9,6 +9,7 @@ describe Club do
   it { should validate_presence_of :period4   }
   it { should have_many(:scores) }
   it { should have_many(:selections) }
+  it { should have_many(:jokers) }
   it { should belong_to(:league) }
 
 end
