@@ -11,19 +11,15 @@
     %p
       %strong= model_class.human_attribute_name(:start_date) + ':'
       %br
-      = @gameround.start_date
+      = @gameround.start_date.strftime('%d-%m-%Y')
     %p
       %strong= model_class.human_attribute_name(:end_date) + ':'
       %br
-      = @gameround.end_date
+      = @gameround.end_date.strftime('%d-%m-%Y')
     %p
       %strong= model_class.human_attribute_name(:processed) + ':'
       %br
       = @gameround.processed
-    %p
-      %strong= model_class.human_attribute_name(:period_id) + ':'
-      %br
-      = @gameround.period_id
 
     .form-actions
       = link_to t('.back', default: t("helpers.links.back")), gamerounds_path, class: 'btn'

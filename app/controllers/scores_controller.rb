@@ -7,10 +7,4 @@ class ScoresController < ApplicationController
 #    @scores = Score.where("gameround_id = ? AND club_id IN ?", @gameround, current_user.clubs)
     @scores = Score.where("gameround_id = ?", @gameround)
   end
-
-  def calculate
-    #if params[:gameround_id]
-      puts "BLA #{params[:gameround_id]}"
-    #end
-  end
 end

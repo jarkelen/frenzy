@@ -16,8 +16,7 @@ class Ability
       cannot [:create, :update, :destroy], League
       cannot [:create, :update, :destroy], Club
       cannot [:create, :update, :destroy], User
-      cannot [:calculate], Score
-      connot [:read], Frenzy
+      cannot [:index, :administrate_frenzy], Frenzy
     end
   end
 end

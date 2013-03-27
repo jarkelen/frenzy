@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Period do
   it { should validate_presence_of :end_date    }
   it { should validate_presence_of :start_date  }
-  it { should validate_presence_of :period_name }
   it { should validate_presence_of :period_nr   }
   it { should have_many(:gamerounds) }
   it { should have_many(:results).through(:gamerounds) }

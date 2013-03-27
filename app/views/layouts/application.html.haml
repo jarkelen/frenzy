@@ -25,7 +25,7 @@
       .row
         %header
           .span6
-            .title= link_to I18n.t(".site.title"), root_path
+            /.title= link_to I18n.t(".site.title"), root_path
           .span6
             - if signed_in?
               .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
@@ -67,7 +67,7 @@
                           %li= link_to I18n.t('.club.clubs'), clubs_path
                           %li= link_to I18n.t('.gameround.gamerounds'), gamerounds_path
                           %li= link_to I18n.t('.result.results'), results_path
-                          %li= link_to I18n.t('.score.calculate'), calculate_scores_path
+                          %li= link_to I18n.t('.frenzy.index'), frenzy_index_path
                     - if signed_in?
                       %li.divider-vertical
                       %li.dropdown
