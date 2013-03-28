@@ -1,5 +1,9 @@
 .row
   .span12
+    %h3= "#{I18n.t('joker.new')}"
+
+.row
+  .span12
     = form_tag store_jokers_path, class: 'form-horizontal' do
       = hidden_field_tag :user_id, current_user.id
       .control-group
@@ -20,4 +24,5 @@
           = select_tag :club3, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
       .control-group
         .controls
-          = submit_tag :submit, value: I18n.t('.save'), class: 'btn'
+          = submit_tag :submit, value: I18n.t('.general.save'), class: 'btn'
+          %button#partial_cancel.button{type: "button", class: "btn"}= I18n.t('.general.cancel')

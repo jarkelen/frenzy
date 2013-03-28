@@ -3,15 +3,14 @@ class JokersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @jokers = current_user.jokers.all
-    @joker = Joker.new
     @clubs = current_user.clubs
     @gamerounds = Gameround.active
+    @all_gamerounds = Gameround.all
   end
 
   def store
-    result = false
-    unless params[:gameround_id].blank?
+    result = Joker.validate_jokers(params[:gameround_id], params[:club1], params[:club2], params[:club3])
+    if result
       unless params[:club1].blank?
         Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club1])
       end
@@ -23,13 +22,9 @@ class JokersController < ApplicationController
       unless params[:club3].blank?
         Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club3])
       end
-      result = true
-    end
-
-    if result
-      redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.success')}"
+      redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.joker_success')}"
     else
-      redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.failure')}"
+      redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.joker_failure')}"
     end
   end
 

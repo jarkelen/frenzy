@@ -10,6 +10,7 @@ nl:
   gameround:
     gamerounds:         Speelrondes
     gameround:          Speelronde
+    processed:          Verwerkt
     new:                Toevoegen speelronde
     edit:               Wijzigen speelronde
   result:
@@ -42,7 +43,7 @@ nl:
     joker_success:      zijn successvol aangemaakt
     joker_failure:      zijn helaas niet successvol aangemaakt, probeer het opnieuw!
   score:
-    my_scores:          Mijn Punten
+    my_scores:          Mijn punten
     score:              Punten
     result:             Resultaat
     match:              Wedstrijd
@@ -52,6 +53,7 @@ nl:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
     message_calculated: De gegevens zijn berekend
+    my_frenzy:          Mijn Frenzy
   ranking:
     ranking:            Klassement
     general_ranking:    Algemeen klassement

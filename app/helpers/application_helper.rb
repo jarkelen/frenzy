@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def boolean_markup(boolean_value)
+  def markup_boolean(boolean_value)
     if boolean_value == true
       I18n.t('.true')
     else

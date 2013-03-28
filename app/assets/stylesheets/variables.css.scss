@@ -1,7 +1,8 @@
 $background-color: #FFFFFF;
 $base-color: #008E00;;
 $text-color: #757370;
-$title-color: #CE0606;
+$title-color: #B11F05;
+$table-color: #B11F05;
 $table-light-color: #3D280C;
 $default-font: Arial, serif;
 $round: 8px;
@@ -11,4 +12,8 @@ $round: 8px;
   -moz-border-radius: $round / $round;
   -khtml-border-radius: $round / $round;
   border-radius: $round / $round;
+}
+
+@mixin box-shadow {
+  box-shadow: 5px 5px 2px #888888;
 }

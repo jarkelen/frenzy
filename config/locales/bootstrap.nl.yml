@@ -10,6 +10,7 @@ nl:
       confirm: "Weet je het zeker?"
       destroy: "Verwijderen"
       new: "Toevoegen"
+      edit: "Wijzigen"
     titles:
       edit: "Wijzigen"
       save: "Opslaan"
