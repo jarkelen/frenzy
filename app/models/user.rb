@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     return true if role == "admin"
   end
 
+  def full_name
+    [first_name, last_name].join(' ').squeeze(' ')
+  end
+
 end

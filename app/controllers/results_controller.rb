@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @results = Result.all
+    @results = Result.order("gameround_id DESC")
   end
 
   def new

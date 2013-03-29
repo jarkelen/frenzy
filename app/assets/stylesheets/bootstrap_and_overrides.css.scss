@@ -27,6 +27,32 @@ $navbarLinkBackgroundHover: $base-color;
   margin-top: 20px;
 }
 
+.tabbable {
+  margin: 40px 0;
+
+  li.active a, li.active a:hover {
+    background: $base-color;
+    color: #FFFFFF;
+  }
+  li a, li a:visited, li a:hover {
+    background: #CCFEBF;
+    color: grey;
+  }
+  .nav-tabs {
+    margin-bottom: 0;
+  }
+  .tab-content {
+    padding: 1em;
+    border: 2px solid $base-color;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  .page-header {
+    border-bottom: 0px;
+    margin: 0 0 0 10px;
+  }
+}
 
 @import "bootstrap";
 @import "bootstrap-responsive";

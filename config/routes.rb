@@ -9,13 +9,12 @@ Frenzy::Application.routes.draw do
   end
   resources :scores, only: [:index]
   resources :rankings, only: [:index]
+  resources :users
 
   get  "frenzy/index"
   post "frenzy/process_gameround"
 
   get "site/index"
-  get "users/index"
-  get "users/show"
 
   match '/sign_out' =>  "clearance/sessions#destroy"
 

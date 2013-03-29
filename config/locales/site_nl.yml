@@ -27,9 +27,11 @@ nl:
     password:   Wachtwoord
     role:       Rol
     language:   Taal
-  account:
-    my_account:   Mijn account
-    edit_account: Account bewerken
+  profile:
+    my_profile:   Mijn profiel
+    account:      Profiel
+    show_profile: Profiel bekijken
+    edit_profile: Profiel bewerken
 
   date:
     formats:
