@@ -4,7 +4,7 @@ $text-color: #757370;
 $title-color: #B11F05;
 $table-color: #B11F05;
 $table-light-color: #3D280C;
-$default-font: Arial, serif;
+$default-font: 'Noto Sans UI', Arial, sans-serif;
 $round: 8px;
 
 @mixin round-corners {
@@ -17,3 +17,19 @@ $round: 8px;
 @mixin box-shadow {
   box-shadow: 5px 5px 2px #888888;
 }
+
+@mixin site-badge {
+  float: left;
+  margin: 1.5em 0 2em 2em;
+  background: $title-color;
+  padding: 1.5em;
+  @include round-corners;
+  @include box-shadow;
+
+  p, a, a:visited, a:hover {
+    font-size: 2.5em;
+    color: #FFFFFF;
+    font-weight: bold;
+  }
+}
+

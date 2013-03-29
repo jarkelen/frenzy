@@ -2,7 +2,8 @@
 
 html, body {
   font-family: $default-font;
-  font-size: 90%;
+  font-size: 14px;
+  line-height: 22px;
   background-color: #D0D0D0;
   color: $text-color;
 }
@@ -45,19 +46,11 @@ nav {
 }
 header {
   .title {
-    float: left;
-    margin: 2.5em;
-
-    a, a:visited, a:hover {
-      font-size: 3em;
-      color: $title-color;
-      font-weight: bold;
-      text-shadow: 2px 2px $text-color;
-    }
+    @include site-badge;
   }
   .salutation {
     float: right;
-    margin: 2.7em 2em 2.3em 0em;
+    margin: 3em 2em 2.3em 0em;
     font-size: 1.2em;
     color: $text-color;
   }

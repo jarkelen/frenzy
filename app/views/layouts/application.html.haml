@@ -8,8 +8,9 @@
 %head
   %title= I18n.t(".site.title")
 
-  %meta{ :charset => "utf-8" }
+  %meta{ charset: "utf-8" }
   %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+  %link{ href: "http://fonts.googleapis.com/css?family=Noto+Sans+UI", rel: "stylesheet", type: "text/css" }
 
   = stylesheet_link_tag "application"
   = javascript_include_tag "application"
@@ -44,7 +45,7 @@
                 .nav-collapse.collapse.navbar-responsive-collapse
                   - if signed_in?
                     %ul.nav
-                      %li.active
+                      %li
                         = link_to I18n.t(".site.home"), root_path
                       %li.divider-vertical
                         %li.dropdown

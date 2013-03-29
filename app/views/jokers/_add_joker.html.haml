@@ -9,7 +9,7 @@
       .control-group
         = label_tag :gameround_id, I18n.t('.gameround.gameround'), class: 'control-label'
         .controls
-          = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{g.number} - #{g.start_date.strftime('%d-%m-%Y')}", g.id] }), include_blank: true
+          = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] }), include_blank: true
       .control-group
         = label_tag :club1, I18n.t('.joker.joker1'), class: 'control-label'
         .controls
