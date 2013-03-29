@@ -58,8 +58,10 @@ nl:
     ranking:            Klassement
     general_ranking:    Algemeen klassement
     gameround_ranking:  Uitslag speelronde
+    last_round_ranking: Uitslag laatste speelronde
     team:               Team
     used_jokers:        Gebruikte jokers
     total_score:        Puntentotaal
     position:           Positie
+    intro:              Hieronder een overzicht van het algemeen klassement na de laatst berekende speelronde. Daarnaast kun je de algemeen klassementen na eerdere speelronden nog eens terug kijken. De tab "Uitslag laatste speelronde" geeft het klassement van de laatst berekende speelronde aan, maar je kunt ook de uitslagen na eerdere speelrondes bekijken.
 

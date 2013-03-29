@@ -9,10 +9,16 @@ nl:
     save:       Opslaan
     cancel:     Annuleren
   site:
-    title:      Football Frenzy
+    title:      The Old Spotted Dog Frenzy
     salutation: Welkom
     home:       Home
     admin:      Admin
+    community:
+      general:  Community
+    about:
+      general:  Algemeen
+      rules:    Spelregels
+      about_us: Over ons
   user:
     first_name: Voornaam
     last_name:  Achternaam
@@ -21,9 +27,11 @@ nl:
     password:   Wachtwoord
     role:       Rol
     language:   Taal
-  account:
-    my_account:   Mijn account
-    edit_account: Account bewerken
+  profile:
+    my_profile:   Mijn profiel
+    account:      Profiel
+    show_profile: Profiel bekijken
+    edit_profile: Profiel bewerken
 
   date:
     formats:

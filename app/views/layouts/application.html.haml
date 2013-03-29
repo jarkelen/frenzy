@@ -26,7 +26,7 @@
       .row
         %header
           .span6
-            .title= link_to I18n.t(".site.title"), root_path
+            .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
           .span6
             - if signed_in?
               .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
@@ -56,7 +56,18 @@
                             %li= link_to I18n.t(".team.my_team"), selections_path
                             %li= link_to I18n.t(".joker.jokers"), jokers_path
                             %li= link_to I18n.t(".score.my_scores"), scores_path
+                        %li.divider-vertical
+                        %li.dropdown
+                          %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+                            = I18n.t(".site.about.general")
+                            %b.caret
+                          %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
                             %li= link_to I18n.t(".ranking.ranking"), rankings_path
+                            %li= link_to I18n.t(".site.about.about_us"), root_path
+                            %li= link_to I18n.t(".site.about.rules"), root_path
+                        %li.divider-vertical
+                        %li
+                          = link_to I18n.t(".site.community.general"), root_path
                         %li.divider-vertical
                     %ul.nav.pull-right
                       - if current_user.admin?
@@ -73,10 +84,11 @@
                       %li.divider-vertical
                       %li.dropdown
                         %a#drop2.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
-                          = I18n.t(".account.my_account")
+                          = I18n.t(".profile.my_profile")
                           %b.caret
                         %ul.dropdown-menu{ "aria-labelledby" => "drop2", role: "menu" }
-                          %li= link_to t('.sign_out'), sign_out_path, method: :delete
+                          %li= link_to I18n.t('.profile.show_profile'), user_path(current_user)
+                          %li= link_to I18n.t('.layouts.application.sign_out'), sign_out_path, method: :delete
 
       / Messages
       .row
@@ -96,4 +108,6 @@
           %footer
             %h5.subheader
               &copy; 2013
-              %a{:href => "https://twitter.com/DutchAddick"} DutchAddick
+              %a{:href => "https://twitter.com/DutchAddick", target: "_blank" } DutchAddick
+              &amp;
+              %a{:href => "https://twitter.com/Doingthe116", target: "_blank" } Doingthe116

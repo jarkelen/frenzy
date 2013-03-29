@@ -10,10 +10,10 @@ describe Joker do
 
   describe ".validate_jokers" do
     before :each do
-      @gameround = FactoryGirl.create(:gameround)
-      @club1 = FactoryGirl.create(:club)
-      @club2 = FactoryGirl.create(:club)
-      @club3 = FactoryGirl.create(:club)
+      @gameround  = FactoryGirl.create(:gameround)
+      @club1      = FactoryGirl.create(:club)
+      @club2      = FactoryGirl.create(:club)
+      @club3      = FactoryGirl.create(:club)
     end
 
     it "should be successful with valid parameters" do
@@ -34,6 +34,29 @@ describe Joker do
 
     it "should fail when first and last clubs are equal" do
       Joker.validate_jokers(@gameround, @club1, @club2, @club1).should be_false
+    end
+
+    it "should fail when joker already exists" do
+      @participant = FactoryGirl.create(:user)
+      FactoryGirl.create(:joker, user: @participant, club: @club1, gameround: @gameround)
+      Joker.validate_jokers(@gameround, @club1, nil, nil).should be_false
+    end
+  end
+
+  describe ".joker_found" do
+    before :each do
+      @gameround  = FactoryGirl.create(:gameround)
+      @club       = FactoryGirl.create(:club)
+    end
+
+    it "should return true when joker not already exists" do
+      Joker.joker_found(@gameround, @club).should be_false
+    end
+
+    it "should return false when joker already exists" do
+      @participant = FactoryGirl.create(:user)
+      FactoryGirl.create(:joker, user: @participant, club: @club, gameround: @gameround)
+      Joker.joker_found(@gameround, @club).should be_true
     end
   end
 end

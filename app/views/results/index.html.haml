@@ -1,24 +1,21 @@
-- model_class = Result
 .row
   .span12
     .page-header
-      %h1=t '.title', default: model_class.model_name.human.pluralize
+      %h1= I18n.t('.result.results')
     %table.table.table-striped
       %thead
         %tr
-          %th= model_class.human_attribute_name(:id)
-          %th= model_class.human_attribute_name(:home_club_id)
-          %th= model_class.human_attribute_name(:away_club_id)
+          %th= I18n.t('.league.name')
+          %th= I18n.t('.score.match')
           %th= I18n.t('.result.result')
-          %th= model_class.human_attribute_name(:gameround_id)
+          %th= I18n.t('.gameround.gameround')
           - if can? :update, Result
             %th=t '.actions', default: t("helpers.actions")
       %tbody
         - @results.each do |result|
           %tr
-            %td= result.id
-            %td= result.home_club.club_name
-            %td= result.away_club.club_name
+            %td= result.home_club.league.league_short
+            %td= "#{result.home_club.club_name} - #{result.away_club.club_name}"
             %td= "#{result.home_score}-#{result.away_score}"
             %td= result.gameround_id
             - if can? :update, Result

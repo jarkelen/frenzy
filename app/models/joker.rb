@@ -19,6 +19,7 @@ class Joker < ActiveRecord::Base
 
   def self.joker_found(gameround, club)
     joker = self.where(club_id: club, gameround_id: gameround)
-    return true unless joker.blank?
+    return false if joker.blank?
+    return true
   end
 end

@@ -35,7 +35,7 @@ class FrenzyCalculator
           club_score += score.score
 
           joker = Joker.where(gameround_id: gameround_id, club_id: club.id, user_id: user.id)
-          unless joker
+          unless joker.blank?
             club_score *= 2
           end
         end
@@ -87,7 +87,7 @@ class FrenzyCalculator
         # Points drawn for opponent goals
         score -= result.home_score
 
-        Score.first_or_create(score: score, club_id: result.away_club_id, gameround_id: gameround_id)
+        Score.find_or_create_by_gameround_id_and_club_id(gameround_id: gameround_id, club_id: result.away_club_id, score: score)
       end
     end
 

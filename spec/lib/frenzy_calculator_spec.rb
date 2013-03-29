@@ -5,10 +5,14 @@ describe FrenzyCalculator do
     @calculator = FrenzyCalculator.new
   end
 
-  describe "#new" do
+  describe "new" do
     it "returns a FrenzyCalculator object" do
         @calculator.should be_an_instance_of FrenzyCalculator
     end
+  end
+
+  describe "calculate ranking"
+
   end
 
 end
