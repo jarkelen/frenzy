@@ -96,6 +96,17 @@ form {
     color: #FFFFFF;
     font-weight: bold;
   }
+  .joker_neutral {
+    background-color: transparant;
+  }
+  .joker_positive {
+    background-color: green;
+    color: #FFFFFF;
+  }
+  .joker_negative {
+    background-color: red;
+    color: #FFFFFF;
+  }
 }
 .center {
   text-align: center;

@@ -22,7 +22,15 @@
           - if $participation and can? :create, Selection
             %th= I18n.t('.actions')
       %tbody
+        - period1_counter = 0
+        - period2_counter = 0
+        - period3_counter = 0
+        - period4_counter = 0
         - @selections.each do |selection|
+          - period1_counter += selection.club.period1
+          - period2_counter += selection.club.period2
+          - period3_counter += selection.club.period3
+          - period4_counter += selection.club.period4
           %tr
             %td= link_to selection.club.club_name, club_path(selection.club)
             %td= selection.club.league.league_short
@@ -32,6 +40,15 @@
             %td= selection.club.period4
             - if $participation and can? :destroy, Selection
               %td= link_to t('.destroy', default: t("helpers.links.destroy")), selection_path(selection), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+      %thead
+        %tr
+          %th
+          %th
+          %th= period1_counter
+          %th= period2_counter
+          %th= period3_counter
+          %th= period4_counter
+          %th
 
 - if $participation and @selections.size < $max_teamsize and @current_teamvalue < $max_teamvalue and can? :create, Selection
   .row

@@ -22,4 +22,20 @@ class Joker < ActiveRecord::Base
     return false if joker.blank?
     return true
   end
+
+  def effective?(gameround)
+    if gameround.processed
+      score = self.club.scores.where(gameround_id: gameround).pluck(:score).first
+      if score*2 > score
+        "positive"
+      elsif score*2 < score
+        "negative"
+      else
+        "neutral"
+      end
+    else
+      "neutral"
+    end
+  end
+
 end

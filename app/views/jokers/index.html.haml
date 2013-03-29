@@ -30,13 +30,17 @@
         - @all_gamerounds.each do |gameround|
           - jokers = current_user.jokers.where(gameround_id: gameround)
           %tr
-            %td= markup_gameround(gameround)
+            - if gameround.processed
+              %td= link_to markup_gameround(gameround), scores_path(gameround_id: gameround)
+            - else
+              %td= markup_gameround(gameround)
             %td= markup_boolean(gameround.processed)
 
             - counter = 0
             - jokers.each do |joker|
               - counter += 1
-              %td
+              - result = joker.effective?(gameround)
+              %td{class: "joker_#{result}"}
                 = joker.club.club_name
                 - if can? :destroy, Joker and gameround.processed == false
                   = link_to "x", joker_path(joker), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'destroy_x'
