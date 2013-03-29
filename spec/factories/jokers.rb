@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :joker do
     association :gameround
     association :user
+    association :club
   end
 end
