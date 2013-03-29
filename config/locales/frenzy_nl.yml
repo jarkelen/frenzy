@@ -10,6 +10,7 @@ nl:
   gameround:
     gamerounds:         Speelrondes
     gameround:          Speelronde
+    processed:          Verwerkt
     new:                Toevoegen speelronde
     edit:               Wijzigen speelronde
   result:
@@ -35,14 +36,30 @@ nl:
     intro2:             Bij de ingezette jokers wordt d.m.v. kleuren aangegeven of de joker effektief was. Rood betekent dat de joker beter niet ingezet had kunnen worden, groen betekent dat het een prima keuze was om de joker in te zetten en wit betekent dat je een joker kwijt bent zonder dat het iets heeft opgeleverd.
     used_jokers1:       Jokers verbruikt
     used_jokers2:       van de
+    joker1:             Joker 1 voor club
+    joker2:             Joker 2 voor club
+    joker3:             Joker 3 voor club
+    no_jokers:          nog geen jokers ingezet
+    joker_success:      zijn successvol aangemaakt
+    joker_failure:      zijn helaas niet successvol aangemaakt, probeer het opnieuw!
   score:
-    my_scores:          Mijn Punten
+    my_scores:          Mijn punten
     score:              Punten
-    result:             Result
+    result:             Resultaat
+    match:              Wedstrijd
     calculate:          Berekenen punten
     intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. Een club met een gele achtergrond betekent dat je op die club een joker hebt ingezet. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
   frenzy:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
     message_calculated: De gegevens zijn berekend
+    my_frenzy:          Mijn Frenzy
+  ranking:
+    ranking:            Klassement
+    general_ranking:    Algemeen klassement
+    gameround_ranking:  Uitslag speelronde
+    team:               Team
+    used_jokers:        Gebruikte jokers
+    total_score:        Puntentotaal
+    position:           Positie
 

@@ -6,6 +6,8 @@ nl:
     false:      Nee
     dutch:      Nederlands
     english:    Engels
+    save:       Opslaan
+    cancel:     Annuleren
   site:
     title:      Football Frenzy
     salutation: Welkom

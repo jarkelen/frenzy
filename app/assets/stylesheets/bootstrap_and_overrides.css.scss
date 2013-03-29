@@ -6,22 +6,21 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
 $navbarCollapseWidth: 767px;
 $navbarBackground: $base-color;
-$navbarBackgroundHighlight: $base-color;
+$navbarBackgroundHighlight: darken($base-color, 10%);
 $navbarText: #FFFFFF;
 $navbarLinkColor: #FFFFFF;
 $navbarLinkColorHover: #FFFFFF;
 $navbarLinkColorActive: #FFFFFF;
 $navbarLinkBackgroundActive: $base-color;
 $navbarLinkBackgroundHover: $base-color;
-$btnPrimaryBackground: $base-color;
-$btnPrimaryBackgroundHighlight: lighten($base-color, 5%);
+
 
 .nav-tabs>li>a, .nav-tabs>li>a:hover, .nav-tabs>li>a:active, .nav-tabs>li>a:visited {
   color: $base-color;
 }
 .btn {
   a, a:hover, a:visited, a:active {
-  color: #FFFFFF !important;
+  color: grey !important;
   }
 }
 .table {

@@ -3,18 +3,21 @@ class JokersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @jokers = current_user.jokers.all
-    @joker = Joker.new
-    #@new_jokers = 3.times { Joker.build }
+    @clubs = current_user.clubs
+    @gamerounds = Gameround.active
+    @all_gamerounds = Gameround.all
   end
 
-  def create
-    @joker = Joker.new(params[:joker])
+  def store
+    result = Joker.validate_jokers(params[:gameround_id], params[:club1], params[:club2], params[:club3])
+    if result
+      Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club1]) unless params[:club1].blank?
+      Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club2]) unless params[:club2].blank?
+      Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club3]) unless params[:club3].blank?
 
-    if @joker.save
-      redirect_to jokers_path, notice: "Joker #{I18n.t('.created.success')}"
+      redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.joker_success')}"
     else
-      render action: "new"
+      redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.joker_failure')}"
     end
   end
 

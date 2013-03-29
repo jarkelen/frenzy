@@ -4,8 +4,11 @@ Frenzy::Application.routes.draw do
   resources :results
   resources :gamerounds
   resources :selections
-  resources :jokers
+  resources :jokers do
+    post :store, on: :collection
+  end
   resources :scores, only: [:index]
+  resources :rankings, only: [:index]
 
   get  "frenzy/index"
   post "frenzy/process_gameround"
