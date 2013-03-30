@@ -7,7 +7,7 @@
 .row
   .span12
     .points_used
-      %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{$max_jokers}"
+      %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{current_user.assigned_jokers}"
 
 - if can? :create, Joker
   .row
@@ -40,8 +40,8 @@
             - jokers.each do |joker|
               - counter += 1
               - result = joker.effective?(gameround)
-              %td{class: "joker_#{result}"}
-                = joker.club.club_name
+              %td
+                %span{class: "label label-#{result}"}= joker.club.club_name
                 - if can? :destroy, Joker and gameround.processed == false
                   = link_to "x", joker_path(joker), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'destroy_x'
 

@@ -27,9 +27,9 @@ class Joker < ActiveRecord::Base
     if gameround.processed
       score = self.club.scores.where(gameround_id: gameround).pluck(:score).first
       if score*2 > score
-        "positive"
+        "success"
       elsif score*2 < score
-        "negative"
+        "important"
       else
         "neutral"
       end
