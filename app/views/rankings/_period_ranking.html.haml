@@ -1,0 +1,18 @@
+.page-header
+  %h3= "#{I18n.t('.ranking.period_ranking')}: #{I18n.t('.period.period_name')} #{$current_period}"
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= I18n.t('.ranking.position')
+      %th= I18n.t('.ranking.team')
+      %th= I18n.t('.ranking.total_score')
+  %tbody
+    - nr = 1
+    - @period_rankings.each do |ranking|
+      - user = User.find(ranking[0])
+      %tr
+        %td= "#{nr}."
+        %td= link_to user.team_name, user_path(user)
+        %td= ranking[1]
+      - nr += 1

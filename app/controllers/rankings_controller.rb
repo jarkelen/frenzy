@@ -3,8 +3,12 @@ class RankingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @current_gameround = Gameround.current.last
-    @gameround_rankings = Ranking.current_gameround
-    @general_rankings = Ranking.calculate_overall_ranking
+    if params[:type] == "gameround"
+      @current_gameround = Gameround.current.last
+      @gameround_rankings = Ranking.current_gameround
+    else
+      @general_rankings = Ranking.calculate_ranking("general")
+      @period_rankings = Ranking.calculate_ranking("period")
+    end
   end
 end

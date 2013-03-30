@@ -53,15 +53,19 @@ nl:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
     message_calculated: De gegevens zijn berekend
-    my_frenzy:          Mijn Frenzy
+    the_frenzy:         Frenzy
   ranking:
     ranking:            Klassement
     general_ranking:    Algemeen klassement
-    gameround_ranking:  Uitslag speelronde
+    period_ranking:     Periode klassement
+    rankings:           Klassementen
+    gameround_ranking:  Uitslagen
+    ranking_after:      Uitslag na speelronde
     last_round_ranking: Uitslag laatste speelronde
     team:               Team
     used_jokers:        Gebruikte jokers
     total_score:        Puntentotaal
     position:           Positie
-    intro:              Hieronder een overzicht van het algemeen klassement na de laatst berekende speelronde. Daarnaast kun je de algemeen klassementen na eerdere speelronden nog eens terug kijken. De tab "Uitslag laatste speelronde" geeft het klassement van de laatst berekende speelronde aan, maar je kunt ook de uitslagen na eerdere speelrondes bekijken.
+    intro_general:      Hieronder een overzicht van het algemeen klassement en het periode klassement na de laatst berekende speelronde. Daarnaast kun je de klassementen na eerdere speelronden nog eens terug kijken.
+    intro_gameround:    Hieronder de uitslag van de laatst berekende speelronde, maar je kunt ook de uitslagen na eerdere speelrondes bekijken.
 
