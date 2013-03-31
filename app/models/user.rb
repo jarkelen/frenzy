@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language
 
-  #before_save :assign_jokers
+  before_save :assign_jokers
   before_save { |user| user.email = email.downcase }
 
   validates :first_name, :last_name, :team_name, :role, :language, presence: true
