@@ -9,7 +9,7 @@ Frenzy::Application.routes.draw do
   end
   resources :scores, only: [:index]
   resources :rankings, only: [:index]
-  resources :users
+  resources :users, only: [:index, :show, :team]
 
   get  "frenzy/index"
   post "frenzy/process_gameround"
