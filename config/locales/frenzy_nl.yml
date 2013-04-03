@@ -16,6 +16,7 @@ nl:
   result:
     results:            Resultaten
     result:             Resultaat
+    new:                Reultaten toevoegen
   period:
     period_name:        Periode
     period_nr:          Nummer

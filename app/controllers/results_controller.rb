@@ -7,21 +7,21 @@ class ResultsController < ApplicationController
   end
 
   def new
-    @result = Result.new
+    @gamerounds = Gameround.active
+    @clubs = Club.all
   end
 
   def edit
     @result = Result.find(params[:id])
   end
 
-  def create
-    @result = Result.new(params[:result])
-
-    if @result.save
-      redirect_to results_path, notice: "Result #{I18n.t('.created.success')}"
-    else
-      render action: "new"
+  def store_all
+    params[:line].each do |counter, line|
+      unless line[:home_club_id].blank?
+        Result.create(line.merge(gameround_id: params[:gameround_id]))
+      end
     end
+    redirect_to results_path, notice: "Results #{I18n.t('.created.success')}"
   end
 
   def update

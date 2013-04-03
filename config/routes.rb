@@ -1,7 +1,9 @@
 Frenzy::Application.routes.draw do
   resources :leagues
   resources :clubs
-  resources :results
+  resources :results do
+    post :store_all, on: :collection
+  end
   resources :gamerounds
   resources :selections
   resources :jokers do

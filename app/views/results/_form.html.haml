@@ -1,9 +1,14 @@
-= simple_form_for @result, html: { class: 'form-horizontal' } do |f|
-  = f.input(:home_club_id, label: I18n.t('.club.club'), collection: Club.all.map{ |c| [c.club_name, c.id] }, include_blank: true)
-  = f.input(:away_club_id, label: I18n.t('.club.club'), collection: Club.all.map{ |c| [c.club_name, c.id] }, include_blank: true)
-  = f.input :home_score
-  = f.input :away_score
-  = f.input(:gameround_id, label: I18n.t('.gameround.gameround'), collection: Gameround.all.map{ |g| ["#{g.number}: #{g.start_date.strftime("%d-%m-%Y")}", g.id] }, include_blank: true)
+= form_tag store_all_results_path, class: 'form-horizontal' do
+  .control-group
+    .controls
+      = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
+  - 1.upto(12) do |counter|
+    .control-group
+      .controls
+      = select_tag "line[#{counter}][home_club_id]", options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+      = select_tag "line[#{counter}][away_club_id]", options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+      = text_field_tag "line[#{counter}][home_score]", nil, class: "small_text_field"
+      = text_field_tag "line[#{counter}][away_score]", nil, class: "small_text_field"
   .form-actions
-    = f.button :submit, class: 'btn'
+    = submit_tag :submit, value: I18n.t('.general.save'), class: "btn"
     = link_to t('.cancel', default: t("helpers.links.cancel")), results_path, class: 'btn'
