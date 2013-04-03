@@ -43,6 +43,7 @@ nl:
     no_jokers:          nog geen jokers ingezet
     joker_success:      zijn successvol aangemaakt
     joker_failure:      zijn helaas niet successvol aangemaakt, probeer het opnieuw!
+    cancel:             Jokers annuleren
   score:
     my_scores:          Mijn punten
     score:              Punten
@@ -53,7 +54,9 @@ nl:
   frenzy:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
+    cancel_jokers:      Annuleren jokers
     message_calculated: De gegevens zijn berekend
+    message_cancelled:  De jokers zijn geannuleerd
     the_frenzy:         Frenzy
   ranking:
     ranking:            Klassement

@@ -21,6 +21,11 @@ class FrenzyCalculator
     gameround.update_attributes(processed: true)
   end
 
+  def cancel_jokers(line)
+    Joker.where(club_id: line[:home_club_id], gameround_id: line[:gameround_id]).destroy_all
+    Joker.where(club_id: line[:away_club_id], gameround_id: line[:gameround_id]).destroy_all
+  end
+
   private
     def calculate_ranking(user, gameround_id)
       total_score = 0
