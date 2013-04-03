@@ -7,7 +7,7 @@ describe Ranking do
   it { should belong_to(:user)      }
   it { should belong_to(:gameround) }
 
-  describe "calculate_overall_ranking" do
+  describe "calculate_ranking" do
     before :each do
       @user_top    = FactoryGirl.create(:user)
       @user_bottom = FactoryGirl.create(:user)
@@ -17,7 +17,7 @@ describe Ranking do
       @user_bottom_ranking2 = FactoryGirl.create(:ranking, user: @user_bottom, total_score: 6)
     end
 
-    it "should rank user_top as first" do
+    it "should rank highest user as first" do
       Ranking.calculate_overall_ranking.should =~ [[@user_top, 15], [@user_bottom, 8]]
     end
   end

@@ -1,5 +1,6 @@
 .page-header
-  %h1= "#{I18n.t('.ranking.gameround_ranking')}: #{@current_gameround.number} (#{@current_gameround.start_date.strftime('%d-%m-%Y')} - #{@current_gameround.end_date.strftime('%d-%m-%Y')})"
+  %h1= "#{I18n.t('.ranking.ranking_after')}: #{@current_gameround.number} (#{@current_gameround.start_date.strftime('%d-%m-%Y')} - #{@current_gameround.end_date.strftime('%d-%m-%Y')})"
+  %p= I18n.t('ranking.intro_gameround')
 
 %table.table.table-striped
   %thead

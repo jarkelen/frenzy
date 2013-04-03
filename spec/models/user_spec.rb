@@ -11,5 +11,4 @@ describe User do
   it { should have_many(:rankings)   }
   it { should have_many(:selections) }
   it { should have_many(:clubs).through(:selections) }
-
 end

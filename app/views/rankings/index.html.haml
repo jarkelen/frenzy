@@ -1,15 +1,16 @@
 .row
   .span12
-    %p= I18n.t('ranking.intro')
-
-    .tabbable
-      %ul.nav.nav-tabs
-        %li.active
-          %a{"data-toggle" => "tab", href: "#tab1"}= I18n.t('.ranking.general_ranking')
-        %li
-          %a{"data-toggle" => "tab", href: "#tab2"}= I18n.t('.ranking.last_round_ranking')
-      .tab-content
-        #tab1.tab-pane.active
-          = render partial: "general_ranking"
-        #tab2.tab-pane
-          = render partial: "gameround_ranking"
+    - if params[:type] == "gameround"
+      = render partial: "gameround_ranking"
+    - else
+      .tabbable
+        %ul.nav.nav-tabs
+          %li.active
+            %a{"data-toggle" => "tab", href: "#tab1"}= I18n.t('.ranking.general_ranking')
+          %li
+            %a{"data-toggle" => "tab", href: "#tab2"}= I18n.t('.ranking.period_ranking')
+        .tab-content
+          #tab1.tab-pane.active
+            = render partial: "general_ranking"
+          #tab2.tab-pane
+            = render partial: "period_ranking"

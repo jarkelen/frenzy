@@ -1,10 +1,14 @@
 require 'spec_helper'
 
 describe "Manage results" do
-  let(:user) { create :user } #, first_name: 'Arie', last_name: 'Admin', role: 'admin' }
+  before(:all) do
+    $max_jokers = 40
+    #FactoryGirl.create(:period)
+  end
 
   before(:each) do
-    sign_in_as(user)
+    @user = FactoryGirl.create(:user, role: 'admin')
+    sign_in_as(@user)
   end
 
   context "listing leagues" do
@@ -959,4 +963,4 @@ describe 'Manage people' do
 
   end
 end
-=end
+=end  $max_jokers = 40

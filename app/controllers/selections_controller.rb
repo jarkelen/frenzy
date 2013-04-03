@@ -11,16 +11,16 @@ class SelectionsController < ApplicationController
     @selections.each do |selection|
       # Determine current period
       case $current_period
-        when "period1"
+        when 1
           @current_period = selection.club.period1
-        when "period2"
+        when 2
           @current_period = selection.club.period2
-        when "period3"
+        when 3
           @current_period = selection.club.period3
-        when "period4"
+        when 4
           @current_period = selection.club.period4
       end
-      @current_teamvalue = @current_teamvalue + @current_period
+      @current_teamvalue += @current_period
     end
   end
 

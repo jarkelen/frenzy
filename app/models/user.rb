@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language
 
+  before_save :assign_jokers
   before_save { |user| user.email = email.downcase }
 
   validates :first_name, :last_name, :team_name, :role, :language, presence: true
@@ -21,6 +22,12 @@ class User < ActiveRecord::Base
 
   def full_name
     [first_name, last_name].join(' ').squeeze(' ')
+  end
+
+  def assign_jokers
+    periods = Period.all.size
+    jokers_per_period = $max_jokers / periods
+    self.assigned_jokers = ((periods + 1) - $current_period) * jokers_per_period
   end
 
 end
