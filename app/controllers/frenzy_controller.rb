@@ -29,14 +29,6 @@ class FrenzyController < ApplicationController
   end
 
   def rules
-    case params[:section]
-      when "library"
-        @content = "Library"
-      when "home"
-        @content = "Home"
-      else
-         @content = "bla"
-    end
   end
 
 end
