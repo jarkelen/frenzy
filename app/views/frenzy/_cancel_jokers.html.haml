@@ -1,0 +1,12 @@
+= form_tag frenzy_cancel_jokers_path, class: 'form-horizontal' do
+  .control-group
+    .controls
+      = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
+  - 1.upto(5) do |counter|
+    .control-group
+      .controls
+      = select_tag "line[#{counter}][home_club_id]", options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+      = select_tag "line[#{counter}][away_club_id]", options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+  .form-actions
+    = submit_tag :submit, value: I18n.t('.joker.cancel'), class: "btn"
+    = link_to t('.cancel', default: t("helpers.links.cancel")), frenzy_index_path, class: 'btn'
