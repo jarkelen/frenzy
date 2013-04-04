@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 gem 'jquery-rails'
@@ -12,6 +13,8 @@ gem 'mysql2'
 gem 'clearance', '1.0.0.rc6'
 gem 'simple_form'
 gem 'cancan'
+gem 'pg'
+gem 'activerecord-postgresql-adapter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -31,4 +34,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+end
+
+group :production do
+  gem 'thin'
 end

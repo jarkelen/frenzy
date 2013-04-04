@@ -28,4 +28,15 @@ class FrenzyController < ApplicationController
     redirect_to frenzy_index_path, notice: t('.frenzy.message_cancelled')
   end
 
+  def rules
+    case params[:section]
+      when "library"
+        @content = "Library"
+      when "home"
+        @content = "Home"
+      else
+         @content = "bla"
+    end
+  end
+
 end
