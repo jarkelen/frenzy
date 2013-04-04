@@ -14,6 +14,7 @@ Frenzy::Application.routes.draw do
   resources :users, only: [:index, :show, :team]
 
   get  "frenzy/index"
+  get  "frenzy/rules"
   post "frenzy/process_gameround"
   post "frenzy/cancel_jokers"
 
