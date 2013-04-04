@@ -1,5 +1,6 @@
 Frenzy::Application.routes.draw do
   resources :leagues
+  resources :periods
   resources :clubs
   resources :results do
     post :store_all, on: :collection
