@@ -13,6 +13,7 @@ gem 'mysql2'
 gem 'clearance', '1.0.0.rc6'
 gem 'simple_form'
 gem 'cancan'
+gem 'pg'
 gem 'activerecord-postgresql-adapter'
 
 group :assets do
@@ -36,6 +37,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'thin'
 end
