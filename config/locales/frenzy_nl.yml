@@ -18,10 +18,14 @@ nl:
     result:             Resultaat
     new:                Reultaten toevoegen
   period:
+    periods:            Periodes
     period_name:        Periode
     period_nr:          Nummer
+    name:               Naam
     start_date:         Startdatum
     end_date:           Einddatum
+    new:                Periode toevoegen
+    edit:               Periode wijzigen
   team:
     intro:              Hieronder zijn jouw teamgegevens. Als de Football Frenzy nog niet is begonnen kun je met de link "Wijzigen team" het team nog aanpassen.
     new:                Club toevoegen
