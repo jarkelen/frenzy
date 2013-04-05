@@ -59,8 +59,10 @@ nl:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
     cancel_jokers:      Annuleren jokers
+    switch_period:      Switchen periode
     message_calculated: De gegevens zijn berekend
     message_cancelled:  De jokers zijn geannuleerd
+    message_switched:   De periode is geswitched
     the_frenzy:         Frenzy
     rules:
       title:            Frenzy spelregels

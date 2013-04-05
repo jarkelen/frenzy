@@ -31,4 +31,11 @@ class FrenzyController < ApplicationController
   def rules
   end
 
+  def switch_period
+    calculator = FrenzyCalculator.new
+    calculator.switch_period
+
+    redirect_to frenzy_index_path, notice: t('.frenzy.message_switched')
+  end
+
 end
