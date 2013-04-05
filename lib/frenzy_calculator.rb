@@ -28,34 +28,25 @@ class FrenzyCalculator
 
   def switch_period
     current_period = $current_period
-    new_period += current_period
-  puts "CURRENT #{current_period}"
-  puts "NEW #{new_period}"
+    new_period = current_period + 1
+
     users = User.all
-    users.for_each do |user|
+    users.each do |user|
       points_gained = 0
       selections = user.selections
-      selections.for_each do |selection|
+      selections.each do |selection|
         club = selection.club
         club_gained = club.period2 - club.period1
         points_gained += club_gained
-  puts "POINTS GAINED #{points_gained}"
       end
 
-      # Save it as score
+      gameround = Gameround.create(number: (1000 + current_period), start_date: DateTime.now, end_date: DateTime.now, processed: true, period_id: current_period)
+      ranking = Ranking.create(gameround_id: gameround.id, user_id: user.id, total_score: points_gained)
+  puts "RANKING #{ranking.id}-#{ranking.total_score}"
+      user.update_attributes(team_value: (user.team_value + points_gained))
+      setting = Setting.first
+      setting.update_attributes(current_period: new_period)
     end
-
-
-
-
-
-    # Get current period
-    # Calculate points gained/lost per team, by cycling all clubs in team and get old and new value
-    # Add those points as new score as extra gameround to current old period
-    # Make a gameround overview with period winners
-    # Update curent in settings
-
-
   end
 
   private

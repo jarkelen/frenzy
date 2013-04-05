@@ -63,7 +63,5 @@ module Frenzy
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.assets.initialize_on_precompile = false
-
-    config.gauges.site_id = '515eb2e9108d7b35c700000f'
   end
 end
