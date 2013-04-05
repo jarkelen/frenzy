@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'cancan'
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
+gem 'gauges-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
