@@ -26,6 +26,38 @@ class FrenzyCalculator
     Joker.where(club_id: line[:away_club_id], gameround_id: line[:gameround_id]).destroy_all
   end
 
+  def switch_period
+    current_period = $current_period
+    new_period += current_period
+  puts "CURRENT #{current_period}"
+  puts "NEW #{new_period}"
+    users = User.all
+    users.for_each do |user|
+      points_gained = 0
+      selections = user.selections
+      selections.for_each do |selection|
+        club = selection.club
+        club_gained = club.period2 - club.period1
+        points_gained += club_gained
+  puts "POINTS GAINED #{points_gained}"
+      end
+
+      # Save it as score
+    end
+
+
+
+
+
+    # Get current period
+    # Calculate points gained/lost per team, by cycling all clubs in team and get old and new value
+    # Add those points as new score as extra gameround to current old period
+    # Make a gameround overview with period winners
+    # Update curent in settings
+
+
+  end
+
   private
     def calculate_ranking(user, gameround_id)
       total_score = 0

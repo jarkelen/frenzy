@@ -10,3 +10,9 @@
     .span12
       %h3= I18n.t('frenzy.cancel_jokers')
       = render "cancel_jokers"
+
+  .row
+    .span12
+      %h3= I18n.t('frenzy.switch_period')
+      = form_tag frenzy_switch_period_path do
+        = submit_tag :submit, value: I18n.t('frenzy.switch_period'), class: 'btn'
