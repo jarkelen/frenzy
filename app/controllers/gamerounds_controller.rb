@@ -3,7 +3,7 @@ class GameroundsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @gamerounds = Gameround.all
+    @gamerounds = Gameround.order('number DESC')
   end
 
   def show

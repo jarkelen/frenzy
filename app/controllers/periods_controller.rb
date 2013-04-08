@@ -3,7 +3,7 @@ class PeriodsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @periods = Period.all
+    @periods = Period.order('period_nr')
   end
 
   def show
