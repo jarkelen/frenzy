@@ -6,7 +6,7 @@
 .row
   .span12
     .points_used
-      %p= "#{I18n.t('team.used_points1')}: #{@current_teamvalue} #{I18n.t('team.used_points2')} #{$max_teamvalue}"
+      %p= "#{I18n.t('team.used_points1')}: #{@current_teamvalue} #{I18n.t('team.used_points2')} #{current_user.team_value}"
 
 .row
   .span12
@@ -50,7 +50,7 @@
           %th= period4_counter
           %th
 
-- if (@selections.size == 0 or ($participation and @selections.size < $max_teamsize and @current_teamvalue < $max_teamvalue)) and can? :create, Selection
+- if (@selections.size == 0 or ($participation and @selections.size < $max_teamsize and @current_teamvalue < current_user.team_value)) and can? :create, Selection
   .row
     .span12
       = render partial: "add_club"

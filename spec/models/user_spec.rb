@@ -7,6 +7,7 @@ describe User do
   it { should validate_presence_of :role       }
   it { should validate_presence_of :email      }
   it { should validate_presence_of :language   }
+  it { should validate_presence_of :team_value  }
   it { should have_many(:jokers)     }
   it { should have_many(:rankings)   }
   it { should have_many(:selections) }

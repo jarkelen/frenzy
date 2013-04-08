@@ -35,7 +35,14 @@ class FrenzyController < ApplicationController
     calculator = FrenzyCalculator.new
     calculator.switch_period
 
-    redirect_to frenzy_index_path, notice: t('.frenzy.message_switched')
+    redirect_to frenzy_index_path, notice: t('.frenzy.message_period_switched')
+  end
+
+  def switch_participation
+    setting = Setting.first
+    setting.update_attributes(participation: params[:participation])
+
+    redirect_to frenzy_index_path, notice: t('.frenzy.message_participation_switched')
   end
 
 end
