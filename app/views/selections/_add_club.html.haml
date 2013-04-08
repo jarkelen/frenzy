@@ -1,6 +1,8 @@
 .row
   .span12
-    = simple_form_for @selection, html: { class: 'form-horizontal' } do |f|
-      = f.input(:user_id, as: :hidden, input_html: { value: current_user.id })
-      = f.input(:club_id, collection: Club.within_max_teamvalue(current_user, @current_teamvalue).map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }, include_blank: true)
-      = f.button :submit, class: 'btn', value: I18n.t('.team.new')
+    .form-inline
+      %h3= I18n.t('.team.new')
+      = form_for @selection do |f|
+        = f.hidden_field :user_id, value: current_user.id
+        = f.select :club_id, Club.within_max_teamvalue(current_user, @current_teamvalue).map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }, include_blank: true
+        = f.submit(class: 'btn', value: I18n.t('.team.new'))
