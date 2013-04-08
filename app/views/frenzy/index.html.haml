@@ -1,6 +1,17 @@
 - if can? :administrate_frenzy, Frenzy
   .row
     .span12
+      %h3= I18n.t('frenzy.switch_participation')
+      = form_tag frenzy_switch_participation_path do
+        - if $participation == true
+          = hidden_field_tag :participation, false
+          = submit_tag :submit, value: I18n.t('frenzy.participation_off'), class: 'btn'
+        - else
+          = hidden_field_tag :participation, true
+          = submit_tag :submit, value: I18n.t('frenzy.participation_on'), class: 'btn'
+
+  .row
+    .span12
       %h3= I18n.t('frenzy.process_gameround')
       = form_tag frenzy_process_gameround_path do
         = select_tag 'gameround_id', options_for_select(Gameround.active.map{ |g| ["#{markup_gameround(g)}", g.id] }, include_blank: true)
@@ -8,11 +19,12 @@
 
   .row
     .span12
-      %h3= I18n.t('frenzy.cancel_jokers')
-      = render "cancel_jokers"
-
-  .row
-    .span12
       %h3= I18n.t('frenzy.switch_period')
       = form_tag frenzy_switch_period_path do
         = submit_tag :submit, value: I18n.t('frenzy.switch_period'), class: 'btn'
+
+  .row
+    .span12
+      %h3= I18n.t('frenzy.cancel_jokers')
+      = render "cancel_jokers"
+

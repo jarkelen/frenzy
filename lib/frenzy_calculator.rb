@@ -42,7 +42,6 @@ class FrenzyCalculator
 
       gameround = Gameround.create(number: (1000 + current_period), start_date: DateTime.now, end_date: DateTime.now, processed: true, period_id: current_period)
       ranking = Ranking.create(gameround_id: gameround.id, user_id: user.id, total_score: points_gained)
-  puts "RANKING #{ranking.id}-#{ranking.total_score}"
       user.update_attributes(team_value: (user.team_value + points_gained))
       setting = Setting.first
       setting.update_attributes(current_period: new_period)

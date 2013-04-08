@@ -60,9 +60,13 @@ nl:
     process_gameround:  Verwerken speelronde
     cancel_jokers:      Annuleren jokers
     switch_period:      Switchen periode
+    switch_participation: Switchen deelname
+    participation_on:   Deelname aan
+    participation_off:  Deelname uit
     message_calculated: De gegevens zijn berekend
     message_cancelled:  De jokers zijn geannuleerd
-    message_switched:   De periode is geswitched
+    message_period_switched:   De periode is geswitched
+    message_participation_switched:   De deelname is geswitched
     the_frenzy:         Frenzy
     rules:
       title:            Frenzy spelregels

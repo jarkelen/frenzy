@@ -18,6 +18,7 @@ Frenzy::Application.routes.draw do
   get  "frenzy/rules"
   post "frenzy/process_gameround"
   post "frenzy/switch_period"
+  post "frenzy/switch_participation"
   post "frenzy/cancel_jokers"
 
   get "site/index"
