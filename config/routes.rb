@@ -10,8 +10,19 @@ Frenzy::Application.routes.draw do
   resources :jokers do
     post :store, on: :collection
   end
-  resources :scores, only: [:index]
-  resources :rankings, only: [:index]
+  resources :scores do
+    collection do
+      get :index
+      post :index
+    end
+  end
+  resources :rankings do
+    collection do
+      get :index
+      post :index
+    end
+  end
+
   resources :users, only: [:index, :show, :team]
 
   get  "frenzy/index"
