@@ -9,5 +9,6 @@ class ScoresController < ApplicationController
       @gameround = Gameround.where(processed: true).last
     end
     @scores = Score.where("gameround_id = ?", @gameround)
+    @gamerounds = Gameround.current.order("number DESC")
   end
 end

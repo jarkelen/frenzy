@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'cancan'
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
+gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'database_cleaner'
 end
 
 group :production do

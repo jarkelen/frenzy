@@ -1,6 +1,18 @@
-.page-header
-  %h1= "#{I18n.t('.ranking.ranking_after')}: #{@current_gameround.number} (#{@current_gameround.start_date.strftime('%d-%m-%Y')} - #{@current_gameround.end_date.strftime('%d-%m-%Y')})"
-  %p= I18n.t('ranking.intro_gameround')
+.row
+  .span12.page_header
+    %h1= I18n.t('ranking.gameround_ranking')
+    %p= I18n.t('ranking.intro_gameround')
+
+.row
+  .span12
+    %h4= "#{I18n.t('.ranking.ranking_after')}: #{markup_gameround(@current_gameround)}"
+
+.row
+  .span12
+    = form_tag rankings_path(type: 'gameround'), class: "table_filter" do
+      = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
+      = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
+
 
 %table.table.table-striped
   %thead
@@ -18,4 +30,7 @@
         %td= ranking.total_score
         %td= ranking.user.jokers.where(gameround_id: ranking.gameround_id).size
       - nr += 1
+  %thead
+    %tr
+      %th{ colspan: 4 }
 

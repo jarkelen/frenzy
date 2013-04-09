@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :get_settings
 
+  WillPaginate.per_page = 10
+
   rescue_from CanCan::AccessDenied do |exception|
     render file: Rails.root.join('public', '403.html'), status: 403, layout: false
   end

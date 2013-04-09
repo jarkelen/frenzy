@@ -1,4 +1,12 @@
 module AuthenticationHelpers
+  def create_user(user_type)
+    $max_jokers = 40
+    $current_period = 1
+    FactoryGirl.create(:setting)
+    FactoryGirl.create_list(:period, 4)
+    @user = FactoryGirl.create(:user, role: user_type)
+  end
+
   def sign_in_as(user)
     visit sign_in_path
     fill_in 'session_email', with: user.email

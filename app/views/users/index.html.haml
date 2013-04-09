@@ -1,0 +1,32 @@
+.row
+  .span12
+    .page-header
+      %h1= "#{@users.size} #{I18n.t('.user.title')}"
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= I18n.t('.site.id')
+          %th= I18n.t('.user.team_name')
+          %th= I18n.t('.user.name')
+          %th= I18n.t('.user.email')
+          %th= I18n.t('.user.registered_at')
+          %th= I18n.t('.user.team_value')
+          %th= I18n.t('.user.assigned_jokers')
+          - if can? :update, User
+            %th=t '.actions', default: I18n.t("helpers.actions")
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.team_name
+            %td= link_to user.full_name, user_path(user)
+            %td= user.email
+            %td= user.created_at.strftime('%d-%m-%Y')
+            %td= user.team_value
+            %td= user.assigned_jokers
+            - if can? :update, User
+              %td
+                = link_to t('.destroy', default: I18n.t("helpers.links.destroy")), user_path(user), method: :delete, data: { confirm: I18n.t('.confirm', default: I18n.t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+    = will_paginate @users

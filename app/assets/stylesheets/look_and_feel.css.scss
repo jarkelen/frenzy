@@ -95,6 +95,8 @@ form {
   }
 }
 .table {
+  margin-top: 0;
+
   th {
     background: $table-color;
     color: #FFFFFF;
@@ -114,6 +116,10 @@ form {
 }
 .center {
   text-align: center;
+}
+.table_filter {
+  margin-top: 0;
+  margin: 0 0 5px;
 }
 
 // Topbar
