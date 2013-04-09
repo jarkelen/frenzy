@@ -2,21 +2,22 @@ require 'spec_helper'
 
 describe "Manage results" do
   before(:all) do
-    $max_jokers = 40
-    #FactoryGirl.create(:period)
+    create_user("admin")
   end
 
   before(:each) do
-    @user = FactoryGirl.create(:user, role: 'admin')
     sign_in_as(@user)
   end
 
   context "listing leagues" do
-    let(:league_pl) { create_league(league_name: 'Premier League', level: 1) }
-    let(:league_ch) { create_league(league_name: 'The Championship', level: 2) }
+    league_pl = FactoryGirl.create(:league, league_name: 'Premier League', level: 1)
+    league_ch = FactoryGirl.create(:league, league_name: 'The Championship', level: 2)
 
     it "should show all leagues" do
       visit leagues_path
+save_and_open_page
+      page.should have_content(league_pl.league_name)
+      page.should have_content(league_ch.league_name)
     end
   end
 end

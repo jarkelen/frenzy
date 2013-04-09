@@ -5,7 +5,7 @@
 
 .row
   .span12
-    %h3= "#{I18n.t('.ranking.gameround_ranking')}: #{@gameround.number} (#{@gameround.start_date.strftime('%d-%m-%Y')} - #{@gameround.end_date.strftime('%d-%m-%Y')})"
+    %h4= "#{I18n.t('.ranking.gameround_ranking')}: #{markup_gameround(@gameround)}"
 
 .row
   .span12

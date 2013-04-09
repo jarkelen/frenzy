@@ -16,8 +16,20 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = true
   config.order = 'rand'
-
-  config.include AuthenticationHelpers, type: :feature
   config.include FactoryGirl::Syntax::Methods
+  config.include AuthenticationHelpers, type: :feature
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:all) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
 
 end
