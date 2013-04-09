@@ -1,7 +1,7 @@
 .row
   .span12
     .form-inline
-      %h3= I18n.t('.team.new')
+      %h4= I18n.t('.team.new')
       = form_for @selection do |f|
         = f.hidden_field :user_id, value: current_user.id
         = f.select :club_id, Club.within_max_teamvalue(current_user, @current_teamvalue).map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }, include_blank: true

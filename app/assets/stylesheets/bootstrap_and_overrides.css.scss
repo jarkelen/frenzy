@@ -60,3 +60,8 @@ $navbarLinkBackgroundHover: $base-color;
 .nav-list > .active > a, .nav-list > .active > a:hover, .nav-list > .active > a:focus {
   background-color: $base-color;
 }
+.page-header {
+  border-bottom: 0px;
+  padding-bottom: 0px
+}
+

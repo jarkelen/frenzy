@@ -13,6 +13,7 @@ nl:
     salutation: Welkom
     home:       Home
     admin:      Admin
+    id:         ID
     community:
       general:  Community
     about:
@@ -32,7 +33,10 @@ nl:
     account:      Profiel
     show_profile: Profiel bekijken
     edit_profile: Profiel bewerken
-
+  will_paginate:
+    previous_label: "&#8592; Vorige"
+    next_label: "Volgende &#8594;"
+    page_gap: "&hellip;"
   date:
     formats:
       default: "%-d-%-m-%Y"
