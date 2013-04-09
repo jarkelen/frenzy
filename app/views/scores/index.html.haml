@@ -9,6 +9,10 @@
 
 .row
   .span12
+    = render partial: "gamerounds/table_filter"
+
+.row
+  .span12
     %table.table.table-striped
       %thead
         %tr
@@ -26,6 +30,7 @@
             %td= "#{result.home_club.club_name}-#{result.away_club.club_name}"
             %td= "#{result.home_score}-#{result.away_score}"
             %td= score.score
+      %thead
         %tr
-          %td{ colspan: 3 }
-          %td= total
+          %th{ colspan: 3 }
+          %th= total
