@@ -38,7 +38,7 @@ class SelectionsController < ApplicationController
     @selection = Selection.find(params[:id])
     @selection.destroy
 
-    redirect_to selections_url, notice: "Club #{I18n.t('.successfully_deleted')}"
+    redirect_to selections_url, notice: "Club #{I18n.t('.destroyed.success')}"
   end
 
 end
