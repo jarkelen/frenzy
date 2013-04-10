@@ -3,7 +3,7 @@ class GameroundsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @gamerounds = Gameround.order('number DESC')
+    @gamerounds = Gameround.order('number DESC').paginate(page: params[:page])
   end
 
   def show
