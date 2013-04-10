@@ -1,7 +1,9 @@
 .row
   .offset2.span8
     .hero-unit.profile
-      %h2= I18n.t(".profile.my_profile")
+      .row
+        .span6
+          %h3.text-center= @user.full_name
 
       .row
         .span3
@@ -9,19 +11,27 @@
         .span3
           .row
             .span3
-              %h3= @user.full_name
+              %p
+                %i.icon-user
+                = @user.profile.bio
             .span3
-              %p= @user.profile.bio
+              %p
+                %i.icon-road
+                = @user.profile.location
+            .span3
+              %p
+                %i.icon-envelope
+                = @user.email
+            .span3
+              %p
+                %i.icon-globe
+                = link_to @user.profile.website, @user.profile.website, target: "_blank"
+            .span3
+              %p
+                %i.icon-pencil
+                = I18n.t(".user.created_at")
+                = @user.created_at.strftime("%d %M %Y")
 
-      .row
-        .span3= I18n.t(".user.full_name")
-        .span3= @user.full_name
-      .row
-        .span3= I18n.t(".user.email")
-        .span3= @user.email
-      .row
-        .span3= I18n.t(".user.created_at")
-        .span3= @user.created_at.strftime("%d %M %Y")
       .row
         .span3= I18n.t(".user.team_value")
         .span3= @user.team_value
@@ -31,15 +41,6 @@
       .row
         .span3= I18n.t(".profile.favorite_club")
         .span3= @user.profile.favorite_club
-      .row
-        .span3= I18n.t(".profile.location")
-        .span3= @user.profile.location
-      .row
-        .span3= I18n.t(".profile.website")
-        .span3= link_to "website", @user.profile.website, target: "_blank"
-      .row
-        .span3= I18n.t(".profile.bio")
-        .span3= @user.profile.bio
       .row
         .span3= I18n.t(".profile.twitter")
         .span3= @user.profile.twitter

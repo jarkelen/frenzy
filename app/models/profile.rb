@@ -5,6 +5,8 @@ class Profile < ActiveRecord::Base
 
   before_save :check_protocol
   validates :user_id, presence: true
+  validates_length_of :bio, maximum: 140
+  validates_length_of :facebook, :twitter, :favorite_club, :location, maximum: 50
 
   def check_protocol
     unless self.website.blank?
