@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 gem 'jquery-rails'
@@ -9,7 +8,6 @@ gem 'i18n'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'capistrano'
 gem 'rvm-capistrano'
-gem 'mysql2'
 gem 'clearance', '1.0.0.rc6'
 gem 'simple_form'
 gem 'cancan'

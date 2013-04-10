@@ -42,6 +42,6 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @club.destroy
 
-    redirect_to clubs_url, notice: "Club #{I18n.t('.successfully_deleted')}"
+    redirect_to clubs_url, notice: "Club #{I18n.t('.destroyed.success')}"
   end
 end
