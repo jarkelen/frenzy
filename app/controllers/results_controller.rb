@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @results = Result.order("gameround_id DESC")
+    @results = Result.order("gameround_id DESC").paginate(page: params[:page])
   end
 
   def new
