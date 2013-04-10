@@ -1,4 +1,48 @@
 .row
-  .span12
-    %h1= I18n.t(".profile.my_profile")
-    %p= @user.full_name
+  .offset2.span8
+    .hero-unit.profile
+      %h2= I18n.t(".profile.my_profile")
+
+      .row
+        .span3
+          %img{ src: image_path('default.jpg'), class: 'profile_image' }
+        .span3
+          .row
+            .span3
+              %h3= @user.full_name
+            .span3
+              %p= @user.profile.bio
+
+      .row
+        .span3= I18n.t(".user.full_name")
+        .span3= @user.full_name
+      .row
+        .span3= I18n.t(".user.email")
+        .span3= @user.email
+      .row
+        .span3= I18n.t(".user.created_at")
+        .span3= @user.created_at.strftime("%d %M %Y")
+      .row
+        .span3= I18n.t(".user.team_value")
+        .span3= @user.team_value
+      .row
+        .span3= I18n.t(".user.used_jokers")
+        .span3= @user.assigned_jokers
+      .row
+        .span3= I18n.t(".profile.favorite_club")
+        .span3= @user.profile.favorite_club
+      .row
+        .span3= I18n.t(".profile.location")
+        .span3= @user.profile.location
+      .row
+        .span3= I18n.t(".profile.website")
+        .span3= link_to "website", @user.profile.website, target: "_blank"
+      .row
+        .span3= I18n.t(".profile.bio")
+        .span3= @user.profile.bio
+      .row
+        .span3= I18n.t(".profile.twitter")
+        .span3= @user.profile.twitter
+      .row
+        .span3= I18n.t(".profile.facebook")
+        .span3= @user.profile.facebook

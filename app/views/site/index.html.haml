@@ -1,6 +1,4 @@
-.row
-  .span12
-    - if signed_in?
-      = render 'dashboard'
-    - else
-      = render 'marketing'
+- if signed_in?
+  = render 'dashboard'
+- else
+  = render 'marketing'

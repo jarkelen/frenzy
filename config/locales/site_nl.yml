@@ -14,6 +14,8 @@ nl:
     home:       Home
     admin:      Admin
     id:         ID
+    signup:     Registreren
+    signin:     Inloggen
     community:
       general:  Community
     about:
@@ -21,18 +23,34 @@ nl:
       rules:    Spelregels
       about_us: Over ons
   user:
-    first_name: Voornaam
-    last_name:  Achternaam
-    team_name:  Teamnaam
-    email:      Email
-    password:   Wachtwoord
-    role:       Rol
-    language:   Taal
+    first_name:       Voornaam
+    last_name:        Achternaam
+    team_name:        Teamnaam
+    full_name:        Naam
+    email:            Email
+    password:         Wachtwoord
+    role:             Rol
+    language:         Taal
+    title:            Gebruikers
+    name:             Gebruiker
+    registered_at:    Registratie
+    team_value:       Teamwaarde
+    assigned_jokers:  Jokers
+    used_jokers:      Gebruikte jokers
+    created_at:       Deelnemer sinds
   profile:
-    my_profile:   Mijn profiel
-    account:      Profiel
-    show_profile: Profiel bekijken
-    edit_profile: Profiel bewerken
+    my_profile:       Mijn profiel
+    account:          Profiel
+    show_profile:     Profiel bekijken
+    edit_profile:     Profiel bewerken
+    created:          Profiel is aangemaakt
+    updated:          Profiel is gewijzigd
+    favorite_club:    Favoriete club
+    bio:              Bio
+    twitter:          Twitter
+    facebook:         Facebook
+    location:         Lokatie
+    website:          Website
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

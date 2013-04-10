@@ -24,6 +24,7 @@ Frenzy::Application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :destroy, :team]
+  resources :profiles, only: [:create, :update]
 
   get  "frenzy/index"
   get  "frenzy/rules"
