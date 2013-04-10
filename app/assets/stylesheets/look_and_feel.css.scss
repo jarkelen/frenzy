@@ -26,6 +26,7 @@ nav {
 .yield {
   min-height: 500px;
   margin: 1em;
+  padding-top: 2em;
 }
 .destroy_x {
   color: red;
@@ -137,6 +138,11 @@ form {
   }
   p {
     font-size: 70%;
+  }
+  .no_profile {
+    p {
+      font-size: 100%;
+    }
   }
 }
 

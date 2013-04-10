@@ -6,10 +6,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
   end
 
-  def edit
-    @profile = Profile.find(params[:id])
-  end
-
   def create
     @profile = Profile.new(params[:profile])
 
@@ -18,6 +14,10 @@ class ProfilesController < ApplicationController
     else
       render action: "new"
     end
+  end
+
+  def edit
+    @profile = Profile.find(params[:id])
   end
 
   def update
