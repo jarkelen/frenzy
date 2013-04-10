@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405131011) do
+ActiveRecord::Schema.define(:version => 20130410065059) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "clubs", ["league_id"], :name => "index_clubs_on_league_id"
+
   create_table "gamerounds", :force => true do |t|
     t.integer  "number"
     t.datetime "start_date"
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "gamerounds", ["period_id"], :name => "index_gamerounds_on_period_id"
+
   create_table "jokers", :force => true do |t|
     t.integer  "gameround_id"
     t.integer  "user_id"
@@ -41,6 +45,10 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "jokers", ["club_id"], :name => "index_jokers_on_club_id"
+  add_index "jokers", ["gameround_id"], :name => "index_jokers_on_gameround_id"
+  add_index "jokers", ["user_id"], :name => "index_jokers_on_user_id"
 
   create_table "leagues", :force => true do |t|
     t.string   "league_name"
@@ -59,6 +67,21 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.string   "name"
   end
 
+  create_table "profiles", :force => true do |t|
+    t.string   "location"
+    t.string   "website"
+    t.string   "bio"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "profile_photo"
+    t.string   "favorite_club"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
   create_table "rankings", :force => true do |t|
     t.integer  "total_score"
     t.integer  "gameround_id"
@@ -66,6 +89,9 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "rankings", ["gameround_id"], :name => "index_rankings_on_gameround_id"
+  add_index "rankings", ["user_id"], :name => "index_rankings_on_user_id"
 
   create_table "results", :force => true do |t|
     t.integer  "home_club_id"
@@ -77,6 +103,10 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "results", ["away_club_id"], :name => "index_results_on_away_club_id"
+  add_index "results", ["gameround_id"], :name => "index_results_on_gameround_id"
+  add_index "results", ["home_club_id"], :name => "index_results_on_home_club_id"
+
   create_table "scores", :force => true do |t|
     t.integer  "score"
     t.integer  "gameround_id"
@@ -85,12 +115,18 @@ ActiveRecord::Schema.define(:version => 20130405131011) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "scores", ["club_id"], :name => "index_scores_on_club_id"
+  add_index "scores", ["gameround_id"], :name => "index_scores_on_gameround_id"
+
   create_table "selections", :force => true do |t|
     t.integer  "club_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "selections", ["club_id"], :name => "index_selections_on_club_id"
+  add_index "selections", ["user_id"], :name => "index_selections_on_user_id"
 
   create_table "settings", :force => true do |t|
     t.integer  "current_period"

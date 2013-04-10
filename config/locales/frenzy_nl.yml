@@ -118,12 +118,3 @@ nl:
     position:           Positie
     intro_general:      Hieronder een overzicht van het algemeen klassement en het periode klassement na de laatst berekende speelronde. Daarnaast kun je de klassementen na eerdere speelronden nog eens terug kijken.
     intro_gameround:    'Hieronder de uitslag van de laatst berekende speelronde, maar je kunt ook de uitslagen na eerdere speelrondes bekijken.'
-  user:
-    title:            Gebruikers
-    name:             Gebruiker
-    team_name:        Teamnaam
-    email:            Email
-    registered_at:    Registratie
-    team_value:       Teamwaarde
-    assigned_jokers:  Jokers
-
