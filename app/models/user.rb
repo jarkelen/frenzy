@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
-  has_many :selections
-  has_many :jokers
-  has_many :rankings
-  has_many :clubs, through: :selections
+  has_many  :selections, dependent: :destroy
+  has_many  :jokers, dependent: :destroy
+  has_many  :rankings, dependent: :destroy
+  has_many  :clubs, through: :selections
+  has_one   :profile, dependent: :destroy
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value
 
