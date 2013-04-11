@@ -15,7 +15,11 @@
 
         .row.profile_body
           .span3
-            %img{ src: image_path('default.jpg'), class: 'profile_image' }
+            - if @user.profile.website.blank?
+              %img{ src: image_path('default.jpg'), class: 'profile_image' }/
+            - else
+              %img{ src: @user.profile.profile_photo, alt: "profile photo", class: 'profile_image' }/
+
           .span3
             .row
               .span3
@@ -36,7 +40,7 @@
                 .span3
                   %p
                     %i.icon-user
-                    = link_to @user.profile.twitter
+                    = link_to "@#{@user.profile.twitter.split('.com/')[1]}", @user.profile.twitter, target: "_blank"
               .span3
                 %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"
               .span3

@@ -63,6 +63,11 @@ nl:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"
     page_gap: "&hellip;"
+  errors:
+    messages:
+      wrong_size: "heeft de verkeerde grootte (moet zijn %{file_size})"
+      size_too_small: "is te klein (moet minimaal %{file_size} zijn)"
+      size_too_big: "is te groot (mag maximaal %{file_size} zijn)"
   date:
     formats:
       default: "%-d-%-m-%Y"

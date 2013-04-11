@@ -133,7 +133,10 @@ form {
     margin-bottom: 2em;
   }
   .profile_image {
-    margin: 0 1em 1em 2em;
+    margin-top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .bio {
     text-align: center;
