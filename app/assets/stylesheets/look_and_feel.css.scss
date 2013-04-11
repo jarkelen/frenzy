@@ -133,7 +133,7 @@ form {
 
 // Profile
 .profile {
-  .profile_header {
+  .profile_header, .profile_body {
     margin-bottom: 2em;
   }
   .profile_image {
@@ -146,6 +146,7 @@ form {
     font-size: 70%;
   }
   .no_profile {
+    text-align: center;
     p {
       font-size: 100%;
     }

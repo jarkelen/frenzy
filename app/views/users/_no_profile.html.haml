@@ -1,7 +1,8 @@
-.row
-  .span6.no_profile
-    %h3= I18n.t(".profile.my_profile")
-    %p= I18n.t(".profile.intro1")
-    %p
-      = I18n.t(".profile.intro2")
-      = link_to I18n.t(".profile.intro3"), new_profile_path
+- if can? :create, Profile
+  .row
+    .span6.no_profile
+      %h3= I18n.t(".profile.my_profile")
+      %p= I18n.t(".profile.intro1")
+      %p
+        = I18n.t(".profile.intro2")
+        = link_to I18n.t(".profile.intro3"), new_profile_path

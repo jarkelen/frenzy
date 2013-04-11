@@ -42,7 +42,8 @@ nl:
     my_profile:       Mijn profiel
     account:          Profiel
     show_profile:     Profiel bekijken
-    edit_profile:     Profiel bewerken
+    new_profile:      Profiel aanmaken
+    edit_profile:     Profiel wijzigen
     created:          Profiel is aangemaakt
     updated:          Profiel is gewijzigd
     favorite_club:    Favoriete club
