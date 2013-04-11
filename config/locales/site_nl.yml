@@ -51,6 +51,11 @@ nl:
     facebook:         Facebook
     location:         Lokatie
     website:          Website
+    lives_in:         Woont in
+    favorite_is:      Favoriete club is
+    intro1:           Je hebt je profiel nog niet ingevuld!
+    intro2:           Dat kun je eenvoudig
+    intro3:           zelf doen
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

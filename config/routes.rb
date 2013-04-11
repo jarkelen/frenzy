@@ -1,6 +1,4 @@
 Frenzy::Application.routes.draw do
-  #resources :profiles
-
   resources :leagues
   resources :periods
   resources :clubs
@@ -26,7 +24,7 @@ Frenzy::Application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :destroy, :team]
-  resources :profiles#, only: [:create, :update]
+  resources :profiles
 
   get  "frenzy/index"
   get  "frenzy/rules"

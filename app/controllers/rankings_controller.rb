@@ -3,8 +3,6 @@ class RankingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-        puts "GAMEROUND #{params[:gameround_id]}"
-
     if params[:type] == "gameround"
       if params[:gameround_id]
         @current_gameround = Gameround.find(params[:gameround_id])
