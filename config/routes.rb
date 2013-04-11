@@ -22,6 +22,9 @@ Frenzy::Application.routes.draw do
       post :index
     end
   end
+  resources :newsitems do
+    resources :comments
+  end
 
   resources :users, only: [:index, :show, :destroy, :team]
   resources :profiles

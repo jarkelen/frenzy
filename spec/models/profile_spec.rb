@@ -27,4 +27,22 @@ describe Profile do
     end
   end
 
+  describe "check twitter" do
+    context "twitter without dollar sign" do
+      it "should show twitter profile url" do
+        profile = create :profile, twitter: "DutchAddick"
+        profile.twitter.should === "DutchAddick"
+      end
+    end
+
+    context "twitter with dollar sign" do
+      it "should show twitter profile url" do
+        profile = create :profile, twitter: "@DutchAddick"
+        profile.twitter.should === "DutchAddick"
+      end
+    end
+  end
+
 end
+
+

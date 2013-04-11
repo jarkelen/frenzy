@@ -26,7 +26,7 @@ nav {
 .yield {
   min-height: 500px;
   margin: 1em;
-  padding-top: 2em;
+  padding-top: 1em;
 }
 .destroy_x {
   color: red;
@@ -35,10 +35,6 @@ nav {
   padding-left: 1em;
 }
 header {
-  width: 90%;
-  margin: 0 auto;
-  display: block;
-
   .title {
     @include site-badge;
   }
@@ -58,14 +54,11 @@ header {
     }
   }
 }
-.yield {
+.yield, .messages, .navbar, footer, header {
   margin: 0 auto;
   width: 90%;
 }
 footer {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
   text-align: center;
   margin-top: 1em;
   padding: 0.2em;
@@ -137,7 +130,10 @@ form {
     margin-bottom: 2em;
   }
   .profile_image {
-    margin: 0 1em 1em 2em;
+    margin-top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .bio {
     text-align: center;
@@ -150,6 +146,15 @@ form {
     p {
       font-size: 100%;
     }
+  }
+}
+
+// News
+.media {
+  .subtitle {
+    font-size: 80%;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
   }
 }
 

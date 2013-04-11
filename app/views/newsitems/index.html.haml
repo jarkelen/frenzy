@@ -1,0 +1,9 @@
+.row
+  .span12
+    .page-header
+      %h1= I18n.t('.news.news_title')
+
+.row
+  .span12
+    .newsitems
+      = render partial: "newsitems", newsitems: @newsitems

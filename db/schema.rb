@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410065059) do
+ActiveRecord::Schema.define(:version => 20130411115509) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20130410065059) do
   end
 
   add_index "clubs", ["league_id"], :name => "index_clubs_on_league_id"
+
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
 
   create_table "gamerounds", :force => true do |t|
     t.integer  "number"
@@ -56,6 +66,19 @@ ActiveRecord::Schema.define(:version => 20130410065059) do
     t.integer  "level"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "newsitems", :force => true do |t|
+    t.string   "title_nl"
+    t.string   "title_en"
+    t.text     "summary_nl"
+    t.text     "summary_en"
+    t.text     "content_nl"
+    t.text     "content_en"
+    t.boolean  "publish"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "periods", :force => true do |t|

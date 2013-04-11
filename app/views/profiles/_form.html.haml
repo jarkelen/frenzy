@@ -1,10 +1,10 @@
 = simple_form_for @profile, html: { class: 'form-horizontal' } do |f|
-  = f.input :profile_photo
-  = f.input :bio
-  = f.input :favorite_club
-  = f.input :website
+  = f.input :bio, as: :text, input_html: { cols: 50, rows: 3 }, label: I18n.t('.profile.bio_long')
+  = f.input :favorite_club, label: I18n.t('.profile.favorite_club')
+  = f.input :website, class: 'input-xlarge'
   = f.input :twitter
   = f.input :facebook
+  = f.input :profile_photo, as: :file, label: I18n.t('.profile.photo')
   .form-actions
     = f.button :submit, value: I18n.t('.general.save'), class: 'btn'
     = link_to t('.cancel', default: t("helpers.links.cancel")), user_path(current_user), class: 'btn'

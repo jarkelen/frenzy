@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(params[:profile])
 
     if @profile.save
-      redirect_to user_profile_path, notice: I18n.t('.profile.created')
+      redirect_to user_path(current_user), notice: I18n.t('.profile.created')
     else
       render action: "new"
     end
@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     if @profile.update_attributes(params[:profile])
-      redirect_to user_profile_path, notice: I18n.t('.profile.updated')
+      redirect_to user_path(current_user), notice: I18n.t('.profile.updated')
     else
       render action: "edit"
     end
