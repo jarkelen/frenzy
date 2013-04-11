@@ -5,6 +5,7 @@
 
     .row
       .span8
+        %h1= I18n.t('.new.news_title')
         = render partial: "newsitems/newsitems", newsitems: @newsitems
 
   .span4
