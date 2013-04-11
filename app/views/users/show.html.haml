@@ -38,8 +38,13 @@
                     %i.icon-user
                     = link_to @user.profile.twitter
               .span3
+                %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"
+              .span3
                 %p= "#{I18n.t(".profile.lives_in")} #{@user.profile.location}"
               .span3
                 %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
-              .span3
-                %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"
+
+        - if can? :edit, Profile
+          .row
+            .span6.text-center
+              .btn.btn-success= link_to I18n.t('.profile.edit_profile'), edit_profile_path(@user)

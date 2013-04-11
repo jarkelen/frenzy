@@ -7,7 +7,7 @@ class Ability
     else
       can    [:read, :create, :update, :destroy], Selection
       can    [:read, :create, :update, :destroy], Joker
-      can    [:read, :create, :update, :destroy], Profile
+      can    [:read, :create, :update], Profile
       can    [:read], Period
       can    [:read], League
       can    [:read], Result
