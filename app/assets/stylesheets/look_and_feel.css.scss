@@ -14,17 +14,11 @@ a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
 }
-.site_canvas {
-  width: 90%;
+.site_container {
+  width: 100%;
   margin: 0 auto;
   background-color: $background-color;
   padding: 10px;
-  border: solid 1px black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.site_container {
-  margin: 0 auto;
 }
 nav {
   margin-bottom: 2em;
@@ -32,6 +26,7 @@ nav {
 .yield {
   min-height: 500px;
   margin: 1em;
+  padding-top: 2em;
 }
 .destroy_x {
   color: red;
@@ -40,6 +35,10 @@ nav {
   padding-left: 1em;
 }
 header {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+
   .title {
     @include site-badge;
   }
@@ -59,7 +58,14 @@ header {
     }
   }
 }
+.yield {
+  margin: 0 auto;
+  width: 90%;
+}
 footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   text-align: center;
   margin-top: 1em;
   padding: 0.2em;
@@ -127,11 +133,22 @@ form {
 
 // Profile
 .profile {
+  .profile_header {
+    margin-bottom: 2em;
+  }
   .profile_image {
-    margin: 1em 1em 1em 2em;
+    margin: 0 1em 1em 2em;
+  }
+  .bio {
+    text-align: center;
   }
   p {
     font-size: 70%;
+  }
+  .no_profile {
+    p {
+      font-size: 100%;
+    }
   }
 }
 

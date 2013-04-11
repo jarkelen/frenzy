@@ -1,49 +1,45 @@
 .row
   .offset2.span8
     .hero-unit.profile
-      .row
-        .span6
-          %h3.text-center= @user.full_name
-
-      .row
-        .span3
-          %img{ src: image_path('default.jpg'), class: 'profile_image' }
-        .span3
+      - unless @user.profile
+        = render partial: "no_profile", user: @user
+      - else
+        .profile_header
           .row
-            .span3
-              %p
-                %i.icon-user
-                = @user.profile.bio
-            .span3
-              %p
-                %i.icon-road
-                = @user.profile.location
-            .span3
-              %p
-                %i.icon-envelope
-                = @user.email
-            .span3
-              %p
-                %i.icon-globe
-                = link_to @user.profile.website, @user.profile.website, target: "_blank"
-            .span3
-              %p
-                %i.icon-pencil
-                = I18n.t(".user.created_at")
-                = @user.created_at.strftime("%d %M %Y")
+            .span6
+              %h3.text-center= @user.full_name
+          - unless @user.profile.bio.blank?
+            .row
+              .span6.bio
+                %p= @user.profile.bio
 
-      .row
-        .span3= I18n.t(".user.team_value")
-        .span3= @user.team_value
-      .row
-        .span3= I18n.t(".user.used_jokers")
-        .span3= @user.assigned_jokers
-      .row
-        .span3= I18n.t(".profile.favorite_club")
-        .span3= @user.profile.favorite_club
-      .row
-        .span3= I18n.t(".profile.twitter")
-        .span3= @user.profile.twitter
-      .row
-        .span3= I18n.t(".profile.facebook")
-        .span3= @user.profile.facebook
+        .row.profile_body
+          .span3
+            %img{ src: image_path('default.jpg'), class: 'profile_image' }
+          .span3
+            .row
+              .span3
+                %p
+                  %i.icon-envelope
+                  = @user.email
+              - unless @user.profile.website.blank?
+                .span3
+                  %p
+                    %i.icon-globe
+                    = link_to @user.profile.website.split('www.')[1], @user.profile.website, target: "_blank"
+              - unless @user.profile.facebook.blank?
+                .span3
+                  %p
+                    %i.icon-thumbs-up
+                    = link_to @user.profile.facebook
+              - unless @user.profile.twitter.blank?
+                .span3
+                  %p
+                    %i.icon-user
+                    = link_to @user.profile.twitter
+              .span3
+                %p= "#{I18n.t(".profile.lives_in")} #{@user.profile.location}"
+              .span3
+                %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
+              .span3
+                %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"

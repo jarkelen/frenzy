@@ -64,21 +64,7 @@ $navbarLinkBackgroundHover: $base-color;
   border-bottom: 0px;
   padding-bottom: 0px
 }
-
-// Topbar
-.top-bar, .top-bar-section .has-form, .top-bar-section li a:not(.button) {
-  background: $base-color;
-}
-.top-bar-section ul li.active a {
-  background: $base-color;
-}
-.top-bar-section li a:not(.button):hover {
-  background: darken($base-color, 5%);
-}
-.top-bar-section .dropdown li {
-  min-width: 100%;
-}
-.top-bar-section>ul>.divider {
-  border-right: darken($base-color, 25%);
-  border-left: darken($base-color, 25%);
+.navbar {
+  width: 90%;
+  margin: 0 auto;
 }

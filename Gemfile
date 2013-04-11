@@ -34,6 +34,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'database_cleaner'
+  gem 'quiet_assets'
 end
 
 group :production do
