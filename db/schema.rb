@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20130411115509) do
   create_table "newsitems", :force => true do |t|
     t.string   "title_nl"
     t.string   "title_en"
+    t.text     "summary_nl"
+    t.text     "summary_en"
     t.text     "content_nl"
     t.text     "content_en"
     t.boolean  "publish"

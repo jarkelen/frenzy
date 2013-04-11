@@ -3,8 +3,12 @@ class NewsitemsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @newsitems = Newsitem.newest_first.paginate(page: params[:page])
-    @admins = User.admins
+    if current_user.admin?
+      @newsitems = Newsitem.newest_first.paginate(page: params[:page])
+      puts "HUH #{@newsitems.size}"
+    else
+      @newsitems = Newsitem.newest_first.published.paginate(page: params[:page])
+    end
   end
 
   def show

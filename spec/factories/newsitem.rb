@@ -6,6 +6,8 @@ FactoryGirl.define do
     title_en "MyString"
     content_nl "MyText"
     content_en "MyText"
+    summary_nl "MyText"
+    summary_en "MyText"
     publish       true
     association :user
   end

@@ -64,13 +64,21 @@ nl:
     created:          Nieuwsbericht is aangemaakt
     updated:          Nieuwsbericht is gewijzigd
     deleted:          Nieuwsbericht is verwijderd
+    latest_news:      Laatste nieuws
     title_nl:         Titel NL
     title_en:         Titel EN
+    summary_nl:       Samenvatting NL
+    summary_en:       Samenvatting EN
     content_nl:       Inhoud NL
     content_en:       Inhoud EN
     publish:          Publiceren?
     new_item:         Toevoegen nieuwsbericht
     edit_item:        Wijzigen nieuwsbericht
+    published_true:   actief
+    published_false:  niet actief
+    published_by1:    Gechreven door
+    published_by2:    op
+    more_details:     Meer
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

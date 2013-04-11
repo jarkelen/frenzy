@@ -2,6 +2,8 @@
   = f.hidden_field :user_id, value: current_user.id
   = render "layouts/form_field", type: 'text_field', f: f, data: :title_nl,   label: I18n.t('.news.title_nl'), size: 'input-xxlarge'
   = render "layouts/form_field", type: 'text_field', f: f, data: :title_en,   label: I18n.t('.news.title_en'), size: 'input-xxlarge'
+  = render "layouts/form_field", type: 'text_area', f: f, data: :summary_nl,  label: I18n.t('.news.summary_nl')
+  = render "layouts/form_field", type: 'text_area', f: f, data: :summary_en,  label: I18n.t('.news.summary_en')
   = render "layouts/form_field", type: 'text_area', f: f, data: :content_nl,  label: I18n.t('.news.content_nl')
   = render "layouts/form_field", type: 'text_area', f: f, data: :content_en,  label: I18n.t('.news.content_en')
   = f.label I18n.t('.news.publish')
