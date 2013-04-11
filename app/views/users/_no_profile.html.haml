@@ -1,4 +1,4 @@
-- if can? :create, Profile
+- if can? :create, Profile and current_user == @user
   .row
     .span6.no_profile
       %h3= I18n.t(".profile.my_profile")

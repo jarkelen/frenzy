@@ -44,7 +44,7 @@
               .span3
                 %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
 
-        - if can? :edit, Profile
+        - if can? :edit, Profile and current_user == @user
           .row
             .span6.text-center
               .btn.btn-success= link_to I18n.t('.profile.edit_profile'), edit_profile_path(@user)
