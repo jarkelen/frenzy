@@ -48,10 +48,12 @@ nl:
     updated:          Profiel is gewijzigd
     favorite_club:    Favoriete club
     bio:              Bio
+    bio_long:         Beschrijf jezelf in het kort (140 tekens)
     twitter:          Twitter
     facebook:         Facebook
     location:         Lokatie
     website:          Website
+    photo:            Profiel foto
     lives_in:         Woont in
     favorite_is:      Favoriete club is
     intro1:           Je hebt je profiel nog niet ingevuld!

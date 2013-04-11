@@ -2,12 +2,24 @@
 
 /* Landscape phones and down */
 @media only screen and (max-width : 480px) {
+  html, body {
+    font-size: 80%;
+  }
 
+  header {
+    .title {
+      margin: 0 0 1em 0;
+    }
+  }
+  .profile {
+    .profile_image {
+      margin: 0;
+    }
+  }
 }
 
 /* Landscape phone to portrait tablet */
 @media only screen and (max-width : 767px) {
-
 }
 
 /* Portrait tablet to landscape and desktop */

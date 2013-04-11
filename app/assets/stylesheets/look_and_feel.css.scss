@@ -35,10 +35,6 @@ nav {
   padding-left: 1em;
 }
 header {
-  width: 90%;
-  margin: 0 auto;
-  display: block;
-
   .title {
     @include site-badge;
   }
@@ -58,14 +54,14 @@ header {
     }
   }
 }
-.yield {
+.yield, .messages, .navbar, footer, header {
   margin: 0 auto;
   width: 90%;
 }
+.messages {
+  margin-top: 2em;
+}
 footer {
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
   text-align: center;
   margin-top: 1em;
   padding: 0.2em;
