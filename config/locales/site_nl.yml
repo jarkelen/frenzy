@@ -1,7 +1,7 @@
 nl:
   general:
-    yes:        Ja
-    no:         Nee
+    yep:        Ja
+    nope:       Nee
     true:       Ja
     false:      Nee
     dutch:      Nederlands
@@ -64,8 +64,13 @@ nl:
     created:          Nieuwsbericht is aangemaakt
     updated:          Nieuwsbericht is gewijzigd
     deleted:          Nieuwsbericht is verwijderd
-    title:            Titel
-    content:          Inhoud
+    title_nl:         Titel NL
+    title_en:         Titel EN
+    content_nl:       Inhoud NL
+    content_en:       Inhoud EN
+    publish:          Publiceren?
+    new_item:         Toevoegen nieuwsbericht
+    edit_item:        Wijzigen nieuwsbericht
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

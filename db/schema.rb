@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20130411115509) do
     t.string   "title_en"
     t.text     "content_nl"
     t.text     "content_en"
+    t.boolean  "publish"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

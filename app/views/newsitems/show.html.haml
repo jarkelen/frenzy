@@ -1,6 +1,6 @@
-%h1= @article.name
-= simple_format @article.content
-%p= link_to "Back to Articles", articles_path
+%h1= @newsitem.title_nl
+= simple_format @newsitem.content_nl
+%p= link_to "Back to Articles", newsitems_path
 %h2 Comments
-= render "comments/comments"
-= render "comments/form"
+// render "comments/comments"
+// render "comments/form"

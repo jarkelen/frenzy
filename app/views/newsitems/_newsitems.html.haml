@@ -1,0 +1,20 @@
+- @newsitems.each do |newsitem|
+  .media
+    %a.pull-left{href: "#"}
+      %img.media-object{"data-src" => "holder.js/64x64"}/
+    .media-body
+      %h4.media-heading
+        - if current_user.language == 'nl'
+          = newsitem.title_nl
+        - else
+          = newsitem.title_en
+      %p
+        - if current_user.language == 'nl'
+          = newsitem.content_nl
+        - else
+          = newsitem.content_en
+
+= will_paginate @newsitems
+
+- if can? :create, Newsitem
+  = link_to t('.new', default: t("helpers.links.new")), new_newsitem_path, class: 'btn'

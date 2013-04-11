@@ -1,14 +1,4 @@
 Frenzy::Application.routes.draw do
-  get "newsitems/index"
-
-  get "newsitems/new"
-
-  get "newsitems/show"
-
-  get "comments/index"
-
-  get "comments/new"
-
   resources :leagues
   resources :periods
   resources :clubs

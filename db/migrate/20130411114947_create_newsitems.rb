@@ -5,6 +5,8 @@ class CreateNewsitems < ActiveRecord::Migration
       t.string :title_en
       t.text :content_nl
       t.text :content_en
+      t.boolean :publish
+      t.integer :user_id
 
       t.timestamps
     end

@@ -1,2 +1,9 @@
-%h1 Newsitems#index
-%p Find me in app/views/newsitems/index.html.haml
+.row
+  .span12
+    .page-header
+      %h1= I18n.t('.news.news_title')
+
+.row
+  .span12
+    .newsitems
+      = render partial: "newsitems", newsitems: @newsitems
