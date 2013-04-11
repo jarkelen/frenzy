@@ -59,6 +59,13 @@ nl:
     intro1:           Je hebt je profiel nog niet ingevuld!
     intro2:           Dat kun je eenvoudig
     intro3:           zelf doen
+  news:
+    news_title:       Nieuwsberichten
+    created:          Nieuwsbericht is aangemaakt
+    updated:          Nieuwsbericht is gewijzigd
+    deleted:          Nieuwsbericht is verwijderd
+    title:            Titel
+    content:          Inhoud
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

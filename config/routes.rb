@@ -1,4 +1,14 @@
 Frenzy::Application.routes.draw do
+  get "newsitems/index"
+
+  get "newsitems/new"
+
+  get "newsitems/show"
+
+  get "comments/index"
+
+  get "comments/new"
+
   resources :leagues
   resources :periods
   resources :clubs
@@ -21,6 +31,9 @@ Frenzy::Application.routes.draw do
       get :index
       post :index
     end
+  end
+  resources :newsitems do
+    resources :comments
   end
 
   resources :users, only: [:index, :show, :destroy, :team]
