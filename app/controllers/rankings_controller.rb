@@ -16,5 +16,6 @@ class RankingsController < ApplicationController
       @general_rankings = Ranking.calculate_ranking("general")
       @period_rankings = Ranking.calculate_ranking("period")
     end
+    @settings = Setting.first
   end
 end

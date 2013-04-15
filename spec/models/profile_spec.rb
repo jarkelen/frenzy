@@ -5,6 +5,8 @@ describe Profile do
   it { should belong_to(:user) }
 
   describe "check protocol" do
+    FactoryGirl.create :setting
+
     context "bare website" do
       it "should add www and http protocol" do
         profile = create :profile, website: "test.nl"

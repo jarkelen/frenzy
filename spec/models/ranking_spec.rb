@@ -9,6 +9,7 @@ describe Ranking do
 
   describe "calculate_ranking" do
     before :each do
+      FactoryGirl.create :setting
       @user_top    = FactoryGirl.create(:user)
       @user_bottom = FactoryGirl.create(:user)
       @user_top_ranking1    = FactoryGirl.create(:ranking, user: @user_top, total_score: 10)

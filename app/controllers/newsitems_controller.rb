@@ -5,7 +5,6 @@ class NewsitemsController < ApplicationController
   def index
     if current_user.admin?
       @newsitems = Newsitem.newest_first.paginate(page: params[:page])
-      puts "HUH #{@newsitems.size}"
     else
       @newsitems = Newsitem.newest_first.published.paginate(page: params[:page])
     end
@@ -13,9 +12,9 @@ class NewsitemsController < ApplicationController
 
   def show
     @newsitem = Newsitem.find(params[:id])
-    #@commentable = @article
-    #@comments = @commentable.comments
-    #@comment = Comment.new
+    @commentable = @newsitem
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def new

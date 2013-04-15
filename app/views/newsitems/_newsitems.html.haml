@@ -1,3 +1,6 @@
+- if can? :create, Newsitem
+  = link_to t('.new', default: t("helpers.links.new")), new_newsitem_path, class: 'btn'
+
 - @newsitems.each do |newsitem|
   .media
     %a.pull-left{href: "#"}
@@ -14,18 +17,16 @@
         - else
           = newsitem.title_en
       .subtitle
-        = "#{I18n.t('.news.published_by1')} "
+        = "#{newsitem.comments.size} #{I18n.t('.news.comments')}"
+        = " - #{I18n.t('.news.published_by1')} "
         = link_to newsitem.user.full_name, user_path(newsitem.user)
         = " #{I18n.t('.news.published_by2')} #{newsitem.created_at.strftime('%d-%m-%Y @ %H:%M')}"
       %p
         - if current_user.language == 'nl'
           = "#{newsitem.summary_nl} "
-          = link_to I18n.t('news.more_details'), newsitem_path(newsitem)
-          = "..."
         - else
-          = newsitem.summary_en
+          = "#{newsitem.summary_en} "
+        = link_to I18n.t('news.more_details'), newsitem_path(newsitem)
+        = "..."
 
 = will_paginate @newsitems
-
-- if can? :create, Newsitem
-  = link_to t('.new', default: t("helpers.links.new")), new_newsitem_path, class: 'btn'

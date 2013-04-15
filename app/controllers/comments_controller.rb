@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(params[:comment])
     if @comment.save
-      redirect_to @commentable, notice: "Comment created."
+      redirect_to @commentable, notice: I18n.t('.news.comment_added')
     else
       render :new
     end

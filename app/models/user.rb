@@ -29,8 +29,10 @@ class User < ActiveRecord::Base
 
   def assign_jokers
     periods = Period.all.size
-    jokers_per_period = $max_jokers / periods
-    self.assigned_jokers = ((periods + 1) - $current_period) * jokers_per_period
+    settings = Setting.first
+
+    jokers_per_period = settings.max_jokers / periods
+    self.assigned_jokers = ((periods + 1) - settings.current_period) * jokers_per_period
   end
 
 end

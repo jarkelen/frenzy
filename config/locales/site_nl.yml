@@ -8,6 +8,7 @@ nl:
     english:    Engels
     save:       Opslaan
     cancel:     Annuleren
+    edit:       Wijzigen
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
@@ -79,6 +80,9 @@ nl:
     published_by1:    Gechreven door
     published_by2:    op
     more_details:     Meer
+    comments:         Reacties
+    comment_added:    Reactie is toegevoegd
+    back:             Terug naar nieuwsberichten
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

@@ -16,7 +16,8 @@ class Ranking < ActiveRecord::Base
       if type == "general"
         rankings = user.rankings
       else
-        period_gamerounds = Gameround.where(period_id: $current_period)
+        settings = Setting.first
+        period_gamerounds = Gameround.where(period_id: settings.current_period)
         rankings = user.rankings.find_all_by_gameround_id(period_gamerounds)
       end
 

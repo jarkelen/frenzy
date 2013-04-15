@@ -1,6 +1,7 @@
 class FrenzyCalculator
 
   def initialize
+    @settings = Setting.first
   end
 
   def process_gameround(gameround_id)
@@ -27,7 +28,8 @@ class FrenzyCalculator
   end
 
   def switch_period
-    current_period = $current_period
+
+    current_period = @settings.current_period
     new_period = current_period + 1
 
     users = User.all
