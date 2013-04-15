@@ -1,11 +1,6 @@
 .row
   .span12.add_comment
     = form_for [@commentable, @comment] do |f|
-      - if @comment.errors.any?
-        .error_messages
-          %h2 Please correct the following errors.
-          %ul
-            - @comment.errors.full_messages.each do |msg|
-              %li= msg
-      = f.text_area :content, cols: 100, rows: 3
-      = f.button :submit, value: I18n.t('.general.save'), class: 'btn'
+      = f.text_area :content
+      .comment_submit
+        = f.button :submit, class: 'btn', value: I18n.t('.save')

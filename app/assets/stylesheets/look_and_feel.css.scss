@@ -79,6 +79,12 @@ form {
   .small_text_field {
     width: 3em;
   }
+  textarea {
+    width: 400px;
+    max-width: 400px;
+    height: 150px;
+    line-height: 150%;
+  }
 }
 .points_used {
   padding: 10px;
@@ -152,10 +158,16 @@ form {
 
 // News
 .media {
+  h1 {
+    margin-bottom: 0;
+  }
   .subtitle {
     font-size: 80%;
     margin-bottom: 0.5em;
     text-transform: uppercase;
+  }
+  .content {
+    margin-top: 1em;
   }
 }
 .comment {
@@ -171,6 +183,10 @@ form {
 }
 .add_comment {
   margin: 3em;
+
+  .btn {
+    margin-top: 1em;
+  }
 }
 
 // Signin form

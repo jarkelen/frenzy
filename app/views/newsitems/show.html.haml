@@ -1,33 +1,23 @@
 .row
-  .span12
-    .page-header
+  .span12.media
+    %p= link_to  I18n.t('.news.back'), newsitems_path
+    - if current_user.language == 'nl'
+      %h1= @newsitem.title_nl
+    - else
+      %h1= @newsitem.title_en
+    .subtitle
+      = "#{I18n.t('.news.published_by1')} "
+      = link_to @newsitem.user.full_name, user_path(@newsitem.user)
+      = " #{I18n.t('.news.published_by2')} #{@newsitem.created_at.strftime('%d-%m-%Y @ %H:%M')}"
+    %p
       - if current_user.language == 'nl'
-        = @newsitem.title_nl
-        - if current_user.admin?
-          - if @newsitem.publish
-            %span.label.label-success= I18n.t('.news.published_true')
-          - else
-            %span.label= I18n.t('.news.published_false')
+        = @newsitem.summary_nl
+        .content= @newsitem.content_nl
       - else
-        = @newsitem.title_en
-    .media
-      %a.pull-left{href: "#"}
-        %img.media-object{"data-src" => "holder.js/64x64"}/
-      .media-body
-        %p= link_to  I18n.t('.news.back'), newsitems_path
-        - if can? :edit, Newsitem
-          .btn.btn-mini= link_to I18n.t('.general.edit'), edit_newsitem_path(@newsitem)
-        .subtitle
-          = "#{I18n.t('.news.published_by1')} "
-          = link_to @newsitem.user.full_name, user_path(@newsitem.user)
-          = " #{I18n.t('.news.published_by2')} #{@newsitem.created_at.strftime('%d-%m-%Y @ %H:%M')}"
-        %p
-          - if current_user.language == 'nl'
-            = @newsitem.summary_nl
-            = @newsitem.content_nl
-          - else
-            = @newsitem.summary_en
-            = @newsitem.content_en
+        = @newsitem.summary_en
+        .content= @newsitem.content_en
+    - if can? :edit, Newsitem
+      .btn.btn-mini= link_to I18n.t('.general.edit'), edit_newsitem_path(@newsitem)
 
 .row
   .span12
