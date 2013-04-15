@@ -1,9 +1,11 @@
-module AuthenticationHelpers
+module FrenzyHelpers
+  def init_settings
+    FactoryGirl.create :setting
+    FactoryGirl.create_list :period, 4
+    @user = FactoryGirl.create :user
+  end
+
   def create_user(user_type)
-    FactoryGirl.create(:setting)
-    FactoryGirl.create_list(:period, 4)
-    $max_jokers = 40
-    $current_period = 1
     @user = FactoryGirl.create(:user, role: user_type)
   end
 

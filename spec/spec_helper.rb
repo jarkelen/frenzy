@@ -17,7 +17,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.order = 'rand'
   config.include FactoryGirl::Syntax::Methods
-  config.include AuthenticationHelpers, type: :feature
+  config.include FrenzyHelpers, type: :feature
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

@@ -37,6 +37,7 @@ describe Joker do
     end
 
     it "should fail when joker already exists" do
+      FactoryGirl.create :setting
       @participant = FactoryGirl.create(:user)
       FactoryGirl.create(:joker, user: @participant, club: @club1, gameround: @gameround)
       Joker.validate_jokers(@gameround, @club1, nil, nil).should be_false
@@ -45,6 +46,7 @@ describe Joker do
 
   describe ".joker_found" do
     before :each do
+      FactoryGirl.create :setting
       @gameround  = FactoryGirl.create(:gameround)
       @club       = FactoryGirl.create(:club)
     end

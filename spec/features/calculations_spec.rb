@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe "Frenzy calculations" do
-  before :all do
-    FactoryGirl.create_list(:period, 4)
-  end
-
   before :each do
-    @user = FactoryGirl.create(:user, role: 'admin')
-    sign_in_as(@user)
+    init_settings
+    @admin = FactoryGirl.create(:user, role: 'admin')
+    sign_in_as(@admin)
   end
 
   context "switching participation on" do
