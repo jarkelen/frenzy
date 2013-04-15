@@ -1,6 +1,25 @@
-%h1= @newsitem.title_nl
-= simple_format @newsitem.content_nl
-%p= link_to "Back to Articles", newsitems_path
-%h2 Comments
-// render "comments/comments"
-// render "comments/form"
+.row
+  .span12
+    .page-header
+      %h1=  @newsitem.title_nl
+      %p= link_to  I18n.t('.news.back'), newsitems_path
+      - if can? :edit, Newsitem
+        .btn.btn-mini= link_to I18n.t('.general.edit'), edit_newsitem_path(@newsitem)
+
+.row
+  .span12
+    %p
+      %strong= I18n.t('.news.title_nl')
+      = simple_format @newsitem.title_nl
+    %p
+      = simple_format @newsitem.title_en
+      = simple_format @newsitem.summary_nl
+      = simple_format @newsitem.summary_en
+      = simple_format @newsitem.content_nl
+      = simple_format @newsitem.content_en
+
+.row
+  .span12
+    %h4 Comments
+    = render "comments/comments"
+    = render "comments/form"
