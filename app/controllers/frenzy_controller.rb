@@ -5,6 +5,7 @@ class FrenzyController < ApplicationController
   def index
     @gamerounds = Gameround.active
     @clubs = Club.all
+    @settings = Setting.first
   end
 
   def process_gameround

@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe "Frenzy calculations" do
   before :all do
-    $max_jokers = 40
-    $current_period = 1
     FactoryGirl.create_list(:period, 4)
   end
 
