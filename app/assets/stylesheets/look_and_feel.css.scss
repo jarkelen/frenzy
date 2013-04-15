@@ -158,6 +158,20 @@ form {
     text-transform: uppercase;
   }
 }
+.comment {
+  border: 1px solid $text-color;
+  padding: 1em;
+  margin: 1em;
+  background-color: darken(#FFFFFF, 5%);
+  @include box-shadow;
+
+  .subtitle {
+    margin-bottom: 0.5em;
+  }
+}
+.add_comment {
+  margin: 3em;
+}
 
 // Signin form
 .signin_container {

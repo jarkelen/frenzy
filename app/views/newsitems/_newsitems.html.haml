@@ -24,9 +24,9 @@
       %p
         - if current_user.language == 'nl'
           = "#{newsitem.summary_nl} "
-          = link_to I18n.t('news.more_details'), newsitem_path(newsitem)
-          = "..."
         - else
-          = newsitem.summary_en
+          = "#{newsitem.summary_en} "
+        = link_to I18n.t('news.more_details'), newsitem_path(newsitem)
+        = "..."
 
 = will_paginate @newsitems
