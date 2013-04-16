@@ -10,6 +10,7 @@ describe Ranking do
   describe "calculate_ranking" do
     before :each do
       FactoryGirl.create :setting
+      FactoryGirl.create_list :period, 4
       @user_top    = FactoryGirl.create(:user)
       @user_bottom = FactoryGirl.create(:user)
       @user_top_ranking1    = FactoryGirl.create(:ranking, user: @user_top, total_score: 10)
@@ -19,7 +20,7 @@ describe Ranking do
     end
 
     it "should rank highest user as first" do
-      Ranking.calculate_overall_ranking.should =~ [[@user_top, 15], [@user_bottom, 8]]
+      Ranking.calculate_ranking('general').should =~ [[@user_top, 15], [@user_bottom, 8]]
     end
   end
 end
