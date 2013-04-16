@@ -19,7 +19,7 @@ describe "Leagues" do
 
     it "should not allow access" do
       visit leagues_path
-      page.should have_content("You are not authorized to view that page")
+      page.should have_content(I18n.t('.general.not_authorized'))
     end
   end
 

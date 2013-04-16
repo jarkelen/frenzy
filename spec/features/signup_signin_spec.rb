@@ -31,7 +31,7 @@ describe "Manage results" do
       it "should not show the frenzy administration page" do
         visit frenzy_index_path
         page.should_not have_content(I18n.t('frenzy.switch_participation'))
-        page.should have_content("You are not authorized to view that page")
+        page.should have_content(I18n.t('.general.not_authorized'))
       end
     end
 

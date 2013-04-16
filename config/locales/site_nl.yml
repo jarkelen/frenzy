@@ -1,14 +1,14 @@
 nl:
   general:
-    yep:        Ja
-    nope:       Nee
-    true:       Ja
-    false:      Nee
-    dutch:      Nederlands
-    english:    Engels
-    save:       Opslaan
-    cancel:     Annuleren
-    edit:       Wijzigen
+    yep:            Ja
+    true:           Ja
+    false:          Nee
+    dutch:          Nederlands
+    english:        Engels
+    save:           Opslaan
+    cancel:         Annuleren
+    edit:           Wijzigen
+    not_authorized: You are not authorized to view that page
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
