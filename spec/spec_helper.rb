@@ -14,7 +14,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   config.mock_with :rspec
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.order = 'rand'
   config.include FactoryGirl::Syntax::Methods
   config.include FrenzyHelpers, type: :feature
@@ -33,3 +33,5 @@ RSpec.configure do |config|
   end
 
 end
+
+
