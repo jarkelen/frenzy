@@ -8,7 +8,8 @@ nl:
     save:           Opslaan
     cancel:         Annuleren
     edit:           Wijzigen
-    not_authorized: You are not authorized to view that page
+    delete:         Verwijderen
+    not_authorized: Helaas heb je geen rechten om de pagina te bekijken
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
