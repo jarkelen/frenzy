@@ -1,5 +1,5 @@
 - if can? :create, Newsitem
-  = link_to t('.new', default: t("helpers.links.new")), new_newsitem_path, class: 'btn'
+  = link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_newsitem_path, class: 'btn'
 
 - @newsitems.each do |newsitem|
   .media
