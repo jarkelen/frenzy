@@ -30,6 +30,9 @@ describe "Profiles" do
 
       page.should have_content(@user1.full_name)
       page.should have_content(@user2.full_name)
+      page.should have_content(@user2.email)
+      page.should have_content(@user2.assigned_jokers)
+      page.should have_content(@user2.team_value)
     end
 
     it "can delete a user" do
@@ -55,12 +58,43 @@ describe "Profiles" do
       page.should have_content(I18n.t('.profile.intro1'))
     end
 
-    it "should not show other user profile" do
+    it "should show other user profile" do
       @user2 = FactoryGirl.create(:user)
+      FactoryGirl.create(:profile, user_id: @user2.id)
       visit user_path(@user2)
 
-      page.should_not have_content(@user2.full_name)
-      page.should have_content(I18n.t('.general.not_authorized'))
+      page.should have_content(@user2.full_name)
+      page.should_not have_content(I18n.t('.general.not_authorized'))
+    end
+
+    it "should show all user profiles" do
+      @user1 = FactoryGirl.create(:user)
+      @user2 = FactoryGirl.create(:user)
+      visit users_path
+
+      page.should have_content(@user1.full_name)
+      page.should have_content(@user2.full_name)
+      page.should_not have_content(@user2.email)
+      page.should_not have_content(@user2.assigned_jokers)
+      page.should_not have_content(@user2.team_value)
+    end
+
+    it "should create own profile" do
+      visit user_path(@user)
+      click_link I18n.t(".profile.intro3")
+
+      fill_in "profile_bio", with: "My bio text"
+      fill_in "profile_favorite_club", with: "Charlton Athletic"
+      fill_in "profile_website", with: "www.test.nl"
+      fill_in "profile_twitter", with: "DutchAddick"
+      fill_in "profile_facebook", with: "Gezichtboek"
+      click_button I18n.t(".general.save")
+
+      page.should have_content(I18n.t('.profile.created'))
+      page.should have_content("My bio text")
+      page.should have_content("Charlton Athletic")
+      page.should have_content("test.nl")
+      page.should have_content("Gezichtboek")
     end
 
   end

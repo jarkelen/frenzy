@@ -33,8 +33,8 @@ nl:
     password:         Wachtwoord
     role:             Rol
     language:         Taal
-    title:            Gebruikers
-    name:             Gebruiker
+    title:            Deelnemers
+    name:             Deelnemer
     registered_at:    Registratie
     team_value:       Teamwaarde
     assigned_jokers:  Jokers

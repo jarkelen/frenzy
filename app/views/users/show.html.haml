@@ -1,7 +1,7 @@
 .row
   .offset2.span8
     .hero-unit.profile
-      - unless @user.profile
+      - if @user.profile.blank?
         = render partial: "no_profile", user: @user
       - else
         .profile_header

@@ -11,7 +11,7 @@ class Ability
       can    [:read], Result
       can    [:read], Score
       can    [:read], Ranking
-      can    [:show], User
+      can    [:index, :show], User
       can    [:read], Newsitem
       can    [:read, :create], Comment
 
