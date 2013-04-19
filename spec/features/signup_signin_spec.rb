@@ -15,6 +15,11 @@ describe "Manage results" do
       visit newsitems_path
       page.should_not have_content(I18n.t('.news.news_title'))
     end
+
+    it "should not show welcome message" do
+      visit root_path
+      page.should_not have_content(I18n.t(".site.salutation"))
+    end
   end
 
   describe "registered users" do
@@ -31,7 +36,12 @@ describe "Manage results" do
       it "should not show the frenzy administration page" do
         visit frenzy_index_path
         page.should_not have_content(I18n.t('frenzy.switch_participation'))
-        page.should have_content("You are not authorized to view that page")
+        page.should have_content(I18n.t('.general.not_authorized'))
+      end
+
+      it "should show welcome message" do
+        visit root_path
+        page.should have_content(I18n.t(".site.salutation"))
       end
     end
 
@@ -44,6 +54,11 @@ describe "Manage results" do
       it "should show the dashboard" do
         visit root_path
         page.should have_content(I18n.t('.news.latest_news'))
+      end
+
+      it "should show welcome message" do
+        visit root_path
+        page.should have_content(I18n.t(".site.salutation"))
       end
 
       it "should show the frenzy administration page" do

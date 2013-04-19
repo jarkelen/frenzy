@@ -15,7 +15,7 @@
       %tbody
         - @gamerounds.each do |gameround|
           %tr
-            %td= link_to gameround.number, gameround_path(gameround)
+            %td= gameround.number
             %td= gameround.start_date.strftime("%d-%m-%Y")
             %td= gameround.end_date.strftime("%d-%m-%Y")
             %td= markup_boolean(gameround.processed)

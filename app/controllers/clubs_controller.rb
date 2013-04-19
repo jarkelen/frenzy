@@ -32,7 +32,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
 
     if @club.update_attributes(params[:club])
-      redirect_to clubs_url, notice: 'Club was successfully updated.'
+      redirect_to clubs_url, notice:  "Club #{I18n.t('.updated.success')}"
     else
       render action: "edit"
     end

@@ -6,33 +6,29 @@ class GameroundsController < ApplicationController
     @gamerounds = Gameround.order('number DESC').paginate(page: params[:page])
   end
 
-  def show
-    @gameround = Gameround.find(params[:id])
-  end
-
   def new
     @gameround = Gameround.new
-  end
-
-  def edit
-    @gameround = Gameround.find(params[:id])
   end
 
   def create
     @gameround = Gameround.new(params[:gameround])
 
     if @gameround.save
-      redirect_to @gameround, notice: 'Gameround was successfully created.'
+      redirect_to gamerounds_path, notice: "Gameround #{I18n.t('.created.success')}"
     else
       render action: "new"
     end
+  end
+
+  def edit
+    @gameround = Gameround.find(params[:id])
   end
 
   def update
     @gameround = Gameround.find(params[:id])
 
     if @gameround.update_attributes(params[:gameround])
-      redirect_to @gameround, notice: 'Gameround was successfully updated.'
+      redirect_to gamerounds_path, notice: "Gameround #{I18n.t('.updated.success')}"
     else
       render action: "edit"
     end
@@ -42,9 +38,6 @@ class GameroundsController < ApplicationController
     @gameround = Gameround.find(params[:id])
     @gameround.destroy
 
-    respond_to do |format|
-      format.html { redirect_to gamerounds_url }
-      format.json { head :no_content }
-    end
+    redirect_to gamerounds_path, notice: "Gameround #{I18n.t('.destroyed.success')}"
   end
 end

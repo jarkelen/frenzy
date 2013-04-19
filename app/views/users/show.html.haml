@@ -1,7 +1,7 @@
 .row
   .offset2.span8
     .hero-unit.profile
-      - unless @user.profile
+      - if @user.profile.blank?
         = render partial: "no_profile", user: @user
       - else
         .profile_header
@@ -15,7 +15,7 @@
 
         .row.profile_body
           .span3
-            - if @user.profile.website.blank?
+            - if @user.profile.profile_photo.blank?
               %img{ src: image_path('default.jpg'), class: 'profile_image' }/
             - else
               %img{ src: @user.profile.profile_photo, alt: "profile photo", class: 'profile_image' }/

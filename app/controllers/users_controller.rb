@@ -18,6 +18,6 @@ class UsersController < Clearance::UsersController
     user = User.find(params[:id])
     user.destroy
 
-    redirect_to users_url, notice: "User #{I18n.t('.successfully_deleted')}"
+    redirect_to users_path, notice: "User #{I18n.t('.destroyed.success')}"
   end
 end

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   WillPaginate.per_page = 10
 
   rescue_from CanCan::AccessDenied do |exception|
-    render file: Rails.root.join('public', '403.html'), status: 403, layout: false
+    redirect_to root_path, notice: I18n.t('.general.not_authorized')
   end
 
   def set_locale

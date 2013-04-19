@@ -1,14 +1,15 @@
 nl:
   general:
-    yep:        Ja
-    nope:       Nee
-    true:       Ja
-    false:      Nee
-    dutch:      Nederlands
-    english:    Engels
-    save:       Opslaan
-    cancel:     Annuleren
-    edit:       Wijzigen
+    yep:            Ja
+    true:           Ja
+    false:          Nee
+    dutch:          Nederlands
+    english:        Engels
+    save:           Opslaan
+    cancel:         Annuleren
+    edit:           Wijzigen
+    delete:         Verwijderen
+    not_authorized: Helaas heb je geen rechten om de pagina te bekijken
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
@@ -32,13 +33,14 @@ nl:
     password:         Wachtwoord
     role:             Rol
     language:         Taal
-    title:            Gebruikers
-    name:             Gebruiker
+    title:            Deelnemers
+    name:             Deelnemer
     registered_at:    Registratie
     team_value:       Teamwaarde
     assigned_jokers:  Jokers
     used_jokers:      Gebruikte jokers
     created_at:       Deelnemer sinds
+    back_to_users:    Terug naar alle deelnemers
   profile:
     my_profile:       Mijn profiel
     account:          Profiel
@@ -60,6 +62,7 @@ nl:
     intro1:           Je hebt je profiel nog niet ingevuld!
     intro2:           Dat kun je eenvoudig
     intro3:           zelf doen
+    oops:             heeft zijn profiel helaas nog niet ingevuld...
   news:
     news_title:       Nieuwsberichten
     created:          Nieuwsbericht is aangemaakt

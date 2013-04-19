@@ -22,7 +22,7 @@ class PeriodsController < ApplicationController
     @period = Period.new(params[:period])
 
     if @period.save
-      redirect_to periods_path, notice: 'Period was successfully created.'
+      redirect_to periods_path, notice: "Periode #{I18n.t('.created.success')}"
     else
       render action: "new"
     end
@@ -32,7 +32,7 @@ class PeriodsController < ApplicationController
     @period = Period.find(params[:id])
 
     if @period.update_attributes(params[:period])
-      redirect_to periods_path, notice: 'Period was successfully updated.'
+      redirect_to periods_path, notice: "Periode #{I18n.t('.updated.success')}"
     else
       render action: "edit"
     end
@@ -42,9 +42,6 @@ class PeriodsController < ApplicationController
     @period = Period.find(params[:id])
     @period.destroy
 
-    respond_to do |format|
-      format.html { redirect_to periods_url }
-      format.json { head :no_content }
-    end
+    redirect_to periods_path, notice: "Periode #{I18n.t('.destroyed.success')}"
   end
 end
