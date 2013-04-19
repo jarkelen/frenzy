@@ -38,6 +38,8 @@
       %header
         .span12
           .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
+          - if signed_in?
+            .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
 
     / Topbar
     .row

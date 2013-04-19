@@ -58,13 +58,28 @@ describe "Profiles" do
       page.should have_content(I18n.t('.profile.intro1'))
     end
 
-    it "should show other user profile" do
-      @user2 = FactoryGirl.create(:user)
-      FactoryGirl.create(:profile, user_id: @user2.id)
-      visit user_path(@user2)
+    describe "show other user profile" do
+      context "filled in profile" do
+        it "should show the profile info" do
+          @user2 = FactoryGirl.create(:user)
+          FactoryGirl.create(:profile, user_id: @user2.id)
+          visit user_path(@user2)
 
-      page.should have_content(@user2.full_name)
-      page.should_not have_content(I18n.t('.general.not_authorized'))
+          page.should have_content(@user2.full_name)
+          page.should_not have_content(I18n.t('.general.not_authorized'))
+        end
+      end
+
+      context "not filled in profile" do
+        it "should show the oops message" do
+          @user2 = FactoryGirl.create(:user)
+          visit user_path(@user2)
+          page.should have_content(I18n.t('.profile.oops'))
+
+          click_link I18n.t(".user.back_to_users")
+          page.should have_content(@user2.full_name)
+        end
+      end
     end
 
     it "should show all user profiles" do
@@ -77,6 +92,7 @@ describe "Profiles" do
       page.should_not have_content(@user2.email)
       page.should_not have_content(@user2.assigned_jokers)
       page.should_not have_content(@user2.team_value)
+      page.should_not have_content(I18n.t('.general.delete'))
     end
 
     it "should create own profile" do
