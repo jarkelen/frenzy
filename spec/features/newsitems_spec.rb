@@ -54,8 +54,8 @@ describe "Newsitems" do
         @comment2  = FactoryGirl.create(:comment, commentable_id: @news1.id)
         visit newsitem_path(@news1)
 
-        page.should have_content(@comments1.content)
-        page.should have_content(@comments2.content)
+        page.should have_content(@comment1.content)
+        page.should have_content(@comment2.content)
       end
     end
   end
