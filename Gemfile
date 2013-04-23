@@ -14,6 +14,8 @@ gem 'activerecord-postgresql-adapter'
 gem 'will_paginate', '~> 3.0'
 gem 'carrierwave'
 gem 'fog'
+gem 'rails_best_practices'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
