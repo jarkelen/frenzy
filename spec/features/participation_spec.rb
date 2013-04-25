@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe "Participation" do
-  before :all do
-    init_settings
-  end
-
   context "unregistered visitors" do
     it "should not allow access to my team page" do
       visit selections_path
@@ -23,6 +19,10 @@ describe "Participation" do
   end
 
   context "regular users" do
+    before :all do
+      init_settings
+    end
+
     before(:each) do
       sign_in_as(@user)
     end
@@ -58,6 +58,46 @@ describe "Participation" do
         page.should have_content(I18n.t('joker.jokers'))
       end
     end
+  end
 
+  describe "restrictions" do
+    before :each do
+      FactoryGirl.create_list :period, 4
+    end
+
+    context "participation open, existing user" do
+      it "should be possible to add/edit the team" do
+        @setting = FactoryGirl.create :setting, participation: true
+        @user = FactoryGirl.create :user
+        sign_in_as(@user)
+
+        visit selections_path
+        page.should have_content(I18n.t('.team.new'))
+      end
+    end
+
+    context "participation closed, existing user" do
+      it "should not be possible to add/edit the team" do
+        @setting = FactoryGirl.create :setting, participation: true
+        @user = FactoryGirl.create :user
+        @setting.update_attributes(participation: false)
+        sign_in_as(@user)
+
+        visit selections_path
+        save_and_open_page
+        page.should_not have_content(I18n.t('.team.new'))
+      end
+    end
+
+    context "participation closed, new user" do
+      it "should be possible to add/edit the team" do
+        @setting = FactoryGirl.create :setting, participation: false
+        @user = FactoryGirl.create :user, participation_due: 3.days.from_now
+        sign_in_as(@user)
+
+        visit selections_path
+        page.should have_content(I18n.t('.team.new'))
+      end
+    end
   end
 end

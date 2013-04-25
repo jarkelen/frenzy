@@ -1,0 +1,11 @@
+- if target.errors.any?
+  .errors
+    %h4
+      - if target.errors.count > 1
+        = I18n.t('.general.error_single')
+      - else
+        = I18n.t('.general.error_plural')
+      = I18n.t('.general.error_text')
+    %ul
+      - target.errors.full_messages.each do |msg|
+        %li= msg

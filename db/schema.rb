@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411115509) do
+ActiveRecord::Schema.define(:version => 20130425072750) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20130411115509) do
     t.boolean  "participation"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "max_teamvalue"
   end
 
   create_table "users", :force => true do |t|
@@ -174,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20130411115509) do
     t.string   "encrypted_password", :limit => 128,                     :null => false
     t.string   "confirmation_token", :limit => 128
     t.string   "remember_token",     :limit => 128,                     :null => false
+    t.datetime "participation_due"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
