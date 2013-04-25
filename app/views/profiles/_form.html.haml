@@ -1,6 +1,7 @@
 = simple_form_for @profile, html: { class: 'form-horizontal' } do |f|
   = f.hidden_field :user_id, value: current_user.id
   = f.input :bio, as: :text, input_html: { cols: 50, rows: 3 }, label: I18n.t('.profile.bio_long')
+  = f.input :location
   = f.input :favorite_club, label: I18n.t('.profile.favorite_club')
   = f.input :website, class: 'input-xlarge'
   = f.input :twitter

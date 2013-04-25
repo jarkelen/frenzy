@@ -100,6 +100,7 @@ describe "Profiles" do
       click_link I18n.t(".profile.intro3")
 
       fill_in "profile_bio", with: "My bio text"
+      fill_in "profile_location", with: "Eindhoven"
       fill_in "profile_favorite_club", with: "Charlton Athletic"
       fill_in "profile_website", with: "www.test.nl"
       fill_in "profile_twitter", with: "DutchAddick"
@@ -108,6 +109,7 @@ describe "Profiles" do
 
       page.should have_content(I18n.t('.profile.created'))
       page.should have_content("My bio text")
+      page.should have_content("Eindhoven")
       page.should have_content("Charlton Athletic")
       page.should have_content("test.nl")
       page.should have_content("Gezichtboek")

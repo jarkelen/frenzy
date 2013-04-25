@@ -14,38 +14,38 @@
                 %p= @user.profile.bio
 
         .row.profile_body
-          .span3
+          .span2
             - if @user.profile.profile_photo.blank?
               %img{ src: image_path('default.jpg'), class: 'profile_image' }/
             - else
               %img{ src: @user.profile.profile_photo, alt: "profile photo", class: 'profile_image' }/
 
-          .span3
+          .span4
             .row
-              .span3
+              .span4
                 %p
                   %i.icon-envelope
                   = @user.email
               - unless @user.profile.website.blank?
-                .span3
+                .span4
                   %p
                     %i.icon-globe
                     = link_to @user.profile.website.split('www.')[1], @user.profile.website, target: "_blank"
               - unless @user.profile.facebook.blank?
-                .span3
+                .span4
                   %p
                     %i.icon-thumbs-up
                     = link_to @user.profile.facebook, "https://www.facebook.com/#{@user.profile.twitter}", target: "_blank"
               - unless @user.profile.twitter.blank?
-                .span3
+                .span4
                   %p
                     %i.icon-user
                     = link_to "@#{@user.profile.twitter}", "https://twitter.com/#{@user.profile.twitter}", target: "_blank"
-              .span3
+              .span4
                 %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"
-              .span3
+              .span4
                 %p= "#{I18n.t(".profile.lives_in")} #{@user.profile.location}"
-              .span3
+              .span4
                 %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
 
         - if can? :edit, Profile and current_user == @user

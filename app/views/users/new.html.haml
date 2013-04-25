@@ -3,6 +3,7 @@
     #clearance.signin_container
       = form_for @user do |f|
         %h2= I18n.t('.sessions.new.sign_up')
+        = render "layouts/error_messages", target: @user
         = f.hidden_field :role, value: 'user'
         = f.text_field :first_name, class: "input-block-level", placeholder: I18n.t('.user.first_name')
         = f.text_field :last_name, class: "input-block-level", placeholder: I18n.t('.user.last_name')
