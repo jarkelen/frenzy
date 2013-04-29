@@ -12,11 +12,7 @@ nl:
     not_authorized: Helaas heb je geen rechten om de pagina te bekijken
     error_single:   fout
     error_plural:   fouten
-<<<<<<< HEAD
     error_text:     "ontdekt bij het opslaan:"
-=======
-    error_text:     "ontdekt tijdens het verwerken:"
->>>>>>> 12d693657d19b1b3615935ecf3a1f33aea9cebf0
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
