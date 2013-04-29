@@ -4,12 +4,13 @@ FactoryGirl.define do
   end
 
   factory :user do
-    first_name    "Piet"
-    last_name     "Jansen"
-    team_name     "Frenzy Utd"
-    role          "user"
-    language      "nl"
-    password      "password1"
+    first_name        "Piet"
+    last_name         "Jansen"
+    team_name         "Frenzy Utd"
+    role              "user"
+    language          "nl"
+    password          "password1"
+    participation_due nil
     email
   end
 end

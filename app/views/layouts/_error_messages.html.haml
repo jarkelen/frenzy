@@ -1,10 +1,17 @@
 - if target.errors.any?
   .errors
     %h4
+<<<<<<< HEAD
       - if target.errors.size > 1
         = "#{target.errors.size} #{I18n.t('.general.error_single')}"
       - else
         = "#{target.errors.size} #{I18n.t('.general.error_plural')}"
+=======
+      - if target.errors.count > 1
+        = I18n.t('.general.error_single')
+      - else
+        = I18n.t('.general.error_plural')
+>>>>>>> 12d693657d19b1b3615935ecf3a1f33aea9cebf0
       = I18n.t('.general.error_text')
     %ul
       - target.errors.full_messages.each do |msg|

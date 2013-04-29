@@ -8,9 +8,10 @@ class User < ActiveRecord::Base
   has_one   :profile, dependent: :destroy
   has_many  :newsitems
 
-  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value
+  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due
 
   before_create :assign_jokers
+  before_create :set_participation_due
   before_save { |user| user.email = email.downcase }
 
   validates :first_name, :last_name, :team_name, :role, :language, :team_value, presence: true
@@ -35,4 +36,25 @@ class User < ActiveRecord::Base
     self.assigned_jokers = ((periods + 1) - settings.current_period) * jokers_per_period
   end
 
+  def set_participation_due
+    settings = Setting.first
+      puts "BLA1"
+    unless settings.participation
+      puts "BLA2"
+      self.participation_due = 3.days.from_now
+    end
+  end
+
+  def participation_restricted?(team_size, team_value)
+    settings = Setting.first
+    return true unless team_size < settings.max_teamsize
+    return true unless team_value < settings.max_teamvalue
+
+    if self.participation_due == nil
+      return true unless settings.participation
+    else
+      return true unless DateTime.now < self.participation_due
+    end
+    return false
+  end
 end
