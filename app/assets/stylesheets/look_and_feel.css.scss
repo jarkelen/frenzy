@@ -2,8 +2,8 @@
 
 html, body {
   font-family: $default-font;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 12px;
+  line-height: 20px;
   background-color: #D0D0D0;
   color: $text-color;
 }
@@ -14,23 +14,11 @@ a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
 }
-.btn {
-  a, a:visited, a:hover {
-    color: $text-color;
-  }
-}
-
-.site_canvas {
-  width: 90%;
+.site_container {
+  width: 100%;
   margin: 0 auto;
   background-color: $background-color;
   padding: 10px;
-  border: solid 1px black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.site_container {
-  margin: 0 auto;
 }
 nav {
   margin-bottom: 2em;
@@ -38,6 +26,7 @@ nav {
 .yield {
   min-height: 500px;
   margin: 1em;
+  padding-top: 1em;
 }
 .destroy_x {
   color: red;
@@ -55,12 +44,26 @@ header {
     font-size: 1.2em;
     color: $text-color;
   }
+  .signin_link {
+    background-color: $base-color;
+    padding: 0.5em 1em;
+    @include round-corners;
+
+    a, a:visited, a:active {
+      color: #FFFFFF;
+    }
+  }
+}
+.yield, .messages, .navbar, footer, header {
+  margin: 0 auto;
+  width: 90%;
 }
 footer {
   text-align: center;
   margin-top: 1em;
   padding: 0.2em;
   border-top: 2px solid $base-color;
+  background-color: $base-color;
 
   h5 {
     color: $text-color;
@@ -76,6 +79,12 @@ form {
   .small_text_field {
     width: 3em;
   }
+  textarea {
+    width: 400px;
+    max-width: 400px;
+    height: 150px;
+    line-height: 150%;
+  }
 }
 .points_used {
   padding: 10px;
@@ -84,16 +93,19 @@ form {
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+  border: 2px solid $title-color;
 
   p {
     color: $base-color;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
     text-align: center;
     margin: 0;
   }
 }
 .table {
+  margin-top: 0;
+
   th {
     background: $table-color;
     color: #FFFFFF;
@@ -114,23 +126,67 @@ form {
 .center {
   text-align: center;
 }
+.table_filter {
+  margin-top: 0;
+  margin: 0 0 5px;
+}
 
-// Topbar
-.top-bar, .top-bar-section .has-form, .top-bar-section li a:not(.button) {
-  background: $base-color;
+// Profile
+.profile {
+  .profile_header, .profile_body {
+    margin-bottom: 2em;
+  }
+  .profile_image {
+    margin-top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bio {
+    text-align: center;
+  }
+  p {
+    font-size: 70%;
+  }
+  .no_profile {
+    text-align: center;
+    p {
+      font-size: 100%;
+    }
+  }
 }
-.top-bar-section ul li.active a {
-  background: $base-color;
+
+// News
+.media {
+  h1 {
+    margin-bottom: 0;
+  }
+  .subtitle {
+    font-size: 80%;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+  .content {
+    margin-top: 1em;
+  }
 }
-.top-bar-section li a:not(.button):hover {
-  background: darken($base-color, 5%);
+.comment {
+  border: 1px solid $text-color;
+  padding: 1em;
+  margin: 1em;
+  background-color: darken(#FFFFFF, 5%);
+  @include box-shadow;
+
+  .subtitle {
+    margin-bottom: 0.5em;
+  }
 }
-.top-bar-section .dropdown li {
-  min-width: 100%;
-}
-.top-bar-section>ul>.divider {
-  border-right: darken($base-color, 25%);
-  border-left: darken($base-color, 25%);
+.add_comment {
+  margin: 3em;
+
+  .btn {
+    margin-top: 1em;
+  }
 }
 
 // Signin form
@@ -165,4 +221,40 @@ form {
     margin-bottom: 15px;
     padding: 7px 9px;
   }
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+  background-color: $base-color;
+
+  a, a:hover, a:visited {
+    color: #FFFFFF;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
 }

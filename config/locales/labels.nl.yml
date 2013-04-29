@@ -18,8 +18,8 @@ nl:
   save: Opslaan
   actions: Acties
   created:
-    success: "is succesvol aangemaakt."
-    failure: "kon niet worden aangemaakt."
+    success: "is succesvol toegevoegd."
+    failure: "kon niet worden toegevoegd."
   updated:
     success: "is succesvol bijgewerkt."
     failure: "kon niet worden bijgewerkt."

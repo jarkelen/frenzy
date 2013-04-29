@@ -5,12 +5,13 @@ class SelectionsController < ApplicationController
   def index
     @selections = current_user.selections#.high_to_low
     @selection = Selection.new
+    @settings = Setting.first
 
     # Determine current team value
     @current_teamvalue = 0
     @selections.each do |selection|
       # Determine current period
-      case $current_period
+      case @settings.current_period
         when 1
           @current_period = selection.club.period1
         when 2
@@ -38,7 +39,7 @@ class SelectionsController < ApplicationController
     @selection = Selection.find(params[:id])
     @selection.destroy
 
-    redirect_to selections_url, notice: "Club #{I18n.t('.successfully_deleted')}"
+    redirect_to selections_url, notice: "Club #{I18n.t('.destroyed.success')}"
   end
 
 end

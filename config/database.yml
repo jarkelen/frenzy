@@ -14,3 +14,12 @@ test:
   pool: 5
   username: johnvanarkelen
   password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: frenzy_production
+  pool: 5
+  username: johnvanarkelen
+  password:
+  host: localhost

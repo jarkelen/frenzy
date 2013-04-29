@@ -31,94 +31,96 @@
     })();
 
 %body
-  .site_canvas
-    .site_container
+  .site_container
 
-      / Header
-      .row
-        %header
-          .span6
-            .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
-          .span6
-            - if signed_in?
-              .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
-
-      / Topbar
-      .row
+    / Header
+    .row
+      %header
         .span12
-          .navbar
-            .navbar-inner
-              .container
-                %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-                  %span.icon-bar
-                  %span.icon-bar
-                  %span.icon-bar
+          .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
+          - if signed_in?
+            .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
 
-                .nav-collapse.collapse.navbar-responsive-collapse
-                  - if signed_in?
-                    %ul.nav
-                      %li
-                        = link_to I18n.t(".site.home"), root_path
-                      %li.divider-vertical
-                        %li.dropdown
-                          %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
-                            = I18n.t(".team.my_team")
-                            %b.caret
-                          %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
-                            %li= link_to I18n.t(".team.my_team"), selections_path
-                            %li= link_to I18n.t(".joker.jokers"), jokers_path
-                            %li= link_to I18n.t(".score.my_scores"), scores_path
-                        %li.divider-vertical
-                        %li.dropdown
-                          %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
-                            = I18n.t(".frenzy.the_frenzy")
-                            %b.caret
-                          %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
-                            %li= link_to I18n.t(".ranking.gameround_ranking"), rankings_path(type: "gameround")
-                            %li= link_to I18n.t(".ranking.rankings"), rankings_path(type: "general")
-                            %li= link_to I18n.t(".site.about.rules"), frenzy_rules_path(section: 'participation')
-                            %li= link_to I18n.t(".site.about.about_us"), root_path
-                        %li.divider-vertical
-                    %ul.nav.pull-right
-                      - if current_user.admin?
-                        %li.dropdown
-                          %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
-                            = I18n.t(".site.admin")
-                            %b.caret
-                          %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
-                            %li= link_to I18n.t('.league.leagues'), leagues_path
-                            %li= link_to I18n.t('.club.clubs'), clubs_path
-                            %li= link_to I18n.t('.period.periods'), periods_path
-                            %li= link_to I18n.t('.gameround.gamerounds'), gamerounds_path
-                            %li= link_to I18n.t('.result.results'), results_path
-                            %li= link_to I18n.t('.frenzy.index'), frenzy_index_path
-                      %li.divider-vertical
-                      %li.dropdown
-                        %a#drop2.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
-                          = I18n.t(".profile.my_profile")
-                          %b.caret
-                        %ul.dropdown-menu{ "aria-labelledby" => "drop2", role: "menu" }
-                          %li= link_to I18n.t('.profile.show_profile'), user_path(current_user)
-                          %li= link_to I18n.t('.layouts.application.sign_out'), sign_out_path, method: :delete
+    / Topbar
+    .row
+      .navbar
+        .navbar-inner
+          .container
+            %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
 
-      / Messages
-      .row
-        .span12.messages
-          - flash.each do |name, msg|
-            %div{class: "alert alert-#{name}"}
-              %a.close{"data-dismiss" => "alert"} x
-              = msg
+            .nav-collapse.collapse.navbar-responsive-collapse
+              - if signed_in?
+                %ul.nav
+                  %li
+                    = link_to I18n.t(".site.home"), root_path
+                  %li.divider-vertical
+                    %li.dropdown
+                      %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+                        = I18n.t(".team.my_team")
+                        %b.caret
+                      %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
+                        %li= link_to I18n.t(".team.my_team"), selections_path
+                        %li= link_to I18n.t(".joker.jokers"), jokers_path
+                        %li= link_to I18n.t(".score.my_scores"), scores_path
+                    %li.divider-vertical
+                    %li.dropdown
+                      %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+                        = I18n.t(".frenzy.the_frenzy")
+                        %b.caret
+                      %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
+                        %li= link_to I18n.t('.user.title'), users_path
+                        %li= link_to I18n.t(".ranking.gameround_ranking"), rankings_path(type: "gameround")
+                        %li= link_to I18n.t(".ranking.rankings"), rankings_path(type: "general")
+                        %li= link_to I18n.t(".news.news_title"), newsitems_path
+                        %li= link_to I18n.t(".site.about.rules"), frenzy_rules_path(section: 'participation')
+                        %li= link_to I18n.t(".site.about.about_us"), root_path
+                    %li.divider-vertical
+                %ul.nav.pull-right
+                  - if current_user.admin?
+                    %li.dropdown
+                      %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+                        = I18n.t(".site.admin")
+                        %b.caret
+                      %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
+                        %li= link_to I18n.t('.league.leagues'), leagues_path
+                        %li= link_to I18n.t('.club.clubs'), clubs_path
+                        %li= link_to I18n.t('.period.periods'), periods_path
+                        %li= link_to I18n.t('.gameround.gamerounds'), gamerounds_path
+                        %li= link_to I18n.t('.result.results'), results_path
+                        %li= link_to I18n.t('.frenzy.index'), frenzy_index_path
+                  %li.divider-vertical
+                  %li.dropdown
+                    %a#drop2.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+                      = I18n.t(".profile.my_profile")
+                      %b.caret
+                    %ul.dropdown-menu{ "aria-labelledby" => "drop2", role: "menu" }
+                      %li= link_to I18n.t('.profile.show_profile'), user_path(current_user)
+                      %li= link_to I18n.t('.layouts.application.sign_out'), sign_out_path, method: :delete
+              - else
+                %ul.nav.pull-right
+                  %li
+                    = link_to I18n.t('.site.signin'), sign_in_path
 
-      / Content
-      .yield
-        = yield
+    / Messages
+    .row
+      .messages
+        - flash.each do |name, msg|
+          %div{class: "alert alert-#{name}"}
+            %a.close{"data-dismiss" => "alert"} x
+            = msg
 
-      / Footer
-      .row
-        .span12
-          %footer
-            %h5.subheader
-              &copy; 2013
-              %a{:href => "https://twitter.com/DutchAddick", target: "_blank" } DutchAddick
-              &amp;
-              %a{:href => "https://twitter.com/Doingthe116", target: "_blank" } Doingthe116
+    / Content
+    .yield
+      = yield
+
+    / Footer
+    .row
+      %footer
+        %h5.subheader
+          &copy; 2013
+          %a{:href => "https://twitter.com/DutchAddick", target: "_blank" } DutchAddick
+          &amp;
+          %a{:href => "https://twitter.com/Doingthe116", target: "_blank" } Doingthe116

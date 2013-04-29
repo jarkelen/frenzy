@@ -3,12 +3,10 @@
     %h1 Welkom bij de Frenzy!
     %p De deelname aan de Clubs Frenzy voor het nieuwe seizoen 2010-2011 is open!
 
-  .span4
-    %h2 Sidebar
-    %p
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .row
+      .span8
+        %h1= I18n.t('.news.latest_news')
+        = render partial: "newsitems/newsitems", newsitems: @newsitems
+
+  %aside.span4
+    = render partial: "rankings/general_ranking"

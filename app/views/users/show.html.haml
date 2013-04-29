@@ -1,4 +1,54 @@
 .row
-  .span12
-    %h1= I18n.t(".profile.my_profile")
-    %p= @user.full_name
+  .offset2.span8
+    .hero-unit.profile
+      - if @user.profile.blank?
+        = render partial: "no_profile", user: @user
+      - else
+        .profile_header
+          .row
+            .span6
+              %h3.text-center= @user.full_name
+          - unless @user.profile.bio.blank?
+            .row
+              .span6.bio
+                %p= @user.profile.bio
+
+        .row.profile_body
+          .span2
+            - if @user.profile.profile_photo.blank?
+              %img{ src: image_path('default.jpg'), class: 'profile_image' }/
+            - else
+              %img{ src: @user.profile.profile_photo, alt: "profile photo", class: 'profile_image' }/
+
+          .span4
+            .row
+              .span4
+                %p
+                  %i.icon-envelope
+                  = @user.email
+              - unless @user.profile.website.blank?
+                .span4
+                  %p
+                    %i.icon-globe
+                    = link_to @user.profile.website.split('www.')[1], @user.profile.website, target: "_blank"
+              - unless @user.profile.facebook.blank?
+                .span4
+                  %p
+                    %i.icon-thumbs-up
+                    = link_to @user.profile.facebook, "https://www.facebook.com/#{@user.profile.twitter}", target: "_blank"
+              - unless @user.profile.twitter.blank?
+                .span4
+                  %p
+                    %i.icon-user
+                    = link_to "@#{@user.profile.twitter}", "https://twitter.com/#{@user.profile.twitter}", target: "_blank"
+              .span4
+                %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"
+              .span4
+                %p= "#{I18n.t(".profile.lives_in")} #{@user.profile.location}"
+              .span4
+                %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
+
+        - if can? :edit, Profile and current_user == @user
+          .row
+            .span6.text-center
+              .btn.btn-success= link_to I18n.t('.profile.edit_profile'), edit_profile_path(@user)

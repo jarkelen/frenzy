@@ -1,21 +1,21 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'i18n'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'capistrano'
-gem 'rvm-capistrano'
-gem 'mysql2'
 gem 'clearance', '1.0.0.rc6'
 gem 'simple_form'
 gem 'cancan'
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
-gem 'gauges-rails'
+gem 'will_paginate', '~> 3.0'
+gem 'carrierwave'
+gem 'fog'
+gem 'rails_best_practices'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -35,6 +35,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'database_cleaner'
+  gem 'quiet_assets'
 end
 
 group :production do

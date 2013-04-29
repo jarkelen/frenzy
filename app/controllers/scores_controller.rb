@@ -8,6 +8,7 @@ class ScoresController < ApplicationController
     else
       @gameround = Gameround.where(processed: true).last
     end
-    @scores = Score.where("gameround_id = ?", @gameround)
+    @scores = Score.where("gameround_id = ?", @gameround).paginate(page: params[:page])
+    @gamerounds = Gameround.current.order("number DESC")
   end
 end

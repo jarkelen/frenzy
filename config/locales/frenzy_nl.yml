@@ -36,6 +36,7 @@ nl:
   joker:
     jokers:             Mijn jokers
     joker:              Joker
+    jokers_short:       Jokers
     new:                Joker toevoegen
     intro1:             Hieronder worden jouw jokers getoond. Om jokers toe te voegen, selekteer een speelronde en vervolgens een, twee of drie clubs die je wilt inztten als joker voor die etappe. Jokers kun je inzetten/verwijderen zolang de speelronde nog niet is begonnen.
     intro2:             Bij de ingezette jokers wordt d.m.v. kleuren aangegeven of de joker effektief was. Rood betekent dat de joker beter niet ingezet had kunnen worden, groen betekent dat het een prima keuze was om de joker in te zetten en wit betekent dat je een joker kwijt bent zonder dat het iets heeft opgeleverd.
@@ -60,9 +61,13 @@ nl:
     process_gameround:  Verwerken speelronde
     cancel_jokers:      Annuleren jokers
     switch_period:      Switchen periode
+    switch_participation: Switchen deelname
+    participation_on:   Deelname aan
+    participation_off:  Deelname uit
     message_calculated: De gegevens zijn berekend
     message_cancelled:  De jokers zijn geannuleerd
-    message_switched:   De periode is geswitched
+    message_period_switched:   De periode is geswitched
+    message_participation_switched:   De deelname is geswitched
     the_frenzy:         Frenzy
     rules:
       title:            Frenzy spelregels
@@ -113,5 +118,4 @@ nl:
     total_score:        Puntentotaal
     position:           Positie
     intro_general:      Hieronder een overzicht van het algemeen klassement en het periode klassement na de laatst berekende speelronde. Daarnaast kun je de klassementen na eerdere speelronden nog eens terug kijken.
-    intro_gameround:    Hieronder de uitslag van de laatst berekende speelronde, maar je kunt ook de uitslagen na eerdere speelrondes bekijken.
-
+    intro_gameround:    'Hieronder de uitslag van de laatst berekende speelronde, maar je kunt ook de uitslagen na eerdere speelrondes bekijken.'

@@ -9,4 +9,9 @@ describe Period do
   it { should have_many(:results).through(:gamerounds) }
   it { should have_many(:jokers).through(:gamerounds)  }
   it { should have_many(:scores).through(:gamerounds)  }
+
+  it "should format the period full name" do
+    period = FactoryGirl.create :period, period_nr: 1, start_date: 1.day.from_now, end_date: 1.month.from_now
+    period.full_name.should === "1: #{1.day.from_now.strftime('%d-%m-%Y')} - #{1.month.from_now.strftime('%d-%m-%Y')}"
+  end
 end

@@ -3,7 +3,7 @@ class UsersController < Clearance::UsersController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @users = User.order("last_name").paginate(page: params[:page])
   end
 
   def show
@@ -12,5 +12,12 @@ class UsersController < Clearance::UsersController
 
   def team
     @selections = current_user.selections
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+
+    redirect_to users_path, notice: "User #{I18n.t('.destroyed.success')}"
   end
 end

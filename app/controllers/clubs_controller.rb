@@ -3,7 +3,7 @@ class ClubsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clubs = Club.order('league_id, club_name')
+    @clubs = Club.order('league_id, club_name').paginate(page: params[:page])
   end
 
   def show
@@ -32,7 +32,7 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
 
     if @club.update_attributes(params[:club])
-      redirect_to clubs_url, notice: 'Club was successfully updated.'
+      redirect_to clubs_url, notice:  "Club #{I18n.t('.updated.success')}"
     else
       render action: "edit"
     end
@@ -42,6 +42,6 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     @club.destroy
 
-    redirect_to clubs_url, notice: "Club #{I18n.t('.successfully_deleted')}"
+    redirect_to clubs_url, notice: "Club #{I18n.t('.destroyed.success')}"
   end
 end

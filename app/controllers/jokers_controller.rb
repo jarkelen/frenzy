@@ -5,7 +5,7 @@ class JokersController < ApplicationController
   def index
     @clubs = current_user.clubs
     @gamerounds = Gameround.active
-    @all_gamerounds = Gameround.all
+    @all_gamerounds = Gameround.paginate(page: params[:page])
   end
 
   def store

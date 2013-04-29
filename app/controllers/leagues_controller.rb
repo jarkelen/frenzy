@@ -22,7 +22,7 @@ class LeaguesController < ApplicationController
     @league = League.new(params[:league])
 
     if @league.save
-      redirect_to @league, notice: 'League was successfully created.'
+      redirect_to leagues_path, notice: 'League was successfully created.'
     else
       render action: "new"
     end
@@ -32,7 +32,7 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
 
     if @league.update_attributes(params[:league])
-      redirect_to @league, notice: 'League was successfully updated.'
+      redirect_to leagues_path, notice: 'League was successfully updated.'
     else
       render action: "edit"
     end
@@ -42,9 +42,6 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
     @league.destroy
 
-    respond_to do |format|
-      format.html { redirect_to leagues_url }
-      format.json { head :no_content }
-    end
+    redirect_to leagues_path, notice: 'League was successfully deleted.'
   end
 end

@@ -1,0 +1,11 @@
+.row
+  .span6.no_profile
+    - if can? :create, Profile and current_user == @user
+      %h3= I18n.t(".profile.my_profile")
+      %p= I18n.t(".profile.intro1")
+      %p
+        = I18n.t(".profile.intro2")
+        = link_to I18n.t(".profile.intro3"), new_profile_path
+    - else
+      %p= "#{@user.full_name} #{I18n.t(".profile.oops")}"
+      %p= link_to I18n.t(".user.back_to_users"), users_path

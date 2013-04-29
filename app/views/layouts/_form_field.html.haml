@@ -1,0 +1,10 @@
+- if type == 'text_field'
+  .row
+    .span12
+      = f.label label
+      = f.text_field data, class: size
+- elsif type == 'text_area'
+  .row
+    .span12
+      = f.label label
+      = f.text_area data, cols: 100, rows: 3
