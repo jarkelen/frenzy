@@ -50,7 +50,7 @@
           %th= period4_counter
           %th
 
-- if (@selections.size == 0 or (@settings.participation and @selections.size < @settings.max_teamsize and @current_teamvalue < current_user.team_value)) and can? :create, Selection
+- unless current_user.participation_restricted?(@selections.size, @current_teamvalue) and can? :create, Selection
   .row
     .span12
       = render partial: "add_club"
