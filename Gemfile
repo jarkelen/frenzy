@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'rails_best_practices'
 gem 'newrelic_rpm'
+gem 'wombat'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

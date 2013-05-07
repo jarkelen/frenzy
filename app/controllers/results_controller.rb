@@ -4,6 +4,8 @@ class ResultsController < ApplicationController
 
   def index
     @results = Result.order("gameround_id DESC").paginate(page: params[:page])
+
+    Scraper.new.get_results("Saturday 4th May 2013", "championship")
   end
 
   def new
@@ -39,5 +41,16 @@ class ResultsController < ApplicationController
     @result.destroy
 
     redirect_to results_url
+  end
+
+  def scrape_results
+    @scenario = Scenario.find(params[:scenario_id])
+    if @scenario.execution_delay
+      PerformanceWorker.perform_in(@scenario.execution_delay.minutes, params[:scenario_id])
+      redirect_to scenarios_url, notice: I18n.t('.scenario.messages.started_in', delay: @scenario.execution_delay)
+    else
+      PerformanceWorker.perform_async(params[:scenario_id])
+      redirect_to scenarios_url, notice: I18n.t('.scenario.messages.started')
+    end
   end
 end
