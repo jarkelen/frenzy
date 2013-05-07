@@ -3,4 +3,4 @@
     = form_for [@commentable, @comment] do |f|
       = f.text_area :content
       .comment_submit
-        = f.button :submit, class: 'btn', value: I18n.t('.save')
+        = f.submit(class: 'btn', value: I18n.t('.general.save'))

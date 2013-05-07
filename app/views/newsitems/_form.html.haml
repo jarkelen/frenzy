@@ -8,6 +8,10 @@
   = render "layouts/form_field", type: 'text_area', f: f, data: :content_en,  label: I18n.t('.news.content_en')
   = f.label I18n.t('.news.publish')
   = f.collection_select :publish, [[true, I18n.t('.general.yep')] ,[false, I18n.t('.general.nope')]], :first, :last
+  = f.label I18n.t('.news.sticky')
+  = f.collection_select :sticky, [[true, I18n.t('.general.yep')] ,[false, I18n.t('.general.nope')]], :first, :last
+  = f.label I18n.t('.news.priority')
+  = f.collection_select :priority, [["normaal", I18n.t('.news.normal')] ,["hoog", I18n.t('.news.high')]], :first, :last
   .form-actions
-    = f.button :submit, value: I18n.t('.general.save'), class: 'btn'
+    = f.submit(class: 'btn', value: I18n.t('.general.save'))
     = link_to t('.cancel', default: t("helpers.links.cancel")), newsitems_path, class: 'btn'

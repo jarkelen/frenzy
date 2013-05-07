@@ -3,7 +3,11 @@
     .page-header
       %h1= I18n.t('.news.news_title')
 
+    - if can? :create, Newsitem
+      = link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_newsitem_path, class: 'btn'
+
 .row
   .span12
     .newsitems
-      = render partial: "newsitems", newsitems: @newsitems
+      = render partial: "newsitems", locals: { newsitems: @newsitems }
+    = will_paginate @newsitems
