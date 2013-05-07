@@ -6,7 +6,7 @@ class Ability
       can :manage, :all
     else
       can    [:read, :create, :update, :destroy], Selection
-      can    [:read, :create, :update, :destroy], Joker
+      can    [:read, :create, :update, :destroy, :store], Joker
       can    [:read, :create, :update], Profile
       can    [:read], Result
       can    [:read], Score
@@ -14,6 +14,7 @@ class Ability
       can    [:index, :show], User
       can    [:read], Newsitem
       can    [:read, :create], Comment
+      can    [:rules], Frenzy
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result
@@ -23,7 +24,7 @@ class Ability
       cannot [:create, :update, :destroy], User
       cannot [:create, :update, :destroy], Newsitem
       cannot [:update, :destroy], Comment
-      cannot [:index, :administrate_frenzy], Frenzy
+      cannot [:index, :process_gameround, :cancel_jokers, :switch_period, :switch_participation], Frenzy
     end
   end
 end

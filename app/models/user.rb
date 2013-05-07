@@ -38,9 +38,7 @@ class User < ActiveRecord::Base
 
   def set_participation_due
     settings = Setting.first
-      puts "BLA1"
     unless settings.participation
-      puts "BLA2"
       self.participation_due = 3.days.from_now
     end
   end

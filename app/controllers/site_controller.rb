@@ -1,6 +1,7 @@
 class SiteController < ApplicationController
   def index
-    @newsitems = Newsitem.top3.published.paginate(page: params[:page])
+    @sticky_newsitems = Newsitem.sticky
+    @newsitems = Newsitem.top3.paginate(page: params[:page])
     @general_rankings = Ranking.calculate_ranking("general")
   end
 end

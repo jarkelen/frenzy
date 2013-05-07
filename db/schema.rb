@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425072750) do
+ActiveRecord::Schema.define(:version => 20130507113127) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20130425072750) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "sticky"
+    t.string   "priority"
   end
 
   create_table "periods", :force => true do |t|

@@ -1,12 +1,8 @@
 .row
   .span8
-    %h1 Welkom bij de Frenzy!
-    %p De deelname aan de Clubs Frenzy voor het nieuwe seizoen 2010-2011 is open!
-
-    .row
-      .span8
-        %h1= I18n.t('.news.latest_news')
-        = render partial: "newsitems/newsitems", newsitems: @newsitems
+    %h1= I18n.t('.news.latest_news')
+    = render partial: "newsitems/newsitems", locals: { newsitems: @sticky_newsitems }
+    = render partial: "newsitems/newsitems", locals: { newsitems: @newsitems }
 
   %aside.span4
     = render partial: "rankings/general_ranking"
