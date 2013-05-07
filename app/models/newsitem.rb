@@ -3,7 +3,7 @@ class Newsitem < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   attr_accessible :content_en, :content_nl, :summary_nl, :summary_en, :title_en, :title_nl, :publish, :user_id, :sticky, :priority
-  validates :content_en, :content_nl, :summary_nl, :summary_en, :title_en, :title_nl, :publish, :user_id, :sticky, :priority, presence: true
+  validates :summary_nl, :summary_en, :title_en, :title_nl, :publish, :user_id, :sticky, :priority, presence: true
 
   scope :newest_first, order('created_at DESC')
   scope :top3, where(publish: true, sticky: false).order('created_at DESC').limit(3)
