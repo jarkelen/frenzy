@@ -16,6 +16,10 @@ class Scraper
     page.css(".table-header").each do |item|
       if item.text.strip == results_date
         puts item.text.strip
+
+        news_links = page.css("a").select{|link| link['data-category'] == "news"}
+news_links.each{|link| puts link['href'] }
+        http://ruby.bastardsbook.com/chapters/html-parsing/
         return true
       end
       #puts item.at_css(".prodLink").text
