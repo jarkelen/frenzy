@@ -7,12 +7,12 @@ class ResultsController < ApplicationController
   end
 
   def new
-    if @results
+    if params[:results]
+      @results = params[:results]
       @gamerounds = Gameround.active
       @clubs = Club.all
-    else
-      @leagues = League.all
     end
+    @leagues = League.all
   end
 
   def edit
@@ -21,7 +21,13 @@ class ResultsController < ApplicationController
 
   def store_all
     params[:line].each do |counter, line|
-      unless line[:home_club_id].blank?
+      unless line[:home_club].blank?
+        club_home = Club.where(club_name: line[:home_club]).first
+        line[:home_club_id] = club_home.id
+        puts "ID #{club_home.id}"
+        club_away = Club.where(club_name: line[:away_club]).first
+        line[:away_club_id] = club_away.id
+        puts "ID #{club_away.id}"
         Result.create(line.merge(gameround_id: params[:gameround_id]))
       end
     end
@@ -48,11 +54,11 @@ class ResultsController < ApplicationController
   def scrape
     if params[:league]
       thread = Thread.new do
-        scraper = Scraper.new(params[:iterations])
+        scraper = Scraper.new(params[:iterations].to_i)
         @results = scraper.get_results(params[:league])
       end
       thread.join
-      redirect_to new_result_path, notice: "Results collected"
+      redirect_to new_result_path(results: @results), notice: "Results collected"
     end
   end
 end

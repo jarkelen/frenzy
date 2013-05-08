@@ -9,11 +9,26 @@
     .span12
       = form_tag scrape_results_path do
         = text_field_tag :iterations, "1", class: "small_text_field"
-        = select_tag :league, options_for_select(@leagues.map{ |l| [l.league_name, l.id] })
+        = select_tag :league, options_for_select(@leagues.map{ |l| [l.league_name, l.league_name] })
         = submit_tag :submit, value: I18n.t('.result.scrape'), class: "btn"
 
     - if @results
       .row
         .span12
-          = @results
-        //= render partial: "form"
+          = form_tag store_all_results_path, class: 'form-horizontal' do
+            .control-group
+              .controls
+                = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
+
+            - counter = 0
+            - @results.each do |result|
+              .control-group
+                .controls
+                = text_field_tag "line[#{counter}][home_club]", result["home_club"]
+                = text_field_tag "line[#{counter}][home_score]", result["home_score"], class: "small_text_field"
+                = text_field_tag "line[#{counter}][away_score]", result["away_score"], class: "small_text_field"
+                = text_field_tag "line[#{counter}][away_club]", result["away_club"]
+              - counter = counter + 1
+            .form-actions
+              = submit_tag :submit, value: I18n.t('.general.save'), class: "btn"
+              = link_to t('.cancel', default: t("helpers.links.cancel")), results_path, class: 'btn'
