@@ -3,6 +3,13 @@
     .page-header
       %h1= I18n.t('.result.new')
 
-.row
-  .span12
-    = render partial: "form"
+
+- if can? :create, Result
+  .row
+    .span12
+      = form_tag scrape_results_path do
+        = submit_tag :submit, value: I18n.t('.result.scrape'), class: "btn"
+
+  .row
+    .span12
+      = render partial: "form"

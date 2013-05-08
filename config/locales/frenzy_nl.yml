@@ -16,7 +16,8 @@ nl:
   result:
     results:            Resultaten
     result:             Resultaat
-    new:                Reultaten toevoegen
+    new:                Resultaten toevoegen
+    scrape:             Resultaten ophalen
   period:
     periods:            Periodes
     period_name:        Periode
