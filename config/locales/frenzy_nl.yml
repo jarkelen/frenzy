@@ -18,6 +18,7 @@ nl:
     result:             Resultaat
     new:                Resultaten toevoegen
     scrape:             Resultaten ophalen
+    iterations:         Aantal dagen
   period:
     periods:            Periodes
     period_name:        Periode

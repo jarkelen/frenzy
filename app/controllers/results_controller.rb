@@ -4,13 +4,15 @@ class ResultsController < ApplicationController
 
   def index
     @results = Result.order("gameround_id DESC").paginate(page: params[:page])
-
-
   end
 
   def new
-    @gamerounds = Gameround.active
-    @clubs = Club.all
+    if @results
+      @gamerounds = Gameround.active
+      @clubs = Club.all
+    else
+      @leagues = League.all
+    end
   end
 
   def edit
@@ -44,13 +46,13 @@ class ResultsController < ApplicationController
   end
 
   def scrape
-    params[:results_date] = "Saturday 4th May 2013"
-    params[:league] = "championship"
-    thread = Thread.new do
-     scraper = Scraper.new(params[:results_date])
-     results = scraper.get_results(params[:league])
+    if params[:league]
+      thread = Thread.new do
+        scraper = Scraper.new(params[:iterations])
+        @results = scraper.get_results(params[:league])
+      end
+      thread.join
+      redirect_to new_result_path, notice: "Results collected"
     end
-    thread.join
-    redirect_to new_result_path, notice: "Results collected"
   end
 end

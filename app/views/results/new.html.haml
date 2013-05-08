@@ -8,8 +8,12 @@
   .row
     .span12
       = form_tag scrape_results_path do
+        = text_field_tag :iterations, "1", class: "small_text_field"
+        = select_tag :league, options_for_select(@leagues.map{ |l| [l.league_name, l.id] })
         = submit_tag :submit, value: I18n.t('.result.scrape'), class: "btn"
 
-  .row
-    .span12
-      = render partial: "form"
+    - if @results
+      .row
+        .span12
+          = @results
+        //= render partial: "form"
