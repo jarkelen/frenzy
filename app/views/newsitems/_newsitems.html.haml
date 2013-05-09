@@ -1,7 +1,4 @@
-- if can? :create, Newsitem
-  = link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_newsitem_path, class: 'btn'
-
-- @newsitems.each do |newsitem|
+- newsitems.each do |newsitem|
   .media
     %a.pull-left{href: "#"}
       %img.media-object{"data-src" => "holder.js/64x64"}/
@@ -28,5 +25,3 @@
           = "#{newsitem.summary_en} "
         = link_to I18n.t('news.more_details'), newsitem_path(newsitem)
         = "..."
-
-= will_paginate @newsitems

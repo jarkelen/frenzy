@@ -4,6 +4,7 @@ Frenzy::Application.routes.draw do
   resources :clubs
   resources :results do
     post :store_all, on: :collection
+    post :scrape, on: :collection
   end
   resources :gamerounds
   resources :selections

@@ -12,6 +12,8 @@ require 'rspec/rails'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+FakeWeb.allow_net_connect = false
+
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = false
@@ -26,6 +28,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    FakeWeb.clean_registry
   end
 
   config.after(:each) do
@@ -33,5 +36,3 @@ RSpec.configure do |config|
   end
 
 end
-
-

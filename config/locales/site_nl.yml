@@ -1,6 +1,7 @@
 nl:
   general:
     yep:            Ja
+    nope:           Nee
     true:           Ja
     false:          Nee
     dutch:          Nederlands
@@ -78,7 +79,9 @@ nl:
     summary_en:       Samenvatting EN
     content_nl:       Inhoud NL
     content_en:       Inhoud EN
+    sticky:           Sticky?
     publish:          Publiceren?
+    priority:         Prioriteit
     new_item:         Toevoegen nieuwsbericht
     edit_item:        Wijzigen nieuwsbericht
     published_true:   actief
@@ -89,6 +92,8 @@ nl:
     comments:         Reacties
     comment_added:    Reactie is toegevoegd
     back:             Terug naar nieuwsberichten
+    normal:           Normaal
+    high:             Hoog
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

@@ -7,8 +7,12 @@ class ResultsController < ApplicationController
   end
 
   def new
-    @gamerounds = Gameround.active
-    @clubs = Club.all
+    if params[:results]
+      @results = params[:results]
+      @gamerounds = Gameround.active
+      @clubs = Club.all
+    end
+    @leagues = League.all
   end
 
   def edit
@@ -39,5 +43,16 @@ class ResultsController < ApplicationController
     @result.destroy
 
     redirect_to results_url
+  end
+
+  def scrape
+    if params[:league]
+      thread = Thread.new do
+        scraper = Scraper.new(params[:iterations].to_i)
+        @results = scraper.get_results(params[:league])
+      end
+      thread.join
+      redirect_to new_result_path(results: @results), notice: "Results collected"
+    end
   end
 end
