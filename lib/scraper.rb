@@ -32,19 +32,41 @@ class Scraper
 
   def retrieve_match_result(result)
     match_result = Hash.new
-    match_result["home_club"]   = match_clubname(result.css("span.team-home a").text.strip)
-    match_result["home_score"]  = result.css("span.score abbr").text.strip.split("-")[0]
-    match_result["away_club"]   = match_clubname(result.css("span.team-away a").text.strip)
-    match_result["away_score"]  = result.css("span.score abbr").text.strip.split("-")[1]
+    match_result["home_club_id"] = match_club("id", result.css("span.team-home a").text.strip)
+    match_result["home_club"]    = match_club("name", result.css("span.team-home a").text.strip)
+    match_result["home_score"]   = result.css("span.score abbr").text.strip.split("-")[0]
+    match_result["away_club_id"] = match_club("id", result.css("span.team-away a").text.strip)
+    match_result["away_club"]    = match_club("name", result.css("span.team-away a").text.strip)
+    match_result["away_score"]   = result.css("span.score abbr").text.strip.split("-")[1]
     return match_result
   end
 
-  def match_clubname(club_name)
-    club = Club.where("club_name LIKE ?", "%#{club_name}%").first
+  def match_club(type, club_name)
+    case club_name
+      when "Man City"
+        club = Club.where("club_name LIKE ?", "Manchester City").first
+      when "Wolves"
+        club = Club.where("club_name LIKE ?", "Wolverhampton Wanderers").first
+      when "Nottm Forest"
+        club = Club.where("club_name LIKE ?", "Nottingham Forest").first
+      when "Sheff Wed"
+        club = Club.where("club_name LIKE ?", "Sheffield Wednesday").first
+      else
+        club = Club.where("club_name LIKE ?", "%#{club_name}%").first
+    end
+
     if club
-      club.club_name
+      if type == "name"
+        club.club_name
+      else
+        club.id
+      end
     else
-      "**#{club_name}**"
+      if type == "name"
+        "***#{club_name}***"
+      else
+        0
+      end
     end
   end
 

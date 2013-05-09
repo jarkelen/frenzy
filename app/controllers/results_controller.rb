@@ -21,13 +21,7 @@ class ResultsController < ApplicationController
 
   def store_all
     params[:line].each do |counter, line|
-      unless line[:home_club].blank?
-        club_home = Club.where(club_name: line[:home_club]).first
-        line[:home_club_id] = club_home.id
-        puts "ID #{club_home.id}"
-        club_away = Club.where(club_name: line[:away_club]).first
-        line[:away_club_id] = club_away.id
-        puts "ID #{club_away.id}"
+      unless line[:home_club_id].blank?
         Result.create(line.merge(gameround_id: params[:gameround_id]))
       end
     end
