@@ -30,6 +30,14 @@ nl:
       about_us: Over ons
     marketing:
       lead:     'Het leukste spel voor Engels voetbal liefhebbers: stel een team samen van Engelse voetbalclubs, scoor punten en versla de "echte kenners"'
+      teaser_title_1:   Stel je team samen
+      teaser_content_1: Jouw team bestaat uit Engels clubs uit de hoogste 5 divisies. Ga je voor zekerheid met een paar dure topclubs of neem je risico met veel kleine en goedkope clubs? Maak je eigen keuzes! Wie is de slimste strateeg?
+      teaser_title_2:   Scoor punten met al je clubs
+      teaser_content_2: De clubs in jouw team gaan aan de slag voor je en scoren hopelijk veel punten met de wedstrijden die ze spelen. Punten worden verdient met overwinningen en door het scoren van veel doelpunten.
+      teaser_title_3:   Verdubbel je punten met jokers
+      teaser_content_3: "Jokers kun je selectief inzetten om gescoorde punten te verdubbelen. Maar pas op, ook negatieve scores worden verdubbeld!"
+      teaser_title_4:   Verbeter je team met transfers
+      teaser_content_4: Ben je toch niet helemaal tevreden met je team? Geen nood, we hebben 3 transfer periodes waarin je jouw team kunt wijzigen.
   user:
     first_name:       Voornaam
     last_name:        Achternaam

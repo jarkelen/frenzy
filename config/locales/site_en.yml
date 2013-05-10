@@ -29,7 +29,15 @@ en:
       rules:    Rules
       about_us: About us
     marketing:
-      lead:     'The most entertaining game for English football addicts: create a team of English football clubs, score points and beat the opponents'
+      lead:     'The most entertaining game for English football addicts: create a team of football clubs, score points and go top of the league!'
+      teaser_title_1:   Select your own team
+      teaser_content_1: Your team consists of English clubs from the top 5 leagues. Do you go for safety with some expensive top clubs or do you want to gamble with a lot of small and cheap clubs?
+      teaser_title_3:   Score points with all your clubs
+      teaser_content_3: The clubs in your team will work for and hopefully score a lot of points with the matches they play. Points will be collected by winning matches and scoring lots of goals.
+      teaser_title_2:   Double your points with jokers
+      teaser_content_2: "You can assign jokers strategically to double scored points. But negative scores will also be doubled, so watch out!"
+      teaser_title_4:   Improve your team with transfers
+      teaser_content_4: "Are you not entirely happy with your team? No worries, we have three transfer windowd where you can change your team."
   user:
     first_name:       First name
     last_name:        Last name
