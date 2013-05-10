@@ -29,7 +29,7 @@ en:
       rules:    Rules
       about_us: About us
     marketing:
-      lead:     'The most entertaining game for English football enthusiasts: create a team of English football clubs, score points and beat the opponents'
+      lead:     'The most entertaining game for English football addicts: create a team of English football clubs, score points and beat the opponents'
   user:
     first_name:       First name
     last_name:        Last name
@@ -52,59 +52,59 @@ en:
     account:          Profile
     show_profile:     View profile
     new_profile:      Create profile
-    edit_profile:     Profiel wijzigen
-    created:          Profiel is aangemaakt
-    updated:          Profiel is gewijzigd
-    favorite_club:    Favoriete club
+    edit_profile:     Edit profile
+    created:          Profile has been created
+    updated:          Profile has been changed
+    favorite_club:    Favorite club
     bio:              Bio
-    bio_long:         Beschrijf jezelf in het kort (140 tekens)
+    bio_long:         Describe yourself in short (140 characters)
     twitter:          Twitter
     facebook:         Facebook
-    location:         Lokatie
+    location:         Location
     website:          Website
-    photo:            Profiel foto
-    lives_in:         Woont in
-    favorite_is:      Favoriete club is
-    intro1:           Je hebt je profiel nog niet ingevuld!
-    intro2:           Dat kun je eenvoudig
-    intro3:           zelf doen
-    oops:             heeft zijn profiel helaas nog niet ingevuld...
+    photo:            Profile photo
+    lives_in:         Lives in
+    favorite_is:      Favorite club is
+    intro1:           You haven't created a profile yet!
+    intro2:           You can easily do this
+    intro3:           yourself
+    oops:             hasn't filled in his profile unfortunately...
   news:
-    news_title:       Nieuwsberichten
-    created:          Nieuwsbericht is aangemaakt
-    updated:          Nieuwsbericht is gewijzigd
-    deleted:          Nieuwsbericht is verwijderd
-    latest_news:      Laatste nieuws
-    title_nl:         Titel NL
-    title_en:         Titel EN
-    summary_nl:       Samenvatting NL
-    summary_en:       Samenvatting EN
-    content_nl:       Inhoud NL
-    content_en:       Inhoud EN
+    news_title:       News messages
+    created:          Message has been created
+    updated:          Message has been edited
+    deleted:          Message has been deleted
+    latest_news:      Latest news
+    title_nl:         Title NL
+    title_en:         Title EN
+    summary_nl:       Summary NL
+    summary_en:       Summary EN
+    content_nl:       Content NL
+    content_en:       Content EN
     sticky:           Sticky?
-    publish:          Publiceren?
-    priority:         Prioriteit
-    new_item:         Toevoegen nieuwsbericht
-    edit_item:        Wijzigen nieuwsbericht
-    published_true:   actief
-    published_false:  niet actief
-    published_by1:    Gechreven door
-    published_by2:    op
-    more_details:     Meer
-    comments:         Reacties
-    comment_added:    Reactie is toegevoegd
-    back:             Terug naar nieuwsberichten
-    normal:           Normaal
-    high:             Hoog
+    publish:          Publish?
+    priority:         Priority
+    new_item:         Add mesage
+    edit_item:        Edit message
+    published_true:   active
+    published_false:  not active
+    published_by1:    Published by
+    published_by2:    on
+    more_details:     More
+    comments:         Reactions
+    comment_added:    Reaction has been added
+    back:             Back to news messages
+    normal:           Normal
+    high:             High
   will_paginate:
-    previous_label: "&#8592; Vorige"
-    next_label: "Volgende &#8594;"
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
     page_gap: "&hellip;"
   errors:
     messages:
-      wrong_size: "heeft de verkeerde grootte (moet zijn %{file_size})"
-      size_too_small: "is te klein (moet minimaal %{file_size} zijn)"
-      size_too_big: "is te groot (mag maximaal %{file_size} zijn)"
+      wrong_size: "has the wrong size (must be %{file_size})"
+      size_too_small: "is too small (must minimal be %{file_size})"
+      size_too_big: "is too large (must maximal be %{file_size})"
   date:
     formats:
       default: "%-d-%-m-%Y"
@@ -114,11 +114,11 @@ en:
       month: '%B %Y'
       export: '%m/%d/%Y'
 
-    day_names: [zondag, maandag, dinsdag, woensdag, donderdag, vrijdag, zaterdag]
-    abbr_day_names: [zon, maa, din, woe, don, vri, zat]
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
 
-    month_names: [~, januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december]
-    abbr_month_names: [~, jan, feb, mar, apr, mei, jun, jul, aug, sep, okt, nov, dec]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     order:
       - :day
       - :month
@@ -131,18 +131,18 @@ en:
       long: "%d %B %Y %H:%M"
       time: "%H:%M"
       only_second: "%S"
-    am: "'s ochtends"
-    pm: "'s middags"
+    am: "AM"
+    pm: "PM"
 
   support:
     array:
       words_connector: ", "
-      two_words_connector: " en "
-      last_word_connector: " en "
+      two_words_connector: " and "
+      last_word_connector: " and "
     select:
-      prompt: "Selecteer"
+      prompt: "Select"
 
-    changed: veranderd
+    changed: changed
     to: naar
     from: van
     none: geen
@@ -280,9 +280,9 @@ en:
     errors:
       template:
         header:
-          one:    "%{model} niet opgeslagen: 1 fout gevonden"
-          other:  "%{model} niet opgeslagen: %{count} fouten gevonden"
-        body: "Controleer de volgende velden:"
+          one:    "%{model} not saved: 1 error found"
+          other:  "%{model} not saved: %{count} errors found"
+        body: "Check the following fields:"
 
       messages:
         taken: "is al in gebruik"
