@@ -28,6 +28,8 @@ nl:
       general:  Algemeen
       rules:    Spelregels
       about_us: Over ons
+    marketing:
+      lead:     'Het leukste spel voor Engels voetbal liefhebbers: stel een team samen van Engelse voetbalclubs, scoor punten en versla de "echte kenners"'
   user:
     first_name:       Voornaam
     last_name:        Achternaam
