@@ -51,6 +51,8 @@ class Scraper
         club = Club.where("club_name LIKE ?", "Nottingham Forest").first
       when "Sheff Wed"
         club = Club.where("club_name LIKE ?", "Sheffield Wednesday").first
+      when "sheff utd"
+        club = Club.where("club_name LIKE ?", "Sheffield United").first
       else
         club = Club.where("club_name LIKE ?", "%#{club_name}%").first
     end

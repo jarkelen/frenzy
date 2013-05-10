@@ -14,6 +14,10 @@ a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
 }
+.pagination ul>.disabled>span, .pagination ul>.disabled>a, .pagination ul>.disabled>a:hover, .pagination ul>.disabled>a:focus {
+  color: $base-color;
+  text-decoration: none;
+}
 .site_container {
   width: 100%;
   margin: 0 auto;
@@ -84,6 +88,13 @@ form {
     max-width: 400px;
     height: 150px;
     line-height: 150%;
+  }
+  label, input, select {
+    float: left;
+    margin-left: 10px;
+  }
+  label {
+    width: 200px;
   }
 }
 .points_used {

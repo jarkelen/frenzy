@@ -1,0 +1,62 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      next: "Next &rsaquo;"
+      previous: "&lsaquo; Previous"
+      truncate: "..."
+    pagination_short:
+      first: "&laquo;"
+      last: "&raquo;"
+      next: "&rsaquo;"
+      previous: "&lsaquo;"
+      truncate: "..."
+  helpers:
+    actions: "Actions"
+    links:
+      back: "Back"
+      cancel: "Cancel"
+      confirm: "Are you sure?"
+      destroy: "Delete"
+      new: "New"
+      edit: "Edit"
+    titles:
+      edit: "Edit"
+      save: "Save"
+      new: "New"
+      delete: "Delete"
+  show: Show
+  delete: Remove
+  destroy: Remove
+  add: Add
+  unknown: Unknown
+  cancel: Cancel
+  edit: Edit
+  confirm: Are you sure?
+  delete_confirmation: Are you sure?
+  back: Back
+  'true': Yes
+  'false': No
+  'yes': Yes
+  'no': No
+  end: End
+  no_records_found: No records found
+  save: Save
+  actions: Actions
+  created:
+    success: "has been added successfully."
+    failure: "could not be added."
+  updated:
+    success: "has been edited successfully."
+    failure: "could not be edited."
+  destroyed:
+    success: "has been removed successfully."
+    failure: "could not be removed."
+  marked:
+    success: "is successfully marked as %{state}."
+    failure: "could not be marked."
+    in_progress: "will now be marked as %{state}."

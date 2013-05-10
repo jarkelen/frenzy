@@ -32,7 +32,7 @@ class ResultsController < ApplicationController
     @result = Result.find(params[:id])
 
     if @result.update_attributes(params[:result])
-      redirect_to @result, notice: "Result #{I18n.t('.updated.success')}"
+      redirect_to results_path, notice: "Result #{I18n.t('.updated.success')}"
     else
       render action: "edit"
     end
