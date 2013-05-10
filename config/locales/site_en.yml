@@ -1,57 +1,57 @@
 en:
   general:
-    yep:            Ja
-    nope:           Nee
-    true:           Ja
-    false:          Nee
-    dutch:          Nederlands
-    english:        Engels
-    save:           Opslaan
-    cancel:         Annuleren
-    edit:           Wijzigen
-    delete:         Verwijderen
-    not_authorized: Helaas heb je geen rechten om de pagina te bekijken
-    error_single:   fout
-    error_plural:   fouten
-    error_text:     "ontdekt bij het opslaan:"
+    yep:            Yes
+    nope:           No
+    true:           Yes
+    false:          No
+    dutch:          Dutch
+    english:        English
+    save:           Save
+    cancel:         Cancel
+    edit:           Change
+    delete:         Remove
+    not_authorized: Unfortunately you don't have enough authorization to view the page
+    error_single:   error
+    error_plural:   errors
+    error_text:     "discovered while saving:"
   site:
     title:      The Old Spotted Dog Frenzy
-    salutation: Welkom
+    salutation: Welcome
     home:       Home
     admin:      Admin
     id:         ID
-    signup:     Registreren
-    signin:     Inloggen
+    signup:     Register
+    signin:     Login
     community:
       general:  Community
     about:
-      general:  Algemeen
-      rules:    Spelregels
-      about_us: Over ons
+      general:  General
+      rules:    Rules
+      about_us: About us
     marketing:
-      lead:     'Het leukste spel voor Engels voetbal liefhebbers: stel een team samen van Engelse voetbalclubs, scoor punten en versla de "echte kenners"'
+      lead:     'The most entertaining game for English football enthusiasts: create a team of English football clubs, score points and beat the opponents'
   user:
-    first_name:       Voornaam
-    last_name:        Achternaam
-    team_name:        Teamnaam
-    full_name:        Naam
+    first_name:       First name
+    last_name:        Last name
+    team_name:        Team name
+    full_name:        Name
     email:            Email
-    password:         Wachtwoord
-    role:             Rol
-    language:         Taal
-    title:            Deelnemers
-    name:             Deelnemer
-    registered_at:    Registratie
-    team_value:       Teamwaarde
+    password:         Password
+    role:             Role
+    language:         Language
+    title:            Participants
+    name:             Participant
+    registered_at:    Registration
+    team_value:       Team value
     assigned_jokers:  Jokers
-    used_jokers:      Gebruikte jokers
-    created_at:       Deelnemer sinds
-    back_to_users:    Terug naar alle deelnemers
+    used_jokers:      Used jokers
+    created_at:       Participant since
+    back_to_users:    Back to all participants
   profile:
-    my_profile:       Mijn profiel
-    account:          Profiel
-    show_profile:     Profiel bekijken
-    new_profile:      Profiel aanmaken
+    my_profile:       My profile
+    account:          Profile
+    show_profile:     View profile
+    new_profile:      Create profile
     edit_profile:     Profiel wijzigen
     created:          Profiel is aangemaakt
     updated:          Profiel is gewijzigd
