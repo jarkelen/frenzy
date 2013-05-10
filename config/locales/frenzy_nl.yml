@@ -41,8 +41,8 @@ nl:
     joker:              Joker
     jokers_short:       Jokers
     new:                Joker toevoegen
-    intro1:             Hieronder worden jouw jokers getoond. Om jokers toe te voegen, selekteer een speelronde en vervolgens een, twee of drie clubs die je wilt inztten als joker voor die etappe. Jokers kun je inzetten/verwijderen zolang de speelronde nog niet is begonnen.
-    intro2:             Bij de ingezette jokers wordt d.m.v. kleuren aangegeven of de joker effektief was. Rood betekent dat de joker beter niet ingezet had kunnen worden, groen betekent dat het een prima keuze was om de joker in te zetten en wit betekent dat je een joker kwijt bent zonder dat het iets heeft opgeleverd.
+    intro1:             'Hieronder worden jouw jokers getoond. Om jokers toe te voegen, selekteer een speelronde en vervolgens een, twee of drie clubs die je wilt inztten als joker voor die speelronde. Jokers kun je inzetten/verwijderen zolang de speelronde nog niet is begonnen.'
+    intro2:             'Bij de ingezette jokers wordt d.m.v. kleuren aangegeven of de joker effektief was. Rood betekent dat de joker beter niet ingezet had kunnen worden, groen betekent dat het een prima keuze was om de joker in te zetten en wit betekent dat je een joker kwijt bent zonder dat het iets heeft opgeleverd.'
     used_jokers1:       Jokers verbruikt
     used_jokers2:       van de
     joker1:             Joker 1 voor club
@@ -50,7 +50,7 @@ nl:
     joker3:             Joker 3 voor club
     no_jokers:          nog geen jokers ingezet
     joker_success:      zijn successvol aangemaakt
-    joker_failure:      zijn helaas niet successvol aangemaakt, probeer het opnieuw!
+    joker_failure:      'zijn helaas niet successvol aangemaakt, probeer het opnieuw!'
     cancel:             Jokers annuleren
   score:
     my_scores:          Mijn punten
@@ -77,15 +77,15 @@ nl:
       intro:            "Het komende seizoen gaan we weer een Frenzy spelen! Tot aan het begin van het seizoen op 3 augustus kun je jouw team nog net zo vaak wijzigen als je zelf wilt. Hieronder wordt uitgelegd hoe je het spel speelt, hoe de puntentelling in elkaar steekt en aan welke regels je jezelf moet houden. Veel plezier met de Frenzy!"
       participation_title:  Deelname
       participation1:   'Op deze site kun je een team registreren via "Mijn team > Mijn team" tot aan het begin van het nieuwe seizoen. Je kunt maximaal 25 clubs kiezen in jouw team (minder mag ook) uit de Premier League, Championship, League One, League Two en/of Blue Square Premier League.'
-      participation2:   'Er is geen beperking aan het aantal clubs uit een league, dus Premier League fetishisten kunnen hun gang gaan. Elk team heeft een bepaalde waarde aan de hand van de quoteringen bij Ladbrokes. De quotering wordt bepaald rondom Fixture Day op 19 juni 2013.'
+      participation2:   'Er is geen beperking aan het aantal clubs uit een league, dus Premier League fetishisten kunnen hun gang gaan. Elke club heeft een bepaalde waarde aan de hand van de quoteringen bij Ladbrokes. De quotering wordt bepaald rondom Fixture Day op 19 juni 2013.'
       participation3:   'Bij het samenstellen van je team geldt slechts 1 beperking: de totale waarde van je team mag niet meer zijn dan 125 punten. Op de website staat een overzicht van de waarde van de clubs en ook bij het kiezen van je team zie je meteen wat de waarde is.'
       participation4:   'Nieuw dit seizoen is dat nieuwe deelnemers ook nog gedurende het seizoen kunnen gaan deelnemen. Een nieuwe deelnemer die tijdens het seizoen instroomt krijgt een relatief aantal jokers toegewezen. Na de registratie heeft de deelnemer 3 dagen de tijd om zijn team samen te stellen, hierna is dit niet meer mogelijk en moet worden gewacht tot de eerstvolgende transfer periode.'
       points_title:     Puntentelling
       points1:          Voor de Frenzy geldt de volgende puntentelling
-      points_score1:    3 punten voor een overwinning van jouw team
-      points_score2:    1 punt voor een gelijkspel van jouw team
-      points_score3:    1 punt per gescoord doelpunt als jouw team thuis speelt
-      points_score4:    2 punten per gescoord doelpunt als jouw team uit speelt
+      points_score1:    3 punten voor een overwinning van een club in jouw team
+      points_score2:    1 punt voor een gelijkspel van een club in jouw team
+      points_score3:    1 punt per gescoord doelpunt als een club in jouw team thuis speelt
+      points_score4:    2 punten per gescoord doelpunt als een club in jouw team uit speelt
       points_score5:    1 strafpunt per tegendoelpunt
       points_example1_title: 'Voorbeeld 1:'
       points_example1:   'Jij hebt Birmingham City in jouw team en die winnen thuis van Charlton Athletic met 3-2: Birmingham scoort nu 3 punten voor de overwinning + 3 punten voor het aantal gescoorde doelpunten - 2 punten voor het aantal tegendoelpunten = 4 punten.'
@@ -101,15 +101,16 @@ nl:
       jokers_period4:   'Period 4: 10 jokers'
       transfers_title:  Transfer windows
       transfers1:       'Tijdens het seizoen zijn er 3 transfer windows waarin je jouw team kunt wijzigen: transfer window 1 is in oktober, transfer window 2 is in januari en transfer window 3 is in maart. De exacte data zullen tijdig en duidelijk bekend worden gemaakt. Aan het begin van een transfer window worden de nieuwe waarden van de clubs bepaald aan de hand van de dan geldende league tables.'
-      transfers2:       'Tijdens een transfer window heb je gedurende enkele dagen de mogelijkheid om jouw team aan te passen. Iedere club die je wilt vervangen heeft een bepaalde waarde, bepaald aan de hand van de dan geldende league table. Stel jouw club is 9 punten waard, dan mag je de club vervangen voor andere club(s) die maximaal die waarde vertegenwoordigt/en op dat moment. Ook kan het zijn dat je niet je hele budget had opgemaakt, en die punten mag je ook weer gebruiken.'
+      transfers2:       'Tijdens een transfer window heb je gedurende enkele dagen de mogelijkheid om jouw team aan te passen. Iedere club die je wilt vervangen heeft een bepaalde waarde, bepaald aan de hand van de dan geldende league table. Stel jouw club is 9 punten waard, dan mag je de club vervangen voor andere club(s) die maximaal die waarde vertegenwoordigt/en op dat moment. Ook kan het zijn dat je niet je hele budget had opgemaakt, en die punten mag je ook weer gebruiken. Als een club in jouw team het goed heeft gedaan, dan neemt het toe in waarde en dit kun je tijdens een transfer periode verzilveren door de club te ruilen. Voorbeeld: Toen je Bury koos aan het begin van het seizoen had het een waarde van 4 punten. Bury heeft het geweldig gedaan en is inmiddels opgeklommen naar de 6e plaats. Nu hebbben ze een waarde van 18 punten, dus je hebt 14 punten verdiend met Bury!'
       transfers3:        'Je mag in theorie iedere keer je hele team veranderen, mits de nieuwe teamwaarde maar niet meer is dan de maximale teamwaarde. Het wijzigen van je team kun je zelf doen op de Frenzy website. Transfereren is niet verplicht. In feite hoef je nadat je een team hebt opgegeven helemaal nooit meer wat te doen. Je zult echter niet winnen.'
       gamerounds_title:  Speelrondes
       gamerounds1:        'Gedurende het seizoen zijn er wekelijks 2 speelrondes mits er wedstrijden zijn. De weekend speelronden bevat alle wedstrijden op vrijdag, zaterdag, zondag en maandag. De midweekse speelronde bevat alle wedstrijden op dinsdag, woensdag en donderdag. Een speelronde hoeft dus niet perse overeen te komen met een speelronde volgens het officiele speelschema van de leagues.'
       gamerounds2:        'We zullen hier geen fixture lijsten gaan bijhouden, daarvoor zijn genoeg andere websites te vinden, zoals b.v. de BBC.'
       small_title:       Kleine letters
-      small1:             'Als er zich een situatie voordoet waarin het reglement niet voorziet, dan zal de Frenzy Jury (bestaande uit @DoingThe116 en @DutchAddick) een besluit nemen. Uiteraard geheel onpartijdig, onbaatzuchtig en eerlijk.'
-      small2:             'Meespelen met de Frenzy is geheel op eigen risico en door je te registreren stem je er mee in om de organisatoren @DoingThe116 en @DutchAddick nergens voor aansprakelijk te stellen.'
-      small3:             'We gaan er vanuit dat elke deelnemer zich normaal gedraagd en de Frenzy vooral ziet als een leuk spelletje met gelijkgestemde voetballiefhebbers. Mocht iemand zich toch vervelend gedragen, dan zullen we als organisatie niet aarzelen om deze persoon te verwijderen, zonder gedoe met gele en rode kaarten, waarschuwingen en beroepsprocedures.'
+      small1:             'Een uitslag is pas een uitslag als deze is gepubliceerd op de BBC website. Afgelaste of uitgestelde wedstrijden tellen niet mee, maar als je hierop jokers hebt ingezet, dan worden deze uiteraard terug gegegeven.'
+      small2:             'Als er zich een situatie voordoet waarin het reglement niet voorziet, dan zal de Frenzy Jury (bestaande uit @DoingThe116 en @DutchAddick) een besluit nemen. Uiteraard geheel onpartijdig, onbaatzuchtig en eerlijk.'
+      small3:             'Meespelen met de Frenzy is geheel op eigen risico en door je te registreren stem je er mee in om de organisatoren @DoingThe116 en @DutchAddick nergens voor aansprakelijk te stellen.'
+      small4:             'We gaan er vanuit dat elke deelnemer zich normaal gedraagd en de Frenzy vooral ziet als een leuk spelletje met gelijkgestemde voetballiefhebbers. Mocht iemand zich toch vervelend gedragen, dan zullen we als organisatie niet aarzelen om deze persoon te verwijderen, zonder gedoe met gele en rode kaarten, waarschuwingen en beroepsprocedures.'
   ranking:
     ranking:            Klassement
     general_ranking:    Algemeen klassement
