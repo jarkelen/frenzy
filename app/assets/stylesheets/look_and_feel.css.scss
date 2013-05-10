@@ -85,6 +85,13 @@ form {
     height: 150px;
     line-height: 150%;
   }
+  label, input, select {
+    float: left;
+    margin-left: 10px;
+  }
+  label {
+    width: 200px;
+  }
 }
 .points_used {
   padding: 10px;

@@ -17,6 +17,7 @@ nl:
     results:            Resultaten
     result:             Resultaat
     new:                Resultaten toevoegen
+    edit:               Resultaat wijzigen
     scrape:             Resultaten ophalen
     iterations:         Aantal dagen
   period:
