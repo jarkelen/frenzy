@@ -70,9 +70,16 @@ footer {
   background-color: $base-color;
 
   h5 {
-    color: $text-color;
+    color: #FFFFFF;
     font-weight: normal;
     font-size: 1em;
+
+    a, a:visited, a:hover {
+      color: #FFFFFF;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
 }
 
