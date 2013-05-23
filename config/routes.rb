@@ -41,7 +41,9 @@ Frenzy::Application.routes.draw do
 
   match '/sign_out' =>  "clearance/sessions#destroy"
 
-  match "/404", :to => "errors#not_found"
+  match "/404", to: "errors#not_found"
+  match "/403", to: "errors#not_authorized"
+  match "/500", to: "errors#internal_server_error"
 
   root to:'site#index'
 end
