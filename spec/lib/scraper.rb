@@ -18,11 +18,11 @@ describe Scraper do
                 <td class='match-details'>
                   <p>
                     <span class='team-home teams'>
-                      <a href='http://www.bbc.co.uk/sport/football/teams/birmingham-city'>Birmingham</a>
+                      <a href='http://www.bbc.co.uk/sport/football/teams/burnley'>Burnley</a>
                     </span>
                     <span class='score'> <abbr title='Score'> 1-1 </abbr> </span>
                     <span class='team-away teams'>
-                      <a href='http://www.bbc.co.uk/sport/football/teams/blackburn-rovers'>Blackburn</a>
+                      <a href='http://www.bbc.co.uk/sport/football/teams/watford'>Watford</a>
                     </span>
                   </p>
                 </td>"
@@ -39,7 +39,7 @@ describe Scraper do
 
     it "should return match results" do
       @scraper.get_results("The Championship").should be_a_kind_of(Array)
-      @scraper.get_results("The Championship").should include({"home_club"=>"**Birmingham**", "home_score"=>"1", "away_club"=>"**Blackburn**", "away_score"=>"1"})
+      @scraper.get_results("The Championship").should include({"home_club"=>"Burnley", "home_score"=>"1", "away_club"=>"Watford", "away_score"=>"1"})
     end
   end
 
@@ -47,19 +47,19 @@ describe Scraper do
     let!(:club) { create :club, club_name: "Charlton Athletic" }
 
     it "should return false when no club can be found" do
-      @scraper.match_clubname("Birmingham").should == "**Birmingham**"
+      @scraper.match_club("name", "Birmingham").should == "***Birmingham***"
     end
 
     it "should match whole name" do
-      @scraper.match_clubname("Charlton Athletic").should == "Charlton Athletic"
+      @scraper.match_club("name", "Charlton Athletic").should == "Charlton Athletic"
     end
 
     it "should match partial name" do
-      @scraper.match_clubname("Charlton").should == "Charlton Athletic"
+      @scraper.match_club("name", "Charlton").should == "Charlton Athletic"
     end
 
     it "should match abbreviated name" do
-      @scraper.match_clubname("Charlton Athl").should == "Charlton Athletic"
+      @scraper.match_club("name", "Charlton Athl").should == "Charlton Athletic"
     end
   end
 
