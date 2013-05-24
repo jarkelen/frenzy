@@ -9,11 +9,7 @@
     .points_used
       %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{current_user.assigned_jokers}"
 
-- if can? :create, Joker
-  .row
-    .span12
-      %button#partial_button.button{type: "button", class: "btn"}= I18n.t('.joker.new')
-      #partial_form{ style: "display:none;" }
+      - if can? :create, Joker
         = render partial: "add_joker"
 
 .row

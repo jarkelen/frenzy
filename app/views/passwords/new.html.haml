@@ -1,9 +1,10 @@
 // Password reset
 .row
-  .span12
-    #clearance.password-reset
+  .offset3.span6
+    #clearance.password-reset.signin_container
       %h2= t '.title'
       %p= t '.description'
-      = simple_form_for :password, url: passwords_path do |f|
-        = f.input :email, as: :email, hint: false
-        = f.submit(class: 'btn')
+
+      = form_for :password, url: passwords_path, html: { class: "form-horizontal"} do |f|
+        = f.text_field :email
+        = f.submit(class: 'btn btn-large')

@@ -17,6 +17,7 @@ nl:
   club:
     clubs:              Clubs
     club:               Club
+    new:                Club toevoegen
   gameround:
     gamerounds:         Speelrondes
     gameround:          Speelronde

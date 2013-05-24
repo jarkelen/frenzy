@@ -66,4 +66,4 @@ nl:
   users:
     new:
       sign_in:  'Inloggen'
-      or_sign_in:  'Of toch inloggen?'
+      or_sign_in:  'of toch inloggen?'
