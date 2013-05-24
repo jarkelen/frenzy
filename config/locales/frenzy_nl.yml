@@ -4,6 +4,16 @@ nl:
     name:               League
     short:              League kort
     level:              Niveau
+    pl_long:            Premier League
+    pl_short:           PL
+    ch_long:            The Championship
+    ch_short:           CH
+    l1_long:            League One
+    l1_short:           L1
+    l2_long:            League Two
+    l2_short:           L2
+    cf_long:            The Conference
+    cf_short:           CF
   club:
     clubs:              Clubs
     club:               Club
@@ -30,7 +40,7 @@ nl:
     new:                Periode toevoegen
     edit:               Periode wijzigen
   team:
-    intro:              Hieronder zijn jouw teamgegevens. Als de Football Frenzy nog niet is begonnen kun je met de link "Wijzigen team" het team nog aanpassen.
+    intro:              "Hieronder zijn jouw teamgegevens. Als de Clubs Frenzy nog niet is begonnen kun je het team nog aanpassen door clubs te verwijderen en toe te voegen. Als in de listbox van een league geen clubs meer worden getoond, dan betekent dit dat er geen clubs meer zijn in die league die je nog kunt kiezen. Je hebt bv nog 5 punten te besteden en Chelsea heeft een waarde van 18 punten, dan zal Chelsea niet meer voorkomen in de lijst."
     new:                Club toevoegen
     edit:               Team wijzigen
     my_team:            Mijn team
