@@ -20,9 +20,9 @@ describe Scraper do
                     <span class='team-home teams'>
                       <a href='http://www.bbc.co.uk/sport/football/teams/burnley'>Burnley</a>
                     </span>
-                    <span class='score'> <abbr title='Score'> 1-1 </abbr> </span>
+                    <span class='score'> <abbr title='Score'> 1-2 </abbr> </span>
                     <span class='team-away teams'>
-                      <a href='http://www.bbc.co.uk/sport/football/teams/watford'>Watford</a>
+                      <a href='http://www.bbc.co.uk/sport/football/teams/qpr'>QPR</a>
                     </span>
                   </p>
                 </td>"
@@ -39,53 +39,8 @@ describe Scraper do
 
     it "should return match results" do
       @scraper.get_results("The Championship").should be_a_kind_of(Array)
-      @scraper.get_results("The Championship").should include({"home_club"=>"Burnley", "home_score"=>"1", "away_club"=>"Watford", "away_score"=>"1"})
-    end
-  end
-
-  describe "match_clubname" do
-    let!(:club) { create :club, club_name: "Charlton Athletic" }
-
-    it "should return false when no club can be found" do
-      @scraper.match_club("name", "Birmingham").should == "***Birmingham***"
-    end
-
-    it "should match whole name" do
-      @scraper.match_club("name", "Charlton Athletic").should == "Charlton Athletic"
-    end
-
-    it "should match partial name" do
-      @scraper.match_club("name", "Charlton").should == "Charlton Athletic"
-    end
-
-    it "should match abbreviated name" do
-      @scraper.match_club("name", "Charlton Athl").should == "Charlton Athletic"
-    end
-  end
-
-  describe "convert_league" do
-    it "should return premier league" do
-      @scraper.convert_league("Premier League").should == "premier-league"
-    end
-
-    it "should return championship" do
-      @scraper.convert_league("The Championship").should == "championship"
-    end
-
-    it "should return league one" do
-      @scraper.convert_league("League One").should == "league-one"
-    end
-
-    it "should return league two" do
-      @scraper.convert_league("League Two").should == "league-two"
-    end
-
-    it "should return conference" do
-      @scraper.convert_league("Blue Square Premier League").should == "conference"
-    end
-
-    it "should return error when empty" do
-      @scraper.convert_league("").should == nil
+#      @scraper.get_results("The Championship").should include({"home_club"=>"Burnley", "home_score"=>"1", "away_club"=>"Queens Park Rangers", "away_score"=>"2"})
+      @scraper.get_results("The Championship").should_not include({"away_club"=>"***qpr***"})
     end
   end
 end

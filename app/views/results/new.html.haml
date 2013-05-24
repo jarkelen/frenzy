@@ -27,9 +27,9 @@
               .control-group
                 .controls
                   = text_field_tag "line[#{counter}][home_club_id]", result["home_club_id"], class: "small_text_field"
-                  = label_tag result["home_club"]
+                  = label_tag 'home_club', result["home_club"]
                   = text_field_tag "line[#{counter}][away_club_id]", result["away_club_id"], class: "small_text_field"
-                  = label_tag result["away_club"]
+                  = label_tag 'away_club', result["away_club"]
                   = text_field_tag "line[#{counter}][home_score]", result["home_score"], class: "small_text_field"
                   = text_field_tag "line[#{counter}][away_score]", result["away_score"], class: "small_text_field"
               - counter = counter + 1

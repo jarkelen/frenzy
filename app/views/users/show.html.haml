@@ -51,4 +51,4 @@
         - if can? :edit, Profile and current_user == @user
           .row
             .span6.text-center
-              .btn.btn-success= link_to I18n.t('.profile.edit_profile'), edit_profile_path(@user)
+              .btn= link_to I18n.t('.profile.edit_profile'), edit_profile_path(@user)
