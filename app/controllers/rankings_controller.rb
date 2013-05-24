@@ -6,7 +6,7 @@ class RankingsController < ApplicationController
     if params[:type] == "gameround"
       if params[:gameround_id]
         @current_gameround = Gameround.find(params[:gameround_id])
-        @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id])
+        @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id]).order('total_score DESC')
       else
         @current_gameround = Gameround.current.last
         @gameround_rankings = Ranking.current_gameround

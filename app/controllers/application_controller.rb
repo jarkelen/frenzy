@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
 
-  WillPaginate.per_page = 10
+  WillPaginate.per_page = 25
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, notice: I18n.t('.general.not_authorized')
