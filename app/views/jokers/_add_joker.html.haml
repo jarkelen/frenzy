@@ -1,28 +1,29 @@
-.row
-  .span12
-    %h3= "#{I18n.t('joker.new')}"
+.button_wrapper
+  %button#partial_button.button{type: "button", class: "btn"}= I18n.t('.joker.new')
 
-.row
-  .span12
-    = form_tag store_jokers_path, class: 'form-horizontal' do
-      = hidden_field_tag :user_id, current_user.id
-      .control-group
-        = label_tag :gameround_id, I18n.t('.gameround.gameround'), class: 'control-label'
-        .controls
-          = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] }), include_blank: true
-      .control-group
-        = label_tag :club1, I18n.t('.joker.joker1'), class: 'control-label'
-        .controls
-          = select_tag :club1, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
-      .control-group
-        = label_tag :club2, I18n.t('.joker.joker2'), class: 'control-label'
-        .controls
-          = select_tag :club2, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
-      .control-group
-        = label_tag :club3, I18n.t('.joker.joker3'), class: 'control-label'
-        .controls
-          = select_tag :club3, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
-      .control-group
-        .controls
-          = submit_tag :submit, value: I18n.t('.general.save'), class: 'btn'
-          %button#partial_cancel.button{type: "button", class: "btn"}= I18n.t('.general.cancel')
+#partial_form{ style: "display:none;" }
+  .row
+    .span12
+      = form_tag store_jokers_path, class: 'form-horizontal' do
+        .horizontal
+          = hidden_field_tag :user_id, current_user.id
+          .control-group
+            = label_tag :gameround_id, I18n.t('.gameround.gameround'), class: 'control-label'
+            .controls
+              = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] }), include_blank: true
+          .control-group
+            = label_tag :club1, I18n.t('.joker.joker1'), class: 'control-label'
+            .controls
+              = select_tag :club1, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+          .control-group
+            = label_tag :club2, I18n.t('.joker.joker2'), class: 'control-label'
+            .controls
+              = select_tag :club2, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+          .control-group
+            = label_tag :club3, I18n.t('.joker.joker3'), class: 'control-label'
+            .controls
+              = select_tag :club3, options_for_select(@clubs.map{ |c| [c.club_name, c.id] }), include_blank: true
+          .control-group
+            .controls
+              = submit_tag :submit, value: I18n.t('.general.save'), class: 'btn'
+              %button#partial_cancel.button{type: "button", class: "btn"}= I18n.t('.general.cancel')

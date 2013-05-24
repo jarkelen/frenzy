@@ -68,5 +68,5 @@ en:
         'Login'
   users:
     new:
-      sign_in:
-        'Login'
+      sign_in:  'Login'
+      or_sign_in:  'or signin?'
