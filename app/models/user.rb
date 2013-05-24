@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   has_many  :jokers, dependent: :destroy
   has_many  :rankings, dependent: :destroy
   has_many  :clubs, through: :selections
-  has_one   :profile, dependent: :destroy
   has_many  :newsitems
+  has_one   :profile
+  accepts_nested_attributes_for :profile, allow_destroy: true
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due
 
