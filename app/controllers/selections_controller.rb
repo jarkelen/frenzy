@@ -24,6 +24,8 @@ class SelectionsController < ApplicationController
       @current_teamvalue += @current_period
     end
 
+    #@pl_clubs = Club.includes(:selections).where("clubs.league_id = 1 AND selections.user_id <> 1").map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
+
     @pl_clubs = Club.where(league_id: 1).within_max_teamvalue(current_user, @current_teamvalue).map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
     @ch_clubs = Club.where(league_id: 2).within_max_teamvalue(current_user, @current_teamvalue).map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
     @l1_clubs = Club.where(league_id: 3).within_max_teamvalue(current_user, @current_teamvalue).map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
