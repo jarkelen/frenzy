@@ -3,15 +3,17 @@
 
 #partial_form{ style: "display:none;" }
   .row
-    = form_tag selections_path, html: { class: "form-horizontal"} do |f|
+    = form_tag selections_path do |f|
       .horizontal
         .control-group
           %label.control-label{for: "league"}= I18n.t('.league.name')
           .controls= select_tag :league_id, options_for_select(@leagues.map{ |l| [l.league_name, l.id] }), include_blank: true
+          .spacer
         .control-group
           %label.control-label{for: "club"}= I18n.t('.club.club')
           .controls= select_tag :club_id, grouped_options_for_select(@grouped_clubs), include_blank: true
         .control-group
+          %label.control-label
           .controls
             = submit_tag :submit, value: I18n.t('.general.save'), class: "btn"
             %button#partial_cancel.button{type: "button", class: "btn"}= I18n.t('.general.cancel')

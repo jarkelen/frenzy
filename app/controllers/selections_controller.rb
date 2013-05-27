@@ -24,7 +24,7 @@ class SelectionsController < ApplicationController
       @current_teamvalue += @current_period
     end
 
-    @leagues = League.order(:level)
+=begin
     @grouped_clubs = []
     @leagues.each do |league|
       @grouped_clubs << league.league_name
@@ -35,10 +35,17 @@ class SelectionsController < ApplicationController
       end
       @grouped_clubs << @clubs
     end
+=end
+
+    @leagues = League.order(:level)
+
+    @clubs = Club.includes(:league)
+    @grouped_clubs = @clubs.inject({}) do |options, club|
+      (options[club.league.league_name] ||= []) << [club.club_name, club.id]
+      options
+    end
 
     puts "GROUPED #{@grouped_clubs}"
-
-
 
 #    @clubs = Club.within_max_teamvalue(current_user, @current_teamvalue)#.map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
 

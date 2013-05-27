@@ -10,16 +10,16 @@ $(document).ready(function(){
       $('#partial_button').show();
   });
 
-  clubs = $('#selection_club_id').html();
-  $('#selection_club_id').empty();
-  $('#selection_league_id').change(function() {
-    league = $('#selection_league_id :selected').text();
+  clubs = $('#club_id').html();
+  $('#club_id').empty();
+  $('#league_id').change(function() {
+    league = $('#league_id :selected').text();
     options = $(clubs).filter("optgroup[label='" + league + "']").html();
     if (options){
-      $('#selection_club_id').html(options);
+      $('#club_id').html(options);
     }
     else {
-      $('#selection_club_id').empty();
+      $('#club_id').empty();
     }
   });
 
