@@ -8,7 +8,7 @@ describe "Manage results" do
   context "unregistered visitors" do
     it "should show the marketing page" do
       visit root_path
-      page.should have_content("Het leukste spel voor Engels voetbal liefhebbers")
+      page.should have_content("The most entertaining game for English football addicts")
     end
 
     it "should not allow access" do

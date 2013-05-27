@@ -3,25 +3,17 @@
 
 #partial_form{ style: "display:none;" }
   .row
-    = form_for @selection, html: { class: "form-horizontal"} do |f|
+    = form_tag selections_path do |f|
       .horizontal
-        = f.hidden_field :user_id, value: current_user.id
         .control-group
-          %label.control-label{:for => "pl"}= I18n.t('.league.pl_long')
-          .controls= f.select :club_id, @pl_clubs, include_blank: true
+          %label.control-label{for: "league"}= I18n.t('.league.name')
+          .controls= select_tag :league_id, options_for_select(@leagues.map{ |l| [l.league_name, l.id] }), include_blank: true
+          .spacer
         .control-group
-          %label.control-label{:for => "ch"}= I18n.t('.league.ch_long')
-          .controls= f.select :club_id, @ch_clubs, include_blank: true
+          %label.control-label{for: "club"}= I18n.t('.club.club')
+          .controls= select_tag :club_id, grouped_options_for_select(@grouped_clubs), include_blank: true
         .control-group
-          %label.control-label{:for => "l1"}= I18n.t('.league.l1_long')
-          .controls= f.select :club_id, @l1_clubs, include_blank: true
-        .control-group
-          %label.control-label{:for => "l2"}= I18n.t('.league.l2_long')
-          .controls= f.select :club_id, @l2_clubs, include_blank: true
-        .control-group
-          %label.control-label{:for => "cf"}= I18n.t('.league.cf_long')
-          .controls= f.select :club_id, @cf_clubs, include_blank: true
-        .control-group
+          %label.control-label
           .controls
-            = f.submit(class: 'btn', value: I18n.t('.general.save'))
+            = submit_tag :submit, value: I18n.t('.general.save'), class: "btn"
             %button#partial_cancel.button{type: "button", class: "btn"}= I18n.t('.general.cancel')

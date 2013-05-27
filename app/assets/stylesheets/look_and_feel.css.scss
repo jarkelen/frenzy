@@ -83,6 +83,10 @@ footer {
   }
 }
 
+.spacer {
+  clear: both;
+}
+
 form {
   .submit {
     margin-top: 1em;
@@ -105,6 +109,16 @@ form {
   }
   .horizontal {
     margin: 2em 2em 0 2em;
+  }
+  #error_explanation {
+    color: #f00;
+    ul {
+      list-style: none;
+      margin: 0 0 1em 0;
+    }
+  }
+  .field_with_errors {
+
   }
 }
 .points_used {

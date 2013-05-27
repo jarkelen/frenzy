@@ -10,5 +10,18 @@ $(document).ready(function(){
       $('#partial_button').show();
   });
 
+  clubs = $('#club_id').html();
+  $('#club_id').empty();
+  $('#league_id').change(function() {
+    league = $('#league_id :selected').text();
+    options = $(clubs).filter("optgroup[label='" + league + "']").html();
+    if (options){
+      $('#club_id').html(options);
+    }
+    else {
+      $('#club_id').empty();
+    }
+  });
+
 });
 
