@@ -15,9 +15,11 @@ class Club < ActiveRecord::Base
     select("clubs.*")
   }
 
-  def self.selectable(current_user, current_teamvalue)
-    settings = Setting.first
-    where("period#{settings.current_period} <= ?", (current_user.team_value-current_teamvalue)).order("period#{settings.current_period} DESC")
-  end
+  scope :selectable, ->(current_user, current_teamvalue) {
+    joins('LEFT OUTER JOIN selections ON selections.club_id = clubs.id').
+    where('selections.club_id IS null').
+    where("period#{Setting.first.current_period} <= ?", (current_user.team_value-current_teamvalue)).order("period#{Setting.first.current_period} DESC")
+  }
+
 
 end
