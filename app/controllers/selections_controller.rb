@@ -24,34 +24,12 @@ class SelectionsController < ApplicationController
       @current_teamvalue += @current_period
     end
 
-=begin
-    @grouped_clubs = []
-    @leagues.each do |league|
-      @grouped_clubs << league.league_name
-      clubs = Club.where(league_id: league.id)#.within_max_teamvalue(current_user, @current_teamvalue)
-      @clubs = []
-      clubs.each do |club|
-        @clubs << club.club_name
-      end
-      @grouped_clubs << @clubs
-    end
-=end
-
     @leagues = League.order(:level)
-
-    @clubs = Club.includes(:league)
+    @clubs = Club.includes(:league).selectable(current_user, @current_teamvalue)
     @grouped_clubs = @clubs.inject({}) do |options, club|
-      (options[club.league.league_name] ||= []) << [club.club_name, club.id]
+      (options[club.league.league_name] ||= []) << ["#{club.club_name} (#{club.period1})", club.id]
       options
     end
-
-    puts "GROUPED #{@grouped_clubs}"
-
-#    @clubs = Club.within_max_teamvalue(current_user, @current_teamvalue)#.map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
-
-
-    #@pl_clubs = Club.includes(:selections).where("clubs.league_id = 1 AND selections.user_id <> 1").map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
-
   end
 
   def create
