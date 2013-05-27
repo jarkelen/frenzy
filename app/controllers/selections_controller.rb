@@ -25,6 +25,21 @@ class SelectionsController < ApplicationController
     end
 
     @leagues = League.order(:level)
+    @grouped_clubs = []
+    @leagues.each do |league|
+      @grouped_clubs << league.league_name
+      clubs = Club.where(league_id: league.id)#.within_max_teamvalue(current_user, @current_teamvalue)
+      @clubs = []
+      clubs.each do |club|
+        @clubs << club.club_name
+      end
+      @grouped_clubs << @clubs
+    end
+
+    puts "GROUPED #{@grouped_clubs}"
+
+
+
 #    @clubs = Club.within_max_teamvalue(current_user, @current_teamvalue)#.map{ |c| ["#{c.club_name} (#{c.period1})", c.id] }
 
 
@@ -33,8 +48,7 @@ class SelectionsController < ApplicationController
   end
 
   def create
-    @selection = Selection.new(params[:selection].except(:league_id))
-
+    @selection = Selection.create(user_id: current_user.id, club_id: params[:club_id])
     if @selection.save
       redirect_to selections_path, notice: "Club #{I18n.t('.created.success')}"
     else
