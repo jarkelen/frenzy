@@ -3,7 +3,13 @@ class ResultsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @results = Result.order("gameround_id DESC").paginate(page: params[:page])
+    if params[:gameround]
+      @results = Result.where(gameround_id: params[:gameround]).paginate(page: params[:page])
+    else
+      last_gameround = Gameround.where(processed: true).order("id DESC").first
+      puts "GR #{last_gameround.id}"
+      @results = Result.where(gameround_id: last_gameround.id).order("home_club_id").paginate(page: params[:page])
+    end
   end
 
   def new
