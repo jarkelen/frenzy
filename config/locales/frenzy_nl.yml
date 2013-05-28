@@ -36,6 +36,7 @@ nl:
     edit:               Resultaat wijzigen
     scrape:             Resultaten ophalen
     iterations:         Aantal dagen
+    after:              Resultaten van
   period:
     periods:            Periodes
     period_name:        Periode

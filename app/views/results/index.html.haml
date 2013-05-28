@@ -6,6 +6,12 @@
       - if can? :create, Result
         = link_to I18n.t('.new', default: t("helpers.links.new")), new_result_path, class: 'btn'
 
+    %h4= "#{I18n.t('.result.after')}: #{markup_gameround(@current_gameround)}"
+
+    = form_tag results_path, class: "table_filter" do
+      = select_tag :gameround, options_for_select(Gameround.all.map{ |g| ["#{markup_gameround(g)}", g.id] })
+      = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
+
     %table.table.table-striped
       %thead
         %tr
