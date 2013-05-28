@@ -1,6 +1,5 @@
-- model_class = League
 .row
   .span12
     .page-header
-      %h1=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], model: model_class.model_name.human
+      %h1= I18n.t('.league.edit')
     = render partial: "form"

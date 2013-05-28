@@ -1,10 +1,24 @@
-= simple_form_for @club, html: { class: 'form-horizontal' } do |f|
-  = f.input :club_name
-  = f.input :period1
-  = f.input :period2
-  = f.input :period3
-  = f.input :period4
-  = f.input(:league_id, label: I18n.t('.league.name'), collection: League.all.map{ |l| [l.league_name, l.id] }, include_blank: true)
-  .form-actions
-    = f.button :submit, class: 'btn'
-    = link_to t('.cancel', default: t("helpers.links.cancel")), clubs_path, class: 'btn'
+= form_for @club, html: { class: 'form-horizontal' } do |f|
+  = render "layouts/error_messages", target: @club
+  .control-group
+    = f.label I18n.t('.club.club_name')
+    = f.text_field :club_name
+  .control-group
+    = f.label "#{I18n.t('.club.period')}1"
+    = f.text_field :period1, class: 'input-mini'
+  .control-group
+    = f.label "#{I18n.t('.club.period')}2"
+    = f.text_field :period2, class: 'input-mini'
+  .control-group
+    = f.label "#{I18n.t('.club.period')}3"
+    = f.text_field :period3, class: 'input-mini'
+  .control-group
+    = f.label "#{I18n.t('.club.period')}4"
+    = f.text_field :period4, class: 'input-mini'
+  .control-group
+    = f.label I18n.t('.league.name')
+    = f.select(:league_id, League.all.map{ |l| [l.league_name, l.id] }, { include_blank: true })
+  .control-group
+    .controls
+      = f.submit(value: I18n.t('.general.save'), class: 'btn')
+      = link_to t('.cancel', default: t("helpers.links.cancel")), clubs_path, class: 'btn'

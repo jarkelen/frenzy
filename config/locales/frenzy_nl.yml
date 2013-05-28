@@ -14,10 +14,15 @@ nl:
     l2_short:           L2
     cf_long:            The Conference
     cf_short:           CF
+    new:                Toevoegen league
+    edit:               Wijzgen league
   club:
     clubs:              Clubs
     club:               Club
-    new:                Club toevoegen
+    club_name:          Naam club
+    period:             Periode
+    new:                Toevoegen club
+    edit:               Wijzigen club
   gameround:
     gamerounds:         Speelrondes
     gameround:          Speelronde

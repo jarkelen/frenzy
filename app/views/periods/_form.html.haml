@@ -1,8 +1,18 @@
-= simple_form_for @period, html: { class: 'form-horizontal' } do |f|
-  = f.input :period_nr
-  = f.input :name
-  = f.input :start_date, as: :date
-  = f.input :end_date, as: :date
-  .form-actions
-    = f.button :submit, value: I18n.t('.general.save'), class: 'btn'
-    = link_to t('.cancel', default: t("helpers.links.cancel")), periods_path, class: 'btn'
+= form_for @period, html: { class: 'form-horizontal' } do |f|
+  = render "layouts/error_messages", target: @period
+  .control-group
+    = f.label I18n.t('.period.period_nr')
+    = f.text_field :period_nr
+  .control-group
+    = f.label I18n.t('.period.period_name')
+    = f.text_field :name
+  .control-group
+    = f.label I18n.t('.period.start_date')
+    = f.date_select :start_date, include_blank: true
+  .control-group
+    = f.label I18n.t('.period.end_date')
+    = f.date_select :end_date, include_blank: true
+  .control-group
+    .controls
+      = f.submit(value: I18n.t('.general.save'), class: 'btn')
+      = link_to t('.cancel', default: t("helpers.links.cancel")), periods_path, class: 'btn'
