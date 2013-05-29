@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many  :jokers, dependent: :destroy
   has_many  :rankings, dependent: :destroy
   has_many  :clubs, through: :selections
+  has_many  :scores, through: :clubs
   has_many  :newsitems
   has_one   :profile
   accepts_nested_attributes_for :profile, allow_destroy: true

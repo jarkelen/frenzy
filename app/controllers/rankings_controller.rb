@@ -8,10 +8,10 @@ class RankingsController < ApplicationController
         @current_gameround = Gameround.find(params[:gameround_id])
         @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id]).order('total_score DESC')
       else
-        @current_gameround = Gameround.current.last
+        @current_gameround = Gameround.where(processed: true).last
         @gameround_rankings = Ranking.current_gameround
       end
-      @gamerounds = Gameround.current.order("number DESC")
+      @gamerounds = Gameround.where(processed: true).order("number DESC")
     else
       @general_rankings = Ranking.calculate_ranking("general")
       @period_rankings = Ranking.calculate_ranking("period")

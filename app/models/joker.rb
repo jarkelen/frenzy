@@ -23,13 +23,23 @@ class Joker < ActiveRecord::Base
     return true
   end
 
+  def self.jokered?(gameround, user, club)
+    joker = self.where(club_id: club, gameround_id: gameround, user_id: user)
+    return false if joker.blank?
+    return true
+  end
+
   def effective?(gameround)
     if gameround.processed
       score = self.club.scores.where(gameround_id: gameround).pluck(:score).first
-      if score*2 > score
-        "success"
-      elsif score*2 < score
-        "important"
+      if score
+        if score*2 > score
+          "success"
+        elsif score*2 < score
+          "important"
+        else
+          "neutral"
+        end
       else
         "neutral"
       end

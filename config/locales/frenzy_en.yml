@@ -74,8 +74,9 @@ en:
     score:              Points
     result:             Result
     match:              Match
+    joker?:             'Joker?'
     calculate:          Calculate points
-    intro:              Below an overview of the scored points with your team in the last gameround. You can see the scored points of earlier gamerounds by selecting a gameround in the listbox. A club with a yellow background means that you have set a joker on that club. The shown points are inclusive of the calculated jokers. Click a club to see a detailed overview of that club.
+    intro:              Below an overview of the scored points with your team in the last gameround. You can see the scored points of earlier gamerounds by selecting a gameround in the listbox. The shown points are inclusive of the calculated jokers. Click a club to see a detailed overview of that club.
   frenzy:
     index:              Calculations
     process_gameround:  Process gameround

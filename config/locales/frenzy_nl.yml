@@ -74,8 +74,9 @@ nl:
     score:              Punten
     result:             Resultaat
     match:              Wedstrijd
+    joker?:             'Joker?'
     calculate:          Berekenen punten
-    intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. Een club met een gele achtergrond betekent dat je op die club een joker hebt ingezet. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
+    intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
   frenzy:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
