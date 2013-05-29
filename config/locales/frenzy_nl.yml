@@ -79,6 +79,7 @@ nl:
   frenzy:
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
+    process:            Verwerken
     cancel_jokers:      Annuleren jokers
     switch_period:      Switchen periode
     switch_participation: Switchen deelname

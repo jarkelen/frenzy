@@ -19,6 +19,8 @@ en:
   club:
     clubs:              Clubs
     club:               Club
+    club_name:          Club name
+    period:             Period
     new:                Add club
     edit:               Edit club
   gameround:
@@ -77,6 +79,7 @@ en:
   frenzy:
     index:              Calculations
     process_gameround:  Process gameround
+    process:            Process
     cancel_jokers:      cancel jokers
     switch_period:      Switch period
     switch_participation: Switch participation

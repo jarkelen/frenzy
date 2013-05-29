@@ -7,6 +7,15 @@ describe "Frenzy calculations" do
     sign_in_as(@admin)
   end
 
+  let!(:gameround1) { create :gameround, number: 1, processed: false }
+  let!(:gameround2) { create :gameround, number: 2, processed: true }
+  let!(:club1)      { create :club, club_name: "Arsenal" }
+  let!(:club2)      { create :club, club_name: "Chelsea" }
+  let!(:club3)      { create :club, club_name: "Fulham" }
+  let!(:club4)      { create :club, club_name: "Everton" }
+  let!(:selection1) { create :selection, user: @admin, club: club1 }
+  let!(:selection2) { create :selection, user: @admin, club: club2 }
+
   describe "switching participation" do
     it "should turn off participation" do
       visit frenzy_index_path
@@ -42,11 +51,6 @@ describe "Frenzy calculations" do
   end
 
   describe "joker cancellation" do
-    let!(:gameround1) { create :gameround, number: 1, processed: false }
-    let!(:gameround2) { create :gameround, number: 2, processed: true }
-    let!(:club1)     { create :club, club_name: "Arsenal" }
-    let!(:club2)     { create :club, club_name: "Chelsea" }
-    let!(:club3)     { create :club, club_name: "Fulham" }
     let!(:joker1)    { create :joker, club: club1, gameround: gameround1, user: @admin }
     let!(:joker2)    { create :joker, club: club2, gameround: gameround1, user: @admin }
     let!(:joker3)    { create :joker, club: club3, gameround: gameround1, user: @admin }
@@ -80,11 +84,40 @@ describe "Frenzy calculations" do
       page.should have_content(club3.club_name)
       page.should have_content("Jokers verbruikt: 1 van de #{@admin.assigned_jokers}")
     end
+  end
 
+  describe "process gameround" do
+    let!(:result1)   { create :result, home_club_id: club1.id, away_club_id: club2.id, home_score: 2, away_score: 1, gameround_id: gameround2.id }
+
+    it "should show scores in scores overview" do
+      visit scores_path
+      page.should_not have_content(club1.club_name)
+      page.should_not have_content(club2.club_name)
+
+      visit frenzy_index_path
+      click_button 'Verwerken'
+      page.should have_content('De gegevens zijn berekend')
+
+      visit scores_path
+      save_and_open_page
+      page.should have_content(club1.club_name)
+      page.should have_content(club2.club_name)
+    end
+
+    it "should not show processed gameround as selectable anymore" do
+
+    end
+
+    it "should show gameround points for a user" do
+
+    end
+
+    it "should show updated period ranking" do
+
+    end
+
+    it "should show updated general ranking" do
+
+    end
   end
 end
-
-=begin
-      let!(:result1)   { create :result, home_club_id: club1.id, away_club_id: club2.id, home_score: 2, away_score: 1, gameround_id: gameround.id }
-      let!(:result2)   { create :result, home_club_id: club3.id, away_club_id: club4.id, home_score: 0, away_score: 3, gameround_id: gameround.id }
-=end
