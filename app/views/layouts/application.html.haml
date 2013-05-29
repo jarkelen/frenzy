@@ -77,7 +77,7 @@
                         %li= link_to I18n.t(".ranking.rankings"), rankings_path(type: "general")
                         %li= link_to I18n.t(".news.news_title"), newsitems_path
                         %li= link_to I18n.t(".site.about.rules"), frenzy_rules_path(section: 'participation')
-                        %li= link_to I18n.t(".site.about.about_us"), root_path
+                        %li= link_to I18n.t(".site.about.about_us"), frenzy_about_path
                     %li.divider-vertical
                 %ul.nav.pull-right
                   - if current_user.admin?
