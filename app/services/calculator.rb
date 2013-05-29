@@ -95,7 +95,6 @@ class Calculator
 
         # Points drawn for opponent goals
         score -= result.away_score
-
         Score.find_or_create_by_gameround_id_and_club_id(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
       end
 
