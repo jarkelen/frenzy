@@ -98,7 +98,8 @@ describe "Frenzy calculations" do
       click_button 'Verwerken'
       page.should have_content('De gegevens zijn berekend')
 
-#      visit scores_path
+      visit scores_path
+save_and_open_page
 #      page.should have_content(club1.club_name)
 #      page.should have_content(club2.club_name)
     end

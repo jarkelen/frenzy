@@ -10,7 +10,7 @@ class ResultsController < ApplicationController
       @current_gameround = Gameround.where(processed: true).order("id DESC").first
       @results = Result.where(gameround_id: @current_gameround.id).order("home_club_id").paginate(page: params[:page])
     end
-    @gamerounds = Gameround.processed
+    @gamerounds = Gameround.all
   end
 
   def new
