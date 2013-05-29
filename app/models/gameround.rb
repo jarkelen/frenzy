@@ -11,6 +11,6 @@ class Gameround < ActiveRecord::Base
   validates :end_date, :number, :period_id, :start_date, presence: true
 
   scope :active, where(processed: false)
-  scope :current, where(processed: true)
+  scope :processed, where(processed: true)
   scope :next, where(processed: false).limit(1)
 end

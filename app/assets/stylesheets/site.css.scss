@@ -82,12 +82,19 @@ footer {
     }
   }
 }
-
 .spacer {
   clear: both;
 }
+.add_record {
+  margin: 0.5em 0;
+}
+.gameround_selector {
+  margin: 0.5em 0;
 
-
+  .selector {
+    margin-bottom: 1em;
+  }
+}
 .points_used {
   padding-top: 2em;
   padding-bottom: 2em;

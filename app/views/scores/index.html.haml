@@ -1,15 +1,6 @@
 .row
   .span12
-    %h1= I18n.t('score.my_scores')
-    %p= I18n.t('score.intro')
-
-.row
-  .span12
-    %h4= "#{I18n.t('.ranking.gameround_ranking')}: #{markup_gameround(@gameround)}"
-
-.row
-  .span12
-    = render partial: "gamerounds/table_filter"
+    = render("shared/gameround_selector", title: I18n.t('score.my_scores'), intro: I18n.t('score.intro'), target: scores_path)
 
 .row
   .span12
