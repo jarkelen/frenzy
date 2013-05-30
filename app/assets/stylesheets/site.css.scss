@@ -7,9 +7,25 @@ html, body {
   background-color: #D0D0D0;
   color: $text-color;
 }
+
+// Typography
 h1, h2, h3, h4, h5, h6 {
   color: $title-color;
 }
+h1 {
+  font-size: 200%;
+}
+h2 {
+  font-size: 150%;
+}
+h3 {
+  font-size: 125%;
+}
+p {
+  font-size: 110%;
+  line-height: 200%;
+}
+
 a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
@@ -169,7 +185,9 @@ footer {
     }
   }
 }
-
+.about_section {
+  margin-top: 1em;
+}
 // News
 .media {
   h1 {

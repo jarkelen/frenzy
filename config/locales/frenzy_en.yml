@@ -135,7 +135,7 @@ en:
       small4:             'We assume that each participant behaves normal and sees the Frenzy as a nice way to play a game with like minded football enthusiasts. If a participant not behaves normal , we as organisation will not hesitate to remove this participant.'
   ranking:
     ranking:            Classification
-    overall_ranking:    General ranking
+    general_ranking:    General ranking
     period_ranking:     Period ranking
     rankings:           Classifications
     gameround_ranking:  Gameround ranking

@@ -14,11 +14,12 @@ class RankingsController < ApplicationController
     @settings = Setting.first
   end
 
-  def overall
+  def general
     @general_rankings = Ranking.calculate_ranking("general")
   end
 
   def period
     @period_rankings = Ranking.calculate_ranking("period")
+    @settings = Setting.first
   end
 end

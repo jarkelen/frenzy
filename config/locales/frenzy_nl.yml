@@ -135,7 +135,7 @@ nl:
       small4:             'We gaan er vanuit dat elke deelnemer zich normaal gedraagd en de Frenzy vooral ziet als een leuk spelletje met gelijkgestemde voetballiefhebbers. Mocht iemand zich toch vervelend gedragen, dan zullen we als organisatie niet aarzelen om deze persoon te verwijderen, zonder gedoe met gele en rode kaarten, waarschuwingen en beroepsprocedures.'
   ranking:
     ranking:            Klassement
-    overall_ranking:    Algemeen klassement
+    general_ranking:    Algemeen klassement
     period_ranking:     Periode klassement
     rankings:           Klassementen
     gameround_ranking:  Speelronde klassement

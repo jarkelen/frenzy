@@ -1,16 +1,25 @@
 .row
   .span12
-    - if params[:type] == "gameround"
-      = render partial: "gameround_ranking"
-    - else
-      .tabbable
-        %ul.nav.nav-tabs
-          %li.active
-            %a{"data-toggle" => "tab", href: "#tab1"}= I18n.t('.ranking.general_ranking')
-          %li
-            %a{"data-toggle" => "tab", href: "#tab2"}= I18n.t('.ranking.period_ranking')
-        .tab-content
-          #tab1.tab-pane.active
-            = render partial: "general_ranking"
-          #tab2.tab-pane
-            = render partial: "period_ranking"
+    = render("shared/gameround_selector", title: I18n.t('.result.results'), intro: I18n.t('ranking.intro_gameround'), target: results_path)
+
+.row
+  .span12
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= I18n.t('.ranking.position')
+          %th= I18n.t('.ranking.team')
+          %th= I18n.t('.ranking.total_score')
+          %th= I18n.t('.ranking.used_jokers')
+      %tbody
+        - nr = 1
+        - @gameround_rankings.each do |ranking|
+          %tr
+            %td= "#{nr}."
+            %td= link_to ranking.user.team_name, user_path(ranking.user)
+            %td= ranking.total_score
+            %td= ranking.user.jokers.where(gameround_id: ranking.gameround_id).size
+          - nr += 1
+      %thead
+        %tr
+          %th{ colspan: 4 }

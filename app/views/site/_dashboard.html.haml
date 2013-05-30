@@ -5,7 +5,8 @@
     = render partial: "newsitems/newsitems", locals: { newsitems: @newsitems }
 
   %aside.span4
-    = render partial: "rankings/general_ranking"
+    %h3= I18n.t('.ranking.general_ranking')
+    = render partial: "rankings/personal_ranking"
 
 //.row
 //.span12

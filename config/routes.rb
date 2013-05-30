@@ -26,7 +26,7 @@ Frenzy::Application.routes.draw do
       get :index
       post :index
       get :period
-      get :overall
+      get :general
     end
   end
 
