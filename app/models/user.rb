@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :team_name, :role, :language, :team_value, presence: true
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: email_regex },uniqueness: { case_sensitive: false }
+  validates :first_name, :last_name, :team_name, length: { maximum: 50 }
 
   scope :admins, where(role: 'admin')
 

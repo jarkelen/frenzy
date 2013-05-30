@@ -17,8 +17,8 @@ gem 'fog'
 gem 'rails_best_practices'
 gem 'newrelic_rpm'
 gem 'fakeweb'
-gem 'chartkick'
 gem 'sentry-raven', :git => 'https://github.com/getsentry/raven-ruby.git'
+gem 'postmark-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

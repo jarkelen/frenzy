@@ -2,7 +2,7 @@
   .offset3.span6
     #clearance.signin_container
       = form_for @user, html: { class: "form-horizontal"} do |f|
-        %h2.title= I18n.t('.sessions.new.sign_up')
+        %h1.title= I18n.t('.sessions.new.sign_up')
         = render "layouts/error_messages", target: @user
         = f.hidden_field :role, value: 'user'
         .control-group
