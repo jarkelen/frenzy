@@ -7,9 +7,25 @@ html, body {
   background-color: #D0D0D0;
   color: $text-color;
 }
+
+// Typography
 h1, h2, h3, h4, h5, h6 {
   color: $title-color;
 }
+h1 {
+  font-size: 200%;
+}
+h2 {
+  font-size: 150%;
+}
+h3 {
+  font-size: 125%;
+}
+p {
+  font-size: 110%;
+  line-height: 200%;
+}
+
 a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
@@ -82,43 +98,17 @@ footer {
     }
   }
 }
-
 .spacer {
   clear: both;
 }
+.add_record {
+  margin: 0.5em 0;
+}
+.gameround_selector {
+  margin: 0.5em 0;
 
-form {
-  .submit {
-    margin-top: 1em;
-  }
-  .small_text_field {
-    width: 3em;
-  }
-  textarea {
-    width: 400px;
-    max-width: 400px;
-    height: 150px;
-    line-height: 150%;
-  }
-  label, input, select {
-    float: left;
-    margin-left: 10px;
-  }
-  label {
-    width: 200px;
-  }
-  .horizontal {
-    margin: 2em 2em 0 2em;
-  }
-  #error_explanation {
-    color: #f00;
-    ul {
-      list-style: none;
-      margin: 0 0 1em 0;
-    }
-  }
-  .field_with_errors {
-
+  .selector {
+    margin-bottom: 1em;
   }
 }
 .points_used {
@@ -195,7 +185,9 @@ form {
     }
   }
 }
-
+.about_section {
+  margin-top: 1em;
+}
 // News
 .media {
   h1 {

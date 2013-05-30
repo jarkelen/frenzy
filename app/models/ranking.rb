@@ -5,7 +5,7 @@ class Ranking < ActiveRecord::Base
   attr_accessible :gameround_id, :total_score, :user_id
   validates       :gameround_id, :total_score, :user_id, presence: true
 
-  scope :current_gameround, where(gameround_id: Gameround.current.last).order('total_score DESC')
+  scope :current_gameround, where(gameround_id: Gameround.processed.last).order('total_score DESC')
 
   def self.calculate_ranking(type)
     found_rankings = []

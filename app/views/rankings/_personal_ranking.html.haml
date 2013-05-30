@@ -1,21 +1,20 @@
-.page-header
-  %h3= "#{I18n.t('.ranking.period_ranking')}: #{I18n.t('.period.period_name')} #{@settings.current_period}"
-
 %table.table.table-striped
   %thead
     %tr
       %th= I18n.t('.ranking.position')
       %th= I18n.t('.ranking.team')
       %th= I18n.t('.ranking.total_score')
+      %th= I18n.t('.joker.jokers_short')
   %tbody
     - nr = 1
-    - @period_rankings.each do |ranking|
+    - @personal_rankings.each do |ranking|
       - user = User.find(ranking[0])
       %tr
         %td= "#{nr}."
         %td= link_to user.team_name, user_path(user)
         %td= ranking[1]
+        %td= "#{user.jokers.size} / #{user.assigned_jokers}"
       - nr += 1
   %thead
     %tr
-      %th{ colspan: 3 }
+      %th{ colspan: 4 }

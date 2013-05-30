@@ -15,7 +15,7 @@
       %h3= I18n.t('frenzy.process_gameround')
       = form_tag frenzy_process_gameround_path do
         = select_tag 'gameround_id', options_for_select(Gameround.active.map{ |g| ["#{markup_gameround(g)}", g.id] }, include_blank: true)
-        = submit_tag :submit, value: 'OK', class: 'btn'
+        = submit_tag :submit, value: I18n.t('frenzy.process'), class: 'btn'
 
   .row
     .span12

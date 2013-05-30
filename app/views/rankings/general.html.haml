@@ -1,0 +1,27 @@
+.row
+  .span12
+    .page-header
+      %h3= I18n.t('.ranking.general_ranking')
+
+.row
+  .span12
+    %table.table.table-striped
+      %thead
+        %tr
+          %th= I18n.t('.ranking.position')
+          %th= I18n.t('.ranking.team')
+          %th= I18n.t('.ranking.total_score')
+          %th= I18n.t('.joker.jokers_short')
+      %tbody
+        - nr = 1
+        - @general_rankings.each do |ranking|
+          - user = User.find(ranking[0])
+          %tr
+            %td= "#{nr}."
+            %td= link_to user.team_name, user_path(user)
+            %td= ranking[1]
+            %td= "#{user.jokers.size} / #{user.assigned_jokers}"
+          - nr += 1
+      %thead
+        %tr
+          %th{ colspan: 4 }
