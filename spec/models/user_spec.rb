@@ -13,6 +13,16 @@ describe User do
   it { should have_many(:selections) }
   it { should have_many(:clubs).through(:selections) }
 
+  describe "validations" do
+    before do
+      @user = User.new(first_name: "John", last_name: "Van Arkelen", email: "john@bla.com")
+    end
+
+    describe "when last_name is too long" do
+      before { @user.last_name = "a" * 51 }
+      it { should_not be_valid }
+    end
+  end
 
   describe "methods" do
 
