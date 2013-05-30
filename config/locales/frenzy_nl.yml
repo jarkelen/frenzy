@@ -78,6 +78,8 @@ nl:
     calculate:          Berekenen punten
     intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
   frenzy:
+    clubs_frenzy:       Clubs Frenzy
+    general:            Algemeen
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
     process:            Verwerken
@@ -133,10 +135,10 @@ nl:
       small4:             'We gaan er vanuit dat elke deelnemer zich normaal gedraagd en de Frenzy vooral ziet als een leuk spelletje met gelijkgestemde voetballiefhebbers. Mocht iemand zich toch vervelend gedragen, dan zullen we als organisatie niet aarzelen om deze persoon te verwijderen, zonder gedoe met gele en rode kaarten, waarschuwingen en beroepsprocedures.'
   ranking:
     ranking:            Klassement
-    general_ranking:    Algemeen klassement
+    overall_ranking:    Algemeen klassement
     period_ranking:     Periode klassement
     rankings:           Klassementen
-    gameround_ranking:  Uitslagen
+    gameround_ranking:  Speelronde klassement
     ranking_after:      Uitslag speelronde
     last_round_ranking: Uitslag laatste speelronde
     team:               Team

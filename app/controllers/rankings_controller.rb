@@ -3,19 +3,22 @@ class RankingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if params[:type] == "gameround"
-      if params[:gameround_id]
-        @current_gameround = Gameround.find(params[:gameround_id])
-        @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id]).order('total_score DESC')
-      else
-        @current_gameround = Gameround.where(processed: true).last
-        @gameround_rankings = Ranking.current_gameround
-      end
-      @gamerounds = Gameround.where(processed: true).order("number DESC")
+    if params[:gameround_id]
+      @current_gameround = Gameround.find(params[:gameround_id])
+      @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id]).order('total_score DESC')
     else
-      @general_rankings = Ranking.calculate_ranking("general")
-      @period_rankings = Ranking.calculate_ranking("period")
+      @current_gameround = Gameround.where(processed: true).last
+      @gameround_rankings = Ranking.current_gameround
     end
+    @gamerounds = Gameround.where(processed: true).order("number DESC")
     @settings = Setting.first
+  end
+
+  def overall
+    @general_rankings = Ranking.calculate_ranking("general")
+  end
+
+  def period
+    @period_rankings = Ranking.calculate_ranking("period")
   end
 end

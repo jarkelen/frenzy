@@ -78,6 +78,8 @@ en:
     calculate:          Calculate points
     intro:              Below an overview of the scored points with your team in the last gameround. You can see the scored points of earlier gamerounds by selecting a gameround in the listbox. The shown points are inclusive of the calculated jokers. Click a club to see a detailed overview of that club.
   frenzy:
+    clubs_frenzy:       Clubs Frenzy
+    general:            General
     index:              Calculations
     process_gameround:  Process gameround
     process:            Process
@@ -133,10 +135,10 @@ en:
       small4:             'We assume that each participant behaves normal and sees the Frenzy as a nice way to play a game with like minded football enthusiasts. If a participant not behaves normal , we as organisation will not hesitate to remove this participant.'
   ranking:
     ranking:            Classification
-    general_ranking:    General classification
-    period_ranking:     Period classification
+    overall_ranking:    General ranking
+    period_ranking:     Period ranking
     rankings:           Classifications
-    gameround_ranking:  Results
+    gameround_ranking:  Gameround ranking
     ranking_after:      Gameround results
     last_round_ranking: Results last gameround
     team:               Team

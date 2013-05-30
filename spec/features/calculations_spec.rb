@@ -7,8 +7,6 @@ describe "Frenzy calculations" do
     sign_in_as(@admin)
   end
 
-  let!(:gameround1) { create :gameround, number: 1, processed: false }
-  let!(:gameround2) { create :gameround, number: 2, processed: true }
   let!(:club1)      { create :club, club_name: "Arsenal" }
   let!(:club2)      { create :club, club_name: "Chelsea" }
   let!(:club3)      { create :club, club_name: "Fulham" }
@@ -51,6 +49,7 @@ describe "Frenzy calculations" do
   end
 
   describe "joker cancellation" do
+    let!(:gameround1){ create :gameround, number: 1, processed: false }
     let!(:joker1)    { create :joker, club: club1, gameround: gameround1, user: @admin }
     let!(:joker2)    { create :joker, club: club2, gameround: gameround1, user: @admin }
     let!(:joker3)    { create :joker, club: club3, gameround: gameround1, user: @admin }
@@ -87,7 +86,8 @@ describe "Frenzy calculations" do
   end
 
   describe "process gameround" do
-    let!(:result1)   { create :result, home_club_id: club1.id, away_club_id: club2.id, home_score: 2, away_score: 1, gameround_id: gameround2.id }
+    let!(:gameround1) { create :gameround, number: 1, processed: false }
+    let!(:result1)   { create :result, home_club_id: club1.id, away_club_id: club2.id, home_score: 2, away_score: 1, gameround_id: gameround1.id }
 
     it "should show scores in scores overview" do
       visit scores_path
@@ -99,17 +99,16 @@ describe "Frenzy calculations" do
       page.should have_content('De gegevens zijn berekend')
 
       visit scores_path
-save_and_open_page
-#      page.should have_content(club1.club_name)
-#      page.should have_content(club2.club_name)
+      page.should have_content(club1.club_name)
+      page.should have_content(club2.club_name)
     end
 
     it "should not show processed gameround as selectable anymore" do
+      visit frenzy_index_path
+      click_button 'Verwerken'
 
-    end
-
-    it "should show gameround points for a user" do
-
+      page.should have_content('De gegevens zijn berekend')
+      page.should_not have_content("#{I18n.t('.gameround1.gameround')} #{gameround1.number} (#{gameround1.start_date.strftime('%d-%m-%Y')} - #{gameround1.end_date.strftime('%d-%m-%Y')})")
     end
 
     it "should show updated period ranking" do

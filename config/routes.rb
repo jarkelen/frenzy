@@ -25,8 +25,11 @@ Frenzy::Application.routes.draw do
     collection do
       get :index
       post :index
+      get :period
+      get :overall
     end
   end
+
   resources :newsitems do
     resources :comments
   end
