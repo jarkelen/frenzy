@@ -65,8 +65,5 @@ module Frenzy
     config.assets.initialize_on_precompile = false
 
     config.exceptions_app = self.routes
-
-    config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
   end
 end
