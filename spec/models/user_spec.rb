@@ -15,13 +15,45 @@ describe User do
 
   describe "validations" do
     before do
-      @user = User.new(first_name: "John", last_name: "Van Arkelen", email: "john@bla.com")
+      @user = User.new(first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", email: "john@bla.com", role: "user", language: "nl", team_value: 125)
     end
 
     describe "when last_name is too long" do
       before { @user.last_name = "a" * 51 }
       it { should_not be_valid }
     end
+
+    describe "with a password that's too short" do
+      before { @user.password = "a" * 5 }
+      it { should be_invalid }
+    end
+
+    describe "when password is not present" do
+      before { @user.password = "" }
+      it { should_not be_valid }
+    end
+
+    describe "when email address is already taken" do
+      before do
+        user_with_same_email = @user.dup
+        user_with_same_email.email = @user.email.upcase
+        user_with_same_email.save
+      end
+
+      it { should_not be_valid }
+    end
+
+    describe "when email format is invalid" do
+      it "should be invalid" do
+        addresses = %w[user@foo,com user_at_foo.org example.user@foo.
+                       foo@bar_baz.com foo@bar+baz.com]
+        addresses.each do |invalid_address|
+          @user.email = invalid_address
+          @user.should_not be_valid
+        end
+      end
+    end
+
   end
 
   describe "methods" do
