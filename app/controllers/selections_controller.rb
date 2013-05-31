@@ -27,7 +27,18 @@ class SelectionsController < ApplicationController
     @leagues = League.order(:level)
     @clubs = Club.includes(:league).selectable(current_user, @current_teamvalue)
     @grouped_clubs = @clubs.inject({}) do |options, club|
-      (options[club.league.league_name] ||= []) << ["#{club.club_name} (#{club.period1})", club.id]
+      case @settings.current_period
+        when 1
+          @club_value = club.period1
+        when 2
+          @club_value = club.period2
+        when 3
+          @club_value = club.period3
+        when 4
+          @club_value = club.period4
+      end
+
+      (options[club.league.league_name] ||= []) << ["#{club.club_name} (#{@club_value})", club.id]
       options
     end
   end

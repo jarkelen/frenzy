@@ -114,10 +114,11 @@ describe "Frenzy calculations" do
 
   describe "switch period" do
     let!(:gameround)  { create :gameround, number: 1, processed: true }
-    let!(:user)       { create :user, last_name: "Lineker" }
+    let!(:user)       { create :user, last_name: "Lineker", team_name: "The Big Ears" }
     let!(:selection3) { create :selection, user: user, club: club2 }
     let!(:selection4) { create :selection, user: user, club: club3 }
     let!(:selection5) { create :selection, user: user, club: club4 }
+    let!(:ranking1)   { create :ranking, user: user, gameround: gameround, total_score: 25 }
 
     before do
       visit frenzy_index_path
@@ -133,25 +134,32 @@ describe "Frenzy calculations" do
       page.should have_content('1001')
     end
 
-    it "should show the user the points gained" do
+    it "should show the users with the points gained" do
       visit users_path
 
-      find('tr', text: 'My title').should have_content(goal)
-=begin
-      user +1
-      lineker +8
-      save_and_open_page
-=end
+      find('tr', text: @admin.last_name).should have_content("124")
+      find('tr', text: user.last_name).should have_content("133")
     end
 
     it "should show a gameround ranking" do
       visit rankings_path
-      save_and_open_page
+
+      find('tr', text: @admin.team_name).should have_content("-1")
+      find('tr', text: user.team_name).should have_content("8")
     end
 
-    it "should show an updated period ranking" do
+    it "should show an updated general ranking" do
+      visit general_rankings_path
+      find('tr', text: @admin.team_name).should have_content("-1")
+      find('tr', text: user.team_name).should have_content("33")
+    end
+
+    it "should show an empty new period ranking" do
       visit period_rankings_path
-      save_and_open_page
+
+      page.should have_content("Periode 2")
+      find('tr', text: @admin.team_name).should have_content("0")
+      find('tr', text: user.team_name).should have_content("0")
     end
 
   end

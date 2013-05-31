@@ -29,34 +29,25 @@ class Calculator
 
   def switch_period
     current_period = @settings.current_period
-    puts "CURRENT PERIOD #{current_period}"
     new_period = current_period + 1
     gameround = Gameround.create(number: (1000 + current_period), start_date: DateTime.now, end_date: DateTime.now, processed: true, period_id: current_period)
 
     users = User.all
     users.each do |user|
-      puts "USER #{user.last_name}"
       points_gained = 0
       selections = user.selections
       selections.each do |selection|
         club = selection.club
-        puts "CLUB #{club.club_name}-#{club.period1}-#{club.period2}"
         club_gained = club.period2 - club.period1
-        puts "GAINED #{club_gained}"
         points_gained += club_gained
       end
-      puts "POINTS GAINED #{points_gained}"
 
-      ranking = Ranking.create(gameround_id: gameround, user_id: user, total_score: points_gained)
-      puts "ORIG TEAMVAL #{user.team_value}"
+      ranking = Ranking.create(gameround_id: gameround.id, user_id: user.id, total_score: points_gained)
       user.update_attributes!(team_value: (user.team_value + points_gained))
-      puts "NEW TEAMVAL #{user.team_value}"
     end
 
     setting = Setting.first
-    puts "ORIG PERIOD #{setting.current_period}"
     setting.update_attributes(current_period: new_period)
-    puts "NEW PERIOD #{setting.current_period}"
   end
 
   private
