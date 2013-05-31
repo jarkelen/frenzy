@@ -4,3 +4,7 @@
       %h1= @club.club_name
 
     %p More to follow...
+
+.row
+  .span12
+    = content_tag :div, "", id: "scores_chart", data: { scores: @club.scores}
