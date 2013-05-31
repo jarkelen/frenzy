@@ -10,18 +10,24 @@ class User < ActiveRecord::Base
   has_one   :profile
   accepts_nested_attributes_for :profile, allow_destroy: true
 
-  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due
+  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due, :password
 
   before_create :assign_jokers
   before_create :set_participation_due
   before_save { |user| user.email = email.downcase }
 
-  validates :first_name, :last_name, :team_name, :role, :language, :team_value, presence: true
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: email_regex },uniqueness: { case_sensitive: false }
+  validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, presence: true
+  validates :password, presence: true, on: :create
   validates :first_name, :last_name, :team_name, length: { maximum: 50 }
 
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
+
+  validates :password, length: { minimum: 6 }, on: :create
+
   scope :admins, where(role: 'admin')
+
+  #--------------------------------------------------------------------------------------------
 
   def admin?
     return true if role == "admin"

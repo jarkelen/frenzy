@@ -8,7 +8,7 @@ class RankingsController < ApplicationController
       @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id]).order('total_score DESC')
     else
       @current_gameround = Gameround.where(processed: true).last
-      @gameround_rankings = Ranking.current_gameround
+      @gameround_rankings = Ranking.where(gameround_id: @current_gameround).order('total_score DESC')
     end
     @gamerounds = Gameround.where(processed: true).order("number DESC")
     @settings = Setting.first

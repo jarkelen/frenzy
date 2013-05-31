@@ -9,7 +9,7 @@ FactoryGirl.define do
     team_name         "Frenzy Utd"
     role              "user"
     language          "nl"
-    password          "password1"
+    password               "password1"
     participation_due nil
     email
   end

@@ -7,10 +7,10 @@ describe "Frenzy calculations" do
     sign_in_as(@admin)
   end
 
-  let!(:club1)      { create :club, club_name: "Arsenal" }
-  let!(:club2)      { create :club, club_name: "Chelsea" }
-  let!(:club3)      { create :club, club_name: "Fulham" }
-  let!(:club4)      { create :club, club_name: "Everton" }
+  let!(:club1)      { create :club, club_name: "Arsenal", period1: 24, period2: 18 }
+  let!(:club2)      { create :club, club_name: "Chelsea", period1: 16, period2: 21 }
+  let!(:club3)      { create :club, club_name: "Fulham", period1: 11, period2: 16 }
+  let!(:club4)      { create :club, club_name: "Everton", period1: 8, period2: 6}
   let!(:selection1) { create :selection, user: @admin, club: club1 }
   let!(:selection2) { create :selection, user: @admin, club: club2 }
 
@@ -110,13 +110,57 @@ describe "Frenzy calculations" do
       page.should have_content('De gegevens zijn berekend')
       page.should_not have_content("#{I18n.t('.gameround1.gameround')} #{gameround1.number} (#{gameround1.start_date.strftime('%d-%m-%Y')} - #{gameround1.end_date.strftime('%d-%m-%Y')})")
     end
+  end
 
-    it "should show updated period ranking" do
+  describe "switch period" do
+    let!(:gameround)  { create :gameround, number: 1, processed: true }
+    let!(:user)       { create :user, last_name: "Lineker", team_name: "The Big Ears" }
+    let!(:selection3) { create :selection, user: user, club: club2 }
+    let!(:selection4) { create :selection, user: user, club: club3 }
+    let!(:selection5) { create :selection, user: user, club: club4 }
+    let!(:ranking1)   { create :ranking, user: user, gameround: gameround, total_score: 25 }
 
+    before do
+      visit frenzy_index_path
+      click_button 'Switchen periode'
     end
 
-    it "should show updated general ranking" do
-
+    it "should process the switch successfully" do
+      page.should have_content('De periode is geswitched')
     end
+
+    it "should have a new gameround for points gained" do
+      visit gamerounds_path
+      page.should have_content('1001')
+    end
+
+    it "should show the users with the points gained" do
+      visit users_path
+
+      find('tr', text: @admin.last_name).should have_content("124")
+      find('tr', text: user.last_name).should have_content("133")
+    end
+
+    it "should show a gameround ranking" do
+      visit rankings_path
+
+      find('tr', text: @admin.team_name).should have_content("-1")
+      find('tr', text: user.team_name).should have_content("8")
+    end
+
+    it "should show an updated general ranking" do
+      visit general_rankings_path
+      find('tr', text: @admin.team_name).should have_content("-1")
+      find('tr', text: user.team_name).should have_content("33")
+    end
+
+    it "should show an empty new period ranking" do
+      visit period_rankings_path
+
+      page.should have_content("Periode 2")
+      find('tr', text: @admin.team_name).should have_content("0")
+      find('tr', text: user.team_name).should have_content("0")
+    end
+
   end
 end

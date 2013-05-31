@@ -2,7 +2,7 @@ module FrenzyHelpers
   def init_settings
     FactoryGirl.create :setting
     FactoryGirl.create_list :period, 4
-    @user = FactoryGirl.create :user
+    @user = FactoryGirl.create :user, last_name: "User", team_name: "Users FC"
   end
 
   def create_user(user_type)
