@@ -16,13 +16,14 @@ class User < ActiveRecord::Base
   before_create :set_participation_due
   before_save { |user| user.email = email.downcase }
 
-  validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, :password, presence: true
+  validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, presence: true
+  validates :password, presence: true, on: :create
   validates :first_name, :last_name, :team_name, length: { maximum: 50 }
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
 
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: :create
 
   scope :admins, where(role: 'admin')
 
