@@ -1,9 +1,34 @@
 .row
   .span12
     .page-header
-      %h1= @club.club_name
+      %h1= I18n.t('.club.overview')
 
-    %p More to follow...
+.row-fluid
+  .span8.offset1
+    .club_details.hero-unit
+      .span6
+        %ul
+          %li= "#{I18n.t('.club.club_name')}:"
+          %li= "#{I18n.t('.league.name')}:"
+          %li= "#{I18n.t('.club.value_period')}1:"
+          %li= "#{I18n.t('.club.value_period')}2:"
+          %li= "#{I18n.t('.club.value_period')}3:"
+          %li= "#{I18n.t('.club.value_period')}4:"
+      .span6
+        %ul
+          %li= @club.club_name
+          %li= @club.league.league_name
+          %li= @club.period1
+          %li= @club.period2
+          %li= @club.period3
+          %li= @club.period4
+      .spacer
+
+.row
+  .span12
+    .page-header
+      %h1= I18n.t('.club.points_scored')
+    %p= I18n.t('.club.points_explanation')
 
 .row
   .span12

@@ -23,6 +23,10 @@ en:
     period:             Period
     new:                Add club
     edit:               Edit club
+    overview:           Club overzicht
+    value_period:       Club value in period
+    points_scored:      Scored points
+    points_explanaton:  'The graph shows how many points this club has scored in every gameround, without the points scored by jokers you may have had.'
   gameround:
     gamerounds:         Gamerounds
     gameround:          Gameround

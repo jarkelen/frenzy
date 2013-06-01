@@ -42,6 +42,23 @@ describe "Clubs" do
       end
     end
 
+    describe "show" do
+      let!(:club) { create :club, club_name: "Arsenal" }
+      let!(:selection) { create :selection, user: @user, club: club }
+
+      it "should show club details" do
+        visit club_path(club)
+
+        page.should have_content(club.club_name)
+        page.should have_content(club.league.league_name)
+        page.should have_content(club.period1)
+        page.should have_content(club.period2)
+        page.should have_content(club.period3)
+        page.should have_content(club.period4)
+      end
+
+    end
+
     describe "new" do
       it "should create a new club" do
         @league = FactoryGirl.create(:league)

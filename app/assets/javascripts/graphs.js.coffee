@@ -6,4 +6,4 @@ jQuery ->
     ykeys: ['score']
     barColors: ['#008E00']
     labels: ['Score', 'Gameround']
-    hideHover: false
+    hideHover: true
