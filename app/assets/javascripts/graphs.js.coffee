@@ -1,7 +1,9 @@
 jQuery ->
-  Morris.Line
+  Morris.Bar
     element: 'scores_chart'
     data: $('#scores_chart').data('scores')
     xkey: 'gameround_id'
     ykeys: ['score']
-    lineColors: ['#008E00']
+    barColors: ['#008E00']
+    labels: ['Score', 'Gameround']
+    hideHover: false

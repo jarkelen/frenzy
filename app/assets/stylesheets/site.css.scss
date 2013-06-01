@@ -301,3 +301,14 @@ footer {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
+/* Charts */
+#scores_chart {
+  margin: 2em 0;
+
+  .morris-hover {
+    margin: 2em;
+    text-align: center;
+    font-size: 125%;
+  }
+}

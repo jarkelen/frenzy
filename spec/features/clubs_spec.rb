@@ -54,7 +54,7 @@ describe "Clubs" do
         fill_in "club_period3", with: "24"
         fill_in "club_period4", with: "24"
         select @league.league_name, from: "club_league_id"
-        click_button "Club Toevoegen"
+        click_button "Opslaan"
 
         page.should have_content("Club #{I18n.t('.created.success')}")
         page.should have_content("Charlton Athletic")
@@ -69,7 +69,7 @@ describe "Clubs" do
         visit clubs_path
         click_link "Wijzigen"
         fill_in "club_club_name", with: "Barnet"
-        click_button "Club Bewaren"
+        click_button "Opslaan"
 
         page.should have_content("Club #{I18n.t('.updated.success')}")
         page.should have_content("Barnet")

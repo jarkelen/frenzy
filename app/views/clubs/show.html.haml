@@ -7,4 +7,4 @@
 
 .row
   .span12
-    = content_tag :div, "", id: "scores_chart", data: { scores: @club.scores}
+    = content_tag :div, "", id: "scores_chart", data: { scores: graph_club_scores_data(@club) }
