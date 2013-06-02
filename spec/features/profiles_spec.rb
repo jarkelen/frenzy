@@ -62,7 +62,6 @@ describe "Profiles" do
       context "filled in profile" do
         it "should show the profile info" do
           @user2 = FactoryGirl.create(:user)
-          FactoryGirl.create(:profile, user_id: @user2.id)
           visit user_path(@user2)
 
           page.should have_content(@user2.full_name)

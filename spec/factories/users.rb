@@ -9,8 +9,15 @@ FactoryGirl.define do
     team_name         "Frenzy Utd"
     role              "user"
     language          "nl"
-    password               "password1"
+    password          "password1"
     participation_due nil
     email
+    location          "Eindhoven"
+    website             "MyString"
+    bio               "MyString"
+    twitter           "MyString"
+    facebook          "MyString"
+    favorite_club     "MyString"
+    favorite_english_club   1
   end
 end
