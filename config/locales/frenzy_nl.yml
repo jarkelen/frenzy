@@ -27,6 +27,7 @@ nl:
     value_period:       Waarde club in periode
     points_scored:      Gescoorde punten
     points_explanation: 'De grafiek toont hoeveel punten deze club in elke speelronde heeft gescoord, exclusief de eventueel door jou ingezette jokers'
+  gameround:
     gameround:
     gamerounds:         Speelrondes
     gameround:          Speelronde
