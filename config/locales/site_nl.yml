@@ -55,7 +55,6 @@ nl:
     used_jokers:      Gebruikte jokers
     created_at:       Deelnemer sinds
     back_to_users:    Terug naar alle deelnemers
-  profile:
     my_profile:       Mijn profiel
     account:          Profiel
     show_profile:     Profiel bekijken
@@ -73,10 +72,7 @@ nl:
     photo:            Profiel foto
     lives_in:         Woont in
     favorite_is:      Favoriete club is
-    intro1:           Je hebt je profiel nog niet ingevuld!
-    intro2:           Dat kun je eenvoudig
-    intro3:           zelf doen
-    oops:             heeft zijn profiel helaas nog niet ingevuld...
+    favorite_english_is: Favoriete Engelse club is
   news:
     news_title:       Nieuwsberichten
     created:          Nieuwsbericht is aangemaakt

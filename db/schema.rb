@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507113127) do
+ActiveRecord::Schema.define(:version => 20130602152213) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -164,20 +164,27 @@ ActiveRecord::Schema.define(:version => 20130507113127) do
   end
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "team_name"
-    t.string   "email",                                                 :null => false
+    t.string   "email",                                                    :null => false
     t.string   "language"
-    t.string   "role",                              :default => "user"
-    t.integer  "team_value",                        :default => 125
+    t.string   "role",                                 :default => "user"
+    t.integer  "team_value",                           :default => 125
     t.integer  "assigned_jokers"
-    t.string   "encrypted_password", :limit => 128,                     :null => false
-    t.string   "confirmation_token", :limit => 128
-    t.string   "remember_token",     :limit => 128,                     :null => false
+    t.string   "encrypted_password",    :limit => 128,                     :null => false
+    t.string   "confirmation_token",    :limit => 128
+    t.string   "remember_token",        :limit => 128,                     :null => false
     t.datetime "participation_due"
+    t.string   "location"
+    t.string   "website"
+    t.string   "bio"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "favorite_club"
+    t.integer  "favorite_english_club"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

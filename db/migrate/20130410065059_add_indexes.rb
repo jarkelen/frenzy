@@ -1,7 +1,6 @@
 class AddIndexes < ActiveRecord::Migration
   def change
     add_index :clubs, :league_id
-    add_index :profiles, :user_id
     add_index :gamerounds, :period_id
     add_index :jokers, :gameround_id
     add_index :jokers, :club_id

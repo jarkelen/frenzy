@@ -206,6 +206,56 @@ describe User do
         end
       end
     end
+
+    describe "check protocol" do
+      before :each do
+        FactoryGirl.create :setting
+        FactoryGirl.create_list :period, 4
+      end
+
+      context "bare website" do
+        it "should add www and http protocol" do
+          user = FactoryGirl.create :user, website: "test.nl"
+          user.website.should == "http://www.test.nl"
+        end
+      end
+
+      context "www website" do
+        it "should add http protocol" do
+          user = FactoryGirl.create :user, website: "www.test.nl"
+          user.website.should == "http://www.test.nl"
+        end
+      end
+
+      context "correct website" do
+        it "should add nothing" do
+          user = FactoryGirl.create :user, website: "http://www.test.nl"
+          user.website.should == "http://www.test.nl"
+        end
+      end
+    end
+
+    describe "check twitter" do
+      before :each do
+        FactoryGirl.create :setting
+        FactoryGirl.create_list :period, 4
+      end
+
+      context "twitter without dollar sign" do
+        it "should show twitter user url" do
+          user = FactoryGirl.create :user, twitter: "DutchAddick"
+          user.twitter.should == "DutchAddick"
+        end
+      end
+
+      context "twitter with dollar sign" do
+        it "should show twitter user url" do
+          user = FactoryGirl.create :user, twitter: "@DutchAddick"
+          user.twitter.should == "DutchAddick"
+        end
+      end
+    end
+
   end
 
 end
