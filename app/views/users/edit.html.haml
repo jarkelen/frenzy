@@ -1,23 +1,51 @@
 .row
-  .span12
-    = render partial: "form", locals: { title: I18n.t('.user.edit_profile') }
+  .offset3.span10
+    .signin_container
+      .page-header
+        %h1.title= I18n.t('.user.edit_profile')
 
-.offset2.span10
-  .signin_container
-    .page-header
-      %h1.title= title
-
-    = simple_form_for @profile, html: { class: 'form-horizontal' } do |f|
-      = f.hidden_field :user_id, value: current_user.id
-      = f.input :bio, as: :text, input_html: { cols: 50, rows: 3 }, label: I18n.t('.user..bio_long')
-      = f.input :location
-      = f.input :favorite_club, label: I18n.t('.user..favorite_club')
-      = f.input :website, class: 'input-xlarge'
-      = f.input :twitter
-      = f.input :facebook
-      = f.input :profile_photo, as: :file, label: I18n.t('.user..photo')
-      .control-group
-        .controls= link_to I18n.t('.passwords.edit.title'), edit_user_password_path(current_user)
-      .form-actions
-        = f.button :submit, value: I18n.t('.general.save'), class: 'btn'
-        = link_to t('.cancel', default: t("helpers.links.cancel")), user_path(current_user), class: 'btn'
+      = form_for @user, html: { class: 'form-horizontal' } do |f|
+        = render "layouts/error_messages", target: @user
+        .control-group
+          = f.label I18n.t('.user.first_name')
+          = f.text_field :first_name
+        .control-group
+          = f.label I18n.t('.user.last_name')
+          = f.text_field :last_name
+        .control-group
+          = f.label I18n.t('.user.team_name')
+          = f.text_field :team_name
+        .control-group
+          = f.label I18n.t('.user.email')
+          = f.text_field :email
+        .control-group
+          = f.label I18n.t('.user.password')
+          = f.password_field :password
+        .control-group
+          = f.label I18n.t('.user.language')
+          = f.collection_select :language, [['nl', I18n.t('.general.dutch')] ,['en', I18n.t('.general.english')]], :first, :last
+        .control-group
+          = f.label I18n.t('.user.location')
+          = f.text_field :location
+        .control-group
+          = f.label I18n.t('.user.favorite_club')
+          = f.text_field :favorite_club
+        .control-group
+          = f.label I18n.t('.user.favorite_club')
+          = f.select(:favorite_club, @clubs.map{ |c| [c.club_name, c.id] }, { include_blank: true })
+        .control-group
+          = f.label I18n.t('.user.website')
+          = f.text_field :website
+        .control-group
+          = f.label I18n.t('.user.twitter')
+          = f.text_field :twitter
+        .control-group
+          = f.label I18n.t('.user.facebook')
+          = f.text_field :facebook
+        .control-group
+          = f.label I18n.t('.user.bio')
+          = f.text_field :bio
+        .control-group
+          .submit
+            = f.submit(value: I18n.t('.general.save'), class: 'btn btn-large')
+            = link_to t('.cancel', default: t("helpers.links.cancel")), user_path(current_user)

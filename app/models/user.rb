@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many  :newsitems
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due, :password,
-                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :favorite_english_club
+                  :location, :website, :bio, :facebook, :twitter, :favorite_club
 
   before_create :assign_jokers
   before_create :set_participation_due
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates :facebook, :twitter, :favorite_club, :location, length: { maximum: 50 }
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-#  validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
+  validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 6 }, on: :create
 

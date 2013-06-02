@@ -17,7 +17,6 @@ FactoryGirl.define do
     bio               "MyString"
     twitter           "MyString"
     facebook          "MyString"
-    favorite_club     "MyString"
-    favorite_english_club   1
+    favorite_club   1
   end
 end

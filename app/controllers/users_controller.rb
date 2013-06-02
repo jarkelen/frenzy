@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
-  before_filter :authorize
-  load_and_authorize_resource
+#  before_filter :authorize
+#  load_and_authorize_resource
+#, :except=>[:new, :create]
 
   def index
     @users = User.order("last_name").paginate(page: params[:page])
@@ -14,10 +15,34 @@ class UsersController < Clearance::UsersController
     @selections = current_user.selections
   end
 
+  def new
+    @user = User.new
+  end
 
+  def create
+    @user = User.new(params[:user])
 
+    if @user.save
+      redirect_to root_path, notice: I18n.t('.user.created')
+    else
+      render action: "new"
+    end
+  end
 
+  def edit
+    @user = User.find(params[:id])
+    @clubs = Club.order('club_name ASC')
+  end
 
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(params[:user])
+      redirect_to user_path(current_user), notice: I18n.t('.user.updated')
+    else
+      render action: "edit"
+    end
+  end
 
   def destroy
     user = User.find(params[:id])
@@ -26,40 +51,3 @@ class UsersController < Clearance::UsersController
     redirect_to users_path, notice: "User #{I18n.t('.destroyed.success')}"
   end
 end
-
-
-
-=begin
-class ProfilesController < ApplicationController
-  before_filter :authorize
-  load_and_authorize_resource
-
-  def new
-    @profile = Profile.new
-  end
-
-  def create
-    @profile = Profile.new(params[:profile])
-
-    if @profile.save
-      redirect_to user_path(current_user), notice: I18n.t('.profile.created')
-    else
-      render action: "new"
-    end
-  end
-
-  def edit
-    @profile = Profile.find(params[:id])
-  end
-
-  def update
-    @profile = Profile.find(params[:id])
-
-    if @profile.update_attributes(params[:profile])
-      redirect_to user_path(current_user), notice: I18n.t('.profile.updated')
-    else
-      render action: "edit"
-    end
-  end
-end
-=end
