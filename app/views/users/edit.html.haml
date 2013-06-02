@@ -1,6 +1,6 @@
 .row
   .span12
-    = render partial: "form", locals: { title: I18n.t('.profile.edit_profile') }
+    = render partial: "form", locals: { title: I18n.t('.user.edit_profile') }
 
 .offset2.span10
   .signin_container
@@ -9,13 +9,13 @@
 
     = simple_form_for @profile, html: { class: 'form-horizontal' } do |f|
       = f.hidden_field :user_id, value: current_user.id
-      = f.input :bio, as: :text, input_html: { cols: 50, rows: 3 }, label: I18n.t('.profile.bio_long')
+      = f.input :bio, as: :text, input_html: { cols: 50, rows: 3 }, label: I18n.t('.user..bio_long')
       = f.input :location
-      = f.input :favorite_club, label: I18n.t('.profile.favorite_club')
+      = f.input :favorite_club, label: I18n.t('.user..favorite_club')
       = f.input :website, class: 'input-xlarge'
       = f.input :twitter
       = f.input :facebook
-      = f.input :profile_photo, as: :file, label: I18n.t('.profile.photo')
+      = f.input :profile_photo, as: :file, label: I18n.t('.user..photo')
       .control-group
         .controls= link_to I18n.t('.passwords.edit.title'), edit_user_password_path(current_user)
       .form-actions

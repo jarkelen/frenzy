@@ -20,7 +20,7 @@ describe "Profiles" do
 
     it "should show profile" do
       visit user_path(@admin)
-      page.should have_content(I18n.t('.profile.my_profile'))
+      page.should have_content(I18n.t('.user..my_profile'))
     end
 
     it "should show all user profiles" do
@@ -54,8 +54,8 @@ describe "Profiles" do
 
     it "should show own empty profile" do
       visit user_path(@user)
-      page.should have_content(I18n.t('.profile.my_profile'))
-      page.should have_content(I18n.t('.profile.intro1'))
+      page.should have_content(I18n.t('.user..my_profile'))
+      page.should have_content(I18n.t('.user..intro1'))
     end
 
     describe "show other user profile" do
@@ -73,7 +73,7 @@ describe "Profiles" do
         it "should show the oops message" do
           @user2 = FactoryGirl.create(:user)
           visit user_path(@user2)
-          page.should have_content(I18n.t('.profile.oops'))
+          page.should have_content(I18n.t('.user..oops'))
 
           click_link I18n.t(".user.back_to_users")
           page.should have_content(@user2.full_name)
@@ -96,7 +96,7 @@ describe "Profiles" do
 
     it "should create own profile" do
       visit user_path(@user)
-      click_link I18n.t(".profile.intro3")
+      click_link I18n.t(".user..intro3")
 
       fill_in "profile_bio", with: "My bio text"
       fill_in "profile_location", with: "Eindhoven"
@@ -106,7 +106,7 @@ describe "Profiles" do
       fill_in "profile_facebook", with: "Gezichtboek"
       click_button I18n.t(".general.save")
 
-      page.should have_content(I18n.t('.profile.created'))
+      page.should have_content(I18n.t('.user..created'))
       page.should have_content("My bio text")
       page.should have_content("Eindhoven")
       page.should have_content("Charlton Athletic")

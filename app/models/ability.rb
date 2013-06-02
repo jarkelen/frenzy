@@ -5,6 +5,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
+      can    [:read, :create, :update, :destroy], User
       can    [:read, :create, :update, :destroy], Selection
       can    [:read, :create, :update, :destroy, :store], Joker
       can    [:read], Result
