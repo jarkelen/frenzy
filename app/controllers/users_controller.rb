@@ -1,7 +1,6 @@
 class UsersController < Clearance::UsersController
-#  before_filter :authorize
-#  load_and_authorize_resource
-#, :except=>[:new, :create]
+  before_filter :authorize
+  load_and_authorize_resource
 
   def index
     @users = User.order("last_name").paginate(page: params[:page])
@@ -13,20 +12,6 @@ class UsersController < Clearance::UsersController
 
   def team
     @selections = current_user.selections
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(params[:user])
-
-    if @user.save
-      redirect_to root_path, notice: I18n.t('.user.created')
-    else
-      render action: "new"
-    end
   end
 
   def edit

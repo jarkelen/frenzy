@@ -1,5 +1,5 @@
 .row
-  .offset3.span10
+  .offset1.span12
     .signin_container
       .page-header
         %h1.title= I18n.t('.user.edit_profile')
@@ -8,44 +8,41 @@
         = render "layouts/error_messages", target: @user
         .control-group
           = f.label I18n.t('.user.first_name')
-          = f.text_field :first_name
+          = f.text_field :first_name, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.last_name')
-          = f.text_field :last_name
+          = f.text_field :last_name, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.team_name')
-          = f.text_field :team_name
+          = f.text_field :team_name, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.email')
-          = f.text_field :email
+          = f.text_field :email, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.password')
-          = f.password_field :password
+          = f.password_field :password, class: "input-large"
         .control-group
           = f.label I18n.t('.user.language')
           = f.collection_select :language, [['nl', I18n.t('.general.dutch')] ,['en', I18n.t('.general.english')]], :first, :last
         .control-group
           = f.label I18n.t('.user.location')
-          = f.text_field :location
-        .control-group
-          = f.label I18n.t('.user.favorite_club')
-          = f.text_field :favorite_club
+          = f.text_field :location, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.favorite_club')
           = f.select(:favorite_club, @clubs.map{ |c| [c.club_name, c.id] }, { include_blank: true })
         .control-group
           = f.label I18n.t('.user.website')
-          = f.text_field :website
+          = f.text_field :website, class: "input-xxlarge"
         .control-group
           = f.label I18n.t('.user.twitter')
-          = f.text_field :twitter
+          = f.text_field :twitter, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.facebook')
-          = f.text_field :facebook
+          = f.text_field :facebook, class: "input-xlarge"
         .control-group
           = f.label I18n.t('.user.bio')
-          = f.text_field :bio
+          = f.text_field :bio, class: "input-xxlarge"
         .control-group
-          .submit
+          .controls
             = f.submit(value: I18n.t('.general.save'), class: 'btn btn-large')
-            = link_to t('.cancel', default: t("helpers.links.cancel")), user_path(current_user)
+            = link_to t('.cancel', default: t("helpers.links.cancel")), user_path(current_user), class: 'btn btn-large'

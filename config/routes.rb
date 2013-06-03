@@ -34,9 +34,7 @@ Frenzy::Application.routes.draw do
     resources :comments
   end
 
-  resources :users do
-    get :team
-  end
+  resources :users, only: [:index, :show, :edit, :update, :destroy, :team]
 
   get  "frenzy/index"
   get  "frenzy/rules"
