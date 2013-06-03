@@ -11,11 +11,8 @@
               %p= @user.bio
 
       .row_body
-        .span2
-          - if @user_photo.blank?
-            %img{ src: image_path('default.jpg'), class: 'profile_image' }/
-          - else
-            %img{ src: @user_photo, alt: "profile photo", class: 'profile_image' }/
+        .span2.profile_image
+          = gravatar_for @user
 
         .span4
           .row

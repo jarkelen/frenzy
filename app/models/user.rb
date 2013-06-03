@@ -70,16 +70,12 @@ class User < ActiveRecord::Base
 
   def check_protocol
     unless self.website.blank?
-      unless self.website.index('www')
-        self.website = "www.#{website}"
-
-        unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
+      unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
+        unless self.website.index('www')
+          self.website = "http://www.#{website}"
+        else
           self.website = "http://#{website}"
         end
-      end
-
-      unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
-        self.website = "http://#{website}"
       end
     end
   end
