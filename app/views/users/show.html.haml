@@ -1,25 +1,23 @@
 .row
-  .offset2.span8
+  .offset2.span9
     .hero-unit.profile
       .header
         .row
-          .span6
+          .span8
             %h3.text-center= @user.full_name
         - unless @user.bio.blank?
           .row
-            .span6.bio
+            .span8.bio
               %p= @user.bio
 
       .row_body
-        .span2.profile_image
+        .offset2.span2.profile_image
           = gravatar_for @user
 
         .span4
           .row
             .span4
-              %p
-                %i.icon-envelope
-                = @user.email
+              %p= "#{I18n.t(".user.teamname_is")} #{@user.team_name}"
             - unless @user.website.blank?
               .span4
                 %p
@@ -35,10 +33,17 @@
                 %p
                   %i.icon-user
                   = link_to "@#{@user.twitter}", "https://twitter.com/#{@user.twitter}", target: "_blank"
-            .span4
-              %p= "#{I18n.t(".user.favorite_is")} #{@user.favorite_club}"
-            .span4
-              %p= "#{I18n.t(".user.lives_in")} #{@user.location}"
+            - unless @club.blank?
+              .span4
+                %p
+                  = "#{I18n.t(".user.favorite_is")} "
+                  = link_to @club.club_name, club_path(@club)
+            - unless @user.location.blank?
+              .span4
+                %p= "#{I18n.t(".user.lives_in")} #{@user.location}"
+            - unless @user.birth_date.blank?
+              .span4
+                %p= "#{I18n.t(".user.birth_date_is")} #{@user.birth_date.strftime("%d-%m-%Y")}"
             .span4
               %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
 
@@ -46,4 +51,4 @@
         .row
           .span6.text-center
             = link_to I18n.t(".user.edit_profile"), edit_user_path(@user), class: 'btn'
-
+      .spacer

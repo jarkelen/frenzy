@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many  :newsitems
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due, :password,
-                  :location, :website, :bio, :facebook, :twitter, :favorite_club
+                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date
 
   before_create :assign_jokers
   before_create :set_participation_due

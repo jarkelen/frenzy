@@ -8,6 +8,9 @@ class UsersController < Clearance::UsersController
 
   def show
     @user = User.find(params[:id])
+    unless @user.favorite_club.blank?
+      @club = Club.find(@user.favorite_club)
+    end
   end
 
   def team

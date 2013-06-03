@@ -44,6 +44,7 @@ nl:
     team_name:        Teamnaam
     full_name:        Naam
     email:            Email
+    birth_date:       Geboortedatum
     password:         Wachtwoord
     role:             Rol
     language:         Taal
@@ -55,9 +56,9 @@ nl:
     used_jokers:      Gebruikte jokers
     created_at:       Deelnemer sinds
     back_to_users:    Terug naar alle deelnemers
-    my_profile:       Mijn profiel
+    my_account:       Mijn account
     account:          Profiel
-    show_profile:     Profiel bekijken
+    show_profile:     Mijn profiel
     new_profile:      Profiel aanmaken
     edit_profile:     Profiel wijzigen
     created:          Profiel is aangemaakt
@@ -73,7 +74,10 @@ nl:
     photo_long:       Beheer jouw profiel foto
     lives_in:         Woont in
     favorite_is:      Favoriete club is
+    teamname_is:      Team naam is
+    birth_date_is:    Geboortedatum is
     favorite_english_is: Favoriete Engelse club is
+    password_for_change: Voer wachtwoord in om wijzigingen op te slaan
   news:
     news_title:       Nieuwsberichten
     created:          Nieuwsbericht is aangemaakt
