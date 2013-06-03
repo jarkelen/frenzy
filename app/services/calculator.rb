@@ -1,4 +1,4 @@
-class FrenzyCalculator
+class Calculator
 
   def initialize
     @settings = Setting.first
@@ -28,9 +28,9 @@ class FrenzyCalculator
   end
 
   def switch_period
-
     current_period = @settings.current_period
     new_period = current_period + 1
+    gameround = Gameround.create(number: (1000 + current_period), start_date: DateTime.now, end_date: DateTime.now, processed: true, period_id: current_period)
 
     users = User.all
     users.each do |user|
@@ -42,12 +42,12 @@ class FrenzyCalculator
         points_gained += club_gained
       end
 
-      gameround = Gameround.create(number: (1000 + current_period), start_date: DateTime.now, end_date: DateTime.now, processed: true, period_id: current_period)
       ranking = Ranking.create(gameround_id: gameround.id, user_id: user.id, total_score: points_gained)
-      user.update_attributes(team_value: (user.team_value + points_gained))
-      setting = Setting.first
-      setting.update_attributes(current_period: new_period)
+      user.update_attributes!(team_value: (user.team_value + points_gained))
     end
+
+    setting = Setting.first
+    setting.update_attributes(current_period: new_period)
   end
 
   private
@@ -62,16 +62,21 @@ class FrenzyCalculator
         club_scores = club.scores.where(gameround_id: gameround_id)
         club_scores.each do |score|
           club_score += score.score
-
-          joker = Joker.where(gameround_id: gameround_id, club_id: club.id, user_id: user.id)
-          unless joker.blank?
-            club_score *= 2
-          end
+          club_score += double_score_with_joker(club_score, gameround_id, club.id, user.id)
         end
         total_score += club_score
       end
 
       Ranking.find_or_create_by_gameround_id_and_user_id(gameround_id: gameround_id, user_id: user.id, total_score: total_score)
+    end
+
+    def double_score_with_joker(club_score, gameround_id, club_id, user_id)
+      joker = Joker.where(gameround_id: gameround_id, club_id: club_id, user_id: user_id)
+      if joker.blank?
+        0
+      else
+        club_score * 2
+      end
     end
 
     def calculate_score(score_type, result, gameround_id)
@@ -80,35 +85,26 @@ class FrenzyCalculator
       # Home club
       if score_type == 'home'
         # Points for win
-        if result.home_score > result.away_score
-          score += 3
-        end
+        score += 3 if result.home_score > result.away_score
 
         # Points for draw
-        if result.home_score == result.away_score
-          score += 1
-        end
+        score += 1 if result.home_score == result.away_score
 
         # Points for own goals
         score += result.home_score
 
         # Points drawn for opponent goals
         score -= result.away_score
-
         Score.find_or_create_by_gameround_id_and_club_id(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
       end
 
       # Away club
       if score_type == 'away'
         # Points for win
-        if result.away_score > result.home_score
-          score += 3
-        end
+        score += 3 if result.away_score > result.home_score
 
         # Points for draw
-        if result.home_score == result.away_score
-          score += 1
-        end
+        score += 1 if result.home_score == result.away_score
 
         # Points for own goals
         score += (result.away_score * 2)

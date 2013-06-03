@@ -1,54 +1,54 @@
 .row
-  .offset2.span8
+  .offset2.span9
     .hero-unit.profile
-      - if @user.profile.blank?
-        = render partial: "no_profile", user: @user
-      - else
-        .profile_header
+      .header
+        .row
+          .span8
+            %h3.text-center= @user.full_name
+        - unless @user.bio.blank?
           .row
-            .span6
-              %h3.text-center= @user.full_name
-          - unless @user.profile.bio.blank?
-            .row
-              .span6.bio
-                %p= @user.profile.bio
+            .span8.bio
+              %p= @user.bio
 
-        .row.profile_body
-          .span2
-            - if @user.profile.profile_photo.blank?
-              %img{ src: image_path('default.jpg'), class: 'profile_image' }/
-            - else
-              %img{ src: @user.profile.profile_photo, alt: "profile photo", class: 'profile_image' }/
+      .row_body
+        .offset2.span2.profile_image
+          = gravatar_for @user
 
-          .span4
-            .row
+        .span4
+          .row
+            .span4
+              %p= "#{I18n.t(".user.teamname_is")} #{@user.team_name}"
+            - unless @user.website.blank?
               .span4
                 %p
-                  %i.icon-envelope
-                  = @user.email
-              - unless @user.profile.website.blank?
-                .span4
-                  %p
-                    %i.icon-globe
-                    = link_to @user.profile.website.split('www.')[1], @user.profile.website, target: "_blank"
-              - unless @user.profile.facebook.blank?
-                .span4
-                  %p
-                    %i.icon-thumbs-up
-                    = link_to @user.profile.facebook, "https://www.facebook.com/#{@user.profile.twitter}", target: "_blank"
-              - unless @user.profile.twitter.blank?
-                .span4
-                  %p
-                    %i.icon-user
-                    = link_to "@#{@user.profile.twitter}", "https://twitter.com/#{@user.profile.twitter}", target: "_blank"
+                  %i.icon-globe
+                  = link_to @user.website.split('www.')[1], @user.website, target: "_blank"
+            - unless @user.facebook.blank?
               .span4
-                %p= "#{I18n.t(".profile.favorite_is")} #{@user.profile.favorite_club}"
+                %p
+                  %i.icon-thumbs-up
+                  = link_to @user.facebook, "https://www.facebook.com/#{@user.twitter}", target: "_blank"
+            - unless @user.twitter.blank?
               .span4
-                %p= "#{I18n.t(".profile.lives_in")} #{@user.profile.location}"
+                %p
+                  %i.icon-user
+                  = link_to "@#{@user.twitter}", "https://twitter.com/#{@user.twitter}", target: "_blank"
+            - unless @club.blank?
               .span4
-                %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
+                %p
+                  = "#{I18n.t(".user.favorite_is")} "
+                  = link_to @club.club_name, club_path(@club)
+            - unless @user.location.blank?
+              .span4
+                %p= "#{I18n.t(".user.lives_in")} #{@user.location}"
+            - unless @user.birth_date.blank?
+              .span4
+                %p= "#{I18n.t(".user.birth_date_is")} #{@user.birth_date.strftime("%d-%m-%Y")}"
+            .span4
+              %p= "#{I18n.t(".user.created_at")} #{@user.created_at.strftime("%d-%m-%Y")}"
 
-        - if can? :edit, Profile and current_user == @user
-          .row
-            .span6.text-center
-              .btn= link_to I18n.t('.profile.edit_profile'), edit_profile_path(@user)
+      - if can? :edit, User and current_user == @user
+        .row
+          .span6.text-center
+            = link_to I18n.t(".user.edit_profile"), edit_user_path(@user), class: 'btn'
+      .spacer

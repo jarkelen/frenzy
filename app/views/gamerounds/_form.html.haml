@@ -1,9 +1,22 @@
-= simple_form_for @gameround, html: { :class => 'form-horizontal' } do |f|
+= form_for @gameround, html: { :class => 'form-horizontal' } do |f|
+  = render "layouts/error_messages", target: @gameround
   = f.hidden_field :processed, value: false
-  = f.input(:period_id, label: I18n.t('.period.period_name'), collection: Period.all.map{ |p| [p.full_name, p.id] }, include_blank: true)
-  = f.input :number
-  = f.input :start_date, as: :date
-  = f.input :end_date, as: :date
-  .form-actions
-    = f.button :submit, class: 'btn'
-    = link_to t('.cancel', default: t("helpers.links.cancel")), gamerounds_path, class: 'btn'
+  .control-group
+    = f.label I18n.t('.gameround.number')
+    - if @new_number.blank?
+      = f.text_field :number
+    - else
+      = f.text_field :number, value: @new_number
+  .control-group
+    = f.label I18n.t('.period.period_name')
+    = f.select(:period_id, Period.all.map{ |p| [p.full_name, p.id] }, { include_blank: true })
+  .control-group
+    = f.label I18n.t('.period.start_date')
+    = f.date_select :start_date, include_blank: true
+  .control-group
+    = f.label I18n.t('.period.end_date')
+    = f.date_select :end_date, include_blank: true
+  .control-group
+    .controls
+      = f.submit(value: I18n.t('.general.save'), class: 'btn')
+      = link_to t('.cancel', default: t("helpers.links.cancel")), gamerounds_path, class: 'btn'

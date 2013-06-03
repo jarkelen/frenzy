@@ -5,20 +5,32 @@ class User < ActiveRecord::Base
   has_many  :jokers, dependent: :destroy
   has_many  :rankings, dependent: :destroy
   has_many  :clubs, through: :selections
-  has_one   :profile, dependent: :destroy
+  has_many  :scores, through: :clubs
   has_many  :newsitems
 
-  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due
+  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due, :password,
+                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date
 
   before_create :assign_jokers
   before_create :set_participation_due
   before_save { |user| user.email = email.downcase }
+  before_save :check_protocol
+  before_save :check_twitter
 
-  validates :first_name, :last_name, :team_name, :role, :language, :team_value, presence: true
+  validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, presence: true
+  validates :password, presence: true, on: :create
+  validates :first_name, :last_name, :team_name, length: { maximum: 50 }
+  validates :bio, length: { maximum: 140 }
+  validates :facebook, :twitter, :favorite_club, :location, length: { maximum: 50 }
+
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: email_regex },uniqueness: { case_sensitive: false }
+  validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
+
+  validates :password, length: { minimum: 6 }, on: :create
 
   scope :admins, where(role: 'admin')
+
+  #--------------------------------------------------------------------------------------------
 
   def admin?
     return true if role == "admin"
@@ -55,4 +67,25 @@ class User < ActiveRecord::Base
     end
     return false
   end
+
+  def check_protocol
+    unless self.website.blank?
+      unless self.website[/^http:\/\//] || self.website[/^https:\/\//]
+        unless self.website.index('www')
+          self.website = "http://www.#{website}"
+        else
+          self.website = "http://#{website}"
+        end
+      end
+    end
+  end
+
+  def check_twitter
+    unless self.twitter.blank?
+      if self.twitter.index('@')
+        self.twitter = self.twitter.split('@')[1]
+      end
+    end
+  end
+
 end

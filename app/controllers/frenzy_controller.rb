@@ -11,7 +11,7 @@ class FrenzyController < ApplicationController
   def process_gameround
     return unless params[:gameround_id]
 
-    calculator = FrenzyCalculator.new
+    calculator = Calculator.new
     calculator.process_gameround(params[:gameround_id])
 
     redirect_to frenzy_index_path, notice: t('.frenzy.message_calculated')
@@ -20,12 +20,13 @@ class FrenzyController < ApplicationController
   def cancel_jokers
     return unless params[:gameround_id]
 
-    calculator = FrenzyCalculator.new
+    calculator = Calculator.new
     params[:line].each do |counter, line|
       unless line[:home_club_id].blank?
         calculator.cancel_jokers(line.merge(gameround_id: params[:gameround_id]))
       end
     end
+
     redirect_to frenzy_index_path, notice: t('.frenzy.message_cancelled')
   end
 
@@ -33,7 +34,7 @@ class FrenzyController < ApplicationController
   end
 
   def switch_period
-    calculator = FrenzyCalculator.new
+    calculator = Calculator.new
     calculator.switch_period
 
     redirect_to frenzy_index_path, notice: t('.frenzy.message_period_switched')

@@ -1,0 +1,14 @@
+.gameround_selector
+  - if @current_gameround
+    %h1= "#{title} - #{markup_gameround(@current_gameround)}"
+  - else
+    %h1= title
+
+  - if intro
+    %p= intro
+
+  .selector
+    = form_tag target, class: "table_filter" do
+      = select_tag :gameround, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
+      = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
+  .spacer

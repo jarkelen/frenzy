@@ -3,7 +3,7 @@ class ClubsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clubs = Cluborder('league_id, club_name').paginate(page: params[:page])
+    @clubs = Club.order('league_id, club_name').paginate(page: params[:page])
   end
 
   def show

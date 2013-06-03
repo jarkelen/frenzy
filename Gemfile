@@ -17,7 +17,6 @@ gem 'fog'
 gem 'rails_best_practices'
 gem 'newrelic_rpm'
 gem 'fakeweb'
-gem 'chartkick'
 gem 'sentry-raven', :git => 'https://github.com/getsentry/raven-ruby.git'
 
 group :assets do

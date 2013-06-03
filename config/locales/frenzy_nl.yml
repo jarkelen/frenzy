@@ -14,11 +14,21 @@ nl:
     l2_short:           L2
     cf_long:            The Conference
     cf_short:           CF
+    new:                Toevoegen league
+    edit:               Wijzgen league
   club:
     clubs:              Clubs
     club:               Club
-    new:                Club toevoegen
+    club_name:          Naam club
+    period:             Periode
+    new:                Toevoegen club
+    edit:               Wijzigen club
+    overview:           Club overview
+    value_period:       Waarde club in periode
+    points_scored:      Gescoorde punten
+    points_explanation: 'De grafiek toont hoeveel punten deze club in elke speelronde heeft gescoord, exclusief de eventueel door jou ingezette jokers'
   gameround:
+    gameround:
     gamerounds:         Speelrondes
     gameround:          Speelronde
     processed:          Verwerkt
@@ -31,6 +41,7 @@ nl:
     edit:               Resultaat wijzigen
     scrape:             Resultaten ophalen
     iterations:         Aantal dagen
+    after:              Resultaten van
   period:
     periods:            Periodes
     period_name:        Periode
@@ -68,11 +79,15 @@ nl:
     score:              Punten
     result:             Resultaat
     match:              Wedstrijd
+    joker?:             'Joker?'
     calculate:          Berekenen punten
-    intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. Een club met een gele achtergrond betekent dat je op die club een joker hebt ingezet. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
+    intro:              Hieronder een overzicht van de door jouw team behaalde punten in de laatste speelronde. Je kunt de punten van eerdere speelrondes terug zien door een speelronde te selecteren in de listbox. De getoonde punten zijn dan ook inclusief jokers. Klik op een club om gedetailleerde informatie over die club te zien.
   frenzy:
+    clubs_frenzy:       Clubs Frenzy
+    general:            Algemeen
     index:              Berekeningen
     process_gameround:  Verwerken speelronde
+    process:            Verwerken
     cancel_jokers:      Annuleren jokers
     switch_period:      Switchen periode
     switch_participation: Switchen deelname
@@ -83,6 +98,7 @@ nl:
     message_period_switched:   De periode is geswitched
     message_participation_switched:   De deelname is geswitched
     the_frenzy:         Frenzy
+    about_title:        The Old Spotted Dog Frenzy
     rules:
       title:            Frenzy spelregels
       intro:            "Het komende seizoen gaan we weer een Frenzy spelen! Tot aan het begin van het seizoen op 3 augustus kun je jouw team nog net zo vaak wijzigen als je zelf wilt. Hieronder wordt uitgelegd hoe je het spel speelt, hoe de puntentelling in elkaar steekt en aan welke regels je jezelf moet houden. Veel plezier met de Frenzy!"
@@ -127,7 +143,7 @@ nl:
     general_ranking:    Algemeen klassement
     period_ranking:     Periode klassement
     rankings:           Klassementen
-    gameround_ranking:  Uitslagen
+    gameround_ranking:  Speelronde klassement
     ranking_after:      Uitslag speelronde
     last_round_ranking: Uitslag laatste speelronde
     team:               Team

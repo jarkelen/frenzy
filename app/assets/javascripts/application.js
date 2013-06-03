@@ -7,4 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require raphael.min.js
+//= require morris.min.js
 //= require_tree .

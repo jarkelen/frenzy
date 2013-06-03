@@ -12,5 +12,11 @@ FactoryGirl.define do
     password          "password1"
     participation_due nil
     email
+    location          "Eindhoven"
+    website             "MyString"
+    bio               "MyString"
+    twitter           "MyString"
+    facebook          "MyString"
+    favorite_club   1
   end
 end

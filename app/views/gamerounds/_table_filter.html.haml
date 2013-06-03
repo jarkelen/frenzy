@@ -1,3 +1,0 @@
-= form_tag scores_path, class: "table_filter" do
-  = select_tag :gameround_id, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
-  = submit_tag :submit, value: I18n.t('.show'), class: 'btn'

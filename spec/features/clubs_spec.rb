@@ -42,6 +42,23 @@ describe "Clubs" do
       end
     end
 
+    describe "show" do
+      let!(:club) { create :club, club_name: "Arsenal" }
+      let!(:selection) { create :selection, user: @user, club: club }
+
+      it "should show club details" do
+        visit club_path(club)
+
+        page.should have_content(club.club_name)
+        page.should have_content(club.league.league_name)
+        page.should have_content(club.period1)
+        page.should have_content(club.period2)
+        page.should have_content(club.period3)
+        page.should have_content(club.period4)
+      end
+
+    end
+
     describe "new" do
       it "should create a new club" do
         @league = FactoryGirl.create(:league)
@@ -54,7 +71,7 @@ describe "Clubs" do
         fill_in "club_period3", with: "24"
         fill_in "club_period4", with: "24"
         select @league.league_name, from: "club_league_id"
-        click_button "Club Toevoegen"
+        click_button "Opslaan"
 
         page.should have_content("Club #{I18n.t('.created.success')}")
         page.should have_content("Charlton Athletic")
@@ -69,7 +86,7 @@ describe "Clubs" do
         visit clubs_path
         click_link "Wijzigen"
         fill_in "club_club_name", with: "Barnet"
-        click_button "Club Bewaren"
+        click_button "Opslaan"
 
         page.should have_content("Club #{I18n.t('.updated.success')}")
         page.should have_content("Barnet")

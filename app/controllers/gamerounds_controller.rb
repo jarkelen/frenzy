@@ -8,6 +8,7 @@ class GameroundsController < ApplicationController
 
   def new
     @gameround = Gameround.new
+    @new_number = Gameround.last.number + 1
   end
 
   def create

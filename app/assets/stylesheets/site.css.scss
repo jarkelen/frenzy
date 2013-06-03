@@ -7,9 +7,25 @@ html, body {
   background-color: #D0D0D0;
   color: $text-color;
 }
+
+// Typography
 h1, h2, h3, h4, h5, h6 {
   color: $title-color;
 }
+h1 {
+  font-size: 200%;
+}
+h2 {
+  font-size: 150%;
+}
+h3 {
+  font-size: 125%;
+}
+p {
+  font-size: 110%;
+  line-height: 200%;
+}
+
 a, a:visited, a:hover {
   color: $base-color;
   text-decoration: none;
@@ -82,39 +98,17 @@ footer {
     }
   }
 }
+.spacer {
+  clear: both;
+}
+.add_record {
+  margin: 0.5em 0;
+}
+.gameround_selector {
+  margin: 0.5em 0;
 
-form {
-  .submit {
-    margin-top: 1em;
-  }
-  .small_text_field {
-    width: 3em;
-  }
-  textarea {
-    width: 400px;
-    max-width: 400px;
-    height: 150px;
-    line-height: 150%;
-  }
-  label, input, select {
-    float: left;
-    margin-left: 10px;
-  }
-  label {
-    width: 200px;
-  }
-  .horizontal {
-    margin: 2em 2em 0 2em;
-  }
-  #error_explanation {
-    color: #f00;
-    ul {
-      list-style: none;
-      margin: 0 0 1em 0;
-    }
-  }
-  .field_with_errors {
-
+  .selector {
+    margin-bottom: 1em;
   }
 }
 .points_used {
@@ -166,9 +160,16 @@ form {
   margin-top: 0;
   margin: 0 0 5px;
 }
+.club_details {
+  ul {
+    list-style-type: none;
+  }
+}
 
 // Profile
 .profile {
+  margin-top: 2em;
+
   .profile_header, .profile_body {
     margin-bottom: 2em;
   }
@@ -180,6 +181,7 @@ form {
   }
   .bio {
     text-align: center;
+    margin: 1em 0 2em 0;
   }
   p {
     font-size: 70%;
@@ -191,7 +193,9 @@ form {
     }
   }
 }
-
+.about_section {
+  margin-top: 1em;
+}
 // News
 .media {
   h1 {
@@ -225,60 +229,6 @@ form {
   }
 }
 
-// Signin form
-.signin_container {
-  padding: 50px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  background-color: #f5f5f5;
-  border: 1px solid darken(#f5f5f5, 10%);
-  clear: both;
-  display: inline-block;
-  @include box-shadow;
-
-  .title {
-    text-align: center;
-    margin-bottom: 1em;
-  }
-
-  .form-signin {
-    max-width: 300px;
-    padding: 19px 29px 29px;
-    margin: 0 auto 20px;
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
-    -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-            border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            box-shadow: 0 1px 2px rgba(0,0,0,.05);
-  }
-  .form-signin .form-signin-heading,
-  .form-signin .checkbox {
-    margin-bottom: 10px;
-  }
-  .form-signin input[type="text"],
-  .form-signin input[type="password"] {
-    font-size: 16px;
-    height: auto;
-    margin-bottom: 15px;
-    padding: 7px 9px;
-  }
-  a {
-    margin-left: 1em;
-  }
-}
-
-/* Custom container */
-.container-narrow {
-  margin: 0 auto;
-  max-width: 700px;
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
 /* Main marketing message and sign up button */
 .jumbotron {
   margin: 60px 0;
@@ -304,4 +254,15 @@ form {
 }
 .marketing p + h4 {
   margin-top: 28px;
+}
+
+/* Charts */
+#scores_chart {
+  margin: 2em 0;
+
+  .morris-hover {
+    margin: 2em;
+    text-align: center;
+    font-size: 125%;
+  }
 }

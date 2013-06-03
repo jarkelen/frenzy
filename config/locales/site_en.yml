@@ -44,6 +44,7 @@ en:
     team_name:        Team name
     full_name:        Name
     email:            Email
+    birth_date:       Birth date
     password:         Password
     role:             Role
     language:         Language
@@ -55,10 +56,9 @@ en:
     used_jokers:      Used jokers
     created_at:       Participant since
     back_to_users:    Back to all participants
-  profile:
-    my_profile:       My profile
+    my_account:       My account
     account:          Profile
-    show_profile:     View profile
+    show_profile:     My profile
     new_profile:      Create profile
     edit_profile:     Edit profile
     created:          Profile has been created
@@ -71,12 +71,13 @@ en:
     location:         Location
     website:          Website
     photo:            Profile photo
+    photo_long:       Manage your profile photo
     lives_in:         Lives in
     favorite_is:      Favorite club is
-    intro1:           You haven't created a profile yet!
-    intro2:           You can easily do this
-    intro3:           yourself
-    oops:             hasn't filled in his profile unfortunately...
+    teamname_is:      Team name is
+    birth_date_is:    Birth datew is
+    favorite_english_is: Favorite English club is
+    password_for_change: Enter password to save changed
   news:
     news_title:       News messages
     created:          Message has been created

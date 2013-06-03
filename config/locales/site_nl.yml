@@ -33,7 +33,7 @@ nl:
       teaser_title_1:   Stel je team samen
       teaser_content_1: Jouw team bestaat uit Engels clubs uit de hoogste 5 divisies. Ga je voor zekerheid met een paar dure topclubs of neem je risico met veel kleine en goedkope clubs? Maak je eigen keuzes! Wie is de slimste strateeg?
       teaser_title_2:   Scoor punten met al je clubs
-      teaser_content_2: De clubs in jouw team gaan aan de slag voor je en scoren hopelijk veel punten met de wedstrijden die ze spelen. Punten worden verdient met overwinningen en door het scoren van veel doelpunten.
+      teaser_content_2: De clubs in jouw team gaan aan de slag voor je en scoren hopelijk veel punten met de wedstrijden die ze spelen. Punten worden verdiend met overwinningen en door het scoren van veel doelpunten. Kies je voor clubs met een goede verdediging of aanval?
       teaser_title_3:   Verdubbel je punten met jokers
       teaser_content_3: "Jokers kun je selectief inzetten om gescoorde punten te verdubbelen. Maar pas op, ook negatieve scores worden verdubbeld!"
       teaser_title_4:   Verbeter je team met transfers
@@ -44,6 +44,7 @@ nl:
     team_name:        Teamnaam
     full_name:        Naam
     email:            Email
+    birth_date:       Geboortedatum
     password:         Wachtwoord
     role:             Rol
     language:         Taal
@@ -55,10 +56,9 @@ nl:
     used_jokers:      Gebruikte jokers
     created_at:       Deelnemer sinds
     back_to_users:    Terug naar alle deelnemers
-  profile:
-    my_profile:       Mijn profiel
+    my_account:       Mijn account
     account:          Profiel
-    show_profile:     Profiel bekijken
+    show_profile:     Mijn profiel
     new_profile:      Profiel aanmaken
     edit_profile:     Profiel wijzigen
     created:          Profiel is aangemaakt
@@ -71,12 +71,13 @@ nl:
     location:         Lokatie
     website:          Website
     photo:            Profiel foto
+    photo_long:       Beheer jouw profiel foto
     lives_in:         Woont in
     favorite_is:      Favoriete club is
-    intro1:           Je hebt je profiel nog niet ingevuld!
-    intro2:           Dat kun je eenvoudig
-    intro3:           zelf doen
-    oops:             heeft zijn profiel helaas nog niet ingevuld...
+    teamname_is:      Team naam is
+    birth_date_is:    Geboortedatum is
+    favorite_english_is: Favoriete Engelse club is
+    password_for_change: Voer wachtwoord in om wijzigingen op te slaan
   news:
     news_title:       Nieuwsberichten
     created:          Nieuwsbericht is aangemaakt

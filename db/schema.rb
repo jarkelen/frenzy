@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507113127) do
+ActiveRecord::Schema.define(:version => 20130603174136) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -178,6 +178,13 @@ ActiveRecord::Schema.define(:version => 20130507113127) do
     t.string   "confirmation_token", :limit => 128
     t.string   "remember_token",     :limit => 128,                     :null => false
     t.datetime "participation_due"
+    t.string   "location"
+    t.string   "website"
+    t.string   "bio"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.integer  "favorite_club"
+    t.datetime "birth_date"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
