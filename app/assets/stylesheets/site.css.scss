@@ -60,9 +60,28 @@ header {
   }
   .salutation {
     float: right;
-    margin: 3em 2em 2.3em 0em;
-    font-size: 1.2em;
-    color: $text-color;
+    margin: 3em 0em 2em 0em;
+    width: 250px;
+
+    .user_data {
+      float: left;
+      padding-top: 0.3em;
+
+      .username, .teamname {
+        color: $text-color;
+        text-align: center;
+      }
+      .username {
+        font-size: 1.5em;
+      }
+      .teamname {
+        font-size: 1em;
+      }
+    }
+    .user_photo {
+      float: left;
+      margin-left: 1em;
+    }
   }
   .signin_link {
     background-color: $base-color;
