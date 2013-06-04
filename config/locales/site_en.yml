@@ -14,6 +14,8 @@ en:
     error_single:   error
     error_plural:   errors
     error_text:     "discovered while saving:"
+    from:           from
+    till:           till
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welcome
