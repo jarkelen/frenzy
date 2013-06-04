@@ -184,6 +184,22 @@ footer {
     list-style-type: none;
   }
 }
+.periods {
+  margin: 2em 0;
+
+  .period_tile {
+    background-color: #EEEEEE;
+    border: 1px solid $text-color;
+    padding: 2em;
+    margin: 2em 1.5em;
+    text-align: center;
+    @include box-shadow;
+
+    .photo {
+
+    }
+  }
+}
 
 // Profile
 .profile {

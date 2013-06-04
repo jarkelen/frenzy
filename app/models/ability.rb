@@ -14,11 +14,12 @@ class Ability
       can    [:read], Newsitem
       can    [:read, :create], Comment
       can    [:rules], Frenzy
+      can    [:index], Period
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result
       cannot [:read, :create, :update, :destroy], League
-      cannot [:read, :create, :update, :destroy], Period
+      cannot [:create, :update, :destroy], Period
       cannot [:read, :create, :update, :destroy], Club
       cannot [:destroy], User
       cannot [:create, :update, :destroy], Newsitem
