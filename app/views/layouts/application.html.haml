@@ -35,10 +35,13 @@
     / Header
     .row
       %header
-        .span12
-          .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
-          - if signed_in?
-            .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
+        .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
+        - if signed_in?
+          .salutation
+            .user_data
+              .username= current_user.full_name
+              .teamname= current_user.team_name
+            .user_photo= gravatar_for current_user, "small"
 
     / Topbar
     .row
