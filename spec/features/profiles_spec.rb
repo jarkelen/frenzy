@@ -13,10 +13,10 @@ describe "Profiles" do
   end
 
   context "admin users" do
-    let(:club)  { create(:club) }
-    let(:user1) { create(:user, favorite_club: club) }
-    let(:user2) { create(:user, favorite_club: club, last_name: "Tester") }
-    let(:admin) { create(:user, role: "admin") }
+    let!(:club)  { create(:club) }
+    let!(:user1) { create(:user, favorite_club: club.id) }
+    let!(:user2) { create(:user, favorite_club: club.id, last_name: "Janssen") }
+    let!(:admin) { create(:user, role: "admin") }
 
     before(:each) do
       sign_in_as(admin)
@@ -24,7 +24,7 @@ describe "Profiles" do
 
     it "should show profile" do
       visit user_path(admin)
-      page.should have_content(I18n.t('.user.my_profile'))
+      page.should have_content(user1.full_name)
     end
 
     it "should show all user profiles" do
@@ -55,12 +55,11 @@ describe "Profiles" do
 
     it "should show own empty profile" do
       visit user_path(@user)
-      page.should have_content(I18n.t('.user.my_profile'))
-      page.should have_content(I18n.t('.user.intro1'))
+      page.should have_content(I18n.t('.user.my_account'))
     end
 
     describe "show other user profile" do
-      let(:user2) { create(:user) }
+      let!(:user2) { create(:user) }
 
       context "filled in profile" do
         it "should show the profile info" do
@@ -73,8 +72,9 @@ describe "Profiles" do
     end
 
     describe "all user profiles" do
-      let(:user1) { create(:user) }
-      let(:user2) { create(:user) }
+      let!(:user1) { create(:user) }
+      let!(:user2) { create(:user) }
+      let!(:club)  { create(:club, club_name: "Arsenal") }
 
       it "should show all user profiles" do
         visit users_path
@@ -89,20 +89,20 @@ describe "Profiles" do
 
       it "should create own profile" do
         visit user_path(@user)
-        click_link I18n.t(".user.intro3")
+        click_link "Profiel wijzigen"
 
-        fill_in "profile_bio", with: "My bio text"
-        fill_in "profile_location", with: "Eindhoven"
-        fill_in "profile_favorite_club", with: "Charlton Athletic"
-        fill_in "profile_website", with: "www.test.nl"
-        fill_in "profile_twitter", with: "DutchAddick"
-        fill_in "profile_facebook", with: "Gezichtboek"
+        fill_in "user_bio", with: "My bio text"
+        fill_in "user_location", with: "Eindhoven"
+        select "Arsenal", from: "user_favorite_club"
+        fill_in "user_website", with: "www.test.nl"
+        fill_in "user_twitter", with: "DutchAddick"
+        fill_in "user_facebook", with: "Gezichtboek"
         click_button I18n.t(".general.save")
 
-        page.should have_content(I18n.t('.user.created'))
+        page.should have_content(I18n.t('.user.updated'))
         page.should have_content("My bio text")
         page.should have_content("Eindhoven")
-        page.should have_content("Charlton Athletic")
+        page.should have_content("Arsenal")
         page.should have_content("test.nl")
         page.should have_content("Gezichtboek")
       end
