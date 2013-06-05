@@ -3,7 +3,12 @@ class ClubsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clubs = Club.order('league_id, club_name').paginate(page: params[:page])
+    if params[:league_id]
+      @clubs = Club.where(league_id: params[:league_id]).order('league_id, club_name').paginate(page: params[:page])
+    else
+      @clubs = Club.order('league_id, club_name').paginate(page: params[:page])
+    end
+    @leagues = League.order(:level)
   end
 
   def show
