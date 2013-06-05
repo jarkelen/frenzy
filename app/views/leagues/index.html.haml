@@ -15,7 +15,7 @@
       %tbody
         - @leagues.each do |league|
           %tr
-            %td= link_to league.id, league_path(league)
+            %td= league.id
             %td= league.league_name
             %td= league.league_short
             %td= league.level
