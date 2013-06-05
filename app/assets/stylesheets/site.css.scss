@@ -186,18 +186,26 @@ footer {
 }
 .periods {
   margin: 2em 0;
+}
+.period_tile {
+  background-color: #EEEEEE;
+  padding: 2em;
+  margin: 2em 1.5em;
+  text-align: center;
+}
+.active {
+  border: 1px solid #000000;
+  @include box-shadow;
 
-  .period_tile {
-    background-color: #EEEEEE;
-    border: 1px solid $text-color;
-    padding: 2em;
-    margin: 2em 1.5em;
-    text-align: center;
-    @include box-shadow;
+  p {
+    color: #000000;
+  }
+}
+.inactive {
+  border: 1px solid darken(#EEEEEE, 5%);
 
-    .photo {
-
-    }
+  h2, p {
+    color: $text-color;
   }
 }
 

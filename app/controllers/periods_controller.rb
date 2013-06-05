@@ -10,22 +10,8 @@ class PeriodsController < ApplicationController
     @period = Period.find(params[:id])
   end
 
-  def new
-    @period = Period.new
-  end
-
   def edit
     @period = Period.find(params[:id])
-  end
-
-  def create
-    @period = Period.new(params[:period])
-
-    if @period.save
-      redirect_to periods_path, notice: "Periode #{I18n.t('.created.success')}"
-    else
-      render action: "new"
-    end
   end
 
   def update

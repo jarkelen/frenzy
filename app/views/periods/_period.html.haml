@@ -1,0 +1,12 @@
+- if DateTime.now.between?(period.start_date, period.end_date)
+  - state = "active"
+- else
+  - state = "inactive"
+
+.span4{ class: "period_tile #{state}"}
+  %p= "#{I18n.t('.period.period_name')} #{period.period_nr}"
+  %h2= period.name
+  %p= "#{I18n.t('.general.from')} #{period.start_date.strftime("%d-%m-%Y")} #{I18n.t('.general.till')} #{period.start_date.strftime("%d-%m-%Y")}"
+  - if can? :update, Period
+    = link_to t('.edit', default: t("helpers.links.edit")), edit_period_path(period), class: 'btn btn-mini'
+    = link_to t('.destroy', default: t("helpers.links.destroy")), period_path(period), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
