@@ -7,11 +7,4 @@
   .span12
     .periods
       - @periods.each do |period|
-        .span4.period_tile
-          %p= "#{I18n.t('.period.period_name')} #{period.period_nr}"
-          .photo_url= image_tag(period.name)
-          %h2= period.name
-          %p= "#{I18n.t('.general.from')} #{period.start_date.strftime("%d-%m-%Y")} #{I18n.t('.general.till')} #{period.start_date.strftime("%d-%m-%Y")}"
-          - if can? :update, Period
-            = link_to t('.edit', default: t("helpers.links.edit")), edit_period_path(period), class: 'btn btn-mini'
-            = link_to t('.destroy', default: t("helpers.links.destroy")), period_path(period), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+        = render "period", period: period

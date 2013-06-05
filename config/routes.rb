@@ -1,6 +1,6 @@
 Frenzy::Application.routes.draw do
   resources :leagues
-  resources :periods
+  resources :periods, except: [:new]
   resources :clubs
   resources :results do
     collection do
