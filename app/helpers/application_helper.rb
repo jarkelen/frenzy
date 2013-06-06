@@ -18,7 +18,7 @@ module ApplicationHelper
       else
         size = 200
     end
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=mm"
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=mm&r=dg"
     image_tag(gravatar_url, alt: user.full_name)
   end
 
