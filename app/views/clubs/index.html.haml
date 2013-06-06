@@ -4,9 +4,16 @@
     .page-header
       %h1= I18n.t('.title', default: model_class.model_name.human.pluralize)
 
+    .selector
+      = form_tag clubs_path, class: "table_filter" do
+        = select_tag :league_id, options_for_select(@leagues.map{ |l| [l.league_name, l.id] })
+        = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
+    .spacer
+
     %table.table.table-striped
       %thead
         %tr
+          %th
           %th= model_class.human_attribute_name(:league_id)
           %th= model_class.human_attribute_name(:club_name)
           %th= model_class.human_attribute_name(:period1)
@@ -16,8 +23,10 @@
           - if can? :update, Club
             %th=t '.actions', default: t("helpers.actions")
       %tbody
+        - counter = 1
         - @clubs.each do |club|
           %tr
+            %td= "#{counter}."
             %td= club.league.league_short
             %td= club.club_name
             %td= club.period1
@@ -28,6 +37,7 @@
               %td
                 = link_to t('.edit', default: t("helpers.links.edit")), edit_club_path(club), class: 'btn btn-mini'
                 = link_to t('.destroy', default: t("helpers.links.destroy")), club_path(club), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+          - counter += 1
 
     = will_paginate @clubs
 

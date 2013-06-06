@@ -1,7 +1,11 @@
 .row
   .span12
     .page-header
-      %h3= "#{I18n.t('.ranking.period_ranking')}: #{I18n.t('.period.period_name')} #{@settings.current_period}"
+      %h1= I18n.t('.ranking.period_ranking')
+
+.row
+  .offset4.span4
+    = render "periods/period", period: Period.find(@settings.current_period)
 
 .row
   .span12

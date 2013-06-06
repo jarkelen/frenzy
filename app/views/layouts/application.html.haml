@@ -35,10 +35,13 @@
     / Header
     .row
       %header
-        .span12
-          .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
-          - if signed_in?
-            .salutation= "#{I18n.t(".site.salutation")} #{current_user.first_name}!"
+        .title= link_to I18n.t(".site.title"), root_path, class: "title_badge"
+        - if signed_in?
+          .salutation
+            .user_data
+              .username= current_user.full_name
+              .teamname= current_user.team_name
+            .user_photo= gravatar_for current_user, "small"
 
     / Topbar
     .row
@@ -64,6 +67,9 @@
                         %li= link_to I18n.t(".team.my_team"), selections_path
                         %li= link_to I18n.t(".joker.jokers"), jokers_path
                         %li= link_to I18n.t(".score.my_scores"), scores_path
+                        %li.divider
+                        %li= link_to I18n.t('.period.periods'), periods_path
+                        %li.divider
                         %li= link_to I18n.t(".ranking.gameround_ranking"), rankings_path
                         %li= link_to I18n.t(".ranking.period_ranking"), period_rankings_path
                         %li= link_to I18n.t(".ranking.general_ranking"), general_rankings_path
@@ -87,7 +93,6 @@
                       %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
                         %li= link_to I18n.t('.league.leagues'), leagues_path
                         %li= link_to I18n.t('.club.clubs'), clubs_path
-                        %li= link_to I18n.t('.period.periods'), periods_path
                         %li= link_to I18n.t('.gameround.gamerounds'), gamerounds_path
                         %li= link_to I18n.t('.result.results'), results_path
                         %li= link_to I18n.t('.frenzy.index'), frenzy_index_path

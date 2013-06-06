@@ -60,9 +60,28 @@ header {
   }
   .salutation {
     float: right;
-    margin: 3em 2em 2.3em 0em;
-    font-size: 1.2em;
-    color: $text-color;
+    margin: 3em 0em 2em 0em;
+    width: 250px;
+
+    .user_data {
+      float: left;
+      padding-top: 0.3em;
+
+      .username, .teamname {
+        color: $text-color;
+        text-align: center;
+      }
+      .username {
+        font-size: 1.5em;
+      }
+      .teamname {
+        font-size: 1em;
+      }
+    }
+    .user_photo {
+      float: left;
+      margin-left: 1em;
+    }
   }
   .signin_link {
     background-color: $base-color;
@@ -163,6 +182,30 @@ footer {
 .club_details {
   ul {
     list-style-type: none;
+  }
+}
+.periods {
+  margin: 2em 0;
+}
+.period_tile {
+  background-color: #EEEEEE;
+  padding: 2em;
+  margin: 2em 1.5em;
+  text-align: center;
+}
+.active {
+  border: 1px solid #000000;
+  @include box-shadow;
+
+  p {
+    color: #000000;
+  }
+}
+.inactive {
+  border: 1px solid darken(#EEEEEE, 5%);
+
+  h2, p {
+    color: $text-color;
   }
 }
 

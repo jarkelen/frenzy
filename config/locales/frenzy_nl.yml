@@ -51,6 +51,7 @@ nl:
     end_date:           Einddatum
     new:                Periode toevoegen
     edit:               Periode wijzigen
+    photo_url:          Foto URL
   team:
     intro:              "Hieronder zijn jouw teamgegevens. Als de Clubs Frenzy nog niet is begonnen kun je het team nog aanpassen door clubs te verwijderen en toe te voegen. Als in de listbox van een league geen clubs meer worden getoond, dan betekent dit dat er geen clubs meer zijn in die league die je nog kunt kiezen. Je hebt bv nog 5 punten te besteden en Chelsea heeft een waarde van 18 punten, dan zal Chelsea niet meer voorkomen in de lijst."
     new:                Club toevoegen

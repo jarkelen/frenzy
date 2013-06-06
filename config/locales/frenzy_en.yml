@@ -50,6 +50,7 @@ en:
     end_date:           End date
     new:                Add period
     edit:               Edit period
+    photo_url:          Photo URL
   team:
     intro:              "This page shows your current team. If the Clubs Frenzy hasnt't started yet, you can easily adapt your team by deleteing and adding clubs. Later on, this will only be possible during the transfer periods. When e listbox of a certain league doesn't contain any clubs, then this means that there are no clubs anymore you can chose from. For example, if you only have 5 points left to spend and Chelsea has a value of 18 points, then Chelsea will not be in the list anymore."
     new:                Add club

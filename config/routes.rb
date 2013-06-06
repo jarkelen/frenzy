@@ -1,7 +1,12 @@
 Frenzy::Application.routes.draw do
-  resources :leagues
-  resources :periods
-  resources :clubs
+  resources :leagues, except: [:show]
+  resources :periods, except: [:new]
+  resources :clubs do
+    collection do
+      get :index
+      post :index
+    end
+  end
   resources :results do
     collection do
       post :store_all
