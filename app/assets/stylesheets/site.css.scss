@@ -186,26 +186,27 @@ footer {
 }
 .periods {
   margin: 2em 0;
-}
-.period_tile {
-  background-color: #EEEEEE;
-  padding: 2em;
-  margin: 2em 1.5em;
-  text-align: center;
-}
-.active {
-  border: 1px solid #000000;
-  @include box-shadow;
 
-  p {
-    color: #000000;
+  .period_tile {
+    background-color: #EEEEEE;
+    padding: 2em;
+    margin: 2em 1.5em;
+    text-align: center;
   }
-}
-.inactive {
-  border: 1px solid darken(#EEEEEE, 5%);
+  .active {
+    border: 1px solid #000000;
+    @include box-shadow;
 
-  h2, p {
-    color: $text-color;
+    p {
+      color: #000000;
+    }
+  }
+  .inactive {
+    border: 1px solid darken(#EEEEEE, 5%);
+
+    h2, p {
+      color: $text-color;
+    }
   }
 }
 
@@ -278,7 +279,7 @@ footer {
   text-align: center;
 }
 .jumbotron h1 {
-  font-size: 72px;
+  font-size: 48px;
   line-height: 1;
 }
 .jumbotron .btn {

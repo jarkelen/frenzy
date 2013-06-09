@@ -17,9 +17,17 @@ describe "Clubs" do
       sign_in_as(@user)
     end
 
-    it "should not allow access" do
+    it "should be able to see clubs" do
+      @club = FactoryGirl.create(:club, club_name: "Charlton Athletic")
       visit clubs_path
-      page.should have_content(I18n.t('.general.not_authorized'))
+      page.should have_content(@club.club_name)
+    end
+
+    it "should not show crud buttons" do
+      visit clubs_path
+      page.should_not have_content("Toevoegen")
+      page.should_not have_content("Wijzigen")
+      page.should_not have_content("Verwijderen")
     end
   end
 
@@ -61,7 +69,7 @@ describe "Clubs" do
 
     describe "new" do
       it "should create a new club" do
-        @league = FactoryGirl.create(:league)
+        @league = FactoryGirl.create(:league, league_name: "The Championship")
         visit clubs_path
         click_link "Toevoegen"
 

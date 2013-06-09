@@ -7,6 +7,7 @@ class Ability
     else
       can    [:read, :create, :update, :destroy], Selection
       can    [:read, :create, :update, :destroy, :store], Joker
+      can    [:read], Club
       can    [:read], Result
       can    [:read], Score
       can    [:read], Ranking
@@ -18,9 +19,9 @@ class Ability
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result
-      cannot [:read, :create, :update, :destroy], League
+      cannot [:create, :update, :destroy], League
       cannot [:create, :update, :destroy], Period
-      cannot [:read, :create, :update, :destroy], Club
+      cannot [:create, :update, :destroy], Club
       cannot [:destroy], User
       cannot [:create, :update, :destroy], Newsitem
       cannot [:update, :destroy], Comment
