@@ -7,14 +7,15 @@
       %th= I18n.t('.joker.jokers_short')
   %tbody
     - nr = 1
-    - @personal_rankings.each do |ranking|
-      - user = User.find(ranking[0])
-      %tr
-        %td= "#{nr}."
-        %td= link_to user.team_name, user_path(user)
-        %td= ranking[1]
-        %td= "#{user.jokers.size} / #{user.assigned_jokers}"
-      - nr += 1
+    - unless @personal_rankings.blank?
+      - @personal_rankings.each do |ranking|
+        - user = User.find(ranking[0])
+        %tr
+          %td= "#{nr}."
+          %td= link_to user.team_name, user_path(user)
+          %td= ranking[1]
+          %td= "#{user.jokers.size} / #{user.assigned_jokers}"
+        - nr += 1
   %thead
     %tr
       %th{ colspan: 4 }
