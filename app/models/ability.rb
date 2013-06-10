@@ -10,7 +10,7 @@ class Ability
       can    [:read], Club
       can    [:read], Result
       can    [:read], Score
-      can    [:read], Ranking
+      can    [:read, :period, :general], Ranking
       can    [:index, :show, :create, :update], User
       can    [:read], Newsitem
       can    [:read, :create], Comment

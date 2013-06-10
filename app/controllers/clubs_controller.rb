@@ -3,10 +3,12 @@ class ClubsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    current_period = Setting.first.current_period
     if params[:league_id]
-      @clubs = Club.where(league_id: params[:league_id]).order('league_id, club_name').paginate(page: params[:page])
+      @clubs = Club.where(league_id: params[:league_id]).order("period#{current_period} DESC").paginate(page: params[:page])
+      @league = League.find(params[:league_id])
     else
-      @clubs = Club.order('league_id, club_name').paginate(page: params[:page])
+      @clubs = Club.order("league_id, period#{current_period} DESC").paginate(page: params[:page])
     end
     @leagues = League.order(:level)
   end

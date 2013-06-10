@@ -4,7 +4,7 @@
       %h1= I18n.t('.ranking.period_ranking')
 
 .row
-  .offset4.span4
+  .offset4.span4.periods
     = render "periods/period", period: Period.find(@settings.current_period)
 
 .row
