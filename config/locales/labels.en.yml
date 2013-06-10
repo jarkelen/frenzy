@@ -32,6 +32,7 @@ en:
   add: Add
   unknown: Unknown
   cancel: Cancel
+  close:  Close
   edit: Edit
   confirm: Are you sure?
   delete_confirmation: Are you sure?
