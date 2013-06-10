@@ -81,12 +81,12 @@ en:
     birth_date_is:    Birth datew is
     favorite_english_is: Favorite English club is
     password_for_change: Enter password to save changed
-    gravatar1:        "Een Gravatar is een avatar die je op een plek aanmaakt en vervolgens op meerdere websites kunt gebruiken. Dit heeft als voordeel dat je niet op elke website een profielfoto hoeft te uploaden, maar je kunt dit zelf op een plek beheren. Het voordeel voor de Frenzy website is dat we niet alle profielfoto's hoeven te bewaren en dat het daardoor veiliger is. Hieronder wordt uitgelegd hoe je een profiel kunt aanmaken op gravatar.com:"
-    gravatar2: "Ga naar gravatar.com en vul op de homepage hetzelfde email adres in waarmee je jezelf hebt geregistreerd bij de Frenzy en klik op de 'Get Your Gravatar' button."
-    gravatar3: "Als je al een Wordpress account hebt, log hier dan mee in en beheer je Gravatar profiel."
-    gravatar4: "Als je nog geen Wordpress account hebt, klik dan op de link 'create a new one' and maak een Wordpress account aan."
-    gravatar5: "Je krijgt nu een email met daarin een link ter bevestiging. Bevestig je account en log hier vervolgens mee in op gravatar.com"
-    gravatar6: "Als je bent ingelogd dan zie je een overzicht van jouw gravatars. Voeg een nieuwe gravatar toe met hetzelfde email adres als waarmee je jezelf hebt geregistreerd bij de Frenzy en nu kun je ook een profiel foto toevoegen. Deze profielfoto zal vervolgens ook op de Frenzy website zichtbaar zijn."
+    gravatar1:        "A Gravatar is an avatar which you creat at a single location en then can use on several websites. The advantage is that you don't have to upload a profile photo on every website, but you can maintain it yourselves at one single place. The advantage for the Frenzy website is that we don't have to store alle the profile photos and that makes things a bit more safe. Below you can find an explanation about how to setup a profile at gravatar.com:"
+    gravatar2: "Go to gravatar.com and on the homepage fill in the same email address as you used to register yourself on the Franzy website. Then click the 'Get Your Gravatar' button."
+    gravatar3: "If you already have a Wordpress account, log in with it en maintain your Grac=vatar profile."
+    gravatar4: "If you don't have a Wordpress account yet, click the link 'create a new one' and create your Wordpress account."
+    gravatar5: "You now will receive an email with a confirmation link to confirm your account. After confirming, login at gravatar.com."
+    gravatar6: "After logging in you will see an overview of all your gravatars. Add a new one with the same email address you used for registering at the Frenzy and make sure you add a profile photo. This profile photo will appear on the Frenzy website as your profile photo."
   news:
     news_title:       News messages
     created:          Message has been created
