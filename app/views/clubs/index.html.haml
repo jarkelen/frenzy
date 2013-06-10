@@ -8,7 +8,7 @@
       = form_tag clubs_path, class: "table_filter" do
         = select_tag :league_id, options_for_select(@leagues.map{ |l| [l.league_name, l.id] })
         = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
-    .spacer
+    .clearfix
 
     %table.table.table-striped
       %thead

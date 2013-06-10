@@ -73,6 +73,7 @@ nl:
     location:         Lokatie
     website:          Website
     photo:            Profiel foto
+    photo_explanation: Waarom een Gravatar?
     photo_long:       Beheer jouw profiel foto
     lives_in:         Woont in
     favorite_is:      Favoriete club is
@@ -80,6 +81,12 @@ nl:
     birth_date_is:    Geboortedatum is
     favorite_english_is: Favoriete Engelse club is
     password_for_change: Voer wachtwoord in om wijzigingen op te slaan
+    gravatar1:        "Een Gravatar is een avatar die je op een plek aanmaakt en vervolgens op meerdere websites kunt gebruiken. Dit heeft als voordeel dat je niet op elke website een profielfoto hoeft te uploaden, maar je kunt dit zelf op een plek beheren. Het voordeel voor de Frenzy website is dat we niet alle profielfoto's hoeven te bewaren en dat het daardoor veiliger is. Hieronder wordt uitgelegd hoe je een profiel kunt aanmaken op gravatar.com:"
+    gravatar2: "Ga naar gravatar.com en vul op de homepage hetzelfde email adres in waarmee je jezelf hebt geregistreerd bij de Frenzy en klik op de 'Get Your Gravatar' button."
+    gravatar3: "Als je al een Wordpress account hebt, log hier dan mee in en beheer je Gravatar profiel."
+    gravatar4: "Als je nog geen Wordpress account hebt, klik dan op de link 'create a new one' and maak een Wordpress account aan."
+    gravatar5: "Je krijgt nu een email met daarin een link ter bevestiging. Bevestig je account en log hier vervolgens mee in op gravatar.com"
+    gravatar6: "Als je bent ingelogd dan zie je een overzicht van jouw gravatars. Voeg een nieuwe gravatar toe met hetzelfde email adres als waarmee je jezelf hebt geregistreerd bij de Frenzy en nu kun je ook een profiel foto toevoegen. Deze profielfoto zal vervolgens ook op de Frenzy website zichtbaar zijn."
   news:
     news_title:       Nieuwsberichten
     created:          Nieuwsbericht is aangemaakt

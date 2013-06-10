@@ -9,7 +9,7 @@
           .control-group
             %label.control-label{for: "league"}= I18n.t('.league.name')
             .controls= select_tag :league_id, options_for_select(@leagues.map{ |l| [l.league_name, l.id] }), include_blank: true
-            .spacer
+            .clearfix
           .control-group
             %label.control-label{for: "club"}= I18n.t('.club.club')
             .controls= select_tag :club_id, grouped_options_for_select(@grouped_clubs), include_blank: true

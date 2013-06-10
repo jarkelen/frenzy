@@ -45,6 +45,10 @@
         .control-group
           = f.label I18n.t('.user.photo')
           = link_to I18n.t('.user.photo_long'), "http://en.gravatar.com", target: "blank"
+          %a{"data-toggle" => 'modal', href: '#gravatar_modal'}
+            (
+            =I18n.t('.user.photo_explanation')
+            )
         .control-group
           = f.label I18n.t('.user.password')
           = f.password_field :password, class: "input-medium"
@@ -52,3 +56,16 @@
           .controls
             = f.submit(value: I18n.t('.general.save'), class: 'btn btn-large')
             = link_to t('.cancel', default: t("helpers.links.cancel")), user_path(current_user), class: 'btn btn-large'
+
+
+        #gravatar_modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-body
+            %p= I18n.t('.user.gravatar1')
+            %ul
+              %li= I18n.t('.user.gravatar2')
+              %li= I18n.t('.user.gravatar3')
+              %li= I18n.t('.user.gravatar4')
+              %li= I18n.t('.user.gravatar5')
+              %li= I18n.t('.user.gravatar6')
+          .modal-footer
+            %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"}= I18n.t('.close')
