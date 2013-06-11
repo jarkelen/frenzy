@@ -9,6 +9,8 @@ class Club < ActiveRecord::Base
   attr_accessible :club_name, :league_id, :period1, :period2, :period3, :period4
   validates :club_name, :league_id, :period1, :period2, :period3, :period4, presence: true
 
+  scope :by_name, order("club_name ASC")
+
   scope :own, ->(user) {
     joins("INNER JOIN selections ON selections.club_id = clubs.id").
     where("selections.club_id = clubs.id AND selections.user_id = #{user.id}").
