@@ -211,14 +211,11 @@ footer {
 .profile {
   margin-top: 2em;
 
-  .profile_header, .profile_body {
-    margin-bottom: 2em;
-  }
   .profile_image {
     margin-top: 0;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    margin-bottom: 2em;
   }
   .bio {
     text-align: center;

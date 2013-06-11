@@ -14,12 +14,16 @@ module ApplicationHelper
 
     case size
       when :small
-        size = 50
+        size    = 50
+        width   = 50
+        height  = 50
       else
-        size = 200
+        size    = 150
+        width   = 150
+        height  = 150
     end
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=mm&r=pg"
-    image_tag(gravatar_url, alt: user.full_name)
+    image_tag(gravatar_url, alt: user.full_name, width: width, height: height)
   end
 
 end
