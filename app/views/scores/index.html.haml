@@ -34,4 +34,4 @@
           %th= total
           %th
 
-    = will_paginate @scores
+    = will_paginate @scores unless @scores.blank?

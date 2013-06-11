@@ -5,12 +5,19 @@ class ScoresController < ApplicationController
   def index
     if params[:gameround]
       @gameround = Gameround.find(params[:gameround])
-      @current_gameround = Gameround.find(params[:gameround])
+      unless @gameround.blank?
+        @current_gameround = Gameround.find(params[:gameround])
+      end
     else
       @gameround = Gameround.where(processed: true).last
-      @current_gameround = Gameround.find(@gameround)
+      unless @gameround.blank?
+        @current_gameround = Gameround.find(@gameround)
+      end
     end
-    @scores = current_user.scores.where("gameround_id = ?", @gameround).paginate(page: params[:page])
-    @gamerounds = Gameround.processed.order("number DESC")
+
+    unless @current_gameround.blank?
+      @scores = current_user.scores.where("gameround_id = ?", @gameround).paginate(page: params[:page])
+      @gamerounds = Gameround.processed.order("number DESC")
+    end
   end
 end

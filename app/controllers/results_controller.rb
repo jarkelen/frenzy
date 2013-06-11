@@ -8,7 +8,9 @@ class ResultsController < ApplicationController
       @results = Result.where(gameround_id: params[:gameround]).paginate(page: params[:page])
     else
       @current_gameround = Gameround.where(processed: true).order("id DESC").first
-      @results = Result.where(gameround_id: @current_gameround.id).order("home_club_id").paginate(page: params[:page])
+      unless @current_gameround.blank?
+        @results = Result.where(gameround_id: @current_gameround.id).order("home_club_id").paginate(page: params[:page])
+      end
     end
     @gamerounds = Gameround.all
   end
