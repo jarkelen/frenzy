@@ -7,8 +7,9 @@
   - if intro
     %p= intro
 
-  .selector
-    = form_tag target, class: "table_filter" do
-      = select_tag :gameround, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
-      = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
-  .clearfix
+  - unless @gamerounds.blank?
+    .selector
+      = form_tag target, class: "table_filter" do
+        = select_tag :gameround, options_for_select(@gamerounds.map{ |g| ["#{markup_gameround(g)}", g.id] })
+        = submit_tag :submit, value: I18n.t('.show'), class: 'btn'
+    .clearfix
