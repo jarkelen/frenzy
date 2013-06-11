@@ -8,7 +8,8 @@ class ClubsController < ApplicationController
       @clubs = Club.where(league_id: params[:league_id]).order("period#{current_period} DESC").paginate(page: params[:page])
       @league = League.find(params[:league_id])
     else
-      @clubs = Club.order("league_id, period#{current_period} DESC").paginate(page: params[:page])
+      puts "BLA"
+      @clubs = Club.by_name.paginate(page: params[:page])
     end
     @leagues = League.order(:level)
   end
