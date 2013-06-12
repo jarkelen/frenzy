@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many  :clubs, through: :selections
   has_many  :scores, through: :clubs
   has_many  :newsitems
+  has_many  :prizes, dependent: :destroy
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due, :password,
                   :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date
@@ -86,6 +87,10 @@ class User < ActiveRecord::Base
         self.twitter = self.twitter.split('@')[1]
       end
     end
+  end
+
+  def get_prizes(name)
+    self.prizes.where(name: name).size
   end
 
 end

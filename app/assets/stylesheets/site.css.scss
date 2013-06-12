@@ -60,7 +60,7 @@ header {
   }
   .salutation {
     float: right;
-    margin: 3em 0em 2em 0em;
+    margin: 0 0 2em 0;
     width: 250px;
 
     .user_data {
@@ -81,6 +81,25 @@ header {
     .user_photo {
       float: left;
       margin-left: 1em;
+    }
+    .prizes {
+      float: right;
+      margin: 0 0 20px 0;
+      width: 220px;
+
+      .prize {
+        float: left;
+
+        .roset, .medal {
+          margin-top: 2px;
+        }
+      }
+      .occurance {
+        float: left;
+        margin: 5px;
+        font-size: 150%;
+        font-weight: bold;
+      }
     }
   }
   .signin_link {
