@@ -5,14 +5,14 @@
     .media-body
       %h4.media-heading
         - if current_user.language == 'nl'
-          = newsitem.title_nl
+          = newsitem.title_nl.html_safe
           - if current_user.admin?
             - if newsitem.publish
               %span.label.label-success= I18n.t('.news.published_true')
             - else
               %span.label= I18n.t('.news.published_false')
         - else
-          = newsitem.title_en
+          = newsitem.title_en.html_safe
       .subtitle
         = "#{newsitem.comments.size} #{I18n.t('.news.comments')}"
         = " - #{I18n.t('.news.published_by1')} "
@@ -20,8 +20,8 @@
         = " #{I18n.t('.news.published_by2')} #{newsitem.created_at.strftime('%d-%m-%Y @ %H:%M')}"
       %p
         - if current_user.language == 'nl'
-          = "#{newsitem.summary_nl} "
+          = newsitem.summary_nl.html_safe + " "
         - else
-          = "#{newsitem.summary_en} "
+          = newsitem.summary_en.html_safe + " "
         = link_to I18n.t('news.more_details'), newsitem_path(newsitem)
         = "..."
