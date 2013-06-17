@@ -7,6 +7,12 @@ Frenzy::Application.routes.draw do
       post :index
     end
   end
+  resources :newsitems do
+    resources :comments
+  end
+  resources :users, only: [:index, :show, :edit, :update, :destroy, :team]
+
+
   resources :results do
     collection do
       post :store_all
@@ -35,11 +41,6 @@ Frenzy::Application.routes.draw do
     end
   end
 
-  resources :newsitems do
-    resources :comments
-  end
-
-  resources :users, only: [:index, :show, :edit, :update, :destroy, :team]
 
   get  "frenzy/index"
   get  "frenzy/rules"
