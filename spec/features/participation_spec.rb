@@ -49,6 +49,32 @@ describe "Participation" do
       end
     end
 
+    describe "club selection" do
+      let!(:club1) { create(:club, club_name: "Bury", period1: 10) }
+      let!(:club2) { create(:club, club_name: "Rochdale", period1: 12) }
+      let!(:selection) { create(:selection, club_id: club1.id, user_id: @user.id) }
+
+      it "should not be possible to select already chosen club" do
+        visit selections_path
+        page.should have_xpath "//select[@id = 'club_id']/option[text() = 'Rochdale']"
+        page.should_not have_xpath "//select[@id = 'club_id']/option[text() = 'Bury']"
+      end
+
+      context "other user" do
+        let!(:other_user) { create(:user, last_name: "Other") }
+
+        it "should be possible to select club used by other user" do
+          click_link "Uitloggen"
+          fill_in 'session_email', with: other_user.email
+          fill_in 'session_password', with: other_user.password
+          click_button 'Login'
+          visit selections_path
+          page.should have_xpath "//select[@id = 'club_id']/option[text() = 'Rochdale']"
+          page.should have_xpath "//select[@id = 'club_id']/option[text() = 'Bury']"
+        end
+      end
+    end
+
     describe "my jokers page" do
       before :each do
         visit jokers_path
