@@ -6,31 +6,17 @@
     %table.table.table-striped
       %thead
         %tr
-          - if current_user.admin?
-            %th= I18n.t('.site.id')
           %th= I18n.t('.user.team_name')
           %th= I18n.t('.user.full_name')
-          - if current_user.admin?
-            %th= I18n.t('.user.email')
           %th= I18n.t('.user.created_at')
-          - if current_user.admin?
-            %th= I18n.t('.user.team_value')
-            %th= I18n.t('.user.assigned_jokers')
           - if can? :detroy, User
             %th=t '.actions', default: I18n.t("helpers.actions")
       %tbody
         - @users.each do |user|
           %tr
-            - if current_user.admin?
-              %td= user.id
             %td= link_to user.team_name, user_path(user)
             %td= user.full_name
-            - if current_user.admin?
-              %td= user.email
             %td= user.created_at.strftime('%d-%m-%Y')
-            - if current_user.admin?
-              %td= user.team_value
-              %td= user.assigned_jokers
             - if can? :destroy, User
               %td
                 = link_to t('.destroy', default: I18n.t("helpers.links.destroy")), user_path(user), method: :delete, data: { confirm: I18n.t('.confirm', default: I18n.t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
