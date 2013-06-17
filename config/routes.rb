@@ -12,6 +12,9 @@ Frenzy::Application.routes.draw do
   end
   resources :users, only: [:index, :show, :edit, :update, :destroy, :team]
 
+  namespace :clubs_frenzy do
+
+  end
 
   resources :results do
     collection do
