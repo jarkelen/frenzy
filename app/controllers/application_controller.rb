@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   protect_from_forgery
-  before_filter :set_locale
+  before_filter :set_locale, :set_games
 
   WillPaginate.per_page = 25
 
@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
       I18n.locale = I18n.default_locale
     end
   end
+
+  def set_games
+    @clubs_frenzy_game = Game.where(name: "Clubs Frenzy").first
+  end
+
 end

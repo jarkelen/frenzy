@@ -3,7 +3,7 @@ namespace :frenzy do
     game = Game.create(name: "Clubs Frenzy")
     users = User.all
     users.each do |user|
-      player = Player.create(rosettes: 0, cups: 0, medals: 0, user_id: user.id, game_id: game.id)
+      player = Player.create(rosettes: 0, cups: 0, medals: 0, assigned_jokers: user.assigned_jokers, participation_due: user.participation_due, team_value: user.team_value, user_id: user.id, game_id: game.id)
       selections = Selection.where(user_id: user.id)
       selections.each do |selection|
         selection.player_id = player.id

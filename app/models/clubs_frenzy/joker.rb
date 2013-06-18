@@ -4,7 +4,7 @@ class Joker < ActiveRecord::Base
   belongs_to :club
 
   attr_accessible :gameround_id, :player_id, :club_id
-  validates :gameround_id, :user_id, :club_id, presence: true
+  validates :gameround_id, :player_id, :club_id, presence: true
 
   def self.validate_jokers(gameround, club1, club2, club3)
     return false if gameround.blank?

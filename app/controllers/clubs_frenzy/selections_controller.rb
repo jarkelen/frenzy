@@ -3,7 +3,7 @@ class SelectionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @selections = current_user.selections
+    @selections = current_user.players.where(game_id: @clubs_frenzy_game).first.selections
     @selection = Selection.new
     @settings = Setting.first
 
@@ -25,7 +25,7 @@ class SelectionsController < ApplicationController
     end
 
     @leagues = League.order(:level)
-    @clubs = Club.includes(:league).selectable(current_user, @current_teamvalue)
+    @clubs = Club.includes(:league).selectable(current_user.players.where(game_id: @clubs_frenzy_game).first, @current_teamvalue)
     @grouped_clubs = @clubs.inject({}) do |options, club|
       case @settings.current_period
         when 1
@@ -44,7 +44,7 @@ class SelectionsController < ApplicationController
   end
 
   def create
-    @selection = Selection.create(user_id: current_user.id, club_id: params[:club_id])
+    @selection = Selection.create(player_id: current_user.players.where(game_id: @clubs_frenzy_game).first.id, club_id: params[:club_id])
     if @selection.save
       redirect_to selections_path, notice: "Club #{I18n.t('.created.success')}"
     else

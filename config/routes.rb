@@ -10,7 +10,7 @@ Frenzy::Application.routes.draw do
   resources :newsitems do
     resources :comments
   end
-  resources :users, only: [:index, :show, :edit, :update, :destroy, :team]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
 
   namespace :clubs_frenzy do
 

@@ -6,7 +6,7 @@
     .span12
       = form_tag store_jokers_path, class: 'form-horizontal' do
         .horizontal
-          = hidden_field_tag :user_id, current_user.id
+          = hidden_field_tag :player_id, current_user.players.where(game_id: @clubs_frenzy_game).first.id
           .control-group
             = label_tag :gameround_id, I18n.t('.gameround.gameround'), class: 'control-label'
             .controls
