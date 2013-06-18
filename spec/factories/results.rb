@@ -6,6 +6,6 @@ FactoryGirl.define do
     away_club_id 1
     home_score 1
     away_score 1
-    gameround_id 1
+    association :gameround
   end
 end

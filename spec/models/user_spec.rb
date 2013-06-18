@@ -8,11 +8,9 @@ describe User do
   it { should validate_presence_of :email      }
   it { should validate_presence_of :language   }
   it { should validate_presence_of :team_value  }
-  it { should have_many(:jokers)     }
-  it { should have_many(:rankings)   }
-  it { should have_many(:selections) }
-  it { should have_many(:prizes) }
-  it { should have_many(:clubs).through(:selections) }
+  it { should have_many(:newsitems) }
+  it { should have_many(:players) }
+  it { should have_many(:games).through(:players) }
 
   describe "validations" do
     before do

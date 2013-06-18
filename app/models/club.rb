@@ -11,15 +11,15 @@ class Club < ActiveRecord::Base
 
   scope :by_name, order("club_name ASC")
 
-  scope :own, ->(user) {
+  scope :own, ->(player) {
     joins("INNER JOIN selections ON selections.club_id = clubs.id").
-    where("selections.club_id = clubs.id AND selections.user_id = #{user.id}").
+    where("selections.club_id = clubs.id AND selections.player_id = #{player.id}").
     select("clubs.*")
   }
 
-  scope :selectable, ->(current_user, current_teamvalue) {
+  scope :selectable, ->(current_player, current_teamvalue) {
     joins('LEFT OUTER JOIN selections ON selections.club_id = clubs.id').
-    where('selections.user_id IS NULL OR selections.user_id != ?', current_user.id).
+    where('selections.player_id IS NULL OR selections.player_id != ?', current_player.id).
     where("clubs.period#{Setting.first.current_period} <= ?", (current_user.team_value-current_teamvalue)).order("clubs.period#{Setting.first.current_period} DESC")
   }
 

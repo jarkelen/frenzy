@@ -1,8 +1,8 @@
 class Selection < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :player
   belongs_to :club
 
-  attr_accessible :club_id, :user_id
-  validates :club_id, :user_id, presence: true
+  attr_accessible :club_id, :player_id
+  validates :club_id, :player_id, presence: true
 
 end

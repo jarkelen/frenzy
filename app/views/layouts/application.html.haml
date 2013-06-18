@@ -41,13 +41,13 @@
             .prizes
               .prize
                 .cup= image_tag("cup.png")
-              .occurance= current_user.get_prizes("cup")
+              .occurance 0
               .prize
                 .medal= image_tag("medal.png")
-              .occurance= current_user.get_prizes("medal")
+              .occurance 0
               .prize
                 .roset= image_tag("roset.png")
-              .occurance= current_user.get_prizes("roset")
+              .occurance 0
             .user_data
               .username= current_user.full_name
               .teamname= current_user.team_name

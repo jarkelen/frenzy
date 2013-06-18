@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :selection do
     association :club
-    association :user
+    association :player
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612180830) do
+ActiveRecord::Schema.define(:version => 20130617174404) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -48,12 +48,19 @@ ActiveRecord::Schema.define(:version => 20130612180830) do
 
   add_index "gamerounds", ["period_id"], :name => "index_gamerounds_on_period_id"
 
+  create_table "games", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "jokers", :force => true do |t|
     t.integer  "gameround_id"
     t.integer  "user_id"
     t.integer  "club_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "player_id"
   end
 
   add_index "jokers", ["club_id"], :name => "index_jokers_on_club_id"
@@ -92,12 +99,14 @@ ActiveRecord::Schema.define(:version => 20130612180830) do
     t.string   "name"
   end
 
-  create_table "prizes", :force => true do |t|
-    t.string   "name"
-    t.integer  "value"
+  create_table "players", :force => true do |t|
+    t.integer  "rosettes",   :default => 0
+    t.integer  "medals",     :default => 0
+    t.integer  "cups",       :default => 0
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "game_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "profiles", :force => true do |t|
@@ -121,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20130612180830) do
     t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "player_id"
   end
 
   add_index "rankings", ["gameround_id"], :name => "index_rankings_on_gameround_id"
@@ -156,6 +166,7 @@ ActiveRecord::Schema.define(:version => 20130612180830) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "player_id"
   end
 
   add_index "selections", ["club_id"], :name => "index_selections_on_club_id"
