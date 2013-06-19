@@ -12,6 +12,11 @@ class Player < ActiveRecord::Base
   before_create :assign_jokers
   before_create :set_participation_due
 
+  def self.of_frenzy(user)
+    frenzy_game = Game.where(name: "Clubs Frenzy").first
+    Player.where(game_id: frenzy_game, user_id: user).first
+  end
+
   def set_participation_due
     settings = Setting.first
     unless settings.participation

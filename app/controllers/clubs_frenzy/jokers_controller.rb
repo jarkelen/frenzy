@@ -3,7 +3,7 @@ class JokersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clubs = current_user.players.where(game_id: @clubs_frenzy_game).first.clubs
+    @clubs = Player.of_frenzy(current_user).clubs
     @gamerounds = Gameround.active
     @all_gamerounds = Gameround.order("number DESC").paginate(page: params[:page])
   end
