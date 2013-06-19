@@ -14,7 +14,7 @@ describe User do
 
   describe "validations" do
     before do
-      @user = User.new(first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", email: "john@bla.com", role: "user", language: "nl", team_value: 125)
+      @user = User.new(first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", email: "john@bla.com", role: "user", language: "nl")
     end
 
     describe "when last_name is too long" do

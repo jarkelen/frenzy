@@ -3,7 +3,7 @@ class SelectionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @selections = current_user.players.where(game_id: @clubs_frenzy_game).first.selections
+    @selections = current_user.players.where(game_id: @clubs_frenzy_game.id).first.selections
     @selection = Selection.new
     @settings = Setting.first
 

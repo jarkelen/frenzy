@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   before_save :check_protocol
   before_save :check_twitter
 
+  after_create :create_player
+
   validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, presence: true
   validates :password, presence: true, on: :create
   validates :first_name, :last_name, :team_name, length: { maximum: 50 }
@@ -19,7 +21,7 @@ class User < ActiveRecord::Base
   validates :facebook, :twitter, :favorite_club, :location, length: { maximum: 50 }
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]\z/i
-  validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
+  #validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 6 }, on: :create
 
@@ -35,6 +37,9 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ').squeeze(' ')
   end
 
+  def create_player
+    Player.create(user_id: self.id, game_id: 6)#Game.default_game)
+  end
 
   def check_protocol
     unless self.website.blank?

@@ -39,9 +39,9 @@ describe "Manage results" do
         page.should have_content(I18n.t('.general.not_authorized'))
       end
 
-      it "should show welcome message" do
+      it "should show user small profile" do
         visit root_path
-        page.should have_content(I18n.t(".site.salutation"))
+        page.should have_content(@user.full_name)
       end
     end
 
@@ -56,9 +56,9 @@ describe "Manage results" do
         page.should have_content(I18n.t('.news.latest_news'))
       end
 
-      it "should show welcome message" do
+      it "should show user small profile" do
         visit root_path
-        page.should have_content(I18n.t(".site.salutation"))
+        page.should have_content(@user.full_name)
       end
 
       it "should show the frenzy administration page" do
