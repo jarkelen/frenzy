@@ -3,6 +3,7 @@ class UsersController < Clearance::UsersController
   load_and_authorize_resource
 
   def index
+    @total_users = User.all.size
     @users = User.order("created_at DESC").paginate(page: params[:page])
   end
 
