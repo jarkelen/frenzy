@@ -20,7 +20,9 @@ class Club < ActiveRecord::Base
   scope :selectable, ->(current_player, current_teamvalue) {
     joins('LEFT OUTER JOIN selections ON selections.club_id = clubs.id').
     where('selections.player_id IS NULL OR selections.player_id != ?', current_player.id).
+    where('clubs.id NOT IN (?)', current_player.clubs).
     where("clubs.period#{Setting.first.current_period} <= ?", (current_player.user.team_value-current_teamvalue)).order("clubs.period#{Setting.first.current_period} DESC")
+    group('clubs.id')
   }
 
 
