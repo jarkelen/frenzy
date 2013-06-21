@@ -8,7 +8,7 @@ describe Ranking do
   it { should belong_to(:gameround) }
 
   describe "calculate_ranking" do
-    xit "should rank highest user as first" do
+    it "should rank highest user as first" do
       FactoryGirl.create :setting
       FactoryGirl.create_list :period, 4
       @player_top    = FactoryGirl.create(:player)

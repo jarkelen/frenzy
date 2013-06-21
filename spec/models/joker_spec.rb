@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe Joker do
   it { should validate_presence_of :gameround_id }
-  it { should validate_presence_of :player_id      }
+  it { should validate_presence_of :player_id    }
   it { should validate_presence_of :club_id      }
   it { should belong_to(:gameround) }
-  it { should belong_to(:player)      }
+  it { should belong_to(:player)    }
   it { should belong_to(:club)      }
 
   describe ".validate_jokers" do
