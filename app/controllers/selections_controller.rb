@@ -3,34 +3,33 @@ class SelectionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @selections = current_user.selections
     @selection = Selection.new
     @settings = Setting.first
-
-    # Determine current team value
-    @current_teamvalue = 0
-    @selections.each do |selection|
-      # Determine current period
-      case @settings.current_period
-        when 1
-          @current_period = selection.club.period1
-        when 2
-          @current_period = selection.club.period2
-        when 3
-          @current_period = selection.club.period3
-        when 4
-          @current_period = selection.club.period4
-      end
-      @current_teamvalue += @current_period
-    end
-
     @leagues = League.order(:level)
 
-    if @selections.blank?
-      @clubs = Club.includes(:league).all
-    else
+    # Determine current team value
+    @selections = current_user.selections
+    unless @selections.blank?
+      @current_teamvalue = 0
+      @selections.each do |selection|
+        # Determine current period
+        case @settings.current_period
+          when 1
+            @current_period = selection.club.period1
+          when 2
+            @current_period = selection.club.period2
+          when 3
+            @current_period = selection.club.period3
+          when 4
+            @current_period = selection.club.period4
+        end
+        @current_teamvalue += @current_period
+      end
       @clubs = Club.includes(:league).selectable(current_user, @current_teamvalue)
+    else
+      @clubs = Club.includes(:league).order("period#{@settings.current_period} DESC")
     end
+
     @grouped_clubs = @clubs.inject({}) do |options, club|
       case @settings.current_period
         when 1

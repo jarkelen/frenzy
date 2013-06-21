@@ -15,11 +15,6 @@ describe "Manage results" do
       visit newsitems_path
       page.should_not have_content(I18n.t('.news.news_title'))
     end
-
-    it "should not show welcome message" do
-      visit root_path
-      page.should_not have_content(I18n.t(".site.salutation"))
-    end
   end
 
   describe "registered users" do
@@ -41,7 +36,7 @@ describe "Manage results" do
 
       it "should show welcome message" do
         visit root_path
-        page.should have_content(I18n.t(".site.salutation"))
+        page.should have_content(@user.full_name)
       end
     end
 
@@ -58,7 +53,7 @@ describe "Manage results" do
 
       it "should show welcome message" do
         visit root_path
-        page.should have_content(I18n.t(".site.salutation"))
+        page.should have_content(@user.full_name)
       end
 
       it "should show the frenzy administration page" do
