@@ -25,7 +25,13 @@ class SelectionsController < ApplicationController
     end
 
     @leagues = League.order(:level)
-    @clubs = Club.includes(:league).selectable(Player.of_frenzy(current_user), @current_teamvalue)
+
+    if @selections.blank?
+      @clubs = Club.includes(:league).all
+    else
+      @clubs = Club.includes(:league).selectable(current_user, @current_teamvalue)
+    end
+
     @grouped_clubs = @clubs.inject({}) do |options, club|
       case @settings.current_period
         when 1

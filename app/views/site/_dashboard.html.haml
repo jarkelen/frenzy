@@ -4,11 +4,6 @@
     = render partial: "newsitems/newsitems", locals: { newsitems: @sticky_newsitems }
     = render partial: "newsitems/newsitems", locals: { newsitems: @newsitems }
 
-  %aside.span4
-    //%h3= I18n.t('.ranking.general_ranking')
-    // render partial: "rankings/personal_ranking"
-
-//.row
-//.span12
-//#chart_div= pie_chart({"Football" => 10, "Basketball" => 5})
-//http://ankane.github.io/chartkick/
+  %aside.span5
+    %a.twitter-timeline{"data-widget-id" => "348050772388372480", :href => "https://twitter.com/TOSD_Frenzy"} Tweets by @TOSD_Frenzy
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
