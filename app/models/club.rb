@@ -21,7 +21,8 @@ class Club < ActiveRecord::Base
     joins('LEFT OUTER JOIN selections ON selections.club_id = clubs.id').
     where('selections.id IS NULL OR selections.user_id != ?', current_user.id).
     where('clubs.id NOT IN (?)', current_user.clubs).
-    where("clubs.period#{Setting.first.current_period} <= ?", (current_user.team_value-current_teamvalue)).order("clubs.period#{Setting.first.current_period} DESC").group('clubs.id')
+    where("clubs.period#{Setting.first.current_period} <= ?", (current_user.team_value-current_teamvalue)).order("clubs.period#{Setting.first.current_period} DESC").
+    group('clubs.id')
   }
 
 
