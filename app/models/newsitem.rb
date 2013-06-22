@@ -6,7 +6,7 @@ class Newsitem < ActiveRecord::Base
   validates :summary_nl, :summary_en, :title_en, :title_nl, :user_id, presence: true
 
   scope :newest_first, order('created_at DESC')
-  scope :top3, where(publish: true, sticky: false).order('created_at DESC').limit(3)
+  scope :top3, where(publish: true, sticky: false).order('created_at ASC').limit(3)
   scope :published, where(publish: true)
   scope :sticky, where(publish: true, sticky: true)
 end

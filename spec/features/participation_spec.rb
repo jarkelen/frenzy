@@ -28,50 +28,20 @@ describe "Participation" do
     end
 
     describe "my team page" do
-      before :each do
-        visit selections_path
-      end
+      let!(:club1)      { create :club, club_name: "Arsenal", period1: 20 }
+      let!(:club2)      { create :club, club_name: "Everton", period1: 12 }
+      let!(:selection1) { create :selection, club: club1, user: @user }
+      let!(:selection2) { create :selection, club: club2, user: @user }
 
       it "should show my team page" do
+        visit selections_path
         page.should have_content(I18n.t('team.my_team'))
         page.should have_content(@user.team_name)
       end
 
-      xit "should show points used" do
-        @club1 = FactoryGirl.create(:club, period1: 20)
-        @club2 = FactoryGirl.create(:club, period1: 12)
-        @selection1 = FactoryGirl.create(:selection, club_id: @club1.id, user_id: @user.id)
-        @selection2 = FactoryGirl.create(:selection, club_id: @club2.id, user_id: @user.id)
-
-        @used = @user.team_value - (@club1.period1 + @club2.period1)
-        @max = @user.team_value
-        page.should have_content("#{@used} #{I18n.t('team.used_points2')} #{@max}")
-      end
-    end
-
-    describe "club selection" do
-      let!(:club1) { create(:club, club_name: "Bury", period1: 10) }
-      let!(:club2) { create(:club, club_name: "Rochdale", period1: 12) }
-      let!(:selection) { create(:selection, club_id: club1.id, user_id: @user.id) }
-
-      it "should not be possible to select already chosen club" do
+      it "should show points used" do
         visit selections_path
-        page.should have_xpath "//select[@id = 'club_id']/option[text() = 'Rochdale']"
-        page.should_not have_xpath "//select[@id = 'club_id']/option[text() = 'Bury']"
-      end
-
-      context "other user" do
-        let!(:other_user) { create(:user, last_name: "Other") }
-
-        it "should be possible to select club used by other user" do
-          click_link "Uitloggen"
-          fill_in 'session_email', with: other_user.email
-          fill_in 'session_password', with: other_user.password
-          click_button 'Login'
-          visit selections_path
-          page.should have_xpath "//select[@id = 'club_id']/option[text() = 'Rochdale']"
-          page.should have_xpath "//select[@id = 'club_id']/option[text() = 'Bury']"
-        end
+        page.should have_content("32 #{I18n.t('team.used_points2')} #{@user.team_value}")
       end
     end
 
@@ -84,6 +54,7 @@ describe "Participation" do
         page.should have_content(I18n.t('joker.jokers'))
       end
     end
+
   end
 
   describe "restrictions" do
@@ -98,7 +69,7 @@ describe "Participation" do
         sign_in_as(@user)
 
         visit selections_path
-        page.should have_content(I18n.t('.team.new'))
+        page.should have_content("Toevoegen club")
       end
     end
 
@@ -110,8 +81,7 @@ describe "Participation" do
         sign_in_as(@user)
 
         visit selections_path
-        save_and_open_page
-        page.should_not have_content(I18n.t('.team.new'))
+        page.should_not have_content("Toevoegen club")
       end
     end
 
@@ -122,7 +92,7 @@ describe "Participation" do
         sign_in_as(@user)
 
         visit selections_path
-        page.should have_content(I18n.t('.team.new'))
+        page.should have_content("Toevoegen club")
       end
     end
   end

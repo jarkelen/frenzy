@@ -15,11 +15,6 @@ describe "Manage results" do
       visit newsitems_path
       page.should_not have_content(I18n.t('.news.news_title'))
     end
-
-    it "should not show welcome message" do
-      visit root_path
-      page.should_not have_content(I18n.t(".site.salutation"))
-    end
   end
 
   describe "registered users" do
