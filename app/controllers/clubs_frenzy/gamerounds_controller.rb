@@ -8,7 +8,12 @@ class GameroundsController < ApplicationController
 
   def new
     @gameround = Gameround.new
-    @new_number = Gameround.last.number + 1
+
+    if Gameround.all.size == 0
+      @new_number = 1
+    else
+      @new_number = Gameround.last.number + 1
+    end
   end
 
   def create

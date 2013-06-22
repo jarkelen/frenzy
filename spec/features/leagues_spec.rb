@@ -46,45 +46,17 @@ describe "Leagues" do
       it "should create a new league" do
         visit leagues_path
         click_link "Toevoegen"
+
         fill_in "league_league_name", with: "Scottish Premier League"
         fill_in "league_league_short", with: "SPL"
         fill_in "league_level", with: "1"
-        click_button "League Toevoegen"
+        click_button "Opslaan"
 
         page.should have_content("League was successfully created")
         page.should have_content("Scottish Premier League")
-        page.should have_content("Wijzigen")
-        page.should have_content("Verwijderen")
       end
     end
 
-    describe "edit" do
-      it "should edit a league" do
-        @league = FactoryGirl.create(:league, league_name: "Premier League")
-        visit leagues_path
-        click_link "Wijzigen"
-        fill_in "league_league_name", with: "Scottish Premier League"
-        fill_in "league_league_short", with: "SPL"
-        fill_in "league_level", with: "1"
-        click_button "League Bewaren"
-
-        page.should have_content("League was successfully updated")
-        page.should have_content("Scottish Premier League")
-        page.should have_content("Wijzigen")
-        page.should have_content("Verwijderen")
-      end
-    end
-
-    describe "delete" do
-      it "should delete a league" do
-        @league = FactoryGirl.create(:league, league_name: "Premier League")
-        visit leagues_path
-        click_link "Verwijderen"
-
-        page.should have_content("League was successfully deleted")
-        page.should_not have_content("Scottish Premier League")
-      end
-    end
    end
 
 end
