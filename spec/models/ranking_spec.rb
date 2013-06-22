@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: rankings
+#
+#  id           :integer          not null, primary key
+#  total_score  :integer
+#  gameround_id :integer
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  player_id    :integer
+#
+
 require 'spec_helper'
 
 describe Ranking do
@@ -8,7 +21,7 @@ describe Ranking do
   it { should belong_to(:gameround) }
 
   describe "calculate_ranking" do
-    xit "should rank highest user as first" do
+    it "should rank highest user as first" do
       FactoryGirl.create :setting
       FactoryGirl.create_list :period, 4
       @player_top    = FactoryGirl.create(:player)

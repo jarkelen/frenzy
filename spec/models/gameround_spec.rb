@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: gamerounds
+#
+#  id         :integer          not null, primary key
+#  number     :integer
+#  start_date :datetime
+#  end_date   :datetime
+#  processed  :boolean
+#  period_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Gameround do

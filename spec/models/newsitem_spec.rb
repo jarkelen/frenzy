@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: newsitems
+#
+#  id         :integer          not null, primary key
+#  title_nl   :string(255)
+#  title_en   :string(255)
+#  summary_nl :text
+#  summary_en :text
+#  content_nl :text
+#  content_en :text
+#  publish    :boolean
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  sticky     :boolean
+#  priority   :string(255)
+#
+
 require 'spec_helper'
 
 describe Newsitem do

@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id                :integer          not null, primary key
+#  rosettes          :integer          default(0)
+#  medals            :integer          default(0)
+#  cups              :integer          default(0)
+#  user_id           :integer
+#  game_id           :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  team_value        :integer          default(125)
+#  assigned_jokers   :integer
+#  participation_due :datetime
+#
+
 require 'spec_helper'
 
 describe Player do

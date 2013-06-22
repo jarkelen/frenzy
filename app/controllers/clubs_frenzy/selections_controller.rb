@@ -8,7 +8,7 @@ class SelectionsController < ApplicationController
     @leagues = League.order(:level)
 
     # Determine current team value
-    @selections = current_user.selections
+    @selections = Player.of_frenzy(current_user).selections
     unless @selections.blank?
       @current_teamvalue = 0
       @selections.each do |selection|
@@ -25,7 +25,7 @@ class SelectionsController < ApplicationController
         end
         @current_teamvalue += @current_period
       end
-      @clubs = Club.includes(:league).selectable(current_user, @current_teamvalue)
+      @clubs = Club.includes(:league).selectable(Player.of_frenzy(current_user), @current_teamvalue).order('club_name')
     else
       @clubs = Club.includes(:league).order("period#{@settings.current_period} DESC")
     end

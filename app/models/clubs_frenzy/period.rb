@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: periods
+#
+#  id         :integer          not null, primary key
+#  period_nr  :integer
+#  start_date :datetime
+#  end_date   :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  name       :string(255)
+#
+
 class Period < ActiveRecord::Base
   has_many :gamerounds
   has_many :results, through: :gamerounds
