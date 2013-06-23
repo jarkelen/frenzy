@@ -114,6 +114,13 @@ nl:
     back:             Terug naar nieuwsberichten
     normal:           Normaal
     high:             Hoog
+  visit:
+    visit_title:      Mijn Vinklijst
+    created:          Wedstrijdbezoek is aangemaakt
+    updated:          Wedstrijdbezoek is gewijzigd
+    deleted:          Wedstrijdbezoek is verwijderd
+    new_visit:        Toevoegen wedstrijdbezoek
+    edit_visit:       Wijzigen wedstrijdbezoek
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

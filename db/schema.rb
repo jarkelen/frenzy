@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618181547) do
+ActiveRecord::Schema.define(:version => 20130623163114) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -219,5 +219,26 @@ ActiveRecord::Schema.define(:version => 20130618181547) do
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "visits", :force => true do |t|
+    t.integer  "visit_nr"
+    t.datetime "visit_date"
+    t.integer  "league_id"
+    t.integer  "home_club_id"
+    t.integer  "away_club_id"
+    t.string   "ground"
+    t.string   "street"
+    t.string   "city"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.boolean  "gmaps"
+    t.string   "result"
+    t.string   "season"
+    t.string   "kickoff"
+    t.integer  "gate"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
 end

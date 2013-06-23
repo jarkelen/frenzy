@@ -1,0 +1,13 @@
+.row
+  .span12
+    .page-header
+      %h1= I18n.t('.visit.visit_title')
+
+    - if can? :create, Visit
+      = link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_visit_path, class: 'btn'
+
+.row
+  .span12
+    .newsitems
+      = render partial: "map_visits"
+      //= render partial: "list_visits"

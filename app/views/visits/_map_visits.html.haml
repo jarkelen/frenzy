@@ -1,0 +1,3 @@
+- unless @map_visits.blank?
+  = gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => @map_visits })
+  //= gmaps4rails(@map_visits)

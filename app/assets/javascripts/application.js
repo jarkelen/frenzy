@@ -6,7 +6,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap.min.js
 //= require raphael.min.js
 //= require morris.min.js
-//= require_tree .
+//= require graphs.js.coffee
+//= require gmaps4rails.base.js.coffee
+//= require gmaps4rails.googlemaps.js.coffee
+//= require app.js

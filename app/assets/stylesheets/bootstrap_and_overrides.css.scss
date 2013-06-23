@@ -68,3 +68,9 @@ a.btn-primary:visited { color: #FFFFFF; }
 .alert {
   margin-top: 1em;
 }
+#map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}

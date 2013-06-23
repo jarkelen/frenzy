@@ -114,6 +114,13 @@ en:
     back:             Back to news messages
     normal:           Normal
     high:             High
+  visit:
+    visit_title:      My Visits
+    created:          Visit has been created
+    updated:          Visit has been edited
+    deleted:          Visit has been deleted
+    new_visit:        Add visit
+    edit_visit:       Edit visit
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"

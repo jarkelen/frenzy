@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   has_many  :newsitems
   has_many  :players
   has_many  :games, through: :players
+  has_many  :visits
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :password,
                   :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date
