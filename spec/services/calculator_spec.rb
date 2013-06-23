@@ -40,7 +40,7 @@ describe Calculator do
     let!(:home_club)  { create :club }
     let!(:away_club)  { create :club }
 
-    it "should cancel joker of cancelled gameround" do
+    xit "should cancel joker of cancelled gameround" do
       expect {
         line = Hash.new
         line[:home_club_id] = home_club.id
