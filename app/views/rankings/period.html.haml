@@ -18,10 +18,10 @@
       %tbody
         - nr = 1
         - @period_rankings.each do |ranking|
-          - user = User.find(ranking[0])
+          - player = Player.find(ranking[0])
           %tr
             %td= "#{nr}."
-            %td= link_to user.team_name, user_path(user)
+            %td= link_to player.user.team_name, user_path(player.user)
             %td= ranking[1]
           - nr += 1
       %thead

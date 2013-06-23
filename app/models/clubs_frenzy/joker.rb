@@ -1,10 +1,23 @@
+# == Schema Information
+#
+# Table name: jokers
+#
+#  id           :integer          not null, primary key
+#  gameround_id :integer
+#  user_id      :integer
+#  club_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  player_id    :integer
+#
+
 class Joker < ActiveRecord::Base
   belongs_to :gameround
-  belongs_to :user
+  belongs_to :player
   belongs_to :club
 
-  attr_accessible :gameround_id, :user_id, :club_id
-  validates :gameround_id, :user_id, :club_id, presence: true
+  attr_accessible :gameround_id, :player_id, :club_id
+  validates :gameround_id, :player_id, :club_id, presence: true
 
   def self.validate_jokers(gameround, club1, club2, club3)
     return false if gameround.blank?
@@ -23,8 +36,8 @@ class Joker < ActiveRecord::Base
     return true
   end
 
-  def self.jokered?(gameround, user, club)
-    joker = self.where(club_id: club, gameround_id: gameround, user_id: user)
+  def self.jokered?(gameround, player, club)
+    joker = self.where(club_id: club, gameround_id: gameround, player_id: player)
     return false if joker.blank?
     return true
   end

@@ -40,6 +40,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'quiet_assets'
   gem 'rails-erd'
+  gem 'annotate', ">=2.5.0"
 end
 
 group :production do

@@ -16,4 +16,5 @@ class ApplicationController < ActionController::Base
       I18n.locale = I18n.default_locale
     end
   end
+
 end

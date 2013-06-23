@@ -16,9 +16,9 @@
         - @gameround_rankings.each do |ranking|
           %tr
             %td= "#{nr}."
-            %td= link_to ranking.user.team_name, user_path(ranking.user)
+            %td= link_to ranking.player.user.team_name, user_path(ranking.player.user)
             %td= ranking.total_score
-            %td= ranking.user.jokers.where(gameround_id: ranking.gameround_id).size
+            %td= ranking.player.jokers.where(gameround_id: ranking.gameround_id).size
           - nr += 1
       %thead
         %tr

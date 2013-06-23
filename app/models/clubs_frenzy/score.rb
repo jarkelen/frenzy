@@ -10,12 +10,10 @@
 #  updated_at   :datetime         not null
 #
 
-require 'spec_helper'
+class Score < ActiveRecord::Base
+  belongs_to :gameround
+  belongs_to :club
 
-describe Score do
-  it { should validate_presence_of :gameround_id }
-  it { should validate_presence_of :club_id      }
-  it { should validate_presence_of :score        }
-  it { should belong_to(:club)      }
-  it { should belong_to(:gameround) }
+  attr_accessible :club_id, :gameround_id, :score
+  validates :club_id, :gameround_id, :score, presence: true
 end

@@ -23,7 +23,7 @@
             %td= "#{result.home_club.club_name}-#{result.away_club.club_name}"
             %td= "#{result.home_score}-#{result.away_score}"
             %td= score.score
-            - if Joker.jokered?(@current_gameround, current_user, score.club)
+            - if Joker.jokered?(@current_gameround, current_user.players.where(game_id: @clubs_frenzy_game).first, score.club)
               %td= I18n.t('.general.yep')
             - else
               %td= I18n.t('.general.nope')

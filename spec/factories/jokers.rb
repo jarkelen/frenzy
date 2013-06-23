@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :joker do
     association :gameround
-    association :user
+    association :player
     association :club
   end
 end

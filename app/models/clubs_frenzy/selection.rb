@@ -10,11 +10,11 @@
 #  player_id  :integer
 #
 
-require 'spec_helper'
+class Selection < ActiveRecord::Base
+  belongs_to :player
+  belongs_to :club
 
-describe Selection do
-  it { should validate_presence_of :player_id }
-  it { should validate_presence_of :club_id }
-  it { should belong_to(:club) }
-  it { should belong_to(:player) }
+  attr_accessible :club_id, :player_id
+  validates :club_id, :player_id, presence: true
+
 end

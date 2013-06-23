@@ -72,6 +72,9 @@ module Frenzy
 
     # Load lib
     config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{Rails.root.to_s}/app/models/*"].find_all { |f| File.stat(f).directory? }
+    config.autoload_paths += Dir["#{Rails.root.to_s}/app/controllers/*"].find_all { |f| File.stat(f).directory? }
+    config.autoload_paths += Dir["#{Rails.root.to_s}/app/views/*"].find_all { |f| File.stat(f).directory? }
 
     config.assets.initialize_on_precompile = false
 

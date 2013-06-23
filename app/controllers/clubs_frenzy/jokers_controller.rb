@@ -3,7 +3,7 @@ class JokersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clubs = current_user.clubs
+    @clubs = Player.of_frenzy(current_user).clubs
     @gamerounds = Gameround.active
     @all_gamerounds = Gameround.order("number DESC").paginate(page: params[:page])
   end
@@ -11,9 +11,9 @@ class JokersController < ApplicationController
   def store
     result = Joker.validate_jokers(params[:gameround_id], params[:club1], params[:club2], params[:club3])
     if result
-      Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club1]) unless params[:club1].blank?
-      Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club2]) unless params[:club2].blank?
-      Joker.create(user_id: params[:user_id], gameround_id: params[:gameround_id], club_id: params[:club3]) unless params[:club3].blank?
+      Joker.create(player_id: params[:player_id], gameround_id: params[:gameround_id], club_id: params[:club1]) unless params[:club1].blank?
+      Joker.create(player_id: params[:player_id], gameround_id: params[:gameround_id], club_id: params[:club2]) unless params[:club2].blank?
+      Joker.create(player_id: params[:player_id], gameround_id: params[:gameround_id], club_id: params[:club3]) unless params[:club3].blank?
 
       redirect_to jokers_path, notice: "Joker(s) #{I18n.t('.joker.joker_success')}"
     else

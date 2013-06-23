@@ -14,10 +14,6 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  def team
-    @selections = current_user.selections
-  end
-
   def edit
     @user = User.find(params[:id])
     @clubs = Club.order('club_name ASC')

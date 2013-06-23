@@ -1,22 +1,46 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer          not null, primary key
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  first_name         :string(255)
+#  last_name          :string(255)
+#  team_name          :string(255)
+#  email              :string(255)      not null
+#  language           :string(255)
+#  role               :string(255)      default("user")
+#  team_value         :integer          default(125)
+#  assigned_jokers    :integer
+#  encrypted_password :string(128)      not null
+#  confirmation_token :string(128)
+#  remember_token     :string(128)      not null
+#  participation_due  :datetime
+#  location           :string(255)
+#  website            :string(255)
+#  bio                :string(255)
+#  facebook           :string(255)
+#  twitter            :string(255)
+#  favorite_club      :integer
+#  birth_date         :datetime
+#
+
 class User < ActiveRecord::Base
   include Clearance::User
 
-  has_many  :selections, dependent: :destroy
-  has_many  :jokers, dependent: :destroy
-  has_many  :rankings, dependent: :destroy
-  has_many  :clubs, through: :selections
-  has_many  :scores, through: :clubs
   has_many  :newsitems
-  has_many  :prizes, dependent: :destroy
+  has_many  :players
+  has_many  :games, through: :players
 
-  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :team_value, :participation_due, :password,
+  attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :password,
                   :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date
 
-  before_create :assign_jokers
-  before_create :set_participation_due
   before_save { |user| user.email = email.downcase }
   before_save :check_protocol
   before_save :check_twitter
+
+  after_create :create_player
 
   validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, presence: true
   validates :password, presence: true, on: :create
@@ -24,8 +48,8 @@ class User < ActiveRecord::Base
   validates :bio, length: { maximum: 140 }
   validates :facebook, :twitter, :favorite_club, :location, length: { maximum: 50 }
 
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]\z/i
+  #validates :email, format: { with: email_regex }, uniqueness: { case_sensitive: false }
 
   validates :password, length: { minimum: 6 }, on: :create
 
@@ -41,32 +65,9 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ').squeeze(' ')
   end
 
-  def assign_jokers
-    periods = Period.all.size
-    settings = Setting.first
-
-    jokers_per_period = settings.max_jokers / periods
-    self.assigned_jokers = ((periods + 1) - settings.current_period) * jokers_per_period
-  end
-
-  def set_participation_due
-    settings = Setting.first
-    unless settings.participation
-      self.participation_due = 3.days.from_now
-    end
-  end
-
-  def participation_restricted?(team_size, team_value)
-    settings = Setting.first
-    return true unless team_size.to_i < settings.max_teamsize.to_i
-    return true unless team_value.to_i < settings.max_teamvalue.to_i
-
-    if self.participation_due == nil
-      return true unless settings.participation
-    else
-      return true unless DateTime.now < self.participation_due
-    end
-    return false
+  def create_player
+    puts "SELF #{self.id}"
+    Player.create(user_id: self.id, game_id: Game.default_game.id)
   end
 
   def check_protocol
@@ -87,10 +88,6 @@ class User < ActiveRecord::Base
         self.twitter = self.twitter.split('@')[1]
       end
     end
-  end
-
-  def get_prizes(name)
-    self.prizes.where(name: name).size
   end
 
 end

@@ -16,7 +16,7 @@ class ScoresController < ApplicationController
     end
 
     unless @current_gameround.blank?
-      @scores = current_user.scores.where("gameround_id = ?", @gameround).paginate(page: params[:page])
+      @scores = current_user.players.where(game_id: @clubs_frenzy_game).first.scores.where("gameround_id = ?", @gameround).paginate(page: params[:page])
       @gamerounds = Gameround.processed.order("number DESC")
     end
   end
