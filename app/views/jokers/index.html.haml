@@ -24,7 +24,7 @@
           %th= "#{I18n.t('.joker.joker')} 3"
       %tbody
         - @all_gamerounds.each do |gameround|
-          - jokers = current_user.jokers.where(gameround_id: gameround)
+          - jokers = Player.of_frenzy(current_user, "Clubs Frenzy").jokers.where(gameround_id: gameround)
           %tr
             - if gameround.processed
               %td= link_to markup_gameround(gameround), scores_path(gameround_id: gameround)

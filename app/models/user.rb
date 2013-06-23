@@ -1,3 +1,31 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer          not null, primary key
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  first_name         :string(255)
+#  last_name          :string(255)
+#  team_name          :string(255)
+#  email              :string(255)      not null
+#  language           :string(255)
+#  role               :string(255)      default("user")
+#  team_value         :integer          default(125)
+#  assigned_jokers    :integer
+#  encrypted_password :string(128)      not null
+#  confirmation_token :string(128)
+#  remember_token     :string(128)      not null
+#  participation_due  :datetime
+#  location           :string(255)
+#  website            :string(255)
+#  bio                :string(255)
+#  facebook           :string(255)
+#  twitter            :string(255)
+#  favorite_club      :integer
+#  birth_date         :datetime
+#
+
 class User < ActiveRecord::Base
   include Clearance::User
 
@@ -38,7 +66,8 @@ class User < ActiveRecord::Base
   end
 
   def create_player
-    Player.create(user_id: self.id, game_id: Game.default_game)
+    puts "SELF #{self.id}"
+    Player.create(user_id: self.id, game_id: Game.default_game.id)
   end
 
   def check_protocol

@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: jokers
+#
+#  id           :integer          not null, primary key
+#  gameround_id :integer
+#  user_id      :integer
+#  club_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  player_id    :integer
+#
+
 class Joker < ActiveRecord::Base
   belongs_to :gameround
   belongs_to :player

@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id                :integer          not null, primary key
+#  rosettes          :integer          default(0)
+#  medals            :integer          default(0)
+#  cups              :integer          default(0)
+#  user_id           :integer
+#  game_id           :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  team_value        :integer          default(125)
+#  assigned_jokers   :integer
+#  participation_due :datetime
+#
+
 require 'spec_helper'
 
 describe Player do
@@ -7,6 +24,7 @@ describe Player do
   it { should have_many(:rankings)   }
   it { should have_many(:selections) }
   it { should have_many(:clubs).through(:selections) }
+  it { should have_many(:scores).through(:clubs) }
   it { should belong_to(:user) }
   it { should belong_to(:game) }
 
@@ -41,10 +59,6 @@ describe Player do
 
     it "should leave participation_due empty when participation still open" do
       player.set_participation_due.should == nil
-    end
-
-    xit "should fill participation_due when participation is closed" do
-      DateTime.parse(player.set_participation_due.to_s).should == DateTime.parse(3.days.from_now.to_s)
     end
   end
 
@@ -93,7 +107,7 @@ describe Player do
       end
 
       xit "should restrict access for existing users when participation is closed" do
-        player.participation_due = true
+        setting.participation = false
         player.participation_restricted?(20, 124).should be_true
       end
 

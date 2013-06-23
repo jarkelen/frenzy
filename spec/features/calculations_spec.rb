@@ -7,12 +7,13 @@ describe "Frenzy calculations" do
     sign_in_as(@admin)
   end
 
+  let!(:player)     { create :player, user: @admin }
   let!(:club1)      { create :club, club_name: "Arsenal", period1: 24, period2: 18 }
   let!(:club2)      { create :club, club_name: "Chelsea", period1: 16, period2: 21 }
   let!(:club3)      { create :club, club_name: "Fulham", period1: 11, period2: 16 }
   let!(:club4)      { create :club, club_name: "Everton", period1: 8, period2: 6}
-  let!(:selection1) { create :selection, user: @admin, club: club1 }
-  let!(:selection2) { create :selection, user: @admin, club: club2 }
+  let!(:selection1) { create :selection, player: player, club: club1 }
+  let!(:selection2) { create :selection, player: player, club: club2 }
 
   describe "switching participation" do
     it "should turn off participation" do
@@ -50,9 +51,9 @@ describe "Frenzy calculations" do
 
   describe "joker cancellation" do
     let!(:gameround1){ create :gameround, number: 1, processed: false }
-    let!(:joker1)    { create :joker, club: club1, gameround: gameround1, user: @admin }
-    let!(:joker2)    { create :joker, club: club2, gameround: gameround1, user: @admin }
-    let!(:joker3)    { create :joker, club: club3, gameround: gameround1, user: @admin }
+    let!(:joker1)    { create :joker, club: club1, gameround: gameround1, player: player }
+    let!(:joker2)    { create :joker, club: club2, gameround: gameround1, player: player }
+    let!(:joker3)    { create :joker, club: club3, gameround: gameround1, player: player }
     let!(:score1)    { create :score, club: club1, gameround: gameround1 }
     let!(:score2)    { create :score, club: club2, gameround: gameround1 }
     let!(:score3)    { create :score, club: club3, gameround: gameround1 }
@@ -65,12 +66,12 @@ describe "Frenzy calculations" do
 
     it "should show used joker count" do
       visit jokers_path
-      page.should have_content("Jokers verbruikt: 3 van de #{@admin.assigned_jokers}")
+      page.should have_content("Jokers verbruikt: 3 van de #{player.assigned_jokers}")
     end
 
     it "should not show cancelled jokers" do
       visit jokers_path
-      page.should have_content("Jokers verbruikt: 3 van de #{@admin.assigned_jokers}")
+      page.should have_content("Jokers verbruikt: 3 van de #{player.assigned_jokers}")
 
       visit frenzy_index_path
       select club1.club_name, from: 'line_1_home_club_id'
@@ -81,7 +82,7 @@ describe "Frenzy calculations" do
       page.should_not have_content(club1.club_name)
       page.should_not have_content(club2.club_name)
       page.should have_content(club3.club_name)
-      page.should have_content("Jokers verbruikt: 1 van de #{@admin.assigned_jokers}")
+      page.should have_content("Jokers verbruikt: 1 van de #{player.assigned_jokers}")
     end
   end
 
@@ -115,10 +116,11 @@ describe "Frenzy calculations" do
   describe "switch period" do
     let!(:gameround)  { create :gameround, number: 1, processed: true }
     let!(:user)       { create :user, last_name: "Lineker", team_name: "The Big Ears" }
-    let!(:selection3) { create :selection, user: user, club: club2 }
-    let!(:selection4) { create :selection, user: user, club: club3 }
-    let!(:selection5) { create :selection, user: user, club: club4 }
-    let!(:ranking1)   { create :ranking, user: user, gameround: gameround, total_score: 25 }
+    let!(:player)     { create :player, user: user }
+    let!(:selection3) { create :selection, player: player, club: club2 }
+    let!(:selection4) { create :selection, player: player, club: club3 }
+    let!(:selection5) { create :selection, player: player, club: club4 }
+    let!(:ranking1)   { create :ranking, player: player, gameround: gameround, total_score: 25 }
 
     before do
       visit frenzy_index_path

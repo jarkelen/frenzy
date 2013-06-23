@@ -32,9 +32,6 @@ describe "Profiles" do
 
       page.should have_content(user1.full_name)
       page.should have_content(user2.full_name)
-      page.should have_content(user2.email)
-      page.should have_content(user2.assigned_jokers)
-      page.should have_content(user2.team_value)
     end
 
     it "can delete a user" do
@@ -81,9 +78,6 @@ describe "Profiles" do
 
         page.should have_content(user1.full_name)
         page.should have_content(user2.full_name)
-        page.should_not have_content(user2.email)
-        page.should_not have_content(user2.assigned_jokers)
-        page.should_not have_content(user2.team_value)
         page.should_not have_content(I18n.t('.general.delete'))
       end
 

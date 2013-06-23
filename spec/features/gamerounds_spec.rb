@@ -47,10 +47,15 @@ describe "Gamerounds" do
         @period = FactoryGirl.create(:period, period_nr: 10)
         visit gamerounds_path
         click_link "Toevoegen"
-
         select "#{@period.period_nr}: #{@period.start_date.strftime('%d-%m-%Y')} - #{@period.end_date.strftime('%d-%m-%Y')}", from: "gameround_period_id"
         fill_in "gameround_number", with: "11"
-        click_button "Gameround Toevoegen"
+        select "1", from: "gameround_start_date_3i"
+        select "augustus", from: "gameround_start_date_2i"
+        select "2013", from: "gameround_start_date_1i"
+        select "5", from: "gameround_end_date_3i"
+        select "augustus", from: "gameround_end_date_2i"
+        select "2013", from: "gameround_end_date_1i"
+        click_button "Opslaan"
 
         page.should have_content("Gameround #{I18n.t('.created.success')}")
         page.should have_content("11")
@@ -65,7 +70,7 @@ describe "Gamerounds" do
         visit gamerounds_path
         click_link "Wijzigen"
         fill_in "gameround_number", with: "11"
-        click_button "Gameround Bewaren"
+        click_button "Opslaan"
 
         page.should have_content("Gameround #{I18n.t('.updated.success')}")
         page.should have_content("11")

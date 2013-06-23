@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: scores
+#
+#  id           :integer          not null, primary key
+#  score        :integer
+#  gameround_id :integer
+#  club_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Score do

@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id                :integer          not null, primary key
+#  rosettes          :integer          default(0)
+#  medals            :integer          default(0)
+#  cups              :integer          default(0)
+#  user_id           :integer
+#  game_id           :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  team_value        :integer          default(125)
+#  assigned_jokers   :integer
+#  participation_due :datetime
+#
+
 class Player < ActiveRecord::Base
   has_many  :selections, dependent: :destroy
   has_many  :jokers, dependent: :destroy
@@ -12,9 +29,9 @@ class Player < ActiveRecord::Base
   before_create :assign_jokers
   before_create :set_participation_due
 
-  def self.of_frenzy(user)
-    frenzy_game = Game.where(name: "Clubs Frenzy").first
-    Player.where(game_id: frenzy_game, user_id: user).first
+  def self.of_frenzy(user, game_name="Clubs Frenzy")
+    frenzy_game = Game.where(name: game_name).first
+    Player.where(game_id: frenzy_game.id, user_id: user.id).first
   end
 
   def set_participation_due
