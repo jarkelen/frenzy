@@ -66,7 +66,8 @@ class User < ActiveRecord::Base
   end
 
   def create_player
-    Player.create(user_id: self.id, game_id: Game.default_game)
+    puts "SELF #{self.id}"
+    Player.create(user_id: self.id, game_id: Game.default_game.id)
   end
 
   def check_protocol

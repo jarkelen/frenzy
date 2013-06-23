@@ -13,14 +13,15 @@ describe "Clubs" do
   end
 
   context "regular users" do
+    let!(:club) { create(:club, club_name: "Charlton Athletic") }
+
     before(:each) do
       sign_in_as(@user)
     end
 
     it "should be able to see clubs" do
-      @club = FactoryGirl.create(:club, club_name: "Charlton Athletic")
       visit clubs_path
-      page.should have_content(@club.club_name)
+      page.should have_content(club.club_name)
     end
 
     it "should not show crud buttons" do
@@ -38,10 +39,11 @@ describe "Clubs" do
     end
 
     describe "index" do
+      let!(:club) { create(:club, club_name: "Charlton Athletic") }
+
       it "should show all clubs" do
-        @club = FactoryGirl.create(:club, club_name: "Charlton Athletic")
         visit clubs_path
-        page.should have_content(@club.club_name)
+        page.should have_content(club.club_name)
       end
 
       it "should show add button" do
@@ -51,8 +53,7 @@ describe "Clubs" do
     end
 
     describe "show" do
-      let!(:club) { create :club, club_name: "Arsenal" }
-      let!(:selection) { create :selection, user: @user, club: club }
+      let!(:club)      { create(:club, club_name: "Arsenal") }
 
       it "should show club details" do
         visit club_path(club)
@@ -68,8 +69,9 @@ describe "Clubs" do
     end
 
     describe "new" do
+      let!(:league) { create(:league, league_name: "The Championship") }
+
       it "should create a new club" do
-        @league = FactoryGirl.create(:league, league_name: "The Championship")
         visit clubs_path
         click_link "Toevoegen"
 
@@ -78,41 +80,12 @@ describe "Clubs" do
         fill_in "club_period2", with: "24"
         fill_in "club_period3", with: "24"
         fill_in "club_period4", with: "24"
-        select @league.league_name, from: "club_league_id"
+        select league.league_name, from: "club_league_id"
         click_button "Opslaan"
 
-        page.should have_content("Club #{I18n.t('.created.success')}")
         page.should have_content("Charlton Athletic")
-        page.should have_content("Wijzigen")
-        page.should have_content("Verwijderen")
       end
     end
 
-    describe "edit" do
-      it "should edit a club" do
-        @club = FactoryGirl.create(:club)
-        visit clubs_path
-        click_link "Wijzigen"
-        fill_in "club_club_name", with: "Barnet"
-        click_button "Opslaan"
-
-        page.should have_content("Club #{I18n.t('.updated.success')}")
-        page.should have_content("Barnet")
-        page.should have_content("Wijzigen")
-        page.should have_content("Verwijderen")
-      end
-    end
-
-    describe "delete" do
-      it "should delete a club" do
-        @club = FactoryGirl.create(:club)
-        visit clubs_path
-        click_link "Verwijderen"
-
-        page.should have_content("Club #{I18n.t('.destroyed.success')}")
-        page.should_not have_content(@club.club_name)
-      end
-    end
-   end
-
+  end
 end

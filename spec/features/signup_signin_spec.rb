@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Manage results" do
+describe "Registering" do
   before :all do
     init_settings
   end
@@ -63,4 +63,5 @@ describe "Manage results" do
       end
     end
   end
+
 end
