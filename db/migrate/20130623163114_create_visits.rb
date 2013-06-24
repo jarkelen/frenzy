@@ -3,9 +3,9 @@ class CreateVisits < ActiveRecord::Migration
     create_table :visits do |t|
       t.integer :visit_nr
       t.datetime :visit_date
-      t.integer :league_id
-      t.integer :home_club_id
-      t.integer :away_club_id
+      t.string :league
+      t.string :home_club
+      t.string :away_club
       t.string :ground
       t.string :street
       t.string :city

@@ -16,6 +16,7 @@ nl:
     error_text:     "ontdekt bij het opslaan:"
     from:           van
     till:           tot
+    details:        details
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
@@ -121,6 +122,21 @@ nl:
     deleted:          Wedstrijdbezoek is verwijderd
     new_visit:        Toevoegen wedstrijdbezoek
     edit_visit:       Wijzigen wedstrijdbezoek
+    list:             Lijst
+    map:              Kaart
+    form:
+      visit_nr:       Bezoeknummer
+      visit_date:     Bezoekdatum
+      league:         Divisie
+      home_club:      Thuisclub
+      away_club:      Uitclub
+      ground:         Naam stadion
+      street:         Straat
+      city:           Plaats
+      result:         Resultaat
+      season:         Seizoen
+      kickoff:        Kick-off
+      gate:           Gate
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

@@ -1,18 +1,44 @@
-= form_for @newsitem do |f|
-  = f.hidden_field :user_id, value: current_user.id
-  = render "layouts/error_messages", target: @newsitem
-  = render "layouts/form_field", type: 'text_field', f: f, data: :title_nl,   label: I18n.t('.news.title_nl'), size: 'input-xxlarge'
-  = render "layouts/form_field", type: 'text_field', f: f, data: :title_en,   label: I18n.t('.news.title_en'), size: 'input-xxlarge'
-  = render "layouts/form_field", type: 'text_area', f: f, data: :summary_nl,  label: I18n.t('.news.summary_nl')
-  = render "layouts/form_field", type: 'text_area', f: f, data: :summary_en,  label: I18n.t('.news.summary_en')
-  = render "layouts/form_field", type: 'text_area', f: f, data: :content_nl,  label: I18n.t('.news.content_nl')
-  = render "layouts/form_field", type: 'text_area', f: f, data: :content_en,  label: I18n.t('.news.content_en')
-  = f.label I18n.t('.news.publish')
-  = f.collection_select :publish, [[true, I18n.t('.general.yep')] ,[false, I18n.t('.general.nope')]], :first, :last
-  = f.label I18n.t('.news.sticky')
-  = f.collection_select :sticky, [[true, I18n.t('.general.yep')] ,[false, I18n.t('.general.nope')]], :first, :last
-  = f.label I18n.t('.news.priority')
-  = f.collection_select :priority, [["normaal", I18n.t('.news.normal')] ,["hoog", I18n.t('.news.high')]], :first, :last
-  .form-actions
-    = f.submit(class: 'btn', value: I18n.t('.general.save'))
-    = link_to t('.cancel', default: t("helpers.links.cancel")), newsitems_path, class: 'btn'
+.row
+  .span12
+    = form_for @visit, html: { class: "form-horizontal"} do |f|
+      = render "layouts/error_messages", target: @visit
+      = f.hidden_field :user_id, value: current_user.id
+      .control-group
+        = f.label I18n.t('.visit.form.visit_nr')
+        = f.text_field :visit_nr, class: "input-mini", value: @visit_nr
+      .control-group
+        = f.label I18n.t('.visit.form.visit_date')
+        = f.date_select :visit_date, include_blank: true
+      .control-group
+        = f.label I18n.t('.visit.form.league')
+        = f.text_field :league, class: "input-xlarge", placeholder: 'The Championship'
+      .control-group
+        = f.label I18n.t('.visit.form.home_club')
+        = f.text_field :home_club, class: "input-xlarge", placeholder: 'Charlton Athletic'
+      .control-group
+        = f.label I18n.t('.visit.form.away_club')
+        = f.text_field :away_club, class: "input-xlarge", placeholder: 'Millwall'
+      .control-group
+        = f.label I18n.t('.visit.form.season')
+        = f.text_field :season, class: "input-medium", placeholder: '2012-2013'
+      .control-group
+        = f.label I18n.t('.visit.form.result')
+        = f.text_field :result, class: "input-small", placeholder: '2-1'
+      .control-group
+        = f.label I18n.t('.visit.form.kickoff')
+        = f.text_field :kickoff, class: "input-small", placeholder: '15:00'
+      .control-group
+        = f.label I18n.t('.visit.form.gate')
+        = f.text_field :gate, class: "input-small", placeholder: '19645'
+      .control-group
+        = f.label I18n.t('.visit.form.ground')
+        = f.text_field :ground, class: "input-xlarge", placeholder: 'The Valley'
+      .control-group
+        = f.label I18n.t('.visit.form.street')
+        = f.text_field :street, class: "input-xlarge", placeholder: 'Floyd Road'
+      .control-group
+        = f.label I18n.t('.visit.form.city')
+        = f.text_field :city, class: "input-xlarge", placeholder: 'London'
+      .control-group
+        .submit
+          = f.submit(class: 'btn', value: I18n.t('.general.save'))

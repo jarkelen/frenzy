@@ -16,6 +16,7 @@ en:
     error_text:     "discovered while saving:"
     from:           from
     till:           till
+    details:        details
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welcome
@@ -121,6 +122,21 @@ en:
     deleted:          Visit has been deleted
     new_visit:        Add visit
     edit_visit:       Edit visit
+    list:             List
+    map:              Map
+    form:
+      visit_nr:       Visit number
+      visit_date:     Visit date
+      league:         League
+      home_club:      Home club
+      away_club:      Away club
+      ground:         Ground name
+      street:         Street
+      city:           City
+      result:         Result
+      season:         Season
+      kickoff:        Kick-off
+      gate:           Gate
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"

@@ -223,9 +223,9 @@ ActiveRecord::Schema.define(:version => 20130623163114) do
   create_table "visits", :force => true do |t|
     t.integer  "visit_nr"
     t.datetime "visit_date"
-    t.integer  "league_id"
-    t.integer  "home_club_id"
-    t.integer  "away_club_id"
+    t.string   "league"
+    t.string   "home_club"
+    t.string   "away_club"
     t.string   "ground"
     t.string   "street"
     t.string   "city"
@@ -237,8 +237,8 @@ ActiveRecord::Schema.define(:version => 20130623163114) do
     t.string   "kickoff"
     t.integer  "gate"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

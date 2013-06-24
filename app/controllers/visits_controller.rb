@@ -14,6 +14,7 @@ class VisitsController < ApplicationController
 
   def new
     @visit = Visit.new
+    @visit_nr = Visit.count + 1
   end
 
   def edit
