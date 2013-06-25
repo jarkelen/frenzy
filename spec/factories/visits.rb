@@ -2,21 +2,20 @@
 
 FactoryGirl.define do
   factory :visit do
-    visit_nr 1
-    visit_date "2013-06-23 18:31:14"
-    league_id 1
-    home_club_id "MyString"
-    integer "MyString"
-    away_club_id 1
-    ground "MyString"
-    street "MyString"
-    city "MyString"
-    longitude 1.5
-    latitude 1.5
-    result "MyString"
-    season "MyString"
-    kickoff "MyString"
-    gate 1
-    user_id 1
+    visit_nr        1
+    visit_date      2.years.ago
+    league          "The Championship"
+    home_club       "Charlton Athletic"
+    away_club       "Millwall"
+    ground          "The Valley"
+    street          "Floyd Road"
+    city            "London"
+    longitude       1.5
+    latitude        1.5
+    result          "1-1"
+    season          "2012-2013"
+    kickoff         "15:00"
+    gate            12345
+    association     :user
   end
 end
