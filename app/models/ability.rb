@@ -11,7 +11,7 @@ class Ability
       can    [:read], Result
       can    [:read], Score
       can    [:read, :period, :general], Ranking
-      can    [:index, :show, :create, :update], User
+      can    [:index, :show, :update], User
       can    [:read], Newsitem
       can    [:read, :create], Comment
       can    [:rules], Frenzy
@@ -26,6 +26,7 @@ class Ability
       cannot [:create, :update, :destroy], Newsitem
       cannot [:update, :destroy], Comment
       cannot [:index, :process_gameround, :cancel_jokers, :switch_period, :switch_participation], Frenzy
+      cannot [:create, :register], User
     end
   end
 end

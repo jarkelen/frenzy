@@ -66,7 +66,6 @@ class User < ActiveRecord::Base
   end
 
   def create_player
-    puts "SELF #{self.id}"
     Player.create(user_id: self.id, game_id: Game.default_game.id)
   end
 
