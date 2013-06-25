@@ -1,3 +1,7 @@
+embed, object, iframe {
+  max-width: 100%;
+}
+
 .map_container {
   border-width: 1px;
   border-style: solid;
@@ -8,6 +12,7 @@
   img { max-width: none; }
 }
 
+/*
 @media (max-width: 480px) {
   .map_container {
     width: 400px;
@@ -47,4 +52,5 @@
     height: 600px;
   }
 }
+*/
 
