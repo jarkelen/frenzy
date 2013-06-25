@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 
   after_create :create_player
 
-  validates :first_name, :last_name, :team_name, :role, :language, :team_value, :email, presence: true
+  validates :role, :language, :team_value, :email, presence: true
   validates :password, presence: true, on: :create
   validates :first_name, :last_name, :team_name, length: { maximum: 50 }
   validates :bio, length: { maximum: 140 }
