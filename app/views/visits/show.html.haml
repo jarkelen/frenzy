@@ -1,27 +1,45 @@
 .row
-  .span12.media
-    %p= link_to I18n.t('.news.back'), newsitems_path
-    - if current_user.language == 'nl'
-      %h1= @newsitem.title_nl.html_safe
-    - else
-      %h1= @newsitem.title_en.html_safe
-    .subtitle
-      = "#{I18n.t('.news.published_by1')} "
-      = link_to @newsitem.user.full_name, user_path(@newsitem.user)
-      = " #{I18n.t('.news.published_by2')} #{@newsitem.created_at.strftime('%d-%m-%Y @ %H:%M')}"
-    %p
-      - if current_user.language == 'nl'
-        = @newsitem.summary_nl.html_safe
-        .content= @newsitem.content_nl.html_safe
-      - else
-        = @newsitem.summary_en.html_safe
-        .content= @newsitem.content_en.html_safe
-    - if can? :edit, Newsitem
-      .btn.btn-mini= link_to I18n.t('.general.edit'), edit_newsitem_path(@newsitem)
-      .btn.btn-mini= link_to I18n.t('.destroy', default: t("helpers.links.destroy")), newsitem_path(@newsitem), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }
+  .span12
+    %p= link_to I18n.t('.visit.details.back'), visits_path
 
 .row
   .span12
-    //%h4= "#{I18n.t('.news.comments')} (#{@newsitem.comments.size})"
-    //= render "comments/comments"
-    //= render "comments/form"
+    .page-header
+      %h1= I18n.t('.visit.details.match_details')
+
+.row-fluid
+  .span10.offset1
+    .club_details.hero-unit
+      .span6
+        %ul
+          %li= "#{I18n.t('.visit.visit_nr')}:"
+          %li= "#{I18n.t('.visit.league')}:"
+          %li= "#{I18n.t('.visit.details.match')}:"
+          %li= "#{I18n.t('.visit.result')}:"
+          %li= "#{I18n.t('.visit.gate')}:"
+          %li= "#{I18n.t('.visit.visit_date')}:"
+          %li= "#{I18n.t('.visit.kickoff')}:"
+          %li= "#{I18n.t('.visit.ground')}:"
+          %li= "#{I18n.t('.visit.details.location')}:"
+      .span6
+        %ul
+          %li
+            = @visit.visit_nr
+            \/
+            current_user.visits.size
+          %li= @visit.league
+          %li
+            = @visit.club_home
+            v
+            = @visit.club_away
+          %li= @visit.result
+          %li= @visit.gate
+          %li= @visit.visit_date.strftime("%d-%m-%Y")
+          %li= @visit.kickoff
+          %li= @visit.ground
+          %li= "#{@visit.street}, #{@visit.city}"
+      .clearfix
+
+    - if can? :edit, Visit
+      .btn.btn-mini= link_to I18n.t('.general.edit'), edit_visit_path(@visit)
+      .btn.btn-mini= link_to I18n.t('.destroy', default: t("helpers.links.destroy")), visit_path(@visit), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }

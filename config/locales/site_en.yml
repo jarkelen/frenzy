@@ -124,6 +124,15 @@ en:
     edit_visit:       Edit visit
     list:             List
     map:              Map
+    details:
+      intro:          'This overview shows all match visits in the UK and Ireland. In total you have visited {number} matches.'
+      back:           Back to overview
+      match_details:  Wedstrijdbezoek details
+      match:          Wedstrijd
+      location:       Lokatie
+    all_maps:
+      title:          All visit lists
+      intro:          'This overview shows all visit lists of all our players, so it is easy to see what everyone has been visiting in the past. It is possible to add a remark e.g. to get more info about a certain match visit.'
     form:
       visit_nr:       Visit number
       visit_date:     Visit date

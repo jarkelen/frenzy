@@ -124,6 +124,15 @@ nl:
     edit_visit:       Wijzigen wedstrijdbezoek
     list:             Lijst
     map:              Kaart
+    details:
+      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal heb je {number} wedstrijden bezocht.'
+      back:           Terug naar overzicht
+      match_details:  Wedstrijdbezoek details
+      match:          Wedstrijd
+      location:       Lokatie
+    all_maps:
+      title:          Alle vinklijsten
+      intro:          'Dit overzicht toont de vinklijsten van al onze deelnemers, zodat je simpel kunt bekijken waar iedereen is geweest. Je kunt een opmerking toevoegen om b.v. meer info te vragen over een bepaald wedstrijdbezoek.'
     form:
       visit_nr:       Bezoeknummer
       visit_date:     Bezoekdatum

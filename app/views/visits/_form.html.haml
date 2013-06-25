@@ -1,5 +1,5 @@
 .row
-  .span12
+  .offset1.span10
     = form_for @visit, html: { class: "form-horizontal"} do |f|
       = render "layouts/error_messages", target: @visit
       = f.hidden_field :user_id, value: current_user.id
