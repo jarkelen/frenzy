@@ -12,26 +12,26 @@
     .club_details.hero-unit
       .span6
         %ul
-          %li= "#{I18n.t('.visit.visit_nr')}:"
-          %li= "#{I18n.t('.visit.league')}:"
+          %li= "#{I18n.t('.visit.form.visit_nr')}:"
+          %li= "#{I18n.t('.visit.form.league')}:"
           %li= "#{I18n.t('.visit.details.match')}:"
-          %li= "#{I18n.t('.visit.result')}:"
-          %li= "#{I18n.t('.visit.gate')}:"
-          %li= "#{I18n.t('.visit.visit_date')}:"
-          %li= "#{I18n.t('.visit.kickoff')}:"
-          %li= "#{I18n.t('.visit.ground')}:"
+          %li= "#{I18n.t('.visit.form.result')}:"
+          %li= "#{I18n.t('.visit.vgate')}:"
+          %li= "#{I18n.t('.visit.form.visit_date')}:"
+          %li= "#{I18n.t('.visit.form.kickoff')}:"
+          %li= "#{I18n.t('.visit.form.ground')}:"
           %li= "#{I18n.t('.visit.details.location')}:"
       .span6
         %ul
           %li
             = @visit.visit_nr
             \/
-            current_user.visits.size
+            = current_user.visits.size
           %li= @visit.league
           %li
-            = @visit.club_home
+            = @visit.home_club
             v
-            = @visit.club_away
+            = @visit.away_club
           %li= @visit.result
           %li= @visit.gate
           %li= @visit.visit_date.strftime("%d-%m-%Y")

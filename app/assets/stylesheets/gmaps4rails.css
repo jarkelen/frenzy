@@ -12,7 +12,6 @@ embed, object, iframe {
   img { max-width: none; }
 }
 
-/*
 @media (max-width: 480px) {
   .map_container {
     width: 400px;
@@ -52,5 +51,3 @@ embed, object, iframe {
     height: 600px;
   }
 }
-*/
-

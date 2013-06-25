@@ -8,5 +8,4 @@
     - @users.each do |user|
       - map_visits = user.visits.to_gmaps4rails
         - unless map_visits.blank?
-          .span3
-            = gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => map_visits })
+          .span3= gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => map_visits })

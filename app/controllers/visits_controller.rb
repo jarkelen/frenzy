@@ -5,7 +5,7 @@ class VisitsController < ApplicationController
   def index
     visits = current_user.visits.all
     @map_visits = visits.to_gmaps4rails
-    @list_visits = visits.paginate(page: params[:page])
+    @list_visits = visits#.paginate(page: params[:page])
   end
 
   def all_maps
