@@ -42,6 +42,7 @@ en:
       teaser_title_4:   Improve your team with transfers
       teaser_content_4: "Not entirely happy with the choices you made? No worries, we have three transfer windows where you can change your team."
   user:
+    base_nr:          Basenr.
     first_name:       First name
     last_name:        Last name
     team_name:        Team name

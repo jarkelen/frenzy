@@ -42,6 +42,7 @@ nl:
       teaser_title_4:   Verbeter je team met transfers
       teaser_content_4: 'Ben je toch niet helemaal tevreden met je team? Geen nood, we hebben 3 transfer periodes waarin je jouw team kunt wijzigen.'
   user:
+    base_nr:          Stamnr.
     first_name:       Voornaam
     last_name:        Achternaam
     team_name:        Teamnaam
