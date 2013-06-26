@@ -1,5 +1,5 @@
 embed, object, iframe {
-  max-width: 100%;
+  width: 100%;
 }
 
 .map_container {
@@ -33,21 +33,21 @@ embed, object, iframe {
 }
 @media (min-width: 768px) and (max-width: 979px) {
   .map_container {
-    width: 620px;
-    height: 500px;
+    width: 500px;
+    height: 515px;
   }
   .gmaps4rails_map {
-    width: 620px;
-    height: 500px;
+    width: 500px;
+    height: 515px;
   }
 }
 @media (min-width: 979px) {
   .map_container {
-    height: 600px;
-    width: 615px;
+    height: 500px;
+    width: 515px;
   }
   .gmaps4rails_map {
-    width: 615px;
-    height: 600px;
+    width: 515px;
+    height: 500px;
   }
 }

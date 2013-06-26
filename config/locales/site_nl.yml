@@ -125,7 +125,7 @@ nl:
     list:             Lijst
     map:              Kaart
     details:
-      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal heb je {number} wedstrijden bezocht.'
+      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal heb je %{number} wedstrijden bezocht.'
       back:           Terug naar overzicht
       match_details:  Wedstrijdbezoek details
       match:          Wedstrijd

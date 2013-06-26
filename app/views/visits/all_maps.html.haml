@@ -5,9 +5,12 @@
 
 .row
   .span12
-    - counter = 0
+    - counter = 1
     - @users.each do |user|
       - map_visits = user.visits.to_gmaps4rails
         - unless map_visits.blank?
-          .span3= gmaps(map_options: { zoom: 6, id: "map_#{counter}" }, markers: { data: map_visits }, last_map: false, scripts: :none, )
-          - counter += counter
+          .span3
+            %div{ id: "container_#{counter}" }
+              %div{ id: "map_#{counter}" }
+                = gmaps(map_options: { zoom: 6, container_id: "container_#{counter}", id: "map_#{counter}" }, markers: { data: map_visits } )
+                - counter += counter
