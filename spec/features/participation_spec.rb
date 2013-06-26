@@ -65,6 +65,7 @@ describe "Participation" do
 
     context "participation open, existing user" do
       it "should be possible to add/edit the team" do
+        FactoryGirl.create :game, name: "Clubs Frenzy"
         @setting = FactoryGirl.create :setting, participation: true
         @user = FactoryGirl.create :user
         sign_in_as(@user)
@@ -76,6 +77,7 @@ describe "Participation" do
 
     context "participation closed, existing user" do
       it "should not be possible to add/edit the team" do
+        FactoryGirl.create :game, name: "Clubs Frenzy"
         @setting = FactoryGirl.create :setting, participation: true
         @user = FactoryGirl.create :user
         @setting.update_attributes(participation: false)
@@ -88,6 +90,7 @@ describe "Participation" do
 
     context "participation closed, new user" do
       it "should be possible to add/edit the team" do
+        FactoryGirl.create :game, name: "Clubs Frenzy"
         @setting = FactoryGirl.create :setting, participation: false
         @user = FactoryGirl.create :user, participation_due: 3.days.from_now
         sign_in_as(@user)

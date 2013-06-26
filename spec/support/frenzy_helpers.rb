@@ -1,5 +1,6 @@
 module FrenzyHelpers
   def init_settings
+    FactoryGirl.create :game, name: "Clubs Frenzy"
     FactoryGirl.create :setting
     FactoryGirl.create_list :period, 4
     @user = FactoryGirl.create :user, last_name: "User", team_name: "Users FC"
