@@ -11,6 +11,11 @@ Frenzy::Application.routes.draw do
     resources :comments
   end
   resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :visits do
+    collection do
+      get :all_maps
+    end
+  end
 
   namespace :clubs_frenzy do
 

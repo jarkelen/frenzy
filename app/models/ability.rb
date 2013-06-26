@@ -16,6 +16,7 @@ class Ability
       can    [:read, :create], Comment
       can    [:rules], Frenzy
       can    [:index], Period
+      can    [:read, :create, :update, :destroy, :all_maps], Visit
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result

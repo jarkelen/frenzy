@@ -1,0 +1,18 @@
+.visits
+  %table.table.table-striped
+    %tbody
+      - unless @list_visits.blank?
+        - @list_visits.each do |visit|
+          %tr
+            %td.center= "#{visit.visit_nr}."
+            %td.center= visit.visit_date.strftime("%d-%m-%Y")
+            %td
+              = visit.home_club
+              v
+              = visit.away_club
+            %td
+              = link_to I18n.t('.general.details'), visit_path(visit), class: 'btn btn-mini'
+
+  //= will_paginate @list_visits
+
+

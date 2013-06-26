@@ -16,6 +16,7 @@ nl:
     error_text:     "ontdekt bij het opslaan:"
     from:           van
     till:           tot
+    details:        details
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
@@ -41,6 +42,7 @@ nl:
       teaser_title_4:   Verbeter je team met transfers
       teaser_content_4: 'Ben je toch niet helemaal tevreden met je team? Geen nood, we hebben 3 transfer periodes waarin je jouw team kunt wijzigen.'
   user:
+    base_nr:          Stamnr.
     first_name:       Voornaam
     last_name:        Achternaam
     team_name:        Teamnaam
@@ -114,6 +116,37 @@ nl:
     back:             Terug naar nieuwsberichten
     normal:           Normaal
     high:             Hoog
+  visit:
+    visit_title:      Mijn Vinklijst
+    created:          Wedstrijdbezoek is aangemaakt
+    updated:          Wedstrijdbezoek is gewijzigd
+    deleted:          Wedstrijdbezoek is verwijderd
+    new_visit:        Toevoegen wedstrijdbezoek
+    edit_visit:       Wijzigen wedstrijdbezoek
+    list:             Lijst
+    map:              Kaart
+    details:
+      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal heb je {number} wedstrijden bezocht.'
+      back:           Terug naar overzicht
+      match_details:  Wedstrijdbezoek details
+      match:          Wedstrijd
+      location:       Lokatie
+    all_maps:
+      title:          Alle vinklijsten
+      intro:          'Dit overzicht toont de vinklijsten van al onze deelnemers, zodat je simpel kunt bekijken waar iedereen is geweest. Je kunt een opmerking toevoegen om b.v. meer info te vragen over een bepaald wedstrijdbezoek.'
+    form:
+      visit_nr:       Bezoeknummer
+      visit_date:     Bezoekdatum
+      league:         Divisie
+      home_club:      Thuisclub
+      away_club:      Uitclub
+      ground:         Naam stadion
+      street:         Straat
+      city:           Plaats
+      result:         Resultaat
+      season:         Seizoen
+      kickoff:        Kick-off
+      gate:           Gate
   will_paginate:
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"

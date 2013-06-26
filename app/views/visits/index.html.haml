@@ -1,0 +1,18 @@
+.row
+  .span12
+    .page-header
+      %h1= I18n.t('.visit.visit_title')
+
+    - if can? :create, Visit
+      .action= link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_visit_path, class: 'btn'
+
+.row
+  .span12
+    %p= I18n.t('.visit.intro', number: current_user.visits.size)
+
+.row
+  .span6
+    = render "visit_list"
+  .span6
+    - unless @map_visits.blank?
+      = gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => @map_visits })
