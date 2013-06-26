@@ -5,6 +5,7 @@
 #  id                 :integer          not null, primary key
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  base_nr            :integer
 #  first_name         :string(255)
 #  last_name          :string(255)
 #  team_name          :string(255)
@@ -116,6 +117,12 @@ describe User do
         user = FactoryGirl.create :user, first_name: "Piet", last_name: "Jansen"
         user.full_name.should == "Piet Jansen"
       end
+    end
+
+    describe "assign_base_nr" do
+      user1 = FactoryGirl.create :user, first_name: "Piet", last_name: "Jansen", base_nr: 1
+      user = FactoryGirl.create :user, first_name: "Piet", last_name: "Jansen"
+      user2.base_nr.should == 2
     end
 
     describe "check protocol" do

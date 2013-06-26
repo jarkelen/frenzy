@@ -5,6 +5,7 @@
 #  id                 :integer          not null, primary key
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  base_nr            :integer
 #  first_name         :string(255)
 #  last_name          :string(255)
 #  team_name          :string(255)
@@ -35,11 +36,12 @@ class User < ActiveRecord::Base
   has_many  :visits
 
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :password,
-                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date
+                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date, :base_nr
 
   before_save { |user| user.email = email.downcase }
   before_save :check_protocol
   before_save :check_twitter
+  before_save :assign_base_nr
 
   after_create :create_player
 
@@ -68,6 +70,11 @@ class User < ActiveRecord::Base
 
   def create_player
     Player.create(user_id: self.id, game_id: Game.default_game.id)
+  end
+
+  def assign_base_nr
+    max = self.order("base_nr ASC").last
+    self.base_nr = max.base_nr + 1
   end
 
   def check_protocol

@@ -4,6 +4,7 @@ FactoryGirl.define do
   end
 
   factory :user do
+    base_nr           1
     first_name        "Piet"
     last_name         "Jansen"
     team_name         "Frenzy Utd"
