@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :check_protocol
   before_save :check_twitter
-  before_save :assign_base_nr
+  before_create :assign_base_nr
 
   after_create :create_player
 
@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
   end
 
   def assign_base_nr
-    max = self.order("base_nr ASC").last
+    max = User.order("base_nr ASC").last
     self.base_nr = max.base_nr + 1
   end
 
