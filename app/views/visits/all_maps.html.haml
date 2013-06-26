@@ -4,13 +4,14 @@
       %h1= I18n.t('.visit.all_maps.title')
 
 .row
-  .span12
-    - counter = 1
-    - @users.each do |user|
-      - map_visits = user.visits.to_gmaps4rails
-        - unless map_visits.blank?
-          .span3
-            %div{ id: "container_#{counter}" }
-              %div{ id: "map_#{counter}" }
-                = gmaps(map_options: { zoom: 6, container_id: "container_#{counter}", id: "map_#{counter}" }, markers: { data: map_visits } )
-                - counter += counter
+  - counter = 1
+  - @users.each do |user|
+    - unless user.visits.blank?
+      - map_visits = user.visits
+      .span4.map
+        %div{ id: "map_#{counter}" }= static_map_for(map_visits)
+        .map_details
+          = user.full_name
+        .map_more
+          = link_to "more details...", visits_path(user: user)
+        - counter += counter
