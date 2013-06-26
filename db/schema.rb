@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623163114) do
+ActiveRecord::Schema.define(:version => 20130626075217) do
 
   create_table "clubs", :force => true do |t|
     t.string   "club_name"
@@ -215,6 +215,7 @@ ActiveRecord::Schema.define(:version => 20130623163114) do
     t.string   "twitter"
     t.integer  "favorite_club"
     t.datetime "birth_date"
+    t.integer  "base_nr"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
