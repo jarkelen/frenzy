@@ -11,6 +11,7 @@
 #  ground     :string(255)
 #  street     :string(255)
 #  city       :string(255)
+#  country    :string(255)
 #  longitude  :float
 #  latitude   :float
 #  gmaps      :boolean
@@ -30,6 +31,7 @@ describe Visit do
 
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:street) }
+  it { should validate_presence_of(:country) }
   it { should validate_presence_of(:ground) }
   it { should validate_presence_of(:result) }
   it { should validate_presence_of(:visit_nr) }

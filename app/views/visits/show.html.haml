@@ -7,7 +7,7 @@
     .span12
       .title= I18n.t('.visit.details.match_details')
     .hero-unit
-      .span6
+      .span4
         %ul
           %li= "#{I18n.t('.visit.form.visit_nr')}:"
           %li= "#{I18n.t('.visit.form.league')}:"
@@ -18,7 +18,7 @@
           %li= "#{I18n.t('.visit.form.kickoff')}:"
           %li= "#{I18n.t('.visit.form.ground')}:"
           %li= "#{I18n.t('.visit.details.location')}:"
-      .span6
+      .span8
         %ul
           %li
             = @visit.visit_nr
@@ -34,7 +34,7 @@
           %li= @visit.visit_date.strftime("%d-%m-%Y")
           %li= @visit.kickoff
           %li= @visit.ground
-          %li= "#{@visit.street}, #{@visit.city}"
+          %li= "#{@visit.street}, #{@visit.city}, #{@visit.country}"
       .offset4.span5
         - if can? :edit, Visit && current_user != params[:user]
           .btn= link_to I18n.t('.general.edit'), edit_visit_path(@visit)

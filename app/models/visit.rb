@@ -11,6 +11,7 @@
 #  ground     :string(255)
 #  street     :string(255)
 #  city       :string(255)
+#  country    :string(255)
 #  longitude  :float
 #  latitude   :float
 #  gmaps      :boolean
@@ -29,12 +30,12 @@ class Visit < ActiveRecord::Base
   acts_as_gmappable
 
   attr_accessible :away_club, :city, :gate, :ground, :home_club, :kickoff, :latitude, :longitude, :gmaps, :league, :result,
-                  :season, :street, :user_id, :visit_date, :visit_nr
+                  :season, :street, :country, :user_id, :visit_date, :visit_nr
 
-  validates :city, :street, :ground, :result, :visit_nr, presence: true
+  validates :city, :street, :country, :ground, :result, :visit_nr, presence: true
 
   def gmaps4rails_address
-    "#{self.street}, #{self.city}"
+    "#{self.street}, #{self.city}, #{self.country}"
   end
 
   def gmaps4rails_infowindow

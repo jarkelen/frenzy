@@ -17,6 +17,8 @@ nl:
     from:           van
     till:           tot
     details:        details
+    countries:
+      england:      Engeland
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom
@@ -148,6 +150,7 @@ nl:
       away_club:      Uitclub
       ground:         Stadion
       street:         Straat
+      country:        Land
       city:           Plaats
       result:         Resultaat
       season:         Seizoen
