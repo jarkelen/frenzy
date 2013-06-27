@@ -4,9 +4,9 @@ class VisitsController < ApplicationController
 
   def index
     if params[:user]
-      visits = User.find(params[:user]).visits.all
+      visits = User.find(params[:user]).visits.order("visit_nr DESC")
     else
-      visits = current_user.visits.all
+      visits = current_user.visits.order("visit_nr DESC")
     end
     @map_visits = visits.to_gmaps4rails
     @list_visits = visits
