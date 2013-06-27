@@ -11,7 +11,7 @@ module MapHelper
 
     markers = ""
     user_visits.each do |visit|
-      markers += "&markers=color:green%7Clabel:G%7C#{visit.latitude},#{visit.longitude}"
+      markers += "&markers=color:green%7Csize=tiny%7C#{visit.latitude},#{visit.longitude}"
     end
 
     image_tag "http://maps.googleapis.com/maps/api/staticmap?#{query_string}#{markers}&sensor=false"
