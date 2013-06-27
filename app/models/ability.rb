@@ -17,7 +17,7 @@ class Ability
       can    [:rules], Frenzy
       can    [:index], Period
       can    [:read, :create, :update, :destroy, :all_maps], Visit
-      can    [:index, :show], User
+      can    [:index, :show, :edit, :read], User
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result
@@ -27,7 +27,7 @@ class Ability
       cannot [:create, :update, :destroy], Newsitem
       cannot [:update, :destroy], Comment
       cannot [:index, :process_gameround, :cancel_jokers, :switch_period, :switch_participation], Frenzy
-      cannot [:manage], User
+      cannot [:create], User
     end
   end
 end
