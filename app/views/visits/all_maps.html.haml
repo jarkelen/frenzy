@@ -5,9 +5,17 @@
 
 .row
   .span12
-    - counter = 0
-    - @users.each do |user|
-      - map_visits = user.visits.to_gmaps4rails
-        - unless map_visits.blank?
-          .span3= gmaps(map_options: { zoom: 6, id: "map_#{counter}" }, markers: { data: map_visits }, last_map: false, scripts: :none, )
-          - counter += counter
+    %p= I18n.t('.visit.all_maps.intro', total_matches: Visit.all.size)
+
+.row
+  - counter = 1
+  - @users.each do |user|
+    - unless user.visits.blank?
+      - map_visits = user.visits
+      .span4.map
+        .map_details
+          %h3= user.team_name
+        %div{ id: "map_#{counter}" }= static_map_for(map_visits)
+        .map_more
+          %p= link_to I18n.t('.visit.all_maps.details'), visits_path(user: user)
+        - counter += counter

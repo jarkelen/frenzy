@@ -23,5 +23,9 @@ $(document).ready(function(){
     }
   });
 
+  $('#mapTab').on('shown', function (e) {
+    google.maps.event.trigger(map, 'resize');
+  });
+
 });
 

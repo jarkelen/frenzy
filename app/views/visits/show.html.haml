@@ -2,21 +2,18 @@
   .span12
     %p= link_to I18n.t('.visit.details.back'), visits_path
 
-.row
-  .span12
-    .page-header
-      %h1= I18n.t('.visit.details.match_details')
-
 .row-fluid
-  .span10.offset1
-    .club_details.hero-unit
+  .span10.offset1.club_details
+    .span12
+      .title= I18n.t('.visit.details.match_details')
+    .hero-unit
       .span6
         %ul
           %li= "#{I18n.t('.visit.form.visit_nr')}:"
           %li= "#{I18n.t('.visit.form.league')}:"
           %li= "#{I18n.t('.visit.details.match')}:"
           %li= "#{I18n.t('.visit.form.result')}:"
-          %li= "#{I18n.t('.visit.vgate')}:"
+          %li= "#{I18n.t('.visit.form.gate')}:"
           %li= "#{I18n.t('.visit.form.visit_date')}:"
           %li= "#{I18n.t('.visit.form.kickoff')}:"
           %li= "#{I18n.t('.visit.form.ground')}:"
@@ -38,8 +35,9 @@
           %li= @visit.kickoff
           %li= @visit.ground
           %li= "#{@visit.street}, #{@visit.city}"
+      .offset4.span5
+        - if can? :edit, Visit && current_user != params[:user]
+          .btn= link_to I18n.t('.general.edit'), edit_visit_path(@visit)
+          .btn= link_to I18n.t('.destroy', default: t("helpers.links.destroy")), visit_path(@visit), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }
       .clearfix
 
-    - if can? :edit, Visit
-      .btn.btn-mini= link_to I18n.t('.general.edit'), edit_visit_path(@visit)
-      .btn.btn-mini= link_to I18n.t('.destroy', default: t("helpers.links.destroy")), visit_path(@visit), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }
