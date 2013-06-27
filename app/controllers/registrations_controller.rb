@@ -11,9 +11,7 @@ class RegistrationsController < ApplicationController
 
     @user = User.new(params[:user])
     if @user.save
-    puts "HUH #{@user.random_nr}"
-
-      redirect_to users_path, notice: "User #{I18n.t('.created.success')}"
+      redirect_to users_path, notice: "Deelnemer #{I18n.t('.created.success')} Wachtwoord nr. is: #{@user.random_nr}"
     else
       render action: "register_user"
     end
