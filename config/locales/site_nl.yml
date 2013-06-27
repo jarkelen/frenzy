@@ -19,6 +19,10 @@ nl:
     details:        details
     countries:
       england:      Engeland
+      scotland:     Schotland
+      wales:        Wales
+      ireland:      Ierland
+      n_ireland:    Noord-Ierland
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welkom

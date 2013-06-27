@@ -41,7 +41,7 @@
         = f.text_field :city, class: "input-xlarge", placeholder: 'London'
       .control-group
         = f.label I18n.t('.visit.form.country')
-        = f.select :country, [ "#{I18n.t('.general.countries.england')}", 'Scotland', 'Wales', 'Northern Ireland', 'Ireland' ], include_blank: true
+        = f.select :country, [ "#{I18n.t('.general.countries.england')}", "#{I18n.t('.general.countries.scotland')}", "#{I18n.t('.general.countries.wales')}", "#{I18n.t('.general.countries.n_ireland')}", "#{I18n.t('.general.countries.ireland')}" ]
       .control-group
         .submit
           = f.submit(class: 'btn', value: I18n.t('.general.save'))
