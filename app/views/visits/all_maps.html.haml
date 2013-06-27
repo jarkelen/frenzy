@@ -14,7 +14,7 @@
       - map_visits = user.visits
       .span4.map
         .map_details
-          %h3= user.team_name
+          %h3= link_to user.team_name, user_path(user)
         %div{ id: "map_#{counter}" }= static_map_for(map_visits)
         .map_more
           %p= link_to I18n.t('.visit.all_maps.details'), visits_path(user: user)
