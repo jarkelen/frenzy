@@ -13,3 +13,4 @@
 //= require gmaps4rails.base.js.coffee
 //= require gmaps4rails.googlemaps.js.coffee
 //= require app.js
+

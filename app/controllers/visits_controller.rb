@@ -3,9 +3,13 @@ class VisitsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    visits = current_user.visits.all
+    if params[:user]
+      visits = User.find(params[:user]).visits.all
+    else
+      visits = current_user.visits.all
+    end
     @map_visits = visits.to_gmaps4rails
-    @list_visits = visits#.paginate(page: params[:page])
+    @list_visits = visits
   end
 
   def all_maps
@@ -14,7 +18,7 @@ class VisitsController < ApplicationController
 
   def new
     @visit = Visit.new
-    @visit_nr = Visit.count + 1
+    @visit_nr = current_user.visits.count + 1
   end
 
   def edit
