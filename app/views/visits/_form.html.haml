@@ -8,7 +8,7 @@
         = f.text_field :visit_nr, class: "input-mini", value: @visit_nr
       .control-group
         = f.label I18n.t('.visit.form.visit_date')
-        = f.date_select :visit_date, include_blank: true
+        = f.date_select :visit_date, include_blank: true, start_year: 50.years.from_now
       .control-group
         = f.label I18n.t('.visit.form.league')
         = f.text_field :league, class: "input-xlarge", placeholder: 'The Championship'

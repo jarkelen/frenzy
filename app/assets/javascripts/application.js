@@ -12,5 +12,9 @@
 //= require graphs.js.coffee
 //= require gmaps4rails.base.js.coffee
 //= require gmaps4rails.googlemaps.js.coffee
+//= require angular/angular
+//= require angular/angular-resource
+//= require angular/base
+//= require angular/controllers/frenzy_ctrl
 //= require app.js
 

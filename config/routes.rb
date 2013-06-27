@@ -49,6 +49,12 @@ Frenzy::Application.routes.draw do
     end
   end
 
+  resources :registrations, only: [:register_user] do
+    collection do
+      get  :register_user
+      post :process_user
+    end
+  end
 
   get  "frenzy/index"
   get  "frenzy/rules"

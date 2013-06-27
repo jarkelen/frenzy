@@ -1,0 +1,28 @@
+- if can? :manage, User
+  .row
+    .offset3.span6
+      #clearance.signin_container
+        = form_for @user, url: process_user_registrations_path, html: { class: "form-horizontal"} do |f|
+          %h1.title= I18n.t('.sessions.new.sign_up')
+          = render "layouts/error_messages", target: @user
+          = f.hidden_field :role, value: 'user'
+          = f.hidden_field :password, value: "password#{@random_nr}"
+          = f.hidden_field :random_nr, value: @random_nr
+          .control-group
+            = f.label I18n.t('.user.first_name')
+            = f.text_field :first_name, class: "input-block-level", value: "Temp"
+          .control-group
+            = f.label I18n.t('.user.last_name')
+            = f.text_field :last_name, class: "input-block-level", value: "Temp"
+          .control-group
+            = f.label I18n.t('.user.team_name')
+            = f.text_field :team_name, class: "input-block-level", value: "Temp"
+          .control-group
+            = f.label I18n.t('.user.email')
+            = f.email_field :email, class: "input-block-level", placeholder: I18n.t('.user.email'), autofocus: true
+          .control-group
+            = f.label I18n.t('.user.language')
+            = f.collection_select :language, [['nl', I18n.t('.general.dutch')] ,['en', I18n.t('.general.english')]], :first, :last
+          .control-group
+            .submit
+              = f.submit(class: 'btn btn-large', value: "Opslaan")

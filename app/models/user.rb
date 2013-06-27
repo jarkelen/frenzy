@@ -35,8 +35,10 @@ class User < ActiveRecord::Base
   has_many  :games, through: :players
   has_many  :visits
 
+  attr_accessor :random_nr
+
   attr_accessible :first_name, :last_name, :team_name, :email, :role, :language, :password,
-                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date, :base_nr
+                  :location, :website, :bio, :facebook, :twitter, :favorite_club, :birth_date, :base_nr, :random_nr
 
   before_save { |user| user.email = email.downcase }
   before_save :check_protocol
@@ -73,8 +75,12 @@ class User < ActiveRecord::Base
   end
 
   def assign_base_nr
-    max = User.order("base_nr ASC").last
-    self.base_nr = max.base_nr + 1
+    max_user = User.order("base_nr ASC").last
+    if max_user.blank?
+      self.base_nr = 1
+    else
+      self.base_nr = max_user.base_nr + 1
+    end
   end
 
   def check_protocol
