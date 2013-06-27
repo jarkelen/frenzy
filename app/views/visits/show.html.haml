@@ -1,6 +1,6 @@
 .row
   .span12
-    %p= link_to I18n.t('.visit.details.back'), visits_path
+    %p= link_to I18n.t('.visit.details.back'), :back
 
 .row-fluid
   .span10.offset1.club_details
@@ -21,19 +21,19 @@
       .span8
         %ul
           %li
-            = @visit.visit_nr
+            = @visit.visit_nr.blank? ? "-" : @visit.visit_nr
             \/
             = current_user.visits.size
-          %li= @visit.league
+          %li= @visit.league.blank? ? "-" : @visit.league
           %li
-            = @visit.home_club
+            = @visit.home_club.blank? ? "-" : @visit.home_club
             v
-            = @visit.away_club
-          %li= @visit.result
-          %li= @visit.gate
-          %li= @visit.visit_date.strftime("%d-%m-%Y")
-          %li= @visit.kickoff
-          %li= @visit.ground
+            = @visit.away_club.blank? ? "-" : @visit.away_club
+          %li= @visit.result.blank? ? "-" : @visit.result
+          %li= @visit.gate.blank? ? "-" : @visit.gate
+          %li= @visit.visit_date.blank? ? "-" : @visit.visit_date.strftime("%d-%m-%Y")
+          %li= @visit.kickoff.blank? ? "-" : @visit.kickoff
+          %li= @visit.ground.blank? ? "-" : @visit.ground
           %li= "#{@visit.street}, #{@visit.city}, #{@visit.country}"
       .offset4.span5
         - if can? :edit, Visit && current_user != params[:user]

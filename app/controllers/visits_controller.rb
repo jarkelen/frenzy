@@ -23,6 +23,7 @@ class VisitsController < ApplicationController
 
   def edit
     @visit = Visit.find(params[:id])
+    @visit_nr = @visit.visit_nr
   end
 
   def create
