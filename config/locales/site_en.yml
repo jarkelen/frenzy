@@ -17,6 +17,12 @@ en:
     from:           from
     till:           till
     details:        details
+    countries:
+      england:      England
+      scotland:     Scotland
+      wales:        Wales
+      ireland:      Ireland
+      n_ireland:    Northern Ireland
   site:
     title:      The Old Spotted Dog Frenzy
     salutation: Welcome
@@ -148,6 +154,7 @@ en:
       away_club:      Away club
       ground:         Ground
       street:         Street
+      country:        Country
       city:           City
       result:         Result
       season:         Season

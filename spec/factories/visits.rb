@@ -10,6 +10,7 @@ FactoryGirl.define do
     ground          "The Valley"
     street          "Floyd Road"
     city            "London"
+    country         "United Kingdom"
     longitude       1.5
     latitude        1.5
     result          "1-1"
