@@ -17,17 +17,17 @@ class Ability
       can    [:rules], Frenzy
       can    [:index], Period
       can    [:read, :create, :update, :destroy, :all_maps], Visit
+      can    [:index, :show], User
 
       cannot [:read, :create, :update, :destroy], Gameround
       cannot [:create, :update, :destroy], Result
       cannot [:create, :update, :destroy], League
       cannot [:create, :update, :destroy], Period
       cannot [:create, :update, :destroy], Club
-      cannot [:destroy], User
       cannot [:create, :update, :destroy], Newsitem
       cannot [:update, :destroy], Comment
       cannot [:index, :process_gameround, :cancel_jokers, :switch_period, :switch_participation], Frenzy
-      cannot [:create, :register], User
+      cannot [:manage], User
     end
   end
 end

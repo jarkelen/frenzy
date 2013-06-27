@@ -11,8 +11,7 @@ nl:
     failure_after_update:
       "Wachtwoord mag niet leeg zijn."
     failure_after_create:
-      'Foutief email of wachtwoord. Probeer je een nieuw account te registreren?
-       <a href="%{sign_up_path}">Registreren</a>.'
+      'Foutief email of wachtwoord!'
   helpers:
     submit:
       password:

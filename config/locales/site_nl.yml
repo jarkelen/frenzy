@@ -23,7 +23,8 @@ nl:
     home:       Home
     admin:      Admin
     id:         ID
-    signup:     Registreren
+    registration:
+      new_user: Nieuwe deelnemer
     signin:     Inloggen
     community:
       general:  Community
