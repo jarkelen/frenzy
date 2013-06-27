@@ -1,7 +1,10 @@
 .row
   .span12
     .page-header
-      %h1= I18n.t('.visit.visit_title')
+      - if params[:user]
+        %h1= I18n.t('.visit.visit_title', team: User.find(params[:user]).team_name)
+      - else
+        %h1= I18n.t('.visit.my_visits_title')
 
     - if can? :create, Visit
       .action= link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_visit_path, class: 'btn'
@@ -9,6 +12,23 @@
 .row
   .span12
     %p= I18n.t('.visit.details.intro', number: current_user.visits.size)
+
+.row
+  .span12
+    %ul#tabs.nav.nav-tabs
+      %li.active
+        %a{:href => "#home"} Home
+      %li
+        %a{:href => "#profile"} Profile
+      %li
+        %a{:href => "#messages"} Messages
+      %li
+        %a{:href => "#settings"} Settings
+    .tab-content
+      #home.tab-pane.active test1
+      #profile.tab-pane test2
+      #messages.tab-pane test3
+      #settings.tab-pane test4
 
 .row
   .span6

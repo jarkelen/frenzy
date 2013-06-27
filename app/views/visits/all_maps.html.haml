@@ -4,14 +4,18 @@
       %h1= I18n.t('.visit.all_maps.title')
 
 .row
+  .span12
+    %p= I18n.t('.visit.all_maps.intro', total_matches: Visit.all.size)
+
+.row
   - counter = 1
   - @users.each do |user|
     - unless user.visits.blank?
       - map_visits = user.visits
       .span4.map
-        %div{ id: "map_#{counter}" }= static_map_for(map_visits)
         .map_details
-          = user.full_name
+          %h3= user.team_name
+        %div{ id: "map_#{counter}" }= static_map_for(map_visits)
         .map_more
-          = link_to "more details...", visits_path(user: user)
+          %p= link_to I18n.t('.visit.all_maps.details'), visits_path(user: user)
         - counter += counter

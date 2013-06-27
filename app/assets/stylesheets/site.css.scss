@@ -257,6 +257,7 @@ footer {
 .about_section {
   margin-top: 1em;
 }
+
 // News
 .media {
   h1 {
@@ -287,6 +288,22 @@ footer {
 
   .btn {
     margin-top: 1em;
+  }
+}
+
+// Map
+.map {
+  background-color: #EEEEEE;
+  @include box-shadow;
+  @include round-corners;
+  padding: 10px;
+  margin: 10px;
+
+  .map_details, .map_more {
+    text-align: center;
+  }
+  .map_more {
+    margin-top: 10px;
   }
 }
 

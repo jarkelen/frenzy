@@ -116,7 +116,8 @@ nl:
     normal:           Normaal
     high:             Hoog
   visit:
-    visit_title:      Mijn Vinklijst
+    visit_title:      'Vinklijst van: %{team}'
+    my_visits_title:  Mijn vinklijst
     created:          Wedstrijdbezoek is aangemaakt
     updated:          Wedstrijdbezoek is gewijzigd
     deleted:          Wedstrijdbezoek is verwijderd
@@ -125,14 +126,15 @@ nl:
     list:             Lijst
     map:              Kaart
     details:
-      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal heb je %{number} wedstrijden bezocht.'
+      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal zijn %{number} wedstrijden bezocht.'
       back:           Terug naar overzicht
       match_details:  Wedstrijdbezoek details
       match:          Wedstrijd
       location:       Lokatie
     all_maps:
-      title:          Alle vinklijsten
-      intro:          'Dit overzicht toont de vinklijsten van al onze deelnemers, zodat je simpel kunt bekijken waar iedereen is geweest. Je kunt een opmerking toevoegen om b.v. meer info te vragen over een bepaald wedstrijdbezoek.'
+      title:          Vinklijsten
+      intro:          'Hier worden al onze vinklijsten getoond, zodat je simpel kunt bekijken waar iedereen is geweest. In totaal hebben we met ons allen tot nu toe %{total_matches} wedstrijden bij elkaar gevinkt!'
+      details:        Meer info
     form:
       visit_nr:       Bezoeknummer
       visit_date:     Bezoekdatum

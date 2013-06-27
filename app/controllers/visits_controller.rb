@@ -3,7 +3,11 @@ class VisitsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    visits = current_user.visits.all
+    if params[:user]
+      visits = User.find(params[:user]).visits.all
+    else
+      visits = current_user.visits.all
+    end
     @map_visits = visits.to_gmaps4rails
     @list_visits = visits#.paginate(page: params[:page])
   end
