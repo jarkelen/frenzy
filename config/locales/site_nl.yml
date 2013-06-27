@@ -126,18 +126,18 @@ nl:
   visit:
     visit_title:      'Vinklijst van: %{team}'
     my_visits_title:  Mijn vinklijst
-    created:          Wedstrijdbezoek is aangemaakt
-    updated:          Wedstrijdbezoek is gewijzigd
-    deleted:          Wedstrijdbezoek is verwijderd
-    new_visit:        Toevoegen wedstrijdbezoek
-    edit_visit:       Wijzigen wedstrijdbezoek
+    created:          Vink is aangemaakt
+    updated:          Vink is gewijzigd
+    deleted:          Vink is verwijderd
+    new_visit:        Toevoegen vink
+    edit_visit:       Wijzigen vink
     list:             Lijst
     map:              Kaart
-    no_visits_yet:    Nog geen wedstrijden bezocht?
+    no_visits_yet:    Nog geen wedstrijden gevinkt?
     details:
-      intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal zijn %{number} wedstrijden bezocht.'
+      intro:          'In dit overzicht worden alle gevinkte grounds in de UK en Ierland getoond. In totaal zijn %{number} vinks gezet.'
       back:           Terug naar overzicht
-      match_details:  Wedstrijdbezoek details
+      match_details:  Vinkdetails
       match:          Wedstrijd
       location:       Lokatie
     all_maps:
@@ -145,14 +145,14 @@ nl:
       intro:          'Hier worden al onze vinklijsten getoond, zodat je simpel kunt bekijken waar iedereen is geweest. In totaal hebben we met ons allen tot nu toe %{total_matches} wedstrijden bij elkaar gevinkt!'
       details:        Meer info
     form:
-      visit_nr:       Bezoeknummer
+      visit_nr:       Vinknummer
       visit_nr_short: Nr.
-      visit_date:     Bezoekdatum
+      visit_date:     Vinkdatum
       visit_date_short: Datum
       league:         Divisie
       home_club:      Thuisclub
       away_club:      Uitclub
-      ground:         Stadion
+      ground:         Ground
       street:         Straat
       country:        Land
       city:           Plaats
