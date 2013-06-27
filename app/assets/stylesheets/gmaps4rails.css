@@ -3,6 +3,8 @@ embed, object, iframe {
 }
 
 .map_container {
+  margin: 0;
+  padding: 0;
   border-width: 1px;
   border-style: solid;
   border-color: #ccc #ccc #999 #ccc;
@@ -14,40 +16,33 @@ embed, object, iframe {
 
 @media (max-width: 480px) {
   .map_container {
-    width: 400px;
+    height: 300px;
   }
   .gmaps4rails_map {
-    width: 400px;
     height: 300px;
   }
 }
 @media (min-width: 480px) and (max-width: 768px) {
   .map_container {
-    width: 400px;
-    height: 300px;
+    height: 400px;
   }
   .gmaps4rails_map {
-    width: 400px;
-    height: 300px;
+    height: 400px;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
   .map_container {
-    width: 500px;
-    height: 515px;
+    height: 500px;
   }
   .gmaps4rails_map {
-    width: 500px;
-    height: 515px;
+    height: 500px;
   }
 }
 @media (min-width: 979px) {
   .map_container {
-    height: 500px;
-    width: 515px;
+    height: 800px;
   }
   .gmaps4rails_map {
-    width: 515px;
-    height: 500px;
+    height: 800px;
   }
 }

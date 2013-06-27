@@ -125,6 +125,7 @@ nl:
     edit_visit:       Wijzigen wedstrijdbezoek
     list:             Lijst
     map:              Kaart
+    no_visits_yet:    Nog geen wedstrijden bezocht?
     details:
       intro:          'In dit overzicht worden alle wedstrijdbezoeken in de UK en Ierland getoond. In totaal zijn %{number} wedstrijden bezocht.'
       back:           Terug naar overzicht
@@ -137,11 +138,13 @@ nl:
       details:        Meer info
     form:
       visit_nr:       Bezoeknummer
+      visit_nr_short: Nr.
       visit_date:     Bezoekdatum
+      visit_date_short: Datum
       league:         Divisie
       home_club:      Thuisclub
       away_club:      Uitclub
-      ground:         Naam stadion
+      ground:         Stadion
       street:         Straat
       city:           Plaats
       result:         Resultaat

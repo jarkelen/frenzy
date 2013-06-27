@@ -200,6 +200,15 @@ footer {
   margin: 0 0 5px;
 }
 .club_details {
+  margin-top: 20px;
+
+  .title {
+    margin: 2em 0;
+    text-align: center;
+    font-size: 2em;
+    color: $title-color;
+    font-weight: bold;
+  }
   ul {
     list-style-type: none;
   }

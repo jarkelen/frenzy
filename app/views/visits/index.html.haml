@@ -6,7 +6,7 @@
       - else
         %h1= I18n.t('.visit.my_visits_title')
 
-    - if can? :create, Visit
+    - if can? :create, Visit and params[:user].blank?
       .action= link_to I18n.t('.new', default: I18n.t("helpers.links.new")), new_visit_path, class: 'btn'
 
 .row
@@ -15,24 +15,18 @@
 
 .row
   .span12
-    %ul#tabs.nav.nav-tabs
+    %ul#myTab.nav.nav-tabs
       %li.active
-        %a{:href => "#home"} Home
+        %a{"data-toggle" => "tab", href: "#mapTab"}= I18n.t('.visit.map')
       %li
-        %a{:href => "#profile"} Profile
-      %li
-        %a{:href => "#messages"} Messages
-      %li
-        %a{:href => "#settings"} Settings
-    .tab-content
-      #home.tab-pane.active test1
-      #profile.tab-pane test2
-      #messages.tab-pane test3
-      #settings.tab-pane test4
+        %a{"data-toggle" => "tab", :href => "#listTab"}= I18n.t('.visit.list')
+    #myTabContent.tab-content
+      #mapTab.tab-pane.fade.in.active
+        - if @map_visits.blank?
+          %p= I18n.t('.visit.map')
+        - else
+          = gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => @map_visits })
+      #listTab.tab-pane.fade
+        = render "visit_list"
 
-.row
-  .span6
-    = render "visit_list"
-  .span6
-    - unless @map_visits.blank?
-      = gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => @map_visits })
+
