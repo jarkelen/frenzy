@@ -17,6 +17,7 @@ nl:
     from:           van
     till:           tot
     details:        details
+    actions:         Akties
     countries:
       england:      Engeland
       scotland:     Schotland
