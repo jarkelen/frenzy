@@ -13,15 +13,15 @@
       - unless @list_visits.blank?
         - @list_visits.each do |visit|
           %tr
-            %td.center= "#{visit.visit_nr}."
-            %td= visit.season
-            %td.center= visit.visit_date.strftime("%d-%m-%Y")
-            %td= visit.ground
+            %td.center= visit.visit_nr.blank? ? "-" : "#{visit.visit_nr}."
+            %td= visit.season.blank? ? "-" : visit.season
+            %td.center= visit.visit_date.blank? ? "-" : visit.visit_date.strftime("%d-%m-%Y")
+            %td= visit.ground.blank? ? "-" : visit.ground
             %td
-              = visit.home_club
+              = visit.home_club.blank? ? "-" : visit.home_club
               v
-              = visit.away_club
-            %td= visit.result
+              = visit.away_club.blank? ? "-" : visit.away_club
+            %td= visit.result.blank? ? "-" : visit.result
             %td
               = link_to I18n.t('.general.details'), visit_path(visit), class: 'btn btn-mini'
   //= will_paginate @list_visits
