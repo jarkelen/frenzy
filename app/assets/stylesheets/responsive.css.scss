@@ -21,6 +21,7 @@
       margin: 0;
     }
   }
+
 }
 
 /* Landscape phone to portrait tablet */
@@ -43,6 +44,12 @@
   .profile {
     .profile_image {
       margin: 0;
+    }
+  }
+
+  .table {
+    .responsive_hide {
+      display: none;
     }
   }
 
