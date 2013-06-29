@@ -32,6 +32,7 @@ en:
     id:         ID
     registration:
       register: Aanmaken deelnemer
+      silent:   Sleepy players
     signin:     Login
     community:
       general:  Community

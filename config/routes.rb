@@ -10,7 +10,11 @@ Frenzy::Application.routes.draw do
   resources :newsitems do
     resources :comments
   end
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+    collection do
+      get :silent
+    end
+  end
   resources :visits do
     collection do
       get :all_maps
