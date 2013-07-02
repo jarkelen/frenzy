@@ -1,8 +1,9 @@
 .row
   .span12
     .page-header
-      %h1= "#{@total_users} #{I18n.t('.user.title')}"
+      %h1= I18n.t('.site.registration.silent')
 
 .row
   .span12
     = render "users"
+

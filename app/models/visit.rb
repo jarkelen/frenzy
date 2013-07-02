@@ -32,7 +32,7 @@ class Visit < ActiveRecord::Base
   attr_accessible :away_club, :city, :gate, :ground, :home_club, :kickoff, :latitude, :longitude, :gmaps, :league, :result,
                   :season, :street, :country, :user_id, :visit_date, :visit_nr
 
-  validates :city, :street, :country, :ground, :result, :visit_nr, presence: true
+  validates :city, :street, :country, :ground, :result, :visit_nr, :visit_date, presence: true
 
   def gmaps4rails_address
     "#{self.street}, #{self.city}, #{self.country}"

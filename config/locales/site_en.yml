@@ -17,6 +17,7 @@ en:
     from:           from
     till:           till
     details:        details
+    actions:         Actions
     countries:
       england:      England
       scotland:     Scotland
@@ -31,6 +32,7 @@ en:
     id:         ID
     registration:
       register: Aanmaken deelnemer
+      silent:   Sleepy players
     signin:     Login
     community:
       general:  Community

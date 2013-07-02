@@ -17,6 +17,7 @@ nl:
     from:           van
     till:           tot
     details:        details
+    actions:         Akties
     countries:
       england:      Engeland
       scotland:     Schotland
@@ -31,6 +32,7 @@ nl:
     id:         ID
     registration:
       new_user: Nieuwe deelnemer
+      silent:   Slapende deelnemers
     signin:     Inloggen
     community:
       general:  Community

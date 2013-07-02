@@ -35,4 +35,8 @@ class UsersController < Clearance::UsersController
 
     redirect_to users_path, notice: "User #{I18n.t('.destroyed.success')}"
   end
+
+  def silent
+    @users = User.where("team_name = 'Temp'").order('base_nr ASC').paginate(page: params[:page])
+  end
 end

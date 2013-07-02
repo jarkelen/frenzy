@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   include Clearance::User
 
   has_many  :newsitems
-  has_many  :players
+  has_many  :players, dependent: :destroy
   has_many  :games, through: :players
-  has_many  :visits
+  has_many  :visits, dependent: :destroy
 
   attr_accessor :random_nr
 

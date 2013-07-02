@@ -2,27 +2,27 @@
   %table.table.table-striped
     %thead
       %tr
-        %th.center= I18n.t('.visit.form.visit_nr_short')
-        %th.center= I18n.t('.visit.form.season')
-        %th.center= I18n.t('.visit.form.visit_date')
-        %th= I18n.t('.visit.form.ground')
+        %th= I18n.t('.visit.form.visit_nr_short')
+        %th.responsive_hide= I18n.t('.visit.form.season')
+        %th= I18n.t('.visit.form.visit_date')
+        %th.responsive_hide= I18n.t('.visit.form.ground')
         %th= I18n.t('.visit.details.match')
-        %th= I18n.t('.visit.form.result')
+        %th.responsive_hide= I18n.t('.visit.form.result')
         %th
     %tbody
       - unless @list_visits.blank?
         - @list_visits.each do |visit|
           %tr
-            %td.center= "#{visit.visit_nr}."
-            %td= visit.season
-            %td.center= visit.visit_date.strftime("%d-%m-%Y")
-            %td= visit.ground
-            %td
-              = visit.home_club
+            = show_table_column(I18n.t('.visit.form.visit_nr_short'), visit.visit_nr)
+            = show_table_column(I18n.t('.visit.form.season'), visit.season, true)
+            = show_table_column(I18n.t('.visit.form.visit_date'), visit.visit_date, true)
+            %td.responsive_hide{ "data-title" => "#{I18n.t('.visit.form.ground')}" }= visit.ground.blank? ? "-" : visit.ground
+            %td{ "data-title" => "#{I18n.t('.visit.details.match')}" }
+              = visit.home_club.blank? ? "-" : visit.home_club
               v
-              = visit.away_club
-            %td= visit.result
-            %td
+              = visit.away_club.blank? ? "-" : visit.away_club
+            %td.responsive_hide{ "data-title" => "#{I18n.t('.visit.form.result')}" }= visit.result.blank? ? "-" : visit.result
+            %td{ "data-title" => "#{I18n.t('.general.actions')}" }
               = link_to I18n.t('.general.details'), visit_path(visit), class: 'btn btn-mini'
   //= will_paginate @list_visits
 

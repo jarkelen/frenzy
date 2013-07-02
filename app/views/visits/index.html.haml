@@ -17,16 +17,16 @@
   .span12
     %ul#myTab.nav.nav-tabs
       %li.active
-        %a{"data-toggle" => "tab", href: "#mapTab"}= I18n.t('.visit.map')
-      %li
         %a{"data-toggle" => "tab", :href => "#listTab"}= I18n.t('.visit.list')
+      %li
+        %a{"data-toggle" => "tab", href: "#mapTab"}= I18n.t('.visit.map')
     #myTabContent.tab-content
-      #mapTab.tab-pane.fade.in.active
+      #listTab.tab-pane.fade.in.active
+        = render "visit_list"
+      #mapTab.tab-pane.fade
         - if @map_visits.blank?
           %p= I18n.t('.visit.map')
         - else
           = gmaps("map_options" => {"zoom" => 6}, "markers" => { "data" => @map_visits })
-      #listTab.tab-pane.fade
-        = render "visit_list"
 
 

@@ -26,4 +26,14 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: user.full_name, width: width, height: height)
   end
 
+  def show_table_column(label, value, hide_when_responsive=false)
+    value = value.blank? ? "-" : "#{value}."
+
+    if hide_when_responsive
+      "<td class='center responsive_hide' data-title='#{label}'>#{value}</td>".html_safe
+    else
+      "<td class='center' data-title='#{label}'>#{value}</td>".html_safe
+    end
+  end
+
 end
