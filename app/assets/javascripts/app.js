@@ -1,18 +1,18 @@
 //$(document).ready(function(){
-  $('#partial_button').click(function(){
-    alert("Bla");
-      $('#partial_form').show();
-      $('#partial_button').hide();
+
+  $(document).on('click', '#partial_button', function(e) {
+    $('#partial_form').show();
+    $('#partial_button').hide();
+    clubs = $('#club_id').html();
+    $('#club_id').empty();
   });
 
-  $('#partial_cancel').click(function(){
+  $(document).on('click', '#partial_cancel', function(e) {
       $('#partial_form').hide();
       $('#partial_button').show();
   });
 
-  clubs = $('#club_id').html();
-  $('#club_id').empty();
-  $('#league_id').change(function() {
+  $(document).on('change', '#league_id', function(e) {
     league = $('#league_id :selected').text();
     options = $(clubs).filter("optgroup[label='" + league + "']").html();
     if (options){
@@ -28,4 +28,3 @@
   });
 
 //});
-
