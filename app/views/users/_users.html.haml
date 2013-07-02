@@ -5,7 +5,7 @@
       %th= I18n.t('.user.team_name')
       %th= I18n.t('.user.full_name')
       %th= I18n.t('.user.created_at')
-      - if can? :detroy, User
+      - if can? :destroy, User
         %th=t '.actions', default: I18n.t("helpers.actions")
   %tbody
     - @users.each do |user|

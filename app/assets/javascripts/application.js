@@ -4,7 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
+//= require jquery.min.js
 //= require jquery_ujs
 //= require bootstrap.min.js
 //= require raphael.min.js
@@ -12,9 +12,4 @@
 //= require graphs.js.coffee
 //= require gmaps4rails.base.js.coffee
 //= require gmaps4rails.googlemaps.js.coffee
-//= require angular/angular
-//= require angular/angular-resource
-//= require angular/base
-//= require angular/controllers/frenzy_ctrl
 //= require app.js
-

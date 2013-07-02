@@ -1,6 +1,6 @@
-$(document).ready(function(){
-
+//$(document).ready(function(){
   $('#partial_button').click(function(){
+    alert("Bla");
       $('#partial_form').show();
       $('#partial_button').hide();
   });
@@ -27,5 +27,5 @@ $(document).ready(function(){
     google.maps.event.trigger(map, 'resize');
   });
 
-});
+//});
 
