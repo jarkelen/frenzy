@@ -38,7 +38,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.0.0.RC1'
   gem 'quiet_assets'
   gem 'rails-erd'
   gem 'annotate', ">=2.5.0"

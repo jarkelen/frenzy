@@ -48,6 +48,7 @@ class Player < ActiveRecord::Base
   # still has points left and if he doesn't exceed the max number of clubs allowed.
   def participation_restricted?(team_size, team_value)
     settings = Setting.first
+
     return true unless team_size.to_i < settings.max_teamsize.to_i
     return true unless team_value.to_i < settings.max_teamvalue.to_i
 

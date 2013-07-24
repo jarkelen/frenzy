@@ -75,7 +75,6 @@ describe "Newsitems" do
         page.should have_content(@news1.title_nl)
         page.should have_content(@news2.title_nl)
         page.should have_content(@news1.summary_nl)
-        page.should have_content(I18n.t('.new', default: I18n.t("helpers.links.new")))
       end
 
       it "should see newsitems on newsitems page" do
@@ -103,13 +102,6 @@ describe "Newsitems" do
         page.should have_content(@news1.content_nl)
         page.should have_content(@news1.created_at.strftime('%d-%m-%Y'))
         page.should have_content(@news1.user.full_name)
-      end
-
-      it "should see the comments" do
-        page.should have_content("#{I18n.t('.news.comments')} (2)")
-        page.should have_content(@comment1.content)
-        page.should have_content(@comment2.content)
-        page.should have_content(@comment2.created_at.strftime('%d-%m-%Y'))
       end
     end
 

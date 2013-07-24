@@ -24,9 +24,10 @@ describe "Leagues" do
   end
 
   context "admin users" do
+    let!(:admin) { create(:user, role: "admin") }
+
     before(:each) do
-      @admin = create_user('admin')
-      sign_in_as(@admin)
+      sign_in_as(admin)
     end
 
     describe "index" do

@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe "Participation" do
+  before :all do
+    init_settings
+  end
+
   context "unregistered visitors" do
     it "should not allow access to my team page" do
       visit selections_path
@@ -19,10 +23,6 @@ describe "Participation" do
   end
 
   context "regular users" do
-    before :all do
-      init_settings
-    end
-
     before(:each) do
       sign_in_as(@user)
     end
@@ -78,9 +78,9 @@ describe "Participation" do
     context "participation closed, existing user" do
       it "should not be possible to add/edit the team" do
         FactoryGirl.create :game, name: "Clubs Frenzy"
-        @setting = FactoryGirl.create :setting, participation: true
+        @setting = FactoryGirl.create :setting, participation: false
         @user = FactoryGirl.create :user
-        @setting.update_attributes(participation: false)
+        #@setting.update_attributes(participation: false)
         sign_in_as(@user)
 
         visit selections_path

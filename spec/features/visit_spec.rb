@@ -19,9 +19,9 @@ describe "Visits" do
 
     describe "all maps" do
       let!(:user2)  { create(:user) }
-      let!(:visit1) { create(:visit, user: @user, :home_club "Arsenal") }
-      let!(:visit2) { create(:visit, user: @user, :home_club "Chelsea") }
-      let!(:visit3) { create(:visit, user: user2, :home_club "Fulham") }
+      let!(:visit1) { create(:visit, user: @user, home_club: "Arsenal") }
+      let!(:visit2) { create(:visit, user: @user, home_club: "Chelsea") }
+      let!(:visit3) { create(:visit, user: user2, home_club: "Fulham") }
 
       it "should show all visits of all users" do
         visit all_maps_visits_path
@@ -31,9 +31,9 @@ describe "Visits" do
 
     describe "own visits" do
       let!(:user2)  { create(:user) }
-      let!(:visit1) { create(:visit, user: @user, :home_club "Arsenal") }
-      let!(:visit2) { create(:visit, user: @user, :home_club "Chelsea") }
-      let!(:visit3) { create(:visit, user: user2, :home_club "Fulham") }
+      let!(:visit1) { create(:visit, user: @user, home_club: "Arsenal") }
+      let!(:visit2) { create(:visit, user: @user, home_club: "Chelsea") }
+      let!(:visit3) { create(:visit, user: user2, home_club: "Fulham") }
 
       it "should show an overview of all my visits" do
         visit visits_path
@@ -46,22 +46,22 @@ describe "Visits" do
     describe "create" do
       it "should be possible to add a visit" do
         visit visits_path
-        click_button "Toevoegen"
+        click_link "Toevoegen"
 
-        fill_in "visit_nr", with: "2"
+        fill_in "visit_visit_nr", with: "2"
         select "1", from: "visit_date_3i"
         select "januari", from: "visit_date_2i"
         select "2012", from: "visit_date_1i"
-        fill_in "league", with: "Premier League"
-        fill_in "home_club", with: "Arsenal"
-        fill_in "away_club", with: "Chelsea"
-        fill_in "season", with: "2012-2013"
-        fill_in "result", with: "1-1"
-        fill_in "kickoff", with: "15:00"
-        fill_in "gate", with: "46372"
-        fill_in "ground", with: "Emirates"
-        fill_in "street", with: "Floyd Road"
-        fill_in "city", with: "London"
+        fill_in "visit_league", with: "Premier League"
+        fill_in "visit_home_club", with: "Arsenal"
+        fill_in "visit_away_club", with: "Chelsea"
+        fill_in "visit_season", with: "2012-2013"
+        fill_in "visit_result", with: "1-1"
+        fill_in "visit_kickoff", with: "15:00"
+        fill_in "visit_gate", with: "46372"
+        fill_in "visit_ground", with: "Emirates"
+        fill_in "visit_street", with: "Floyd Road"
+        fill_in "visit_city", with: "London"
         click_button "Opslaan"
 
         page.should have_content(I18n.t('.visit.created'))
