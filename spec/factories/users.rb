@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :email do |n|
-    "user#{n}#{n}#{n}#{n}#{n}#{n}@factory#{n}#{n}.com"
+    "user#{rand(1000).to_s}@factory#{rand(1000).to_s}.com"
   end
 
   factory :user do
