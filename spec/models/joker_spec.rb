@@ -14,6 +14,16 @@
 require 'spec_helper'
 
 describe Joker do
+  let!(:setting) { create(:setting, current_period: 1) }
+  let!(:game)    { create :game, name: "Clubs Frenzy" }
+  let!(:gameround) { create :gameround }
+  let!(:club1)     { create :club }
+  let!(:club2)     { create :club }
+  let!(:club3)     { create :club }
+  let!(:club4)     { create :club }
+  let!(:player)    { create(:player, team_value: 125) }
+  let!(:joker)     { create(:joker, player: player, club: club4, gameround: gameround) }
+
   it { should validate_presence_of :gameround_id }
   it { should validate_presence_of :player_id    }
   it { should validate_presence_of :club_id      }
@@ -22,56 +32,38 @@ describe Joker do
   it { should belong_to(:club)      }
 
   describe ".validate_jokers" do
-    before :each do
-      @gameround  = FactoryGirl.create(:gameround)
-      @club1      = FactoryGirl.create(:club)
-      @club2      = FactoryGirl.create(:club)
-      @club3      = FactoryGirl.create(:club)
+    it "succeeds with valid parameters" do
+      Joker.validate_jokers(gameround, club1, club2, club3).should be_true
     end
 
-    it "should be successful with valid parameters" do
-      Joker.validate_jokers(@gameround, @club1, @club2, @club3).should be_true
+    it "fails when a gameround is not included" do
+      Joker.validate_jokers(nil, club1, club2, club3).should be_false
     end
 
-    it "should include a gameround" do
-      Joker.validate_jokers(nil, @club1, @club2, @club3).should be_false
+    it "fails when first 2 clubs are equal" do
+      Joker.validate_jokers(gameround, club1, club1, club3).should be_false
     end
 
-    it "should fail when first 2 clubs are equal" do
-      Joker.validate_jokers(@gameround, @club1, @club1, @club3).should be_false
+    it "fails when last 2 clubs are equal" do
+      Joker.validate_jokers(gameround, club1, club2, club2).should be_false
     end
 
-    it "should fail when last 2 clubs are equal" do
-      Joker.validate_jokers(@gameround, @club1, @club2, @club2).should be_false
+    it "fails when first and last clubs are equal" do
+      Joker.validate_jokers(gameround, club1, club2, club1).should be_false
     end
 
-    it "should fail when first and last clubs are equal" do
-      Joker.validate_jokers(@gameround, @club1, @club2, @club1).should be_false
-    end
-
-    it "should fail when joker already exists" do
-      FactoryGirl.create :setting
-      @player = FactoryGirl.create(:player)
-      FactoryGirl.create(:joker, player: @player, club: @club1, gameround: @gameround)
-      Joker.validate_jokers(@gameround, @club1, nil, nil).should be_false
+    it "fails when joker already exists" do
+      Joker.validate_jokers(gameround, club4, nil, nil).should be_false
     end
   end
 
   describe ".joker_found" do
-    before :each do
-      FactoryGirl.create :setting
-      @gameround  = FactoryGirl.create(:gameround)
-      @club       = FactoryGirl.create(:club)
+    it "returns true when joker not already exists" do
+      Joker.joker_found(gameround, club2).should be_false
     end
 
-    it "should return true when joker not already exists" do
-      Joker.joker_found(@gameround, @club).should be_false
-    end
-
-    it "should return false when joker already exists" do
-      @player = FactoryGirl.create(:player)
-      FactoryGirl.create(:joker, player: @player, club: @club, gameround: @gameround)
-      Joker.joker_found(@gameround, @club).should be_true
+    it "returns false when joker already exists" do
+      Joker.joker_found(gameround, club4).should be_true
     end
   end
 end
