@@ -23,8 +23,10 @@ describe Ranking do
   describe "calculate_ranking" do
     let!(:setting)                { create(:setting) }
     let!(:period)                 { create_list(:period, 4) }
-    let!(:player_top)             { create(:player) }
-    let!(:player_bottom)          { create(:player) }
+    let!(:user)                   { create(:user) }
+    let!(:game)                   { create(:game) }
+    let!(:player_top)             { create(:player, user: user, game: game) }
+    let!(:player_bottom)          { create(:player, user: user, game: game) }
     let!(:gameround1)             { create(:gameround) }
     let!(:gameround2)             { create(:gameround) }
     let!(:player_top_ranking1)    { create(:ranking, player: player_top, gameround: gameround1, total_score: 10) }
@@ -32,7 +34,7 @@ describe Ranking do
     let!(:player_bottom_ranking1) { create(:ranking, player: player_bottom, gameround: gameround1, total_score: 2) }
     let!(:player_bottom_ranking2) { create(:ranking, player: player_bottom, gameround: gameround2, total_score: 6) }
 
-    xit "should rank highest user as first" do
+    it "should rank highest user as first" do
       Ranking.calculate_ranking('general').should =~ [[player_top, 15], [player_bottom, 8]]
     end
   end

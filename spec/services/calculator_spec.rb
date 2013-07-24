@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Calculator do
   let!(:setting) { create :setting }
+  let!(:game)    { create :game, name: "Clubs Frenzy" }
 
   before :each do
     @calculator = Calculator.new
@@ -40,7 +41,7 @@ describe Calculator do
     let!(:home_club)  { create :club }
     let!(:away_club)  { create :club }
 
-    xit "should cancel joker of cancelled gameround" do
+    it "should cancel joker of cancelled gameround" do
       expect {
         line = Hash.new
         line[:home_club_id] = home_club.id

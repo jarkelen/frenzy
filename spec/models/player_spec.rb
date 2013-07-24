@@ -33,6 +33,7 @@ describe Player do
     let!(:setting_2) { create(:setting, current_period: 2, max_jokers: 40) }
     let!(:setting_3) { create(:setting, current_period: 3, max_jokers: 40) }
     let!(:setting_4) { create(:setting, current_period: 4, max_jokers: 40) }
+    let!(:game)      { create :game, name: "Clubs Frenzy" }
     let!(:player)    { create(:player) }
 
     it "should be assigned 40 jokers" do
