@@ -14,7 +14,7 @@ class Calculator
 
       # Calculate away score
       score = calculate_club_score('away', result, gameround_id)
-      Score.create(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
+      Score.create(gameround_id: gameround_id, club_id: result.away_club_id, score: score)
     end
 
     # Calculate player scores
@@ -68,7 +68,7 @@ class Calculator
       elsif type == "period"
         settings = Setting.first
         period_gamerounds = Gameround.where(period_id: settings.current_period).pluck(:id)
-        rankings = player.rankings.where(id: period_gamerounds)
+        rankings = player.rankings.where(gameround_id: period_gamerounds)
       end
 
       rankings.each do |ranking|
