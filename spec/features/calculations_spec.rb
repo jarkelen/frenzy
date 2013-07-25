@@ -60,8 +60,10 @@ describe "Frenzy calculations" do
 
     it "should show all jokers for active gameround" do
       visit jokers_path
+      save_and_open_page
       page.should have_content(club1.club_name)
       page.should have_content(club2.club_name)
+      page.should have_content(club3.club_name)
     end
 
     it "should show used joker count" do
