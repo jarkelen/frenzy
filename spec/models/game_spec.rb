@@ -11,19 +11,19 @@
 require 'spec_helper'
 
 describe Game do
-  it { should validate_presence_of :name }
-  it { should have_many(:players) }
 
   describe "default_game" do
     let!(:game) { create :game, name: "Clubs Frenzy" }
     let!(:game2){ create :game, name: "Toto" }
 
     it "returns clubs frenzy as default game" do
-      Game.default_game.should == game
+      subject = Game.default_game
+      subject.should == game
     end
 
     it "returns toto not as default game" do
-      Game.default_game.should_not == game2
+      subject = Game.default_game
+      subject.should_not == game2
     end
 
   end

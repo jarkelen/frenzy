@@ -8,14 +8,20 @@ class Calculator
     # Calculate club scores
     results = Result.where(gameround_id: gameround_id)
     results.each do |result|
-      calculate_score('home', result, gameround_id)
-      calculate_score('away', result, gameround_id)
+      # Calculate home score
+      score = calculate_club_score('home', result, gameround_id)
+      Score.create(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
+
+      # Calculate away score
+      score = calculate_club_score('away', result, gameround_id)
+      Score.create(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
     end
 
-    # Calculate user rankings
-    users = User.all
-    users.each do |user|
-      calculate_ranking(user, gameround_id)
+    # Calculate player scores
+    players = Player.all
+    players.each do |player|
+      total_score = calculate_player_score(player, gameround_id)
+      Ranking.create(gameround_id: gameround_id, player_id: player.id, total_score: total_score)
     end
 
     gameround = Gameround.find(gameround_id)
@@ -50,71 +56,90 @@ class Calculator
     setting.update_attributes(current_period: new_period)
   end
 
-  private
-    def calculate_ranking(user, gameround_id)
-      total_score = 0
+  def calculate_total_ranking(type)
+    found_rankings = []
+    game = Game.default_game
+    players = Player.where(game_id: game.id)
+    players.each do |player|
+      player_score = 0
 
-      # Calculate total score
-      user.clubs.each do |club|
-        club_score = 0
-
-        # Get club scores and joker
-        club_scores = club.scores.where(gameround_id: gameround_id)
-        club_scores.each do |score|
-          club_score += score.score
-          club_score += double_score_with_joker(club_score, gameround_id, club.id, user.id)
-        end
-        total_score += club_score
+      if type == "general"
+        rankings = player.rankings
+      elsif type == "period"
+        settings = Setting.first
+        period_gamerounds = Gameround.where(period_id: settings.current_period).pluck(:id)
+        rankings = player.rankings.where(id: period_gamerounds)
       end
 
-      Ranking.find_or_create_by_gameround_id_and_user_id(gameround_id: gameround_id, user_id: user.id, total_score: total_score)
+      rankings.each do |ranking|
+        player_score += ranking.total_score
+      end
+      found_rankings << [player, player_score]
+    end
+    found_rankings.sort {|a,b| b[1] <=> a[1]}
+  end
+
+  def calculate_player_score(player, gameround_id)
+    total_score = 0
+
+    # Calculate total score
+    player.clubs.each do |club|
+      club_score = 0
+
+      # Get club scores and joker
+      club_scores = club.scores.where(gameround_id: gameround_id)
+      club_scores.each do |score|
+        club_score += score.score
+        club_score += double_score_with_joker(club_score, gameround_id, club.id, player.id)
+      end
+      total_score += club_score
+    end
+    total_score
+  end
+
+  def double_score_with_joker(club_score, gameround_id, club_id, player_id)
+    joker = Joker.where(gameround_id: gameround_id, club_id: club_id, player_id: player_id)
+    if joker.blank?
+      0
+    else
+      club_score
+    end
+  end
+
+  def calculate_club_score(score_type, result, gameround_id)
+    score = 0
+
+    # Home club
+    if score_type == 'home'
+      # Points for win
+      score += 3 if result.home_score > result.away_score
+
+      # Points for draw
+      score += 1 if result.home_score == result.away_score
+
+      # Points for own goals
+      score += result.home_score
+
+      # Points drawn for opponent goals
+      score -= result.away_score
     end
 
-    def double_score_with_joker(club_score, gameround_id, club_id, user_id)
-      joker = Joker.where(gameround_id: gameround_id, club_id: club_id, user_id: user_id)
-      if joker.blank?
-        0
-      else
-        club_score * 2
-      end
+    # Away club
+    if score_type == 'away'
+      # Points for win
+      score += 3 if result.away_score > result.home_score
+
+      # Points for draw
+      score += 1 if result.home_score == result.away_score
+
+      # Points for own goals
+      score += (result.away_score * 2)
+
+      # Points drawn for opponent goals
+      score -= result.home_score
     end
-
-    def calculate_score(score_type, result, gameround_id)
-      score = 0
-
-      # Home club
-      if score_type == 'home'
-        # Points for win
-        score += 3 if result.home_score > result.away_score
-
-        # Points for draw
-        score += 1 if result.home_score == result.away_score
-
-        # Points for own goals
-        score += result.home_score
-
-        # Points drawn for opponent goals
-        score -= result.away_score
-        Score.find_or_create_by_gameround_id_and_club_id(gameround_id: gameround_id, club_id: result.home_club_id, score: score)
-      end
-
-      # Away club
-      if score_type == 'away'
-        # Points for win
-        score += 3 if result.away_score > result.home_score
-
-        # Points for draw
-        score += 1 if result.home_score == result.away_score
-
-        # Points for own goals
-        score += (result.away_score * 2)
-
-        # Points drawn for opponent goals
-        score -= result.home_score
-
-        Score.find_or_create_by_gameround_id_and_club_id(gameround_id: gameround_id, club_id: result.away_club_id, score: score)
-      end
-    end
+    score
+  end
 
 end
 

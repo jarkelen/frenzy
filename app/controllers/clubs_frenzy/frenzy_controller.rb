@@ -11,8 +11,7 @@ class FrenzyController < ApplicationController
   def process_gameround
     return unless params[:gameround_id]
 
-    calculator = Calculator.new
-    calculator.process_gameround(params[:gameround_id])
+    Calculator.new.process_gameround(params[:gameround_id])
 
     redirect_to frenzy_index_path, notice: t('.frenzy.message_calculated')
   end
