@@ -4,15 +4,27 @@
       %th= I18n.t('.user.base_nr')
       %th= I18n.t('.user.team_name')
       %th= I18n.t('.user.full_name')
+      %th= I18n.t('.user.cups')
+      %th= I18n.t('.user.medals')
+      %th= I18n.t('.user.rosettes')
       %th= I18n.t('.user.created_at')
       - if can? :destroy, User
         %th=t '.actions', default: I18n.t("helpers.actions")
-  %tbody
+  %tbody#users
     - @users.each do |user|
       %tr
         %td{ "data-title" => "#{I18n.t('.user.base_nr')}" }= "#{user.base_nr}."
         %td{ "data-title" => "#{I18n.t('.user.team_name')}" }= link_to user.team_name, user_path(user)
         %td{ "data-title" => "#{I18n.t('.user.full_name')}" }= user.full_name
+        %td{ "data-title" => "#{I18n.t('.user.cups')}" }
+          .cup= image_tag("cup.png")
+          .occurance= user.get_prizes("cup")
+        %td{ "data-title" => "#{I18n.t('.user.medals')}" }
+          .cup= image_tag("medal.png")
+          .occurance= user.get_prizes("medal")
+        %td{ "data-title" => "#{I18n.t('.user.rosettes')}" }
+          .cup= image_tag("roset.png")
+          .occurance= user.get_prizes("rosette")
         %td{ "data-title" => "#{I18n.t('.user.created_at')}" }= user.created_at.strftime('%d-%m-%Y')
         - if can? :destroy, User
           %td{ "data-title" => "#{I18n.t('.general.actions')}" }

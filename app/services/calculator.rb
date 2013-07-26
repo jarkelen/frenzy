@@ -24,6 +24,13 @@ class Calculator
       Ranking.create(gameround_id: gameround_id, player_id: player.id, total_score: total_score)
     end
 
+    # Assign a rosette to gameround winner
+    highest_ranking = Ranking.where(gameround_id: gameround_id).order("total_score").last
+    winner = highest_ranking.player
+    rosettes = winner.rosettes + 1
+    winner.update_attributes(rosettes: rosettes)
+
+    # Set gameround to processed
     gameround = Gameround.find(gameround_id)
     gameround.update_attributes(processed: true)
   end

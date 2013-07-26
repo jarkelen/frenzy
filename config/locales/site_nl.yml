@@ -84,6 +84,9 @@ nl:
     location:         Lokatie
     website:          Website
     photo:            Profiel foto
+    cups:             Cups
+    medals:           Medals
+    rosettes:         Rosettes
     photo_explanation: Waarom een Gravatar?
     photo_long:       Beheer jouw profiel foto
     lives_in:         Woont in

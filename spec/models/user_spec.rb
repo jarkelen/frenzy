@@ -106,6 +106,23 @@ describe User do
       end
     end
 
+    describe "get_prizes" do
+      let!(:player1) { create(:player, cups: 0, medals: 1, rosettes: 3, user: user) }
+      let!(:player2) { create(:player, cups: 1, medals: 3, rosettes: 7, user: user) }
+
+      it "gets all cups" do
+        user.get_prizes("cup").should == 1
+      end
+
+      it "gets all medals" do
+        user.get_prizes("medal").should == 4
+      end
+
+      it "gets all rosettes" do
+        user.get_prizes("rosette").should == 10
+      end
+    end
+
     describe "assign_base_nr" do
       let!(:user2)   { create :user }
 
