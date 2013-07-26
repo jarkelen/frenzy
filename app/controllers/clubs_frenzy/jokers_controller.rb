@@ -25,6 +25,6 @@ class JokersController < ApplicationController
     @joker = Joker.find(params[:id])
     @joker.destroy
 
-    redirect_to jokers_url
+    redirect_to jokers_path
   end
 end

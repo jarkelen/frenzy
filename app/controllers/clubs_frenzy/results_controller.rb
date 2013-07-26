@@ -8,7 +8,9 @@ class ResultsController < ApplicationController
       @results = Result.where(gameround_id: params[:gameround]).paginate(page: params[:page])
     else
       @current_gameround = Gameround.where(processed: true).order("id DESC").first
-      unless @current_gameround.blank?
+      if @current_gameround.blank?
+        @results = Result.order("home_club_id").paginate(page: params[:page])
+      else
         @results = Result.where(gameround_id: @current_gameround.id).order("home_club_id").paginate(page: params[:page])
       end
     end
@@ -30,6 +32,7 @@ class ResultsController < ApplicationController
 
   def store_all
     params[:line].each do |counter, line|
+      puts "HUH #{line}"
       unless line[:home_club_id].blank?
         Result.create(line.merge(gameround_id: params[:gameround_id]))
       end

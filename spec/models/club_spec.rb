@@ -29,48 +29,58 @@ describe Club do
   it { should have_many(:jokers) }
   it { should belong_to(:league) }
 
-  describe ".selectable" do
-    let!(:setting) { create(:setting) }
-    let!(:periods) { create_list(:period, 4) }
-    let!(:player1) { create(:player, team_value: 125) }
-    let!(:player2) { create(:player, team_value: 125) }
+  describe "scopes" do
+    let!(:setting) { create(:setting, current_period: 1) }
+    let!(:game)    { create :game, name: "Clubs Frenzy" }
     let!(:league)  { create(:league) }
-    let!(:club1)   { create(:club, club_name: "Arsenal", league: league, period1: 10) }
-    let!(:club2)   { create(:club, club_name: "Everton", league: league, period1: 25) }
-    let!(:club3)   { create(:club, club_name: "Fulham", league: league, period1: 15) }
+    let!(:periods) { create_list(:period, 4) }
+    let!(:player)  { create(:player, team_value: 125) }
+    let!(:club1)    { create(:club, club_name: "Arsenal", league: league, period1: 25) }
+    let!(:club2)    { create(:club, club_name: "Everton", league: league, period1: 10) }
 
-    describe "available teamvalue" do
-      let!(:selection) { create(:selection, club: club1, player: player1) }
+    describe "own" do
+      let!(:selection){ create(:selection, club: club1, player: player) }
 
-      xit "should include clubs with lower value than remaining teamvalue" do
-        Club.selectable(player1, 95).should include(club1, club2, club3)
+      it "adds selected club to scope" do
+        Club.own(player).should include(club1)
       end
 
-      xit "should include clubs with the same value than remaining teamvalue" do
-        Club.selectable(player1, 115).should include(club1)
-        Club.selectable(player1, 115).should_not include(club2, club3)
-      end
-
-      xit "should not include clubs with higher value than remaining teamvalue" do
-        Club.selectable(player1, 112).should include(club1)
-        Club.selectable(player1, 112).should_not include(club2, club3)
+      it "omits not selected club from scope" do
+        Club.own(player).should_not include(club2)
       end
     end
 
-    describe "duplicate clubs" do
-      let!(:selection) { create(:selection, club: club1, player: player1) }
-      let!(:selection) { create(:selection, club: club2, player: player2) }
+    describe "selectable" do
+      let!(:player2) { create(:player, team_value: 125) }
+      let!(:club3)   { create(:club, club_name: "Fulham", league: league, period1: 15) }
 
-      xit "should show not yet selected clubs" do
-        Club.selectable(player1, 50).should include(club2, club3)
+      describe "available teamvalue" do
+        let!(:selection) { create(:selection, club: club1, player: player) }
+
+        it "should include clubs with lower value than remaining teamvalue" do
+          Club.selectable(player, 95).should include(club2, club3)
+        end
+
+        it "should include clubs with the same value than remaining teamvalue" do
+          Club.selectable(player, 115).should include(club2)
+          Club.selectable(player, 115).should_not include(club1, club3)
+        end
+
+        it "should not include clubs with higher value than remaining teamvalue" do
+          Club.selectable(player, 112).should include(club2)
+          Club.selectable(player, 112).should_not include(club1, club3)
+        end
       end
 
-      xit "should not show already selected clubs" do
-        Club.selectable(player1, 50).should_not include(club1)
-      end
+      describe "duplicate clubs" do
+        let!(:player2) { create(:player, team_value: 125) }
+        let!(:selection) { create(:selection, club: club2, player: player) }
+        let!(:selection) { create(:selection, club: club3, player: player2) }
 
-      xit "should show already selected clubs by other user" do
-        Club.selectable(player1, 50).should include(club2)
+        it "should not show already selected clubs" do
+          Club.selectable(player, 50).should_not include(club2)
+        end
+
       end
     end
   end

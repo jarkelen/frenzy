@@ -191,6 +191,16 @@ footer {
     background-color: red;
     color: #FFFFFF;
   }
+  #users {
+    .cup {
+      float:left;
+    }
+    .occurance {
+      float: left;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+  }
 }
 .center {
   text-align: center;

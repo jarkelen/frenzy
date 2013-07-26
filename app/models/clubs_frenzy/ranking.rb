@@ -20,26 +20,4 @@ class Ranking < ActiveRecord::Base
 
   scope :current_gameround, where(gameround_id: Gameround.processed.last).order('total_score DESC')
 
-  def self.calculate_ranking(type)
-    found_rankings = []
-    players = Player.all
-    players.each do |player|
-      player_score = 0
-
-      if type == "general"
-        rankings = player.rankings
-      else
-        settings = Setting.first
-        period_gamerounds = Gameround.where(period_id: settings.current_period)
-        rankings = player.rankings.find_all_by_gameround_id(period_gamerounds)
-      end
-
-      rankings.each do |ranking|
-        player_score += ranking.total_score
-      end
-      found_rankings << [player, player_score]
-    end
-    found_rankings.sort {|a,b| b[1] <=> a[1]}
-  end
-
 end

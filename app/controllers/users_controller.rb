@@ -4,7 +4,7 @@ class UsersController < Clearance::UsersController
 
   def index
     @total_users = User.all.size
-    @users = User.where("team_name != 'Temp'").order("created_at DESC").paginate(page: params[:page])
+    @users = User.joins(:players).where("team_name != 'Temp'").order("players.cups DESC, players.medals DESC, players.rosettes DESC, created_at DESC").paginate(page: params[:page])
   end
 
   def show

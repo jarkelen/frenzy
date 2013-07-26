@@ -30,9 +30,6 @@
 require 'spec_helper'
 
 describe User do
-  it { should validate_presence_of :first_name }
-  it { should validate_presence_of :last_name  }
-  it { should validate_presence_of :team_name  }
   it { should validate_presence_of :role       }
   it { should validate_presence_of :email      }
   it { should validate_presence_of :language   }
@@ -42,29 +39,30 @@ describe User do
   it { should have_many(:games).through(:players) }
 
   describe "validations" do
-    before do
-      @user = User.new(first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", email: "john@bla.com", role: "user", language: "nl")
-    end
+    let!(:setting){ create(:setting, max_jokers: 40) }
+    let!(:period) { create_list(:period, 4) }
+    let!(:game)   { create :game, name: "Clubs Frenzy" }
+    let!(:user)   { create :user, first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", role: "user", language: "nl" }
 
     describe "when last_name is too long" do
-      before { @user.last_name = "a" * 51 }
+      before { user.last_name = "a" * 51 }
       it { should_not be_valid }
     end
 
     describe "with a password that's too short" do
-      before { @user.password = "a" * 5 }
+      before { user.password = "a" * 5 }
       it { should be_invalid }
     end
 
     describe "when password is not present" do
-      before { @user.password = "" }
+      before { user.password = "" }
       it { should_not be_valid }
     end
 
     describe "when email address is already taken" do
       before do
-        user_with_same_email = @user.dup
-        user_with_same_email.email = @user.email.upcase
+        user_with_same_email = user.dup
+        user_with_same_email.email = user.email.upcase
         user_with_same_email.save
       end
 
@@ -76,8 +74,8 @@ describe User do
         addresses = %w[user@foo,com user_at_foo.org example.user@foo.
                        foo@bar_baz.com foo@bar+baz.com]
         addresses.each do |invalid_address|
-          @user.email = invalid_address
-          @user.should_not be_valid
+          user.email = invalid_address
+          user.should_not be_valid
         end
       end
     end
@@ -85,20 +83,15 @@ describe User do
   end
 
   describe "methods" do
-
-    before :each do
-      FactoryGirl.create_list :period, 4
-    end
+    let!(:setting){ create(:setting, max_jokers: 40) }
+    let!(:game)   { create :game, name: "Clubs Frenzy" }
+    let!(:period) { create_list(:period, 4) }
+    let!(:user)   { create :user, first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", role: "user", language: "nl", base_nr: 1  }
+    let!(:admin)   { create :user, first_name: "John", last_name: "Van Arkelen", team_name: "The Addicks", role: "admin", language: "nl", base_nr: 2  }
 
     describe "admin?" do
-
-      before :each do
-        FactoryGirl.create :setting
-      end
-
       it "should return true if admin" do
-        user = FactoryGirl.create :user, role: "admin"
-        user.admin?.should be_true
+        admin.admin?.should be_true
       end
 
       it "should return false if regular user" do
@@ -108,67 +101,75 @@ describe User do
     end
 
     describe "full_name" do
+      it "should create a full name" do
+        user.full_name.should == "John Van Arkelen"
+      end
+    end
 
-      before :each do
-        FactoryGirl.create :setting
+    describe "get_prizes" do
+      let!(:player1) { create(:player, cups: 0, medals: 1, rosettes: 3, user: user) }
+      let!(:player2) { create(:player, cups: 1, medals: 3, rosettes: 7, user: user) }
+
+      it "gets all cups" do
+        user.get_prizes("cup").should == 1
       end
 
-      it "should create a full name" do
-        user = FactoryGirl.create :user, first_name: "Piet", last_name: "Jansen"
-        user.full_name.should == "Piet Jansen"
+      it "gets all medals" do
+        user.get_prizes("medal").should == 4
+      end
+
+      it "gets all rosettes" do
+        user.get_prizes("rosette").should == 10
       end
     end
 
     describe "assign_base_nr" do
-      user1 = FactoryGirl.create :user, first_name: "Piet", last_name: "Jansen", base_nr: 1
-      user = FactoryGirl.create :user, first_name: "Piet", last_name: "Jansen"
-      user2.base_nr.should == 2
+      let!(:user2)   { create :user }
+
+      it "assigns proper base_nr" do
+        user2.base_nr.should == 3
+      end
     end
 
     describe "check protocol" do
-      before :each do
-        FactoryGirl.create :setting
-        FactoryGirl.create_list :period, 4
-      end
-
       context "bare website" do
+        let!(:user)   { create :user, website: "test.nl" }
+
         it "should add www and http protocol" do
-          user = FactoryGirl.create :user, website: "test.nl"
           user.website.should == "http://www.test.nl"
         end
       end
 
       context "www website" do
+        let!(:user)   { create :user, website: "www.test.nl" }
+
         it "should add http protocol" do
-          user = FactoryGirl.create :user, website: "www.test.nl"
           user.website.should == "http://www.test.nl"
         end
       end
 
       context "correct website" do
+        let!(:user)   { create :user, website: "http://www.test.nl" }
+
         it "should add nothing" do
-          user = FactoryGirl.create :user, website: "http://www.test.nl"
           user.website.should == "http://www.test.nl"
         end
       end
     end
 
     describe "check twitter" do
-      before :each do
-        FactoryGirl.create :setting
-        FactoryGirl.create_list :period, 4
-      end
-
       context "twitter without dollar sign" do
+        let!(:user)   { create :user, twitter: "DutchAddick" }
+
         it "should show twitter user url" do
-          user = FactoryGirl.create :user, twitter: "DutchAddick"
           user.twitter.should == "DutchAddick"
         end
       end
 
       context "twitter with dollar sign" do
+        let!(:user)   { create :user, twitter: "@DutchAddick" }
+
         it "should show twitter user url" do
-          user = FactoryGirl.create :user, twitter: "@DutchAddick"
           user.twitter.should == "DutchAddick"
         end
       end

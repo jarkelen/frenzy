@@ -12,7 +12,7 @@ require 'rspec/rails'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-FakeWeb.allow_net_connect = false
+FakeWeb.allow_net_connect = true
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -21,24 +21,14 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include FrenzyHelpers, type: :feature
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
+  require 'database_cleaner'
+  config.before :each do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
     FakeWeb.clean_registry
   end
 
-  config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
 end

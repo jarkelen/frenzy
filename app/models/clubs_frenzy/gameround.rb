@@ -24,7 +24,7 @@ class Gameround < ActiveRecord::Base
   attr_accessible :end_date, :number, :period_id, :processed, :start_date, :jokers_attributes, :results_attributes
   validates :end_date, :number, :period_id, :start_date, presence: true
 
-  scope :active, where(processed: false)
+  scope :active, where("start_date >= ?", DateTime.now.to_date)
   scope :processed, where(processed: true)
   scope :next, where(processed: false).limit(1)
 end

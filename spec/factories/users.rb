@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :email do |n|
-    "user#{n}#{n}#{n}#{n}#{n}#{n}@factory#{n}#{n}.com"
+    "#{n}user#{n}#{n}#{n}#{n}@#{n}factory#{n}#{n}#{n}.com"
   end
 
   factory :user do
@@ -14,7 +14,7 @@ FactoryGirl.define do
     participation_due nil
     email
     location          "Eindhoven"
-    website             "MyString"
+    website           "MyString"
     bio               "MyString"
     twitter           "MyString"
     facebook          "MyString"

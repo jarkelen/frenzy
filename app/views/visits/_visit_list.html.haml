@@ -15,7 +15,7 @@
           %tr
             = show_table_column(I18n.t('.visit.form.visit_nr_short'), visit.visit_nr)
             = show_table_column(I18n.t('.visit.form.season'), visit.season, true)
-            = show_table_column(I18n.t('.visit.form.visit_date'), visit.visit_date, true)
+            = show_table_column(I18n.t('.visit.form.visit_date'), visit.visit_date.strftime("%d-%m-%Y"), true)
             %td.responsive_hide{ "data-title" => "#{I18n.t('.visit.form.ground')}" }= visit.ground.blank? ? "-" : visit.ground
             %td{ "data-title" => "#{I18n.t('.visit.details.match')}" }
               = visit.home_club.blank? ? "-" : visit.home_club
