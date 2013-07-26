@@ -52,10 +52,8 @@ class Player < ActiveRecord::Base
     return true unless team_size.to_i < settings.max_teamsize.to_i
     return true unless team_value.to_i < settings.max_teamvalue.to_i
 
-    return true if settings.participation == false
-
     if self.participation_due == nil
-      return true unless settings.participation
+      return true if settings.participation == false
     else
       return true unless DateTime.now < self.participation_due
     end
