@@ -7,6 +7,9 @@ describe "Frenzy calculations" do
     sign_in_as(@admin)
   end
 
+  let!(:setting)   { create(:setting) }
+  let!(:game)      { create :game, name: "Clubs Frenzy" }
+  let!(:period)    { create_list(:period, 4) }
   let!(:player)     { create :player, user: @admin }
   let!(:club1)      { create :club, club_name: "Arsenal", period1: 24, period2: 18 }
   let!(:club2)      { create :club, club_name: "Chelsea", period1: 16, period2: 21 }
@@ -138,16 +141,8 @@ describe "Frenzy calculations" do
       page.should have_content('1001')
     end
 
-    it "should show the users with the points gained" do
-      visit users_path
-
-      find('tr', text: @admin.last_name).should have_content("124")
-      find('tr', text: user.last_name).should have_content("133")
-    end
-
     it "should show a gameround ranking" do
       visit rankings_path
-
       find('tr', text: @admin.team_name).should have_content("-1")
       find('tr', text: user.team_name).should have_content("8")
     end
