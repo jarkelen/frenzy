@@ -22,17 +22,13 @@ RSpec.configure do |config|
   config.include FrenzyHelpers, type: :feature
 
   require 'database_cleaner'
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
+  config.before :each do
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
     FakeWeb.clean_registry
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
 end
