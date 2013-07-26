@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe "Leagues" do
-  before :all do
-    init_settings
-  end
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
 
   context "unregistered visitors" do
     it "should not allow access" do
@@ -14,7 +15,7 @@ describe "Leagues" do
 
   context "regular users" do
     before(:each) do
-      sign_in_as(@user)
+      sign_in_as(user)
     end
 
     it "should not allow access" do
@@ -31,10 +32,11 @@ describe "Leagues" do
     end
 
     describe "index" do
+      let!(:league) { create(:league, league_name: "Premier League") }
+
       it "should show all leagues" do
-        @league = FactoryGirl.create(:league, league_name: "Premier League")
         visit leagues_path
-        page.should have_content(@league.league_name)
+        page.should have_content(league.league_name)
       end
 
       it "should show add button" do

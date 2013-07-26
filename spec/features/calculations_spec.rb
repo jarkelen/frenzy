@@ -1,16 +1,20 @@
 require 'spec_helper'
 
 describe "Frenzy calculations" do
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
+
   before do
-    init_settings
-    @admin = create_user('admin')
-    sign_in_as(@admin)
+    admin = create_user('admin')
+    sign_in_as(admin)
   end
 
   let!(:setting)   { create(:setting) }
   let!(:game)      { create :game, name: "Clubs Frenzy" }
   let!(:period)    { create_list(:period, 4) }
-  let!(:player)     { create :player, user: @admin }
+  let!(:player)     { create :player, user: admin }
   let!(:club1)      { create :club, club_name: "Arsenal", period1: 24, period2: 18 }
   let!(:club2)      { create :club, club_name: "Chelsea", period1: 16, period2: 21 }
   let!(:club3)      { create :club, club_name: "Fulham", period1: 11, period2: 16 }
@@ -143,13 +147,13 @@ describe "Frenzy calculations" do
 
     it "should show a gameround ranking" do
       visit rankings_path
-      find('tr', text: @admin.team_name).should have_content("-1")
+      find('tr', text: admin.team_name).should have_content("-1")
       find('tr', text: user.team_name).should have_content("8")
     end
 
     it "should show an updated general ranking" do
       visit general_rankings_path
-      find('tr', text: @admin.team_name).should have_content("-1")
+      find('tr', text: admin.team_name).should have_content("-1")
       find('tr', text: user.team_name).should have_content("33")
     end
 
@@ -157,7 +161,7 @@ describe "Frenzy calculations" do
       visit period_rankings_path
 
       page.should have_content("Periode 2")
-      find('tr', text: @admin.team_name).should have_content("0")
+      find('tr', text: admin.team_name).should have_content("0")
       find('tr', text: user.team_name).should have_content("0")
     end
 

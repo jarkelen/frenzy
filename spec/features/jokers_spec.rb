@@ -31,7 +31,7 @@ describe "Jokers" do
       it "shows the jokers page" do
         visit jokers_path
         page.should have_content(I18n.t('joker.jokers'))
-        page.should have_content("Jokers verbruikt: 0 van de 40")
+        page.should have_content("Jokers verbruikt: 2 van de 40")
       end
 
     end

@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe "Participation" do
-  before :all do
-    init_settings
-  end
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
 
   context "unregistered visitors" do
     it "should not allow access to my team page" do
@@ -24,11 +25,11 @@ describe "Participation" do
 
   context "regular users" do
     before(:each) do
-      sign_in_as(@user)
+      sign_in_as(user)
     end
 
     describe "my team page" do
-      let!(:player)     { create(:player, user: @user) }
+      let!(:player)     { create(:player, user: user) }
       let!(:club1)      { create :club, club_name: "Arsenal", period1: 20 }
       let!(:club2)      { create :club, club_name: "Everton", period1: 12 }
       let!(:selection1) { create :selection, club: club1, player: player }
@@ -37,7 +38,7 @@ describe "Participation" do
       it "should show my team page" do
         visit selections_path
         page.should have_content(I18n.t('team.my_team'))
-        page.should have_content(@user.team_name)
+        page.should have_content(user.team_name)
       end
 
       it "should show points used" do
@@ -67,8 +68,8 @@ describe "Participation" do
       it "should be possible to add/edit the team" do
         FactoryGirl.create :game, name: "Clubs Frenzy"
         @setting = FactoryGirl.create :setting, participation: true
-        @user = FactoryGirl.create :user
-        sign_in_as(@user)
+        user = FactoryGirl.create :user
+        sign_in_as(user)
 
         visit selections_path
         page.should have_content("Toevoegen club")
@@ -79,9 +80,9 @@ describe "Participation" do
       it "should not be possible to add/edit the team" do
         FactoryGirl.create :game, name: "Clubs Frenzy"
         @setting = FactoryGirl.create :setting, participation: false
-        @user = FactoryGirl.create :user
+        user = FactoryGirl.create :user
         #@setting.update_attributes(participation: false)
-        sign_in_as(@user)
+        sign_in_as(user)
 
         visit selections_path
         page.should_not have_content("Toevoegen club")
@@ -92,8 +93,8 @@ describe "Participation" do
       it "should be possible to add/edit the team" do
         FactoryGirl.create :game, name: "Clubs Frenzy"
         @setting = FactoryGirl.create :setting, participation: false
-        @user = FactoryGirl.create :user, participation_due: 3.days.from_now
-        sign_in_as(@user)
+        user = FactoryGirl.create :user, participation_due: 3.days.from_now
+        sign_in_as(user)
 
         visit selections_path
         page.should have_content("Toevoegen club")
