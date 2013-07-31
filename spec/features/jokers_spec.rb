@@ -25,15 +25,25 @@ describe "Jokers" do
       let!(:club2)      { create :club, club_name: "Everton", period1: 12 }
       let!(:selection1) { create :selection, club: club1, player: player }
       let!(:selection2) { create :selection, club: club2, player: player }
-      let!(:joker1)     { create :joker, club: club1, gameround: gameround, player: player }
-      let!(:joker2)     { create :joker, club: club2, gameround: gameround, player: player }
 
-      it "shows the jokers page" do
-        visit jokers_path
-        page.should have_content(I18n.t('joker.jokers'))
-        page.should have_content("Jokers verbruikt: 2 van de 40")
+      context "has jokers" do
+        let!(:joker1)     { create :joker, club: club1, gameround: gameround, player: player }
+        let!(:joker2)     { create :joker, club: club2, gameround: gameround, player: player }
+
+        it "shows the jokers page" do
+          visit jokers_path
+          page.should have_content(I18n.t('joker.jokers'))
+          page.should have_content("Jokers verbruikt: 2 van de 40")
+        end
       end
 
+      context "has no jokers" do
+        it "shows the jokers page" do
+          visit jokers_path
+          page.should have_content(I18n.t('joker.jokers'))
+          page.should have_content("Jokers verbruikt: 0 van de 40")
+        end
+      end
     end
   end
 end
