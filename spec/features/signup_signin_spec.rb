@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe "Registering" do
-  before :all do
-    init_settings
-  end
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
 
   context "unregistered visitors" do
     it "should show the marketing page" do
@@ -20,7 +21,7 @@ describe "Registering" do
   describe "registered users" do
     context "regular users" do
       before(:each) do
-        sign_in_as(@user)
+        sign_in_as(user)
       end
 
       it "should show the dashboard" do
@@ -36,14 +37,14 @@ describe "Registering" do
 
       it "should show user small profile" do
         visit root_path
-        page.should have_content(@user.full_name)
+        page.should have_content(user.full_name)
       end
     end
 
     context "admin users" do
       before(:each) do
-        @admin = create_user('admin')
-        sign_in_as(@admin)
+        admin = create_user('admin')
+        sign_in_as(admin)
       end
 
       it "should show the dashboard" do
@@ -53,7 +54,7 @@ describe "Registering" do
 
       it "should show user small profile" do
         visit root_path
-        page.should have_content(@user.full_name)
+        page.should have_content(user.full_name)
       end
 
       it "should show the frenzy administration page" do

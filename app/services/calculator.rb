@@ -24,6 +24,13 @@ class Calculator
       Ranking.create(gameround_id: gameround_id, player_id: player.id, total_score: total_score)
     end
 
+    # Assign a rosette to gameround winner
+    highest_ranking = Ranking.where(gameround_id: gameround_id).order("total_score").last
+    winner = highest_ranking.player
+    rosettes = winner.rosettes + 1
+    winner.update_attributes(rosettes: rosettes)
+
+    # Set gameround to processed
     gameround = Gameround.find(gameround_id)
     gameround.update_attributes(processed: true)
   end
@@ -38,18 +45,18 @@ class Calculator
     new_period = current_period + 1
     gameround = Gameround.create(number: (1000 + current_period), start_date: DateTime.now, end_date: DateTime.now, processed: true, period_id: current_period)
 
-    users = User.all
-    users.each do |user|
+    players = Player.all
+    players.each do |player|
       points_gained = 0
-      selections = user.selections
+      selections = player.selections
       selections.each do |selection|
         club = selection.club
         club_gained = club.period2 - club.period1
         points_gained += club_gained
       end
 
-      ranking = Ranking.create(gameround_id: gameround.id, user_id: user.id, total_score: points_gained)
-      user.update_attributes!(team_value: (user.team_value + points_gained))
+      ranking = Ranking.create(gameround_id: gameround.id, player_id: player.id, total_score: points_gained)
+      player.update_attributes!(team_value: (player.team_value + points_gained))
     end
 
     setting = Setting.first

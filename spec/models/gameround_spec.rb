@@ -26,7 +26,7 @@ describe Gameround do
   it { should belong_to(:period) }
 
   describe "scopes" do
-    let!(:gameround1) { create :gameround, processed: false }
+    let!(:gameround1) { create :gameround, processed: false, start_date: 5.days.from_now }
     let!(:gameround2) { create :gameround, processed: true }
     let!(:gameround3) { create :gameround, processed: false }
 

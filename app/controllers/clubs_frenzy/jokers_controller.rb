@@ -3,9 +3,10 @@ class JokersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clubs = Player.of_frenzy(current_user).clubs
+    @clubs = Player.of_frenzy(current_user, "Clubs Frenzy").clubs
     @gamerounds = Gameround.active
     @all_gamerounds = Gameround.order("number DESC").paginate(page: params[:page])
+    @jokers = Player.of_frenzy(current_user, "Clubs Frenzy").jokers
   end
 
   def store
@@ -25,6 +26,6 @@ class JokersController < ApplicationController
     @joker = Joker.find(params[:id])
     @joker.destroy
 
-    redirect_to jokers_url
+    redirect_to jokers_path
   end
 end

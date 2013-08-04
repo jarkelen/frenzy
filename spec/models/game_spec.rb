@@ -11,6 +11,8 @@
 require 'spec_helper'
 
 describe Game do
+  it { should have_many(:players)   }
+  it { should validate_presence_of :name  }
 
   describe "default_game" do
     let!(:game) { create :game, name: "Clubs Frenzy" }

@@ -7,7 +7,7 @@
 .row
   .span12
     .points_used
-      %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{current_user.assigned_jokers}"
+      %p= "#{I18n.t('joker.used_jokers1')}: #{@jokers.size} #{I18n.t('joker.used_jokers2')} #{Player.of_frenzy(current_user, "Clubs Frenzy").assigned_jokers}"
 
       - if can? :create, Joker
         = render partial: "add_joker"

@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe "Profiles" do
-  before :all do
-    init_settings
-  end
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
 
   context "unregistered visitors" do
     it "should not allow access" do
-      visit user_path(@user)
+      visit user_path(user)
       page.should have_content(I18n.t('.site.signin'))
     end
   end
@@ -47,11 +48,11 @@ describe "Profiles" do
 
   context "regular users" do
     before(:each) do
-      sign_in_as(@user)
+      sign_in_as(user)
     end
 
     it "should show own empty profile" do
-      visit user_path(@user)
+      visit user_path(user)
       page.should have_content(I18n.t('.user.my_account'))
     end
 
@@ -82,7 +83,7 @@ describe "Profiles" do
       end
 
       it "should create own profile" do
-        visit user_path(@user)
+        visit user_path(user)
         click_link "Profiel wijzigen"
 
         fill_in "user_bio", with: "My bio text"

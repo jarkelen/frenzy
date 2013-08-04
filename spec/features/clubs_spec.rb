@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe "Clubs" do
-  before :all do
-    init_settings
-  end
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
 
   context "unregistered visitors" do
     it "should not allow access" do
@@ -16,7 +17,7 @@ describe "Clubs" do
     let!(:club) { create(:club, club_name: "Charlton Athletic") }
 
     before(:each) do
-      sign_in_as(@user)
+      sign_in_as(user)
     end
 
     it "should be able to see clubs" do
@@ -34,8 +35,8 @@ describe "Clubs" do
 
   context "admin users" do
     before(:each) do
-      @admin = create_user('admin')
-      sign_in_as(@admin)
+      admin = create_user('admin')
+      sign_in_as(admin)
     end
 
     describe "index" do

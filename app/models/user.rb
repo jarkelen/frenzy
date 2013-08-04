@@ -74,6 +74,21 @@ class User < ActiveRecord::Base
     Player.create(user_id: self.id, game_id: Game.default_game.id)
   end
 
+  def get_prizes(type)
+    prizes = 0
+    self.players.each do |player|
+      case type
+      when "cup"
+        prizes += player.cups
+      when "medal"
+        prizes += player.medals
+      when "rosette"
+        prizes += player.rosettes
+      end
+    end
+    prizes
+  end
+
   def assign_base_nr
     max_user = User.order("base_nr ASC").last
     if max_user.blank?

@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe "Gamerounds" do
-  before :all do
-    init_settings
-  end
+  let!(:setting)  { create(:setting) }
+  let!(:game)     { create(:game, name: "Clubs Frenzy") }
+  let!(:period)   { create_list(:period, 4) }
+  let!(:user)     { create(:user) }
 
   context "unregistered visitors" do
     it "should not allow access" do
@@ -14,7 +15,7 @@ describe "Gamerounds" do
 
   context "regular users" do
     before(:each) do
-      sign_in_as(@user)
+      sign_in_as(user)
     end
 
     it "should not allow access" do
@@ -25,15 +26,16 @@ describe "Gamerounds" do
 
   context "admin users" do
     before(:each) do
-      @admin = create_user('admin')
-      sign_in_as(@admin)
+      admin = create_user('admin')
+      sign_in_as(admin)
     end
 
     describe "index" do
+      let!(:gameround){ create(:gameround) }
+
       it "should show all gamerounds" do
-        @gameround = FactoryGirl.create(:gameround)
         visit gamerounds_path
-        page.should have_content(@gameround.number)
+        page.should have_content(gameround.number)
       end
 
       it "should show add button" do
@@ -43,11 +45,12 @@ describe "Gamerounds" do
     end
 
     describe "new" do
+      let!(:period){ create(:period, period_nr: 10) }
+
       it "should create a new gameround" do
-        @period = FactoryGirl.create(:period, period_nr: 10)
         visit gamerounds_path
         click_link "Toevoegen"
-        select "#{@period.period_nr}: #{@period.start_date.strftime('%d-%m-%Y')} - #{@period.end_date.strftime('%d-%m-%Y')}", from: "gameround_period_id"
+        select "#{period.period_nr}: #{period.start_date.strftime('%d-%m-%Y')} - #{period.end_date.strftime('%d-%m-%Y')}", from: "gameround_period_id"
         fill_in "gameround_number", with: "11"
         select "1", from: "gameround_start_date_3i"
         select "augustus", from: "gameround_start_date_2i"
@@ -65,8 +68,9 @@ describe "Gamerounds" do
     end
 
     describe "edit" do
+      let!(:gameround){ create(:gameround) }
+
       it "should edit a gameround" do
-        @gameround = FactoryGirl.create(:gameround)
         visit gamerounds_path
         click_link "Wijzigen"
         fill_in "gameround_number", with: "11"
@@ -80,8 +84,9 @@ describe "Gamerounds" do
     end
 
     describe "delete" do
+      let!(:gameround){ create(:gameround) }
+
       it "should delete a gameround" do
-        @gameround = FactoryGirl.create(:gameround)
         visit gamerounds_path
         click_link "Verwijderen"
 

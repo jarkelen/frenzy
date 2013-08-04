@@ -133,9 +133,9 @@ describe Player do
 
       context "access restricted" do
         let!(:setting)  { create(:setting, current_period: 1, max_jokers: 40, participation: false) }
-        let!(:player)   { create(:player, participation_due: nil) }
 
         it "restricts access for existing users when participation is closed" do
+          player.participation_due = ""
           player.participation_restricted?(20, 124).should be_true
         end
       end
