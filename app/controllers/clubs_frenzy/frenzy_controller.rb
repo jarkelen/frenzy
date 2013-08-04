@@ -3,7 +3,7 @@ class FrenzyController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @gamerounds = Gameround.active
+    @gamerounds = Gameround.not_processed
     @clubs = Club.all
     @settings = Setting.first
   end

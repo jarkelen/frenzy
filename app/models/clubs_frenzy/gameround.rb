@@ -26,5 +26,6 @@ class Gameround < ActiveRecord::Base
 
   scope :active, where("start_date >= ?", DateTime.now.to_date)
   scope :processed, where(processed: true)
+  scope :not_processed, where(processed: false)
   scope :next, where(processed: false).limit(1)
 end
