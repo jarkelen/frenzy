@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
   def new
     if params[:results]
       @results = params[:results]
-      @gamerounds = Gameround.active
+      @gamerounds = Gameround.not_processed
       @clubs = Club.all
     end
     @leagues = League.all
