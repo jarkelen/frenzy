@@ -5,13 +5,13 @@ class ResultsController < ApplicationController
   def index
     if params[:gameround]
       @current_gameround = Gameround.find(params[:gameround])
-      @results = Result.where(gameround_id: params[:gameround]).paginate(page: params[:page])
+      @results = Result.where(gameround_id: params[:gameround])
     else
       @current_gameround = Gameround.where(processed: true).order("id DESC").first
       if @current_gameround.blank?
-        @results = Result.order("home_club_id").paginate(page: params[:page])
+        @results = Result.order("home_club_id")
       else
-        @results = Result.where(gameround_id: @current_gameround.id).order("home_club_id").paginate(page: params[:page])
+        @results = Result.where(gameround_id: @current_gameround.id).order("home_club_id")
       end
     end
     @gamerounds = Gameround.all
