@@ -32,7 +32,6 @@ class ResultsController < ApplicationController
 
   def store_all
     params[:line].each do |counter, line|
-      puts "HUH #{line}"
       unless line[:home_club_id].blank?
         Result.create(line.merge(gameround_id: params[:gameround_id]))
       end
@@ -58,6 +57,7 @@ class ResultsController < ApplicationController
   end
 
   def scrape
+    puts "HUH #{params[:league]}"
     if params[:league]
       thread = Thread.new do
         scraper = Scraper.new(params[:iterations].to_i)

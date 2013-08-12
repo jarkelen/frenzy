@@ -97,7 +97,7 @@ class Scraper
           "league-one"
         when "League Two"
           "league-two"
-        when "Blue Square Premier League"
+        when "Skrill Conference Premier"
           "conference"
         else
           nil
