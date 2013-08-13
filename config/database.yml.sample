@@ -8,6 +8,15 @@ development:
   host: ec2-54-221-204-39.compute-1.amazonaws.com
   port: 5432
 
+development_original:
+  adapter: postgresql
+  encoding: utf8
+  database: frenzy_development
+  pool: 5
+  username: johnvanarkelen
+  password:
+  host: localhost
+
 test:
   adapter: postgresql
   encoding: utf8
