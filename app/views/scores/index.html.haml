@@ -16,7 +16,7 @@
         - total = 0
         - @scores.each do |score|
           - total += score.score
-          - result = Result.where('home_club_id = ? OR away_club_id = ? AND gameround_id = ?', score.club_id, score.club_id, score.gameround_id).first
+          - result = Result.where('(home_club_id = ? OR away_club_id = ?) AND gameround_id = ?', score.club_id, score.club_id, score.gameround_id).first
 
           %tr
             %td= link_to score.club.club_name, club_path(score.club)
