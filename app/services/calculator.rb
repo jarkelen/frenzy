@@ -89,17 +89,13 @@ class Calculator
   def calculate_player_score(player, gameround_id)
     total_score = 0
 
-    # Calculate total score
     player.clubs.each do |club|
-      club_score = 0
-
-      # Get club scores and joker
-      club_scores = club.scores.where(gameround_id: gameround_id)
-      club_scores.each do |score|
-        club_score += score.score
-        club_score += double_score_with_joker(club_score, gameround_id, club.id, player.id)
+      score = club.scores.where(gameround_id: gameround_id).first
+      unless score.blank?
+        club_score = score.score
+        joker_score = double_score_with_joker(score.score, gameround_id, club.id, player.id)
+        total_score += (club_score + joker_score)
       end
-      total_score += club_score
     end
     total_score
   end

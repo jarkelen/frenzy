@@ -15,18 +15,22 @@
       %tbody
         - total = 0
         - @scores.each do |score|
-          - total += score.score
+          - if Joker.jokered?(@current_gameround, Player.of_frenzy(current_user, "Clubs Frenzy"), score.club)
+            - joker_text = I18n.t('.general.yep')
+            - club_score = score.score*2
+          - else
+            - joker_text = I18n.t('.general.nope')
+            - club_score = score.score
+
+          - total += club_score
           - result = Result.where('(home_club_id = ? OR away_club_id = ?) AND gameround_id = ?', score.club_id, score.club_id, score.gameround_id).first
 
           %tr
             %td= link_to score.club.club_name, club_path(score.club)
             %td= "#{result.home_club.club_name}-#{result.away_club.club_name}"
             %td= "#{result.home_score}-#{result.away_score}"
-            %td= score.score
-            - if Joker.jokered?(@current_gameround, current_user.players.where(game_id: @clubs_frenzy_game).first, score.club)
-              %td= I18n.t('.general.yep')
-            - else
-              %td= I18n.t('.general.nope')
+            %td= club_score
+            %td= joker_text
 
       %thead
         %tr
