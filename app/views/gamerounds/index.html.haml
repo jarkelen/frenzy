@@ -1,11 +1,12 @@
-- if can? :create, Gameround
-  = link_to t('.new', default: t("helpers.links.new")), new_gameround_path, class: 'btn'
-
 - model_class = Gameround
 .row
   .span12
     .page-header
       %h1=t '.title', default: model_class.model_name.human.pluralize
+
+    - if can? :create, Gameround
+      = link_to t('.new', default: t("helpers.links.new")), new_gameround_path, class: 'btn'
+
     %table.table.table-striped
       %thead
         %tr

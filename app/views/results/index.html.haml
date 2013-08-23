@@ -1,11 +1,11 @@
 .row
   .span12
-    - if can? :create, Result
-      .add_record= link_to I18n.t('.new', default: t("helpers.links.new")), new_result_path, class: 'btn'
+    = render("shared/gameround_selector", title: I18n.t('.result.results'), intro: nil, target: results_path)
 
 .row
   .span12
-    = render("shared/gameround_selector", title: I18n.t('.result.results'), intro: nil, target: results_path)
+    - if can? :create, Result
+      .add_record= link_to I18n.t('.new', default: t("helpers.links.new")), new_result_path, class: 'btn'
 
 .row
   .span12
