@@ -1,12 +1,11 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
+  database: frenzy_development
   pool: 5
-  database: dai1kderjr5k1e
-  username: foiroqxljrxsht
-  password: Z6Z7ryNuUVL3uLfwsFnPzthbL3
-  host: ec2-54-221-204-39.compute-1.amazonaws.com
-  port: 5432
+  username: johnvanarkelen
+  password:
+  host: localhost
 
 test:
   adapter: postgresql
