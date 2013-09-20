@@ -3,8 +3,8 @@ module ChartHelper
     all_scores = club.scores.order("gameround_id ASC")
     all_scores.each do |score|
       {
-        gameround_id: score.gameround_id,
-        score: score.score
+        score: score.score,
+        gameround_id: score.gameround_id
       }
     end
   end

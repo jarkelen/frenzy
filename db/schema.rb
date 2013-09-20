@@ -177,7 +177,6 @@ ActiveRecord::Schema.define(:version => 20130725122035) do
     t.string   "encrypted_password", :limit => 128,                     :null => false
     t.string   "confirmation_token", :limit => 128
     t.string   "remember_token",     :limit => 128,                     :null => false
-    t.datetime "participation_due"
     t.string   "location"
     t.string   "website"
     t.string   "bio"

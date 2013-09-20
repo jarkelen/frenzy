@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, notice: I18n.t('.general.not_authorized')
   end
 
+  private
+
   def set_locale
     if signed_in?
       I18n.locale = current_user.language

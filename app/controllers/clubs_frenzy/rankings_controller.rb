@@ -3,9 +3,9 @@ class RankingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if params[:gameround_id]
-      @current_gameround = Gameround.find(params[:gameround_id])
-      @gameround_rankings = Ranking.where(gameround_id: params[:gameround_id]).order('total_score DESC')
+    if params[:gameround]
+      @current_gameround = Gameround.find(params[:gameround])
+      @gameround_rankings = Ranking.where(gameround_id: params[:gameround]).order('total_score DESC')
     else
       @current_gameround = Gameround.where(processed: true).last
       @gameround_rankings = Ranking.where(gameround_id: @current_gameround).order('total_score DESC')
