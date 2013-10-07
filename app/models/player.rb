@@ -50,7 +50,7 @@ class Player < ActiveRecord::Base
     settings = Setting.first
 
     return true unless team_size.to_i < settings.max_teamsize.to_i
-    return true unless team_value.to_i < settings.max_teamvalue.to_i
+    #return true unless team_value.to_i < settings.max_teamvalue.to_i
 
     if self.participation_due == nil
       return true if settings.participation == false

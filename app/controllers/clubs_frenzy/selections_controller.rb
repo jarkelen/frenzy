@@ -8,6 +8,7 @@ class SelectionsController < ApplicationController
     @leagues = League.order(:level)
 
     # Determine current team value
+
     @selections = Player.of_frenzy(current_user).selections
     unless @selections.blank?
       @current_teamvalue = 0
