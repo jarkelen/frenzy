@@ -6,7 +6,7 @@
 .row
   .span12
     .points_used
-      %p= "#{I18n.t('team.used_points1')}: #{@current_teamvalue} #{I18n.t('team.used_points2')} #{current_user.team_value}"
+      %p= "#{I18n.t('team.used_points1')}: #{@current_teamvalue} #{I18n.t('team.used_points2')} #{Player.of_frenzy(current_user).team_value}"
 
       - unless Player.of_frenzy(current_user).participation_restricted?(@selections.size, @current_teamvalue) and can? :create, Selection
         = render partial: "add_club"
