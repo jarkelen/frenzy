@@ -65,6 +65,7 @@ class Scraper
       club_names["hyde"]                  = "Hyde United"
       club_names["woking"]                = "Woking"
       club_names["dag & red"]             = "Dagenham and Redbridge"
+      club_names["chester"]               = "Chester City"
 
       if club_names.has_key?(club_name.downcase)
         club = Club.where("club_name LIKE ?", club_names[club_name.downcase]).first
