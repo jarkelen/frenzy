@@ -7,10 +7,10 @@ class RankingsController < ApplicationController
       @current_gameround = Gameround.find(params[:gameround])
       @gameround_rankings = Ranking.where(gameround_id: params[:gameround]).order('total_score DESC')
     else
-      @current_gameround = Gameround.where(processed: true).last
+      @current_gameround = Gameround.where("processed = true AND number < 1000").last
       @gameround_rankings = Ranking.where(gameround_id: @current_gameround).order('total_score DESC')
     end
-    @gamerounds = Gameround.where(processed: true).order("number DESC")
+    @gamerounds = Gameround.where("processed = true AND number < 1000").order("number DESC")
     @settings = Setting.first
   end
 
