@@ -35,11 +35,11 @@ class Scraper
 
     def retrieve_match_result(result)
       match_result = Hash.new
-      match_result["home_club_id"] = match_club("id", result.css("span.team-home a").text.strip)
-      match_result["home_club"]    = match_club("name", result.css("span.team-home a").text.strip)
+      match_result["home_club_id"] = match_club("id", result.css("span.team-home").text.strip)
+      match_result["home_club"]    = match_club("name", result.css("span.team-home").text.strip)
       match_result["home_score"]   = result.css("span.score abbr").text.strip.split("-")[0]
-      match_result["away_club_id"] = match_club("id", result.css("span.team-away a").text.strip)
-      match_result["away_club"]    = match_club("name", result.css("span.team-away a").text.strip)
+      match_result["away_club_id"] = match_club("id", result.css("span.team-away").text.strip)
+      match_result["away_club"]    = match_club("name", result.css("span.team-away").text.strip)
       match_result["away_score"]   = result.css("span.score abbr").text.strip.split("-")[1]
       return match_result
     end
