@@ -51,7 +51,16 @@ class Calculator
       selections = player.selections
       selections.each do |selection|
         club = selection.club
-        club_gained = club.period2 - club.period1
+
+        case current_period
+        when 1
+          club_gained = club.period2 - club.period1
+        when 2
+          club_gained = club.period3 - club.period2
+        when 3
+          club_gained = club.period4 - club.period3
+        end
+
         points_gained += club_gained
       end
 
