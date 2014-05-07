@@ -63,11 +63,9 @@ class Calculator
 
         points_gained += club_gained
       end
-
       ranking = Ranking.create(gameround_id: gameround.id, player_id: player.id, total_score: points_gained)
       player.update_attributes!(team_value: (player.team_value + points_gained))
     end
-
     setting = Setting.first
     setting.update_attributes(current_period: new_period)
   end
